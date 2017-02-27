@@ -1,3 +1,4 @@
+.PHONY: import export list-dotfiles
 SHELL := /bin/bash
 
 DOTFILES := {.bash_logout,.bash_profile,.bashrc,.editorconfig,.gitconfig,.gitignore_global,.tmux.conf,.vimrc}
@@ -5,7 +6,7 @@ DOTFILES := {.bash_logout,.bash_profile,.bashrc,.editorconfig,.gitconfig,.gitign
 import:
 	@cp ~/$(DOTFILES) $(CURDIR)/dotfiles
 	@echo "Imported the following files:"
-	@ls $(DOTFILES)
+	@ls ~/$(DOTFILES)
 
 export:
 	@cp ~/$(DOTFILES) $(CURDIR)/dotfiles
