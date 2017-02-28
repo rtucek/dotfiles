@@ -9,9 +9,9 @@ import:
 	@ls ~/$(DOTFILES)
 
 export:
-	@cp ~/$(DOTFILES) $(CURDIR)/dotfiles
-	@echo "Exported the following files:"
-	@ls $(CURDIR)/dotfiles
+	@cp $(CURDIR)/dotfiles/$(DOTFILES) ~
+	@echo "Exported the following files to $$HOME:"
+	@ls $(CURDIR)/dotfiles/$(DOTFILES)
 
 list-dotfiles:
 	@echo "Dotfiles to be considered are:"
