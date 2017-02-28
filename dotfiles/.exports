@@ -1,3 +1,6 @@
+# Fix color in vim when using tmux
+export TERM=screen-256color
+
 # Set default editor
 export EDITOR=/usr/bin/vim
 
