@@ -1,0 +1,2 @@
+# Smart completion for npm commands
+. <(npm completion)

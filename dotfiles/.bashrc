@@ -115,3 +115,14 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# ------------
+# CUSTOM CONFIGURATION
+# ------------
+# Load the rest of the dotfiles
+for file in ~/.{bash_prompt,path,exports,misc}; do
+	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
+		source "$file"
+	fi
+done
+unset file

@@ -1,0 +1,9 @@
+# Configure Golang variables
+export GOPATH="$HOME/go-projects"
+export GOBIN="$GOPATH/bin"
+
+# Add go binaries to PATH
+export PATH=$PATH:/usr/local/go/bin
+
+# Add PHP executable to PATH
+export PATH=$PATH:~/.config/composer/vendor/bin:~/.composer/vendor/bin
