@@ -10,8 +10,6 @@ so ~/.vim/plugins.vim
 
 "Set language for spell check
 setlocal spell spelllang=en_us
-hi clear SpellBad
-hi SpellBad cterm=bold
 
 "Fixing tabs and indentation
 set noexpandtab
@@ -46,9 +44,6 @@ syntax enable
 colorscheme atom-dark-256
 set t_Co=256
 
-"Show line numbers
-set number
-hi LineNr ctermfg=grey ctermbg=black
 
 "Highlight current line
 set cursorline
@@ -56,15 +51,21 @@ set cursorline
 "Show column length
 set ruler
 
-"Show visual mark at the 80th character
-set colorcolumn=80
-hi OverLength ctermbg=red ctermfg=white
-match OverLength /\%81v.\+/
-
 "Searching
 set hlsearch
 set incsearch
 
+"Show line numbers
+set number
+hi LineNr ctermfg=grey ctermbg=black
+
+"Make missspelled words more readable
+hi SpellBad cterm=bold,underline
+
+"Show visual mark at the 80th character
+set colorcolumn=80
+hi OverLength ctermbg=red ctermfg=white
+match OverLength /\%81v.\+/
 
 
 "-----MAPPINGS-----
