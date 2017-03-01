@@ -30,6 +30,12 @@ set clipboard=unnamedplus
 "Fix mouse in tmux
 set mouse=a
 
+"Supress warning when changing FROM unsaved buffer
+set hidden
+
+"Demand explicit confirmation when closing unsaved buffers
+set confirm
+
 
 "-----VISUAL-----
 
