@@ -1,8 +1,27 @@
 # Fix color in vim when using tmux
 export TERM=screen-256color
 
+
 # Set default editor
 export EDITOR=/usr/bin/vim
+
+
+# Enhance LESS (Kudos to http://stackoverflow.com/a/22202558/1930272)
+# Begin blinking
+export LESS_TERMCAP_mb=$'\E[01;31m'
+# Begin bold
+export LESS_TERMCAP_md=$'\E[01;38;5;74m'
+# End mode
+export LESS_TERMCAP_me=$'\E[0m'
+# End standout-mode
+export LESS_TERMCAP_se=$'\E[0m'
+# Begin standout-mode - info box
+export LESS_TERMCAP_so=$'\E[38;5;016m\E[48;5;220m'
+# End underline
+export LESS_TERMCAP_ue=$'\E[0m'
+# Begin underline
+export LESS_TERMCAP_us=$'\E[04;38;5;146m'
+
 
 # Set default config for PostgreSQL client
 export PGHOST=localhost
