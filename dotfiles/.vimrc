@@ -75,7 +75,7 @@ vnoremap // y/\c<C-R>"<CR>
 nmap <Leader><space> :nohlsearch<CR>
 
 "Tab navigation
-nmap <Leader>t :tabnew<CR>
+nmap <Leader>t :tabnew<space>
 nmap <Leader>w :tabclose<CR>
 
 "Split Management
@@ -133,7 +133,7 @@ autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
 
 "vim-fugitive
 noremap <Leader>gstatus :Gstatus<CR>
-noremap <Leader>gcommit :Gcommit<CR>
+noremap <Leader>gcommit :Gcommit -ev<space>
 noremap <Leader>glog :Glog<CR>
 noremap <Leader>gblame :Gblame<CR>
 noremap <Leader>gmv :Gmove<CR>
