@@ -44,6 +44,8 @@ syntax enable
 colorscheme atom-dark-256
 set t_Co=256
 
+"Always display tabline
+set showtabline=2
 
 "Highlight current line
 set cursorline
