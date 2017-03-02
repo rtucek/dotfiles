@@ -10,6 +10,7 @@ so ~/.vim/plugins.vim
 
 "Set language for spell check
 setlocal spell spelllang=en_us
+set spell
 
 "Fixing tabs and indentation
 set noexpandtab
