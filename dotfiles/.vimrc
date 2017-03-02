@@ -10,6 +10,7 @@ so ~/.vim/plugins.vim
 
 "Set language for spell check
 setlocal spell spelllang=en_us
+set spell
 
 "Fixing tabs and indentation
 set noexpandtab
@@ -105,6 +106,7 @@ nmap <Leader>f :ts<space>
 "-----PLUGIN CONFIGURATION-----
 "NERDTree
 let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\~$','\.swp$','^\.tags$', '^tags$','.git[[dir]]']
 nmap <Leader>d :NERDTreeToggle<CR>
 "NERDTree on startup
 "autocmd StdinReadPre * let s:std_in=1
