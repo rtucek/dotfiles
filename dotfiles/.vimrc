@@ -105,6 +105,7 @@ nmap <Leader>f :ts<space>
 "-----PLUGIN CONFIGURATION-----
 "NERDTree
 let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\~$','\.swp$','^\.tags$', '^tags$','.git[[dir]]']
 nmap <Leader>d :NERDTreeToggle<CR>
 "NERDTree on startup
 "autocmd StdinReadPre * let s:std_in=1
