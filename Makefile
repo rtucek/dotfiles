@@ -4,9 +4,13 @@ SHELL := /bin/bash
 DOTFILES := {.bash_logout,.bash_profile,.bashrc,.editorconfig,.gitconfig,.gitignore_global,.tmux.conf,.vimrc,.bash_prompt,.path,.exports,.misc}
 
 import:
-	@cp ~/$(DOTFILES) $(CURDIR)/dotfiles
 	@echo "Imported the following files:"
-	@ls ~/$(DOTFILES)
+	@for dotfile in ~/$(DOTFILES); do \
+		if [ -f $$dotfile ]; then \
+			cp $$dotfile $(CURDIR)/dotfiles; \
+			echo "$$dotfile"; \
+		fi \
+	done;
 
 export:
 	@cp $(CURDIR)/dotfiles/$(DOTFILES) ~
@@ -15,4 +19,8 @@ export:
 
 list-dotfiles:
 	@echo "Dotfiles to be considered are:"
-	@ls ~/$(DOTFILES)
+	@for dotfile in ~/$(DOTFILES); do \
+		if [ -f $$dotfile ]; then \
+			echo "$$dotfile"; \
+		fi \
+	done;
