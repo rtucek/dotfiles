@@ -42,6 +42,7 @@ set confirm
 syntax enable
 
 "From https://github.com/gosukiwi/vim-atom-dark
+set t_ut=
 colorscheme atom-dark-256
 set t_Co=256
 
