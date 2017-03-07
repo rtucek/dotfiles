@@ -66,9 +66,10 @@ hi LineNr ctermfg=grey ctermbg=black
 hi SpellBad cterm=bold,underline
 
 "Show visual mark at the 80th character
-set colorcolumn=80
+set colorcolumn=81
 hi OverLength ctermbg=red ctermfg=white
 match OverLength /\%81v.\+/
+
 
 
 "-----MAPPINGS-----
@@ -222,5 +223,5 @@ endfunction
 "Auto sourcing the .vimrc file on safe
 augroup autosourcing
 	autocmd!
-	autocmd BufWritePost .vimrc source %
+	autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
 augroup END
