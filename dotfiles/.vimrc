@@ -61,15 +61,12 @@ set incsearch
 
 "Show line numbers
 set number
-hi LineNr ctermfg=grey ctermbg=black
-
-"Make missspelled words more readable
-hi SpellBad cterm=bold,underline
 
 "Show visual mark at the 80th character
-set colorcolumn=80
+set colorcolumn=81
 hi OverLength ctermbg=red ctermfg=white
 match OverLength /\%81v.\+/
+
 
 
 "-----MAPPINGS-----
@@ -107,7 +104,7 @@ nmap <Leader>f :ts<space>
 "-----PLUGIN CONFIGURATION-----
 "NERDTree
 let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\~$','\.swp$','^\.tags$', '^tags$','.git[[dir]]']
+let NERDTreeIgnore = ['\~$','\.swp','^\.tags$', '^tags$','.git[[dir]]']
 nmap <Leader>d :NERDTreeToggle<CR>
 "NERDTree on startup
 "autocmd StdinReadPre * let s:std_in=1
@@ -159,11 +156,69 @@ let g:easytags_async = 1
 let g:easytags_dynamic_files = 2
 let g:easytags_auto_highlight = 0
 
+"lightline
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'landscape',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightlineFugitive',
+      \   'readonly': 'LightlineReadonly',
+      \   'modified': 'LightlineModified',
+      \   'filename': 'LightlineFilename'
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
+
+function! LightlineModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! LightlineReadonly()
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return "⭤"
+  else
+    return ""
+  endif
+endfunction
+
+function! LightlineFugitive()
+  return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
+
+function! LightlineFilename()
+  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+endfunction
+
+function! LightlineFugitive()
+  if exists("*fugitive#head")
+    let branch = fugitive#head()
+    return branch !=# '' ? '⭠ '.branch : ''
+  endif
+  return ''
+endfunction
+
 
 
 "-----END-----
 "Auto sourcing the .vimrc file on safe
 augroup autosourcing
 	autocmd!
-	autocmd BufWritePost .vimrc source %
+	autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
 augroup END
