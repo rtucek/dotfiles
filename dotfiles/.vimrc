@@ -60,10 +60,6 @@ set incsearch
 
 "Show line numbers
 set number
-hi LineNr ctermfg=grey ctermbg=black
-
-"Make missspelled words more readable
-hi SpellBad cterm=bold,underline
 
 "Show visual mark at the 80th character
 set colorcolumn=81
@@ -107,7 +103,7 @@ nmap <Leader>f :ts<space>
 "-----PLUGIN CONFIGURATION-----
 "NERDTree
 let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\~$','\.swp$','^\.tags$', '^tags$','.git[[dir]]']
+let NERDTreeIgnore = ['\~$','\.swp','^\.tags$', '^tags$','.git[[dir]]']
 nmap <Leader>d :NERDTreeToggle<CR>
 "NERDTree on startup
 "autocmd StdinReadPre * let s:std_in=1
