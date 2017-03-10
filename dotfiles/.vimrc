@@ -83,7 +83,7 @@ vnoremap // y/\c<C-R>"<CR>
 nmap <Leader><space> :nohlsearch<CR>
 
 "Tab navigation
-nmap <Leader>t :tabnew<space>
+nmap <Leader>tab :tabnew<space>
 nmap <Leader>w :tabclose<CR>
 
 "Split Management
