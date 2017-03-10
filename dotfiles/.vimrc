@@ -61,11 +61,6 @@ set incsearch
 "Show line numbers
 set number
 
-"Show visual mark at the 80th character
-set colorcolumn=81
-hi OverLength ctermbg=red ctermfg=white
-match OverLength /\%81v.\+/
-
 
 
 "-----MAPPINGS-----
@@ -101,13 +96,14 @@ nmap <Leader>f :ts<space>
 
 
 "-----PLUGIN CONFIGURATION-----
+"editorconfig
+"Show visual mark, dependng on max_line_length value
+let g:EditorConfig_max_line_indicator = "fill"
+
 "NERDTree
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\~$','\.swp','^\.tags$', '^tags$','.git[[dir]]']
 nmap <Leader>d :NERDTreeToggle<CR>
-"NERDTree on startup
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 "CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
