@@ -13,12 +13,11 @@ setlocal spell spelllang=en_us
 set spell
 
 "Fixing tabs and indentation
-set noexpandtab
+set autoindent
 set copyindent
+set noexpandtab
 set preserveindent
 set softtabstop=0
-set shiftwidth=8
-set tabstop=8
 
 "Refresh buffer automatically
 set autoread
@@ -26,10 +25,10 @@ set autoread
 "Use system clipboard
 set clipboard=unnamedplus
 
-"Fix mouse in tmux
+"Add mouse support
 set mouse=a
 
-"Supress warning when changing FROM unsaved buffer
+"Suppress warning when changing FROM unsaved buffer
 set hidden
 
 "Demand explicit confirmation when closing unsaved buffers
@@ -120,22 +119,39 @@ set updatetime=250
 
 "php.vim
 function! PhpSyntaxOverride()
-  hi! def link phpDocTags  phpDefine
-  hi! def link phpDocParam phpType
+	hi! def link phpDocTags	phpDefine
+	hi! def link phpDocParam phpType
 endfunction
 
 augroup phpSyntaxOverride
-  autocmd!
-  autocmd FileType php call PhpSyntaxOverride()
+autocmd!
+autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
+"vim-php-namespace
+"Insert use statement
+function! IPhpInsertUse()
+	call PhpInsertUse()
+	call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
+"Expand Namespace
+function! IPhpExpandClass()
+	call PhpExpandClass()
+	call feedkeys('a', 'n')
+endfunction
+autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
 "NERDCommenter
 let g:NERDSpaceDelims = 1
 
 "vim-php-namespace
 function! IPhpInsertUse()
-    call PhpInsertUse()
-    call feedkeys('a',  'n')
+	call PhpInsertUse()
+	call feedkeys('a',  'n')
 endfunction
 autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
@@ -156,62 +172,65 @@ let g:easytags_async = 1
 let g:easytags_dynamic_files = 2
 let g:easytags_auto_highlight = 0
 
+"tagbar
+nnoremap <Leader>tb :TagbarToggle<CR>
+
 "lightline
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'landscape',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'filename' ] ]
-      \ },
-      \ 'component_function': {
-      \   'fugitive': 'LightlineFugitive',
-      \   'readonly': 'LightlineReadonly',
-      \   'modified': 'LightlineModified',
-      \   'filename': 'LightlineFilename'
-      \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-      \ }
+	\ 'colorscheme': 'landscape',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'fugitive', 'filename' ] ]
+	\ },
+	\ 'component_function': {
+	\   'fugitive': 'LightlineFugitive',
+	\   'readonly': 'LightlineReadonly',
+	\   'modified': 'LightlineModified',
+	\   'filename': 'LightlineFilename'
+	\ },
+	\ 'separator': { 'left': '⮀', 'right': '⮂' },
+	\ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+	\ }
 
 function! LightlineModified()
-  if &filetype == "help"
-    return ""
-  elseif &modified
-    return "+"
-  elseif &modifiable
-    return ""
-  else
-    return ""
-  endif
+	if &filetype == "help"
+		return ""
+	elseif &modified
+		return "+"
+	elseif &modifiable
+		return ""
+	else
+		return ""
+	endif
 endfunction
 
 function! LightlineReadonly()
-  if &filetype == "help"
-    return ""
-  elseif &readonly
-    return "⭤"
-  else
-    return ""
-  endif
+	if &filetype == "help"
+		return ""
+	elseif &readonly
+		return "⭤"
+	else
+		return ""
+	endif
 endfunction
 
 function! LightlineFugitive()
-  return exists('*fugitive#head') ? fugitive#head() : ''
+	return exists('*fugitive#head') ? fugitive#head() : ''
 endfunction
 
 function! LightlineFilename()
-  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
-       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-       \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+	return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+		\ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+		\ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
 endfunction
 
 function! LightlineFugitive()
-  if exists("*fugitive#head")
-    let branch = fugitive#head()
-    return branch !=# '' ? '⭠ '.branch : ''
-  endif
-  return ''
+	if exists("*fugitive#head")
+		let branch = fugitive#head()
+		return branch !=# '' ? '⭠ '.branch : ''
+	endif
+	return ''
 endfunction
 
 
