@@ -77,8 +77,9 @@ vnoremap // y/\c<C-R>"<CR>
 nmap <Leader><space> :nohlsearch<CR>
 
 "Tab navigation
-nmap <Leader>tab :tabnew<space>
-nmap <Leader>w :tabclose<CR>
+nnoremap <Leader>tab :tabnew<space>
+nnoremap <Leader>w :tabclose<CR>
+nnoremap <Leader>tabthis :tabnew %<CR>:tabprevious<CR>
 
 "Split Management
 nmap <C-J> <C-W><C-J>
