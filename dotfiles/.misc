@@ -1,2 +1,6 @@
 # Smart completion for npm commands
 . <(npm completion)
+
+# Smart completion for composer
+# see https://github.com/bamarni/symfony-console-autocomplete
+eval "$(symfony-autocomplete)"
