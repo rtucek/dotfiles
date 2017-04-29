@@ -90,6 +90,13 @@ nmap <C-L> <C-W><C-L>
 "ctags
 nmap <Leader>f :ts<space>
 
+"Fix whitespace errors
+nnoremap <Leader>fwe :%s/^ //g<CR>:nohlsearch<CR>
+
+"Unexpand 4 spaces to tab
+nnoremap <Leader>uex :%s/    /\t/g<CR>:nohlsearch<CR>
+
+
 
 "-----AUTO-COMMANDS-----
 
