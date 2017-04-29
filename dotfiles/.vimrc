@@ -5,9 +5,6 @@ let mapleader = ','
 "Fix backspace key"
 set backspace=indent,eol,start
 
-"Source  Plugins
-so ~/.vim/plugins.vim
-
 "Set language for spell check
 setlocal spell spelllang=en_us
 set spell
@@ -33,34 +30,6 @@ set hidden
 
 "Demand explicit confirmation when closing unsaved buffers
 set confirm
-
-
-"-----VISUAL-----
-
-"Syntax highlighting
-syntax enable
-
-"From https://github.com/gosukiwi/vim-atom-dark
-set t_ut=
-colorscheme atom-dark-256
-set t_Co=256
-
-"Always display tabline
-set showtabline=2
-
-"Highlight current line
-set cursorline
-
-"Show column length
-set ruler
-
-"Searching
-set hlsearch
-set incsearch
-
-"Show line numbers
-set number
-
 
 
 "-----MAPPINGS-----
@@ -240,6 +209,37 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+
+
+"Source  Plugins
+so ~/.vim/plugins.vim
+
+"-----VISUAL-----
+
+"Syntax highlighting
+syntax enable
+
+"From https://github.com/gosukiwi/vim-atom-dark
+set t_ut=
+colorscheme atom-dark-256
+set t_Co=256
+
+"Always display tabline
+set showtabline=2
+
+"Highlight current line
+set cursorline
+
+"Show column length
+set ruler
+
+"Searching
+set hlsearch
+set incsearch
+
+"Show line numbers
+set number
 
 
 
