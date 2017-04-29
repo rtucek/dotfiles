@@ -1,7 +1,7 @@
 .PHONY: import export list-dotfiles
 SHELL := /bin/bash
 
-DOTFILES := {.bash_logout,.bash_profile,.bashrc,.editorconfig,.gitconfig,.gitignore_global,.tmux.conf,.vimrc,.bash_prompt,.path,.exports,.misc}
+DOTFILES := {.bash_logout,.bash_profile,.bashrc,.editorconfig,.gitconfig,.gitignore_global,.tmux.conf,.vimrc,.bash_prompt,.path,.exports,.misc,.ctags}
 
 import:
 	@echo "Imported the following files:"
