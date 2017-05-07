@@ -36,8 +36,6 @@ set confirm
 
 "Quick edit ~/.vimrc
 nmap <Leader>ev :tabedit $MYVIMRC<CR>
-"Quick edit ~/.vim/plugins.vim
-nmap <Leader>ep :tabedit ~/.vim/plugins.vim<CR>
 
 "Search current selected text
 vnoremap // y/\c<C-R>"<CR>
@@ -217,8 +215,48 @@ let g:syntastic_check_on_wq = 0
 
 
 
-"Source  Plugins
-so ~/.vim/plugins.vim
+"-----VUNDLE-----
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+"PLUGINS
+Plugin 'airblade/vim-gitgutter'
+Plugin 'arnaud-lb/vim-php-namespace'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'djoshea/vim-autoread'
+Plugin 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'ervandew/supertab'
+Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'gregsexton/matchtag'
+Plugin 'itchyny/landscape.vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'qpkorr/vim-bufkill'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'xolox/vim-easytags'
+Plugin 'xolox/vim-misc'
+
+"COLORSCHEMES
+Plugin 'davb5/wombat256dave'
+Plugin 'gosukiwi/vim-atom-dark'
+Plugin 'tomasr/molokai'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
 
 "-----VISUAL-----
 
