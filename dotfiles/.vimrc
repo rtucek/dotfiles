@@ -138,9 +138,7 @@ noremap <Leader>gmv :Gmove<CR>
 noremap <Leader>grm :Gremove<CR>
 
 "vim-easytags
-set tags=./.tags
 set cpoptions=aABceFsd
-let g:easytags_file = './.tags'
 let g:easytags_async = 1
 let g:easytags_dynamic_files = 2
 let g:easytags_auto_highlight = 0
