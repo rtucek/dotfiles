@@ -134,12 +134,6 @@ noremap <Leader>gblame :Gblame<CR>
 noremap <Leader>gmv :Gmove<CR>
 noremap <Leader>grm :Gremove<CR>
 
-"vim-easytags
-set cpoptions=aABceFsd
-let g:easytags_async = 1
-let g:easytags_dynamic_files = 2
-let g:easytags_auto_highlight = 0
-
 "tagbar
 nnoremap <Leader>tb :TagbarToggle<CR>
 
@@ -178,7 +172,6 @@ Plugin 'ekalinin/dockerfile.vim'
 Plugin 'ervandew/supertab'
 Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'gregsexton/matchtag'
-Plugin 'itchyny/landscape.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'lumiliet/vim-twig'
 Plugin 'majutsushi/tagbar'
@@ -193,8 +186,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'xolox/vim-easytags'
-Plugin 'xolox/vim-misc'
 
 "COLORSCHEMES
 Plugin 'davb5/wombat256dave'
