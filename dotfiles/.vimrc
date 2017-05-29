@@ -154,6 +154,12 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+"easytags
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 2
+let g:easytags_auto_highlight = 0
+let g:easytags_cmd = '/usr/bin/ctags'
+
 
 
 "-----VUNDLE-----
@@ -194,6 +200,12 @@ Plugin 'tomasr/molokai'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+
+
+"-----POST PLUGIN CONFIGURATION-----
+set tags=./.tags;
+set cpoptions+=d
 
 
 
