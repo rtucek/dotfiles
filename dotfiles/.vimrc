@@ -206,7 +206,9 @@ filetype plugin indent on    " required
 
 
 "-----POST PLUGIN CONFIGURATION-----
-set tags=./.tags;
+runtime! plugin/sensible.vim
+
+set tags=./.tags
 set cpoptions+=d
 
 
