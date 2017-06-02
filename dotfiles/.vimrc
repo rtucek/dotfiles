@@ -196,9 +196,8 @@ Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
 
 "COLORSCHEMES
-Plugin 'davb5/wombat256dave'
 Plugin 'gosukiwi/vim-atom-dark'
-Plugin 'tomasr/molokai'
+Plugin 'crusoexia/vim-monokai'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -208,6 +207,7 @@ filetype plugin indent on    " required
 "-----POST PLUGIN CONFIGURATION-----
 runtime! plugin/sensible.vim
 
+"easytags
 set tags=./.tags
 set cpoptions+=d
 
@@ -218,10 +218,9 @@ set cpoptions+=d
 "Syntax highlighting
 syntax enable
 
-"From https://github.com/gosukiwi/vim-atom-dark
 set t_ut=
-colorscheme atom-dark-256
 set t_Co=256
+colorscheme monokai
 
 "Always display tabline
 set showtabline=2
