@@ -73,7 +73,7 @@ nnoremap <Leader>uex :%s/    /\t/g<CR>:nohlsearch<CR>
 "-----PLUGIN CONFIGURATION-----
 "editorconfig
 "Show visual mark, depending on max_line_length value
-let g:EditorConfig_max_line_indicator = "fill"
+let g:EditorConfig_max_line_indicator = "line"
 
 "NERDTree
 let NERDTreeShowHidden=1
