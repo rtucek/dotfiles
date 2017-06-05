@@ -63,6 +63,10 @@ nnoremap <Leader>fwe :%s/^ //g<CR>:nohlsearch<CR>
 "Unexpand 4 spaces to tab
 nnoremap <Leader>uex :%s/    /\t/g<CR>:nohlsearch<CR>
 
+"Move lines up and down in visual mode
+vnoremap <C-J> :m '>+1<CR>gv
+vnoremap <C-K> :m '<-2<CR>gv
+
 
 
 "-----AUTO-COMMANDS-----
