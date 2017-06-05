@@ -196,8 +196,8 @@ Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
 
 "COLORSCHEMES
-Plugin 'gosukiwi/vim-atom-dark'
 Plugin 'crusoexia/vim-monokai'
+Plugin 'gosukiwi/vim-atom-dark'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
