@@ -63,6 +63,10 @@ nnoremap <Leader>fwe :%s/^ //g<CR>:nohlsearch<CR>
 "Unexpand 4 spaces to tab
 nnoremap <Leader>uex :%s/    /\t/g<CR>:nohlsearch<CR>
 
+"(Un-)Indent lines and preserve selection
+vnoremap < <<CR>gv
+vnoremap > ><CR>gv
+
 
 
 "-----AUTO-COMMANDS-----
