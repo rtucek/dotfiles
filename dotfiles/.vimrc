@@ -37,6 +37,9 @@ set confirm
 "Quick edit ~/.vimrc
 nmap <Leader>ev :tabedit $MYVIMRC<CR>
 
+"Toggle Spell check
+nnoremap <Leader>s :set spell!<CR>
+
 "Search current selected text
 vnoremap // y/\c<C-R>"<CR>
 
@@ -82,10 +85,14 @@ let g:EditorConfig_max_line_indicator = "line"
 "NERDTree
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\~$', '\.swp', '^\.tags$', '^tags$', 'Session.vim', '.git[[dir]]']
-nmap <Leader>d :NERDTreeToggle<CR>
+nnoremap <Leader>D :NERDTreeFind<CR>
+
+"NERDTreeMirror
+nnoremap <Leader>d :NERDTreeTabsToggle<CR>
 
 "CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_working_path_mode = ''
 nmap <Leader>p :CtrlPBufTag<CR>
 
 "Vim-Gutter
@@ -183,6 +190,7 @@ Plugin 'ervandew/supertab'
 Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'gregsexton/matchtag'
 Plugin 'itchyny/lightline.vim'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'lumiliet/vim-twig'
 Plugin 'majutsushi/tagbar'
 Plugin 'qpkorr/vim-bufkill'
@@ -238,6 +246,7 @@ set ruler
 "Searching
 set hlsearch
 set incsearch
+set ignorecase
 
 "Show line numbers
 set number
