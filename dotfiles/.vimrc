@@ -43,6 +43,9 @@ nnoremap <Leader>s :set spell!<CR>
 "Search current selected text
 vnoremap // y/\c<C-R>"<CR>
 
+"Ack search
+nnoremap <Leader>a :Ack!<Space>
+
 "Removes the highlighted search results
 nmap <Leader><space> :nohlsearch<CR>
 
@@ -175,6 +178,13 @@ let g:easytags_dynamic_files = 2
 let g:easytags_auto_highlight = 0
 let g:easytags_cmd = '/usr/bin/ctags'
 
+"ack.vim
+cnoreabbrev Ack Ack!
+
+"Grepreplace.vim
+set grepprg=ack
+let g:grep_cmd_opts = '--noheading'
+
 
 
 "-----VUNDLE-----
@@ -197,9 +207,11 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'lumiliet/vim-twig'
 Plugin 'majutsushi/tagbar'
+Plugin 'mileszs/ack.vim'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'skwp/greplace.vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
