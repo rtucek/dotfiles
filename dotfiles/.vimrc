@@ -58,7 +58,7 @@ nmap <C-H> <C-W><C-H>
 nmap <C-L> <C-W><C-L>
 
 "ctags
-nmap <Leader>f :ts<space>
+nmap <Leader>f :tagselect<space>
 
 "Fix whitespace errors
 nnoremap <Leader>fwe :%s/^ //g<CR>:nohlsearch<CR>
