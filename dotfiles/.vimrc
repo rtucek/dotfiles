@@ -118,6 +118,8 @@ augroup END
 
 "vim-php-namespace
 "Insert use statement
+let g:php_namespace_sort_after_insert = 1
+
 function! IPhpInsertUse()
 	call PhpInsertUse()
 	call feedkeys('a',  'n')
