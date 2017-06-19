@@ -229,8 +229,8 @@ Plugin 'xolox/vim-misc'
 Plugin 'crusoexia/vim-monokai'
 Plugin 'gosukiwi/vim-atom-dark'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()
+filetype plugin indent on
 
 
 
