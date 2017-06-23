@@ -151,6 +151,8 @@ nnoremap <Leader>d :NERDTreeTabsToggle<CR>
 "CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_working_path_mode = ''
+let g:ctrlp_max_files = 30000
+let g:ctrlp_max_depth = 100
 nmap <Leader>p :CtrlPBufTag<CR>
 
 "Vim-Gutter
