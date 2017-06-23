@@ -1,3 +1,52 @@
+"-----VUNDLE-----
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+"PLUGINS
+Plugin 'airblade/vim-gitgutter'
+Plugin 'arnaud-lb/vim-php-namespace'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'djoshea/vim-autoread'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'ekalinin/dockerfile.vim'
+Plugin 'ervandew/supertab'
+Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'gregsexton/matchtag'
+Plugin 'itchyny/lightline.vim'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'lumiliet/vim-twig'
+Plugin 'majutsushi/tagbar'
+Plugin 'mileszs/ack.vim'
+Plugin 'qpkorr/vim-bufkill'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'skwp/greplace.vim'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'xolox/vim-easytags'
+Plugin 'xolox/vim-misc'
+
+"COLORSCHEMES
+Plugin 'crusoexia/vim-monokai'
+Plugin 'gosukiwi/vim-atom-dark'
+
+call vundle#end()
+filetype plugin indent on
+
+"vim-sensible
+"Apply configs from vim-sensible
+runtime! plugin/sensible.vim
+
+
+
 "-----GENERAL-----
 "The default leader is a backslash, but we use ','
 let mapleader = ','
@@ -32,8 +81,8 @@ set hidden
 set confirm
 
 
-"-----MAPPINGS-----
 
+"-----MAPPINGS-----
 "Quick edit ~/.vimrc
 nmap <Leader>ev :tabedit $MYVIMRC<CR>
 
@@ -79,8 +128,8 @@ vnoremap > ><CR>gv
 
 
 
-"-----AUTO-COMMANDS-----
 
+"-----AUTO-COMMANDS-----
 
 
 
@@ -186,61 +235,6 @@ cnoreabbrev Ack Ack!
 "Grepreplace.vim
 set grepprg=ack
 let g:grep_cmd_opts = '--noheading'
-
-
-
-"-----VUNDLE-----
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-"PLUGINS
-Plugin 'airblade/vim-gitgutter'
-Plugin 'arnaud-lb/vim-php-namespace'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'djoshea/vim-autoread'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'ekalinin/dockerfile.vim'
-Plugin 'ervandew/supertab'
-Plugin 'evanmiller/nginx-vim-syntax'
-Plugin 'gregsexton/matchtag'
-Plugin 'itchyny/lightline.vim'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'lumiliet/vim-twig'
-Plugin 'majutsushi/tagbar'
-Plugin 'mileszs/ack.vim'
-Plugin 'qpkorr/vim-bufkill'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'skwp/greplace.vim'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-obsession'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-vinegar'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'xolox/vim-easytags'
-Plugin 'xolox/vim-misc'
-
-"COLORSCHEMES
-Plugin 'crusoexia/vim-monokai'
-Plugin 'gosukiwi/vim-atom-dark'
-
-call vundle#end()
-filetype plugin indent on
-
-
-
-"-----POST PLUGIN CONFIGURATION-----
-runtime! plugin/sensible.vim
-
-"easytags
-set tags=./.tags
-set cpoptions+=d
-
 
 
 "-----VISUAL-----
