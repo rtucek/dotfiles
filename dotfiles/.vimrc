@@ -126,6 +126,8 @@ vnoremap <C-K> :m '<-2<CR>gv
 vnoremap < <<CR>gv
 vnoremap > ><CR>gv
 
+"Toggle relative line numbers
+nnoremap <Leader>r :set relativenumber!<CR>
 
 
 
