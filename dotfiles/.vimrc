@@ -41,6 +41,10 @@ Plugin 'gosukiwi/vim-atom-dark'
 call vundle#end()
 filetype plugin indent on
 
+"vim-sensible
+"Apply configs from vim-sensible
+runtime! plugin/sensible.vim
+
 
 
 "-----GENERAL-----
