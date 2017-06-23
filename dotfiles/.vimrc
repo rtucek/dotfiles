@@ -81,8 +81,8 @@ set hidden
 set confirm
 
 
-"-----MAPPINGS-----
 
+"-----MAPPINGS-----
 "Quick edit ~/.vimrc
 nmap <Leader>ev :tabedit $MYVIMRC<CR>
 
@@ -128,8 +128,8 @@ vnoremap > ><CR>gv
 
 
 
-"-----AUTO-COMMANDS-----
 
+"-----AUTO-COMMANDS-----
 
 
 
