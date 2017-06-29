@@ -236,6 +236,13 @@ cnoreabbrev Ack Ack!
 set grepprg=ack
 let g:grep_cmd_opts = '--noheading'
 
+" vim-gitgutter
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_modified = '±'
+let g:gitgutter_sign_modified_removed = '±'
+
+
 
 "-----VISUAL-----
 
@@ -262,6 +269,13 @@ set ignorecase
 
 "Show line numbers
 set number
+
+"GitGutter
+highlight DiffChange term=bold ctermfg=189 ctermbg=DarkYellow guifg=#d7d7ff guibg=#5f5f87
+highlight link GitGutterAdd DiffAdd
+highlight link GitGutterChange DiffChange
+highlight link GitGutterDelete DiffDelete
+highlight link GitGutterChangeDelete DiffChange
 
 
 
