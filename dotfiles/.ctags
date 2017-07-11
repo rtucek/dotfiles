@@ -1,2 +1,3 @@
 --recurse=yes
+--php-kinds=+cfi-v
 -f .tags
