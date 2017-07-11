@@ -16,7 +16,6 @@ Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gregsexton/matchtag'
 Plugin 'itchyny/lightline.vim'
-Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'lumiliet/vim-twig'
 Plugin 'majutsushi/tagbar'
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -150,9 +149,6 @@ let g:EditorConfig_max_line_indicator = "line"
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\~$', '\.swp', '^\.tags$', '^tags$', 'Session.vim', '.git[[dir]]']
 nnoremap <Leader>D :NERDTreeFind<CR>
-
-"NERDTreeMirror
-nnoremap <Leader>d :NERDTreeTabsToggle<CR>
 
 "CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
