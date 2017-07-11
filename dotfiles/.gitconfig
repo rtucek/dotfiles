@@ -17,6 +17,7 @@
 	helper = cache --timeout=3600
 [commit]
 	gpgsign = true
+	verbose = true
 [merge]
 	ff = false
 	tool = vimdiff
