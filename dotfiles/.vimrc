@@ -80,6 +80,9 @@ set hidden
 "Demand explicit confirmation when closing unsaved buffers
 set confirm
 
+"Deactivate folding
+set nofoldenable
+
 
 
 "-----MAPPINGS-----
