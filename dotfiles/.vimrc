@@ -148,6 +148,7 @@ let g:EditorConfig_max_line_indicator = "line"
 "NERDTree
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\~$', '\.swp', '^\.tags$', '^tags$', 'Session.vim', '.git[[dir]]']
+nnoremap <Leader>d :NERDTreeToggle<CR>
 nnoremap <Leader>D :NERDTreeFind<CR>
 
 "CtrlP
