@@ -126,6 +126,9 @@ vnoremap <C-K> :m '<-2<CR>gv
 vnoremap < <<CR>gv
 vnoremap > ><CR>gv
 
+"Don't yank selected text after overwriting via paste
+vnoremap p "_dP
+
 "Toggle relative line numbers
 nnoremap <Leader>r :set relativenumber!<CR>
 
