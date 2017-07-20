@@ -147,6 +147,8 @@ nnoremap <Leader>r :set relativenumber!<CR>
 let g:EditorConfig_max_line_indicator = "line"
 
 "NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\~$', '\.swp', '^\.tags$', '^tags$', 'Session.vim', '.git[[dir]]']
 nnoremap <Leader>D :NERDTreeFind<CR>
