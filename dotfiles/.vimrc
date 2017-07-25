@@ -142,6 +142,7 @@ nnoremap <Leader>r :set relativenumber!<CR>
 
 
 "-----AUTO-COMMANDS-----
+autocmd BufEnter * :syntax sync fromstart
 
 
 
