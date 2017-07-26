@@ -1,3 +1,5 @@
 --recurse=yes
---php-kinds=+cfi-v
+--php-kinds=+cfid-v
+--javascript-kinds=+fcmpv
+--html-kinds=+af
 -f .tags
