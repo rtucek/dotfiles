@@ -5,6 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "PLUGINS
+Plugin 'jlanzarotta/bufexplorer'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'ctrlpvim/ctrlp.vim'
