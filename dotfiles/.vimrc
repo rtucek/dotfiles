@@ -311,5 +311,5 @@ highlight diffSubname   term=bold ctermbg=none ctermfg=yellow cterm=none guibg=D
 "Auto sourcing the .vimrc file on safe
 augroup autosourcing
 	autocmd!
-	autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
+	autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
 augroup END
