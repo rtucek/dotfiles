@@ -68,6 +68,9 @@ set noexpandtab
 set preserveindent
 set softtabstop=0
 
+"Make scrolling faster and more accurate
+set ttyfast
+
 "Refresh buffer automatically
 set autoread
 
