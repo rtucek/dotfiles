@@ -61,7 +61,7 @@ set backspace=indent,eol,start
 
 "Set language for spell check
 setlocal spell spelllang=en_us
-set spell
+set nospell
 
 "Fixing tabs and indentation
 set autoindent
@@ -98,7 +98,7 @@ set nofoldenable
 nmap <Leader>ev :tabedit $MYVIMRC<CR>
 
 "Toggle Spell check
-nnoremap <Leader>s :set spell!<CR>
+nnoremap <Leader>s :set spell!<CR>:set spell?<CR>
 
 "Search current selected text
 vnoremap // y/\c<C-R>"<CR>
