@@ -225,6 +225,7 @@ noremap <Leader>grm :Gremove<CR>
 
 "tagbar
 nnoremap <Leader>tb :TagbarToggle<CR>
+let g:tagbar_autoclose = 1
 let g:tagbar_type_php  = {
 	\ 'ctagstype' : 'php',
 	\ 'kinds'     : [
