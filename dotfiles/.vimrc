@@ -5,11 +5,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "PLUGINS
-Plugin 'jlanzarotta/bufexplorer'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'djoshea/vim-autoread'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ekalinin/dockerfile.vim'
 Plugin 'ervandew/supertab'
@@ -18,6 +18,7 @@ Plugin 'fatih/vim-go'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gregsexton/matchtag'
 Plugin 'itchyny/lightline.vim'
+Plugin 'jlanzarotta/bufexplorer'
 Plugin 'lumiliet/vim-twig'
 Plugin 'majutsushi/tagbar'
 Plugin 'MarcWeber/vim-addon-mw-utils'
