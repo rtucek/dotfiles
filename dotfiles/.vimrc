@@ -151,6 +151,18 @@ autocmd BufEnter * :syntax sync fromstart
 
 
 
+"-----FUNCTIONS-----
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
+
+
+
 "-----PLUGIN CONFIGURATION-----
 "editorconfig
 "Show visual mark, depending on max_line_length value
