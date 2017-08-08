@@ -148,6 +148,7 @@ nnoremap <Leader>r :set relativenumber!<CR>
 "editorconfig
 "Show visual mark, depending on max_line_length value
 let g:EditorConfig_max_line_indicator = "line"
+let g:EditorConfig_preserve_formatoptions = 1
 
 "NERDTree
 let NERDTreeShowHidden=1
