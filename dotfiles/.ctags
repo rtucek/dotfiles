@@ -1,5 +1,6 @@
 --recurse=yes
---php-kinds=+cfid-v
+--regex-php=/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i
+--php-kinds=+cfidt-v
 --javascript-kinds=+fcmpv
 --html-kinds=+af
 -f .tags

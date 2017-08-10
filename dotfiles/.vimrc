@@ -252,6 +252,7 @@ let g:tagbar_type_php  = {
 		\ 'c:classes',
 		\ 'd:constant definitions',
 		\ 'f:functions',
+		\ 't:traits',
 		\ 'j:javascript functions:1'
 	\ ]
 \ }
