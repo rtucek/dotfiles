@@ -42,6 +42,7 @@ Plugin 'xolox/vim-misc'
 "COLORSCHEMES
 Plugin 'crusoexia/vim-monokai'
 Plugin 'gosukiwi/vim-atom-dark'
+Plugin 'romainl/Apprentice'
 
 call vundle#end()
 filetype plugin indent on
@@ -303,7 +304,6 @@ set ignorecase
 set number
 
 "GitGutter
-highlight DiffChange term=bold ctermfg=189 ctermbg=DarkYellow guifg=#d7d7ff guibg=#5f5f87
 highlight link GitGutterAdd DiffAdd
 highlight link GitGutterChange DiffChange
 highlight link GitGutterDelete DiffDelete
@@ -320,6 +320,10 @@ highlight diffIndexLine term=bold ctermbg=none ctermfg=cyan   cterm=bold guibg=D
 highlight diffLine      term=bold ctermbg=none ctermfg=yellow cterm=bold guibg=DarkMagenta guifg=white gui=none
 highlight diffRemoved   term=bold ctermbg=none ctermfg=red    cterm=bold guibg=DarkRed     guifg=white gui=none
 highlight diffSubname   term=bold ctermbg=none ctermfg=yellow cterm=none guibg=DarkYellow  guifg=white gui=none
+
+if &diff
+	colorscheme apprentice
+endif
 
 
 
