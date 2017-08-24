@@ -158,11 +158,11 @@ augroup END
 
 "-----FUNCTIONS-----
 function! s:DiffWithSaved()
-  let filetype=&ft
-  diffthis
-  vnew | r # | normal! 1Gdd
-  diffthis
-  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+	let filetype=&ft
+	diffthis
+	vnew | r # | normal! 1Gdd
+	diffthis
+	exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 
@@ -261,8 +261,8 @@ let g:tagbar_type_php  = {
 "lightline
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'landscape',
-      \ }
+	\ 'colorscheme': 'landscape',
+\ }
 
 "Syntastic
 set statusline+=%#warningmsg#
