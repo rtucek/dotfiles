@@ -149,7 +149,10 @@ nnoremap <Leader>r :set relativenumber!<CR>
 
 
 "-----AUTO-COMMANDS-----
-autocmd BufEnter * :syntax sync fromstart
+augroup generalAutocmd
+	autocmd!
+	autocmd BufEnter * :syntax sync fromstart
+augroup END
 
 
 
@@ -172,12 +175,15 @@ let g:EditorConfig_max_line_indicator = "line"
 let g:EditorConfig_preserve_formatoptions = 1
 
 "NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\~$', '\.swp', '^\.tags$', '^tags$', 'Session.vim', '.git[[dir]]']
 nnoremap <Leader>d :NERDTreeToggle<CR>
 nnoremap <Leader>D :NERDTreeFind<CR>
+augroup nerdtreeAutocmd
+	autocmd!
+	autocmd StdinReadPre * let s:std_in=1
+	autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+augroup END
 
 "CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
@@ -200,41 +206,34 @@ function! PhpSyntaxOverride()
 	hi! def link phpDocTags	phpDefine
 	hi! def link phpDocParam phpType
 endfunction
-
-augroup phpSyntaxOverride
-autocmd!
-autocmd FileType php call PhpSyntaxOverride()
+augroup phpVimAutocmd
+	autocmd!
+	autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
 "vim-php-namespace
 "Insert use statement
 let g:php_namespace_sort_after_insert = 1
-
 function! IPhpInsertUse()
 	call PhpInsertUse()
 	call feedkeys('a',  'n')
 endfunction
-autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
 
 "Expand Namespace
 function! IPhpExpandClass()
 	call PhpExpandClass()
 	call feedkeys('a', 'n')
 endfunction
-autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
-autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+augroup phpInsertUseAutocmd
+	autocmd!
+	autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+	autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+	autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+	autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+augroup END
 
 "NERDCommenter
 let g:NERDSpaceDelims = 1
-
-"vim-php-namespace
-function! IPhpInsertUse()
-	call PhpInsertUse()
-	call feedkeys('a',  'n')
-endfunction
-autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
 
 "vim-fugitive
 noremap <Leader>gstatus :Gstatus<CR>
@@ -304,7 +303,10 @@ let g:gitgutter_sign_modified_removed = '±'
 
 "vim-markdown
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'sql']
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+augroup vimMarkdownAutocmd
+	autocmd!
+	autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+augroup END
 
 
 
@@ -360,7 +362,7 @@ endif
 
 "-----END-----
 "Auto sourcing the .vimrc file on safe
-augroup autosourcing
+augroup sourcingAutocmd
 	autocmd!
 	autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
 augroup END
