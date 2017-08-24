@@ -30,6 +30,7 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
@@ -273,6 +274,10 @@ let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified = '±'
 let g:gitgutter_sign_modified_removed = '±'
+
+"vim-markdown
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'sql']
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 
 
