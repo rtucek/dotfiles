@@ -19,6 +19,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'gregsexton/matchtag'
 Plugin 'itchyny/lightline.vim'
 Plugin 'jlanzarotta/bufexplorer'
+Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'lumiliet/vim-twig'
 Plugin 'majutsushi/tagbar'
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -38,8 +39,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'xolox/vim-easytags'
-Plugin 'xolox/vim-misc'
 
 "COLORSCHEMES
 Plugin 'crusoexia/vim-monokai'
@@ -275,13 +274,14 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-"easytags
-let g:easytags_async = 1
-let g:easytags_dynamic_files = 2
-let g:easytags_auto_highlight = 0
-let g:easytags_cmd = '/usr/bin/ctags'
-set tags=./.tags
-set cpoptions+=d
+"gutentags
+function! GetPwd(path)
+       return getcwd()
+endfunction
+let g:gutentags_project_root_finder='GetPwd'
+let g:gutentags_ctags_tagfile = '.tags'
+let g:gutentags_add_default_project_roots = 0
+set tags='.tags'
 
 "ack.vim
 cnoreabbrev Ack Ack!
