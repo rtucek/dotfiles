@@ -381,4 +381,9 @@ endif
 augroup sourcingAutocmd
 	autocmd!
 	autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+
+	"Reload lightline
+	call lightline#init()
+	call lightline#colorscheme()
+	call lightline#update()
 augroup END
