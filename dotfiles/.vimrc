@@ -19,6 +19,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'gregsexton/matchtag'
 Plugin 'itchyny/lightline.vim'
 Plugin 'jlanzarotta/bufexplorer'
+Plugin 'joonty/vdebug'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'lumiliet/vim-twig'
 Plugin 'majutsushi/tagbar'
@@ -307,6 +308,12 @@ augroup vimMarkdownAutocmd
 	autocmd!
 	autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 augroup END
+
+"vdebug
+let g:vdebug_options= {
+	\ 'break_on_open': 0,
+	\ 'continuous_mode': 1
+\ }
 
 
 
