@@ -265,6 +265,15 @@ let g:tagbar_type_php  = {
 set laststatus=2
 let g:lightline = {
 	\ 'colorscheme': 'landscape',
+	\ 'active': {
+		\ 'left': [
+			\ ['mode', 'paste'],
+			\ ['gitbranch', 'readonly', 'filename', 'modified']
+		\ ]
+	\ },
+	\ 'component_function': {
+		\ 'gitbranch': 'fugitive#head'
+	\ },
 \ }
 
 "Syntastic
@@ -375,4 +384,9 @@ endif
 augroup sourcingAutocmd
 	autocmd!
 	autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+
+	"Reload lightline
+	call lightline#init()
+	call lightline#colorscheme()
+	call lightline#update()
 augroup END
