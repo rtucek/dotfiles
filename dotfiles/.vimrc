@@ -103,8 +103,11 @@ nmap <Leader>ev :tabedit $MYVIMRC<CR>
 "Toggle Spell check
 nnoremap <Leader>s :set spell!<CR>:set spell?<CR>
 
-"Search current selected text
-vnoremap // y/\c<C-R>"<CR>
+"Highlight word under cursor
+nnoremap * *N
+
+"Highlight selection
+vnoremap // y/\c<C-R>"<CR>N
 
 "Ack search
 nnoremap <Leader>a :Ack!<Space>
