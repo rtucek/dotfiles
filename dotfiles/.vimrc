@@ -254,13 +254,25 @@ let g:lightline = {
 	\ 'active': {
 		\ 'left': [
 			\ ['mode', 'paste'],
-			\ ['gitbranch', 'readonly', 'filename', 'modified']
+			\ ['gitbranch', 'readonly', 'filename'],
+			\ ['tagbar', 'gutentags'],
 		\ ]
 	\ },
 	\ 'component_function': {
-		\ 'gitbranch': 'fugitive#head'
+		\ 'gitbranch': 'fugitive#head',
+		\ 'filename': 'LightlineFilename',
+	\ },
+	\ 'component': {
+		\ 'lineinfo': '%l\%L [%p%%], %c, %n',
+		\ 'tagbar': '%{tagbar#currenttag("[%s]", "", "f")}',
+		\ 'gutentags': '%{gutentags#statusline("[Generating...]")}',
 	\ },
 \ }
+function! LightlineFilename()
+	let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+	let modified = &modified ? ' +' : ''
+	return filename . modified
+endfunction
 
 "Syntastic
 set statusline+=%#warningmsg#
