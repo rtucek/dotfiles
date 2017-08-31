@@ -38,6 +38,7 @@ Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
+Plugin 'vim-php/tagbar-phpctags.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'VundleVim/Vundle.vim'
 
@@ -248,18 +249,8 @@ noremap <Leader>grm :Gremove<CR>
 
 "tagbar
 nnoremap <Leader>tb :TagbarToggle<CR>
+let g:tagbar_phpctags_bin='/usr/local/bin/phpctags'
 let g:tagbar_autoclose = 1
-let g:tagbar_type_php  = {
-	\ 'ctagstype' : 'php',
-	\ 'kinds'     : [
-		\ 'i:interfaces',
-		\ 'c:classes',
-		\ 'd:constant definitions',
-		\ 'f:functions',
-		\ 't:traits',
-		\ 'j:javascript functions:1'
-	\ ]
-\ }
 
 "lightline
 set laststatus=2
