@@ -183,6 +183,7 @@ let g:ctrlp_max_depth = 100
 let g:ctrlp_max_files = 30000
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_working_path_mode = ''
+let g:ctrlp_lazy_update = 1
 nnoremap <Leader>p :CtrlPBuffer<CR>
 nnoremap <Leader>pt :CtrlPBufTag<CR>
 nnoremap <Leader>pT :CtrlPBufTagAll<CR>
