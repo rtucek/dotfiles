@@ -39,6 +39,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
 Plugin 'vim-php/tagbar-phpctags.vim'
+Plugin 'vim-scripts/tinykeymap'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'VundleVim/Vundle.vim'
 
@@ -280,7 +281,7 @@ let g:syntastic_check_on_wq = 0
 
 "gutentags
 function! GetPwd(path)
-       return getcwd()
+	return getcwd()
 endfunction
 let g:gutentags_project_root_finder='GetPwd'
 let g:gutentags_ctags_tagfile = '.tags'
@@ -294,7 +295,7 @@ cnoreabbrev Ack Ack!
 set grepprg=ack
 let g:grep_cmd_opts = '--noheading'
 
-" vim-gitgutter
+"vim-gitgutter
 if exists('&signcolumn')
 	set signcolumn=yes
 else
@@ -352,10 +353,18 @@ highlight link GitGutterChange DiffChange
 highlight link GitGutterDelete DiffDelete
 highlight link GitGutterChangeDelete DiffChange
 
+"Tinykeymap
+let g:tinykeymaps_default = []
+call tinykeymap#Load('windows')
+call tinykeymap#Map('windows', '<C-right>', 'wincmd >')
+call tinykeymap#Map('windows', '<C-left>', 'wincmd <')
+call tinykeymap#Map('windows', '<C-up>', 'wincmd +')
+call tinykeymap#Map('windows', '<C-down>', 'wincmd -')
+
 
 
 "-----DIFF COLORSCHEME-----
-" When viewing a diff or patch file
+"When viewing a diff or patch file
 highlight diffAdded     term=bold ctermbg=none ctermfg=green  cterm=bold guibg=DarkGreen   guifg=white gui=none
 highlight diffChanged   term=bold ctermbg=none ctermfg=yellow cterm=bold guibg=DarkYellow  guifg=white gui=none
 highlight diffFile      term=bold ctermbg=none ctermfg=blue   cterm=bold guibg=DarkYellow  guifg=white gui=none
