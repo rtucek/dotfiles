@@ -5,6 +5,10 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "PLUGINS
+if !has('nvim')
+	Plugin 'tpope/vim-sensible'
+endif
+
 Plugin 'airblade/vim-gitgutter'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -35,7 +39,6 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-obsession'
-Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
 Plugin 'vim-php/tagbar-phpctags.vim'
@@ -53,7 +56,9 @@ filetype plugin indent on
 
 "vim-sensible
 "Apply configs from vim-sensible
-runtime! plugin/sensible.vim
+if !has('nvim')
+	runtime! plugin/sensible.vim
+endif
 
 
 
