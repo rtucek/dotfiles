@@ -102,6 +102,9 @@ set confirm
 "Deactivate folding
 set nofoldenable
 
+"Write hidden swap file in the same directory as the edited file
+set directory=.
+
 
 
 "-----MAPPINGS-----
