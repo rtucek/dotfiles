@@ -327,6 +327,9 @@ let g:vdebug_options= {
 	\ 'continuous_mode': 1
 \ }
 
+"bufexplorer
+let g:bufExplorerShowRelativePath = 1
+
 
 
 "-----VISUAL-----
