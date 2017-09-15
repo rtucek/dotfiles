@@ -337,6 +337,9 @@ let g:vdebug_options= {
 	\ 'watch_window_style': 'compact',
 \ }
 
+"bufexplorer
+let g:bufExplorerShowRelativePath = 1
+
 
 
 "-----VISUAL-----
