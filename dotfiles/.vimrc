@@ -105,6 +105,10 @@ set nofoldenable
 "Write hidden swap file in the same directory as the edited file
 set directory=.
 
+"Don't change default curosr
+"Kudos @binaryreverse https://github.com/neovim/neovim/issues/6005
+set guicursor=
+
 
 
 "-----MAPPINGS-----
