@@ -126,3 +126,5 @@ for file in ~/.{bash_prompt,path,exports,misc}; do
 	fi
 done
 unset file
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
