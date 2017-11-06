@@ -12,6 +12,7 @@ endif
 Plugin 'airblade/vim-gitgutter'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'djoshea/vim-autoread'
+Plugin 'dyng/ctrlsf.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ekalinin/dockerfile.vim'
@@ -34,7 +35,6 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'skwp/greplace.vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomtom/tlib_vim'
@@ -124,9 +124,6 @@ nnoremap * *N
 
 "Highlight selection
 vnoremap // y/\c<C-R>"<CR>N
-
-"Ack search
-nnoremap <Leader>a :Ack!<Space>
 
 "Removes the highlighted search results
 nmap <Leader><space> :nohlsearch<CR>
@@ -308,11 +305,15 @@ let g:gutentags_add_default_project_roots = 0
 set tags='.tags'
 
 "ack.vim
+let g:ackprg = 'ag --vimgrep'
+nnoremap <Leader>a :Ack!<Space>
 cnoreabbrev Ack Ack!
 
-"Grepreplace.vim
-set grepprg=ack
-let g:grep_cmd_opts = '--noheading'
+"ctrlsf.vim
+let g:ctrlsf_auto_close = 0
+let g:ctrlsf_extra_backend_args = {
+	\ 'ag': '--hidden'
+\ }
 
 "vim-gitgutter
 if exists('&signcolumn')
@@ -353,6 +354,11 @@ let g:vdebug_options = {
 
 "bufexplorer
 let g:bufExplorerShowRelativePath = 1
+
+" vim-go
+let g:syntastic_go_checkers = ['golint', 'govet', 'gometalinter']
+let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 
 
