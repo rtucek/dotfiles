@@ -11,7 +11,6 @@ endif
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'arnaud-lb/vim-php-namespace'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'djoshea/vim-autoread'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'editorconfig/editorconfig-vim'
@@ -23,6 +22,8 @@ Plugin 'gregsexton/matchtag'
 Plugin 'itchyny/lightline.vim'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'joonty/vdebug'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'lumiliet/vim-twig'
 Plugin 'magicalbanana/vim-sql-syntax'
@@ -197,20 +198,6 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\~$', '\.swp', '^\.tags$', '^tags$', 'Session.vim', '.git[[dir]]']
 nnoremap <Leader>d :NERDTreeToggle<CR>
 nnoremap <Leader>D :NERDTreeFind<CR>
-
-"CtrlP
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-let g:ctrlp_max_depth = 100
-let g:ctrlp_max_files = 30000
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_working_path_mode = ''
-let g:ctrlp_lazy_update = 1
-nnoremap <Leader>p :CtrlPBuffer<CR>
-nnoremap <Leader>pt :CtrlPBufTag<CR>
-nnoremap <Leader>pT :CtrlPBufTagAll<CR>
-let g:ctrlp_buftag_types = {
-	\ 'php'     : '--language-force=php --php-kinds=+cfid-v'
-\ }
 
 "Vim-Gutter
 set updatetime=250
