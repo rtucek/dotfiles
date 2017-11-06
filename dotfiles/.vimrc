@@ -124,9 +124,6 @@ nnoremap * *N
 "Highlight selection
 vnoremap // y/\c<C-R>"<CR>N
 
-"Ack search
-nnoremap <Leader>a :Ack!<Space>
-
 "Removes the highlighted search results
 nmap <Leader><space> :nohlsearch<CR>
 
@@ -310,6 +307,8 @@ let g:gutentags_add_default_project_roots = 0
 set tags='.tags'
 
 "ack.vim
+let g:ackprg = 'ag --vimgrep'
+nnoremap <Leader>a :Ack!<Space>
 cnoreabbrev Ack Ack!
 
 "Grepreplace.vim
