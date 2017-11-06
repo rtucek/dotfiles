@@ -106,7 +106,7 @@ set nofoldenable
 "Write hidden swap file in the same directory as the edited file
 set directory=.
 
-"Don't change default curosr
+"Don't change default cursor
 "Kudos @binaryreverse https://github.com/neovim/neovim/issues/6005
 set guicursor=
 
@@ -195,6 +195,17 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\~$', '\.swp', '^\.tags$', '^tags$', 'Session.vim', '.git[[dir]]']
 nnoremap <Leader>d :NERDTreeToggle<CR>
 nnoremap <Leader>D :NERDTreeFind<CR>
+
+"fzf
+nnoremap <C-P> :Files<CR>
+nnoremap <Leader>p :GFiles<CR>
+nnoremap <Leader>gp :GFiles?<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>l :BLines<CR>
+nnoremap <Leader>t :BTags<CR>
+nnoremap <Leader>com :Commits<CR>
+let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_buffers_jump = 1
 
 "Vim-Gutter
 set updatetime=250
