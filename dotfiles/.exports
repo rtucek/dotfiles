@@ -1,8 +1,29 @@
+# FZF
+export FZF_DEFAULT_COMMAND='
+	(
+		git ls-tree -r --name-only HEAD ||
+			find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+			sed s/^..//
+	) 2> /dev/null
+'
+
+export FZF_DEFAULT_OPTS='
+	--preview=" \
+		[[ $(file --mime {}) =~ binary ]] &&
+			echo {} is a binary file ||
+			(less {} | ccat --color=always) 2> /dev/null
+	"
+	--preview-window=right:hidden
+	--bind=ctrl-h:preview-down,ctrl-l:preview-up,ctrl-p:toggle-preview
+'
+
 # Set default editor
 export EDITOR=/usr/bin/nvim
 
+
 # Set default config for MySQL client
 export MYSQL_HOST=127.0.0.1
+
 
 # Set default config for PostgreSQL client
 export PGHOST=localhost
