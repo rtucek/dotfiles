@@ -13,6 +13,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'djoshea/vim-autoread'
+Plugin 'dyng/ctrlsf.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ekalinin/dockerfile.vim'
@@ -33,7 +34,6 @@ Plugin 'mileszs/ack.vim'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'skwp/greplace.vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomtom/tlib_vim'
@@ -308,9 +308,11 @@ set tags='.tags'
 "ack.vim
 cnoreabbrev Ack Ack!
 
-"Grepreplace.vim
-set grepprg=ack
-let g:grep_cmd_opts = '--noheading'
+"ctrlsf.vim
+let g:ctrlsf_auto_close = 0
+let g:ctrlsf_extra_backend_args = {
+	\ 'ag': '--hidden'
+\ }
 
 "vim-gitgutter
 if exists('&signcolumn')
