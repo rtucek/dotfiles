@@ -13,8 +13,8 @@ export FZF_DEFAULT_OPTS='
 			echo {} is a binary file ||
 			(less {} | ccat --color=always) 2> /dev/null
 	"
-	--preview-window=right:hidden
-	--bind=ctrl-h:preview-down,ctrl-l:preview-up,ctrl-p:toggle-preview
+	--preview-window="right:hidden"
+	--bind="ctrl-h:preview-down,ctrl-l:preview-up,ctrl-p:toggle-preview,f1:execute(ccat --color=always {} | less -NR)"
 '
 
 # Set default editor
