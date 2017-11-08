@@ -45,8 +45,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
 Plugin 'vim-php/tagbar-phpctags.vim'
 Plugin 'vim-scripts/tinykeymap'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'w0rp/ale'
 
 "COLORSCHEMES
 Plugin 'crusoexia/vim-monokai'
@@ -284,17 +284,6 @@ function! LightlineFilename()
 	return filename . modified
 endfunction
 
-"Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 "gutentags
 function! GetPwd(path)
 	return getcwd()
@@ -354,11 +343,6 @@ let g:vdebug_options = {
 
 "bufexplorer
 let g:bufExplorerShowRelativePath = 1
-
-" vim-go
-let g:syntastic_go_checkers = ['golint', 'govet', 'gometalinter']
-let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 
 
