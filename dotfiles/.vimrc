@@ -97,7 +97,7 @@ set nofoldenable
 
 "-----MAPPINGS-----
 "Quick edit ~/.vimrc
-nmap <Leader>ev :tabedit $MYVIMRC<CR>
+nmap <Leader>ev :e $MYVIMRC<CR>
 
 "Toggle Spell check
 nnoremap <Leader>s :set spell!<CR>:set spell?<CR>
