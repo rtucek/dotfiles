@@ -294,9 +294,9 @@ let g:gutentags_add_default_project_roots = 0
 set tags='.tags'
 
 "ack.vim
-let g:ackprg = 'ag --vimgrep'
-nnoremap <Leader>a :Ack!<Space>
+let g:ackprg = 'ag --vimgrep -a'
 cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
 
 "ctrlsf.vim
 let g:ctrlsf_auto_close = 0
