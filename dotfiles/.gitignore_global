@@ -4,4 +4,6 @@
 *~
 .DS_Store
 .tags
+.tags.lock
+.tags.temp
 Session.vim
