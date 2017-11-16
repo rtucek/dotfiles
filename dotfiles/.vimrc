@@ -197,7 +197,13 @@ let g:EditorConfig_preserve_formatoptions = 1
 
 "NERDTree
 let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\~$', '\.swp', '^\.tags$', '^tags$', 'Session.vim', '.git[[dir]]']
+let NERDTreeIgnore = [
+	\ '\~$',
+	\ '\.sw[op]$',
+	\'\.\=tags$', '^\.tags\.\(lock\|temp\)$',
+	\ '^Session.vim',
+	\ '^.git$[[dir]]',
+\ ]
 nnoremap <Leader>d :NERDTreeToggle<CR>
 nnoremap <Leader>D :NERDTreeFind<CR>
 
