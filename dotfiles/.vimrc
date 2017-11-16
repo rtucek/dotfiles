@@ -16,10 +16,9 @@ Plugin 'dyng/ctrlsf.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ekalinin/dockerfile.vim'
-Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
-Plugin 'garbas/vim-snipmate'
 Plugin 'gregsexton/matchtag'
+Plugin 'honza/vim-snippets'
 Plugin 'itchyny/lightline.vim'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'joonty/vdebug'
@@ -35,6 +34,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'SirVer/ultisnips'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomtom/tlib_vim'
@@ -43,6 +43,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-php/tagbar-phpctags.vim'
 Plugin 'vim-scripts/tinykeymap'
 Plugin 'VundleVim/Vundle.vim'
@@ -343,6 +344,11 @@ let g:vdebug_options = {
 
 "bufexplorer
 let g:bufExplorerShowRelativePath = 1
+
+"ultisnips
+let g:UltiSnipsExpandTrigger = '<Leader>st'
+let g:UltiSnipsJumpForwardTrigger = '<Leader>sn'
+let g:UltiSnipsJumpBackwardTrigger = '<Leader>sb'
 
 
 
