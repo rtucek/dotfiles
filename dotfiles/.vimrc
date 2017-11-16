@@ -345,6 +345,10 @@ let g:vdebug_options = {
 "bufexplorer
 let g:bufExplorerShowRelativePath = 1
 
+"youcompleteme
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 0
+
 "ultisnips
 let g:UltiSnipsExpandTrigger = '<Leader>st'
 let g:UltiSnipsJumpForwardTrigger = '<Leader>sn'
