@@ -100,7 +100,8 @@ set hidden
 set confirm
 
 "Deactivate folding
-set nofoldenable
+set foldenable
+set foldmethod=syntax
 
 "Write hidden swap file in the same directory as the edited file
 set directory=.
@@ -159,6 +160,9 @@ vnoremap p "_dP
 
 "Toggle relative line numbers
 nnoremap <Leader>r :set relativenumber!<CR>
+
+"Toggle folding
+nnoremap <Leader>f :set foldenable!<CR>
 
 
 
