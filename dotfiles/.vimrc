@@ -344,6 +344,13 @@ let g:vdebug_options = {
 "bufexplorer
 let g:bufExplorerShowRelativePath = 1
 
+"ale
+let g:ale_fixers = {
+	\ 'javascript': [
+		\ 'eslint',
+	\ ],
+\ }
+
 
 
 "-----VISUAL-----
