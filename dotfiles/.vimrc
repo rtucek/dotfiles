@@ -105,8 +105,8 @@ set confirm
 set foldenable
 set foldmethod=syntax
 
-"Write hidden swap file in the same directory as the edited file
-set directory=.
+"Don't use swapfiles
+set noswapfile
 
 "Don't change default cursor
 "Kudos @binaryreverse https://github.com/neovim/neovim/issues/6005
