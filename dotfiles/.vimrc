@@ -167,6 +167,9 @@ nnoremap <Leader>r :set relativenumber!<CR>
 "Toggle folding
 nnoremap <Leader>f :set foldenable!<CR>
 
+"Sudo write
+cmap w!! w !sudo tee > /dev/null %
+
 
 
 "-----AUTO-COMMANDS-----
