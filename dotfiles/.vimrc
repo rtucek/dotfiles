@@ -121,11 +121,19 @@ nmap <Leader>ev :e $MYVIMRC<CR>
 "Toggle Spell check
 nnoremap <Leader>s :set spell!<CR>:set spell?<CR>
 
-"Highlight word under cursor
+"Search word under cursor
 nnoremap * *N
+nnoremap # #N
 
-"Highlight selection
-vnoremap // y/\c<C-R>"<CR>N
+"Search selection
+function! s:VSetSearch()
+  let temp = @@
+  norm! gvy
+  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+  let @@ = temp
+endfunction
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>N
+vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>N
 
 "Removes the highlighted search results
 nmap <Leader><space> :nohlsearch<CR>
