@@ -28,6 +28,7 @@ Plugin 'lumiliet/vim-twig'
 Plugin 'magicalbanana/vim-sql-syntax'
 Plugin 'majutsushi/tagbar'
 Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'mbbill/undotree'
 Plugin 'mileszs/ack.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'qpkorr/vim-bufkill'
@@ -361,6 +362,12 @@ let g:syntastic_go_checkers = ['golint', 'govet', 'gometalinter']
 let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
+"undotree
+nnoremap <Leader><Leader>u :NERDTreeClose<CR>:UndotreeToggle<CR>
+if has("persistent_undo")
+    set undodir=~/.undodir/
+    set undofile
+endif
 
 
 "-----VISUAL-----
