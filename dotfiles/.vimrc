@@ -36,6 +36,7 @@ Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'StanAngeloff/php.vim'
+Plugin 'szw/vim-maximizer'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-fugitive'
@@ -343,6 +344,11 @@ let g:vdebug_options = {
 
 "bufexplorer
 let g:bufExplorerShowRelativePath = 1
+
+
+" vim-maximizer
+let g:maximizer_set_default_mapping = 0
+nmap <Leader>m :MaximizerToggle!<CR>
 
 
 
