@@ -38,6 +38,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'SirVer/ultisnips'
 Plugin 'StanAngeloff/php.vim'
+Plugin 'szw/vim-maximizer'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-fugitive'
@@ -404,6 +405,11 @@ if has("persistent_undo")
     set undodir=~/.undodir/
     set undofile
 endif
+
+" vim-maximizer
+let g:maximizer_set_default_mapping = 0
+nmap <Leader>m :MaximizerToggle!<CR>
+
 
 
 "-----VISUAL-----
