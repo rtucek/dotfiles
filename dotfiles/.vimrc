@@ -211,6 +211,12 @@ let g:fzf_buffers_jump = 1
 set updatetime=250
 
 "php.vim
+let php_html_load = 0
+let php_html_in_heredoc = 0
+let php_html_in_nowdoc = 0
+let php_sql_query = 0
+let php_sql_heredoc = 0
+let php_sql_nowdoc = 0
 function! PhpSyntaxOverride()
 	hi! def link phpDocTags	phpDefine
 	hi! def link phpDocParam phpType
