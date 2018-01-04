@@ -7,3 +7,6 @@ alias pbpaste='xclip -selection clipboard -o'
 
 # Set pager for mysql
 alias mysql='mysql --pager="less -FX"'
+
+# Avoid cursor changes
+alias nvim='VTE_VERSION="100" nvim'
