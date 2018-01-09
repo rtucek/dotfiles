@@ -10,7 +10,7 @@ export FZF_DEFAULT_OPTS='
 '
 
 # Set default editor
-export EDITOR=vim
+export EDITOR=nvim
 
 
 # Set default config for MySQL client
