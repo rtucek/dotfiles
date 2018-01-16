@@ -9,4 +9,4 @@ alias pbpaste='xclip -selection clipboard -o'
 alias mysql='mysql --pager="less -FX"'
 
 # Avoid cursor changes
-alias nvim='VTE_VERSION="100" nvim'
+alias nvim='VTE_VERSION="0" nvim'
