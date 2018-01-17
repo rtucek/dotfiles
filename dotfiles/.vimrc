@@ -445,10 +445,10 @@ set ignorecase
 set number
 
 "GitGutter
-highlight link GitGutterAdd DiffAdd
-highlight link GitGutterChange DiffChange
-highlight link GitGutterDelete DiffDelete
-highlight link GitGutterChangeDelete DiffChange
+highlight GitGutterAdd ctermfg=193 ctermbg=65 guifg=#d7ffaf guibg=#5f875f
+highlight GitGutterChange ctermfg=193 ctermbg=173 guifg=#FD9720 guibg=#2D2E27
+highlight link GitGutterChangeDelete GitGutterChange
+highlight GitGutterDelete ctermfg=193 ctermbg=167 guifg=#272822 guibg=#f75f5f
 
 "Tinykeymap
 let g:tinykeymaps_default = []
