@@ -21,6 +21,7 @@ endif
 
 " deoplete plugins
 Plugin 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+Plugin 'zchee/deoplete-go', { 'do': 'make'}
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'arnaud-lb/vim-php-namespace'
