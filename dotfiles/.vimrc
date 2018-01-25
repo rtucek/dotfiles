@@ -1,77 +1,72 @@
-"-----VUNDLE-----
 set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
+"-----VIM-PLUG-----
+call plug#begin('~/.vim/bundle')
 "PLUGINS
 " vim-sensible
 if !has('nvim')
-	Plugin 'tpope/vim-sensible'
+	Plug 'tpope/vim-sensible'
 endif
 
 " deoplete
 if has('nvim')
-	Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-	Plugin 'Shougo/deoplete.nvim'
-	Plugin 'roxma/nvim-yarp'
-	Plugin 'roxma/vim-hug-neovim-rpc'
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
 " deoplete plugins
-Plugin 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-Plugin 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 
-Plugin 'airblade/vim-gitgutter'
-Plugin 'arnaud-lb/vim-php-namespace'
-Plugin 'djoshea/vim-autoread'
-Plugin 'dyng/ctrlsf.vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'ekalinin/dockerfile.vim'
-Plugin 'fatih/vim-go'
-Plugin 'gregsexton/matchtag'
-Plugin 'honza/vim-snippets'
-Plugin 'itchyny/lightline.vim'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'joonty/vdebug'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'lumiliet/vim-twig'
-Plugin 'magicalbanana/vim-sql-syntax'
-Plugin 'majutsushi/tagbar'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'mbbill/undotree'
-Plugin 'mileszs/ack.vim'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'posva/vim-vue'
-Plugin 'qpkorr/vim-bufkill'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'SirVer/ultisnips'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'szw/vim-maximizer'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tomtom/tlib_vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-obsession'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-vinegar'
-Plugin 'vim-php/tagbar-phpctags.vim'
-Plugin 'vim-scripts/tinykeymap'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'w0rp/ale'
+Plug 'airblade/vim-gitgutter'
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'djoshea/vim-autoread'
+Plug 'dyng/ctrlsf.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ekalinin/dockerfile.vim'
+Plug 'fatih/vim-go'
+Plug 'gregsexton/matchtag'
+Plug 'honza/vim-snippets'
+Plug 'itchyny/lightline.vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'joonty/vdebug'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'lumiliet/vim-twig'
+Plug 'magicalbanana/vim-sql-syntax'
+Plug 'majutsushi/tagbar'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'mbbill/undotree'
+Plug 'mileszs/ack.vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'posva/vim-vue'
+Plug 'qpkorr/vim-bufkill'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'SirVer/ultisnips'
+Plug 'StanAngeloff/php.vim'
+Plug 'szw/vim-maximizer'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tomtom/tlib_vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-php/tagbar-phpctags.vim'
+Plug 'vim-scripts/tinykeymap'
+Plug 'w0rp/ale'
 
 "COLORSCHEMES
-Plugin 'crusoexia/vim-monokai'
-Plugin 'gosukiwi/vim-atom-dark'
-Plugin 'romainl/Apprentice'
+Plug 'crusoexia/vim-monokai'
+Plug 'gosukiwi/vim-atom-dark'
+Plug 'romainl/Apprentice'
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
 
 "vim-sensible
 "Apply configs from vim-sensible
