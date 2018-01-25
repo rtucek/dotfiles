@@ -5,9 +5,23 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "PLUGINS
+" vim-sensible
 if !has('nvim')
 	Plugin 'tpope/vim-sensible'
 endif
+
+" deoplete
+if has('nvim')
+	Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+	Plugin 'Shougo/deoplete.nvim'
+	Plugin 'roxma/nvim-yarp'
+	Plugin 'roxma/vim-hug-neovim-rpc'
+endif
+
+" deoplete plugins
+Plugin 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+Plugin 'zchee/deoplete-go', { 'do': 'make'}
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'arnaud-lb/vim-php-namespace'
@@ -46,7 +60,6 @@ Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-php/tagbar-phpctags.vim'
 Plugin 'vim-scripts/tinykeymap'
 Plugin 'VundleVim/Vundle.vim'
@@ -375,9 +388,12 @@ let g:vdebug_options = {
 "bufexplorer
 let g:bufExplorerShowRelativePath = 1
 
-"youcompleteme
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 0
+"deoplete
+let g:deoplete#enable_at_startup = 1
+
+"deoplete PHP
+let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
+let g:deoplete#ignore_sources.php = ['omni']
 
 "ultisnips
 let g:UltiSnipsExpandTrigger = '<Leader>st'
