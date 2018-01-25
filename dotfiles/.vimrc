@@ -1,17 +1,26 @@
 set nocompatible
 
 "-----VIM-PLUG-----
-call plug#begin('~/.vim/bundle')
+" Install vim-plug automatically
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 "PLUGINS
-" vim-sensible
+call plug#begin('~/.vim/bundle')
+" vim-sensible - ONLY for vim
 if !has('nvim')
 	Plug 'tpope/vim-sensible'
 endif
 
 " deoplete
 if has('nvim')
+	" neovim
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
+	" vim
 	Plug 'Shougo/deoplete.nvim'
 	Plug 'roxma/nvim-yarp'
 	Plug 'roxma/vim-hug-neovim-rpc'
