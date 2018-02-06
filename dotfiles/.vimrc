@@ -259,7 +259,7 @@ let g:NERDSpaceDelims = 1
 noremap <Leader>gstatus :Gstatus<CR>
 noremap <Leader>gcommit :Gcommit -ev<space>
 noremap <Leader>glog :Glog<CR>
-noremap <Leader>gblame :Gblame<CR>
+noremap <Leader>gblame :Gblame w<CR>
 noremap <Leader>gmv :Gmove<CR>
 noremap <Leader>grm :Gremove<CR>
 
