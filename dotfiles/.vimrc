@@ -243,9 +243,9 @@ nnoremap <Leader>D :NERDTreeFind<CR>
 nnoremap <C-P> :Files<CR>
 nnoremap <Leader>p :GFiles<CR>
 nnoremap <Leader>gp :GFiles?<CR>
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>l :BLines<CR>
-nnoremap <Leader>t :BTags<CR>
+nnoremap <Leader>bl :Buffers<CR>
+nnoremap <Leader>fl :BLines<CR>
+nnoremap <Leader>tag :BTags<CR>
 nnoremap <Leader>com :Commits<CR>
 let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_buffers_jump = 1
