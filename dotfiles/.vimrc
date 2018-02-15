@@ -364,10 +364,11 @@ let g:gitgutter_sign_modified = '±'
 let g:gitgutter_sign_modified_removed = '±'
 
 "vim-markdown
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'sql']
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'sql', 'json']
 augroup vimMarkdownAutocmd
 	autocmd!
 	autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+	autocmd BufNewFile,BufReadPost *.md.erb set filetype=markdown
 augroup END
 
 "vdebug
