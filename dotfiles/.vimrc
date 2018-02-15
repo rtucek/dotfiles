@@ -191,6 +191,7 @@ vnoremap p "_dP
 
 "Toggle relative line numbers
 nnoremap <Leader>r :set relativenumber!<CR>
+vnoremap <Leader>r <ESC>:set relativenumber!<CR>gv
 
 "Toggle folding
 nnoremap <Leader>f :set foldenable!<CR>
