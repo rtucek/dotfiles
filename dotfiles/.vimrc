@@ -42,7 +42,6 @@ Plug 'gregsexton/matchtag'
 Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'joonty/vdebug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
@@ -75,7 +74,6 @@ Plug 'w0rp/ale'
 Plug 'crusoexia/vim-monokai'
 Plug 'gosukiwi/vim-atom-dark'
 Plug 'romainl/Apprentice'
-
 call plug#end()
 
 "vim-sensible
