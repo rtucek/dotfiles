@@ -145,10 +145,10 @@ nnoremap # #N
 
 "Search selection
 function! s:VSetSearch()
-  let temp = @@
-  norm! gvy
-  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-  let @@ = temp
+	let temp = @@
+	norm! gvy
+	let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+	let @@ = temp
 endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>N
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>N
@@ -272,7 +272,7 @@ augroup END
 let g:php_namespace_sort_after_insert = 1
 function! IPhpInsertUse()
 	call PhpInsertUse()
-	call feedkeys('a',  'n')
+	call feedkeys('a', 'n')
 endfunction
 
 "Expand Namespace
@@ -435,8 +435,8 @@ let g:ale_fixers = {
 "undotree
 nnoremap <Leader><Leader>u :NERDTreeClose<CR>:UndotreeToggle<CR>
 if has("persistent_undo")
-    set undodir=~/.undodir/
-    set undofile
+	set undodir=~/.undodir/
+	set undofile
 endif
 
 " vim-maximizer
@@ -489,13 +489,13 @@ call tinykeymap#Map('windows', '<C-down>', 'wincmd -')
 
 "-----DIFF COLORSCHEME-----
 "When viewing a diff or patch file
-highlight diffAdded     term=bold ctermbg=none ctermfg=green  cterm=bold guibg=DarkGreen   guifg=white gui=none
-highlight diffChanged   term=bold ctermbg=none ctermfg=yellow cterm=bold guibg=DarkYellow  guifg=white gui=none
-highlight diffFile      term=bold ctermbg=none ctermfg=blue   cterm=bold guibg=DarkYellow  guifg=white gui=none
-highlight diffIndexLine term=bold ctermbg=none ctermfg=cyan   cterm=bold guibg=DarkRed     guifg=white gui=none
-highlight diffLine      term=bold ctermbg=none ctermfg=yellow cterm=bold guibg=DarkMagenta guifg=white gui=none
-highlight diffRemoved   term=bold ctermbg=none ctermfg=red    cterm=bold guibg=DarkRed     guifg=white gui=none
-highlight diffSubname   term=bold ctermbg=none ctermfg=yellow cterm=none guibg=DarkYellow  guifg=white gui=none
+highlight diffAdded	term=bold	ctermbg=none	ctermfg=green	cterm=bold	guibg=DarkGreen		guifg=white	gui=none
+highlight diffChanged	term=bold	ctermbg=none	ctermfg=yellow	cterm=bold	guibg=DarkYellow	guifg=white	gui=none
+highlight diffFile	term=bold	ctermbg=none	ctermfg=blue	cterm=bold	guibg=DarkYellow	guifg=white	gui=none
+highlight diffIndexLine	term=bold	ctermbg=none	ctermfg=cyan	cterm=bold	guibg=DarkRed		guifg=white	gui=none
+highlight diffLine	term=bold	ctermbg=none	ctermfg=yellow	cterm=bold	guibg=DarkMagenta	guifg=white	gui=none
+highlight diffRemoved	term=bold	ctermbg=none	ctermfg=red	cterm=bold	guibg=DarkRed		guifg=white	gui=none
+highlight diffSubname	term=bold	ctermbg=none	ctermfg=yellow	cterm=none	guibg=DarkYellow	guifg=white	gui=none
 
 if &diff
 	colorscheme apprentice
