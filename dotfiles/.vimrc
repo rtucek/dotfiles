@@ -68,6 +68,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-php/tagbar-phpctags.vim'
 Plug 'vim-scripts/tinykeymap'
+Plug 'vim-vdebug/vdebug'
 Plug 'w0rp/ale'
 
 "COLORSCHEMES
