@@ -208,6 +208,9 @@ com! DiffSaved call s:DiffWithSaved()
 "Show visual mark, depending on max_line_length value
 let g:EditorConfig_max_line_indicator = "line"
 let g:EditorConfig_preserve_formatoptions = 1
+let g:EditorConfig_exclude_patterns = [
+	\ '.*\.git[\\/].*\.diff',
+\ ]
 
 "NERDTree
 let NERDTreeShowHidden=1
