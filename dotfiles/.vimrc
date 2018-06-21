@@ -446,11 +446,6 @@ let g:maximizer_set_default_mapping = 0
 nmap <Leader>m :MaximizerToggle!<CR>
 
 " vim-vue
-augroup vimVue
-	autocmd!
-	" allow existing tools to detect html, js and css
-	autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
-augroup END
 " Fix commenting for NERDCommenter
 let g:ft = ''
 function! NERDCommenter_before()
