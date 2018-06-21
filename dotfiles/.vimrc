@@ -382,6 +382,7 @@ let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
 
 "ale
+let g:ale_linters_explicit = 1
 let g:ale_fixers = {
 	\ 'javascript': [
 		\ 'eslint',
