@@ -156,7 +156,7 @@ vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>N
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>N
 
 "Removes the highlighted search results
-nmap <Leader><space> :nohlsearch<CR>
+nmap <silent> <Leader><space> :nohlsearch<CR>
 
 "Tab navigation
 nnoremap <Leader>tab :tabnew<space>
@@ -179,22 +179,22 @@ nnoremap <Leader>fwe :%s/^ //g<CR>:nohlsearch<CR>
 nnoremap <Leader>uex :%s/    /\t/g<CR>:nohlsearch<CR>
 
 "Move lines up and down in visual mode
-vnoremap <C-J> :m '>+1<CR>gv
-vnoremap <C-K> :m '<-2<CR>gv
+vnoremap <silent> <C-J> :m '>+1<CR>gv
+vnoremap <silent> <C-K> :m '<-2<CR>gv
 
 "(Un-)Indent lines and preserve selection
-vnoremap < <<CR>gv
-vnoremap > ><CR>gv
+vnoremap <silent> < <<CR>gv
+vnoremap <silent> > ><CR>gv
 
 "Don't yank selected text after overwriting via paste
-vnoremap p "_dP
+vnoremap <silent> p "_dP
 
 "Toggle relative line numbers
-nnoremap <Leader>r :set relativenumber!<CR>
-vnoremap <Leader>r <ESC>:set relativenumber!<CR>gv
+nnoremap <Leader>r :set relativenumber!<CR>:set relativenumber?<CR>
+vnoremap <silent> <Leader>r <ESC>:set relativenumber!<CR>gv
 
 "Toggle folding
-nnoremap <Leader>f :set foldenable!<CR>
+nnoremap <Leader>f :set foldenable!<CR>:set foldenable?<CR>
 
 "Sudo write
 cmap w!! w !sudo tee > /dev/null %
