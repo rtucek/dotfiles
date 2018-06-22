@@ -90,7 +90,7 @@ set backspace=indent,eol,start
 
 "Set language for spell check
 setlocal spell spelllang=en_us
-set nospell
+set spell
 
 "Fixing tabs and indentation
 set autoindent
@@ -489,6 +489,12 @@ highlight diffSubname   term=bold ctermbg=none ctermfg=yellow cterm=none guibg=D
 if &diff
 	colorscheme apprentice
 endif
+
+
+
+"Override no matter what colorscheme
+highlight clear SpellBad
+highlight SpellBad cterm=bold,underline ctermfg=red
 
 
 
