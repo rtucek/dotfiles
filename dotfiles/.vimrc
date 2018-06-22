@@ -428,6 +428,10 @@ let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
 
 "ale
+nnoremap <silent> [e :ALEPreviousWrap<CR>
+nnoremap <silent> ]e :ALENextWrap<CR>
+let g:ale_completion_enabled = 1
+let g:ale_set_highlights = 0
 let g:ale_linters_explicit = 1
 let g:ale_fixers = {
 	\ 'javascript': [
