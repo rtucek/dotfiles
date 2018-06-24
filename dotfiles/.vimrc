@@ -31,6 +31,7 @@ Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 Plug 'airblade/vim-gitgutter'
+Plug 'alvan/vim-closetag'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'djoshea/vim-autoread'
 Plug 'dyng/ctrlsf.vim'
@@ -471,6 +472,9 @@ function! NERDCommenter_after()
 		let g:ft = ''
 	endif
 endfunction
+
+" vim-closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue,*.twig'
 
 
 
