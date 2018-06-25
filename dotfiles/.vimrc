@@ -136,7 +136,7 @@ set guicursor=n-v-c-sm-i-ci-ve-r-cr-o:hor20-blinkwait300-blinkon200-blinkoff150
 
 "-----MAPPINGS-----
 "Quick edit ~/.vimrc
-nmap <Leader>ev :e $MYVIMRC<CR>
+nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 
 "Toggle Spell check
 nnoremap <Leader>s :set spell!<CR>:set spell?<CR>
@@ -160,8 +160,8 @@ nmap <silent> <Leader><space> :nohlsearch<CR>
 
 "Tab navigation
 nnoremap <Leader>tab :tabnew<space>
-nnoremap <Leader>w :tabclose<CR>
-nnoremap <Leader>tabthis :tabnew %<CR>:tabprevious<CR>
+nnoremap <silent> <Leader>w :tabclose<CR>
+nnoremap <silent> <Leader>tabthis :tabnew %<CR>:tabprevious<CR>
 
 "Split Management
 nmap <C-J> <C-W><C-J>
@@ -190,7 +190,7 @@ vnoremap <silent> > ><CR>gv
 vnoremap <silent> p "_dP
 
 "Toggle relative line numbers
-nnoremap <Leader>r :set relativenumber!<CR>:set relativenumber?<CR>
+nnoremap <silent> <Leader>r :set relativenumber!<CR>:set relativenumber?<CR>
 vnoremap <silent> <Leader>r <ESC>:set relativenumber!<CR>gv
 
 "Toggle folding
@@ -240,17 +240,17 @@ let NERDTreeIgnore = [
 	\ '^Session.vim',
 	\ '^.git$[[dir]]',
 \ ]
-nnoremap <Leader>d :NERDTreeToggle<CR>
-nnoremap <Leader>D :NERDTreeFind<CR>
+nnoremap <silent> <Leader>d :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>D :NERDTreeFind<CR>
 
 "fzf
-nnoremap <C-P> :Files<CR>
-nnoremap <Leader>p :GFiles<CR>
-nnoremap <Leader>gp :GFiles?<CR>
-nnoremap <Leader>bl :Buffers<CR>
-nnoremap <Leader>fl :BLines<CR>
-nnoremap <Leader>tag :BTags<CR>
-nnoremap <Leader>com :Commits<CR>
+nnoremap <silent> <C-P> :Files<CR>
+nnoremap <silent> <Leader>p :GFiles<CR>
+nnoremap <silent> <Leader>gp :GFiles?<CR>
+nnoremap <silent> <Leader>bl :Buffers<CR>
+nnoremap <silent> <Leader>fl :BLines<CR>
+nnoremap <silent> <Leader>tag :BTags<CR>
+nnoremap <silent> <Leader>com :Commits<CR>
 let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_buffers_jump = 1
 
@@ -298,11 +298,11 @@ augroup END
 let g:NERDSpaceDelims = 1
 
 "vim-fugitive
-noremap <Leader>gstatus :Gstatus<CR>
-noremap <Leader>gblame :Gblame w<CR>
+noremap <silent> <Leader>gstatus :Gstatus<CR>
+noremap <silent> <Leader>gblame :Gblame w<CR>
 
 "tagbar
-nnoremap <Leader>tb :TagbarToggle<CR>
+nnoremap <silent> <Leader>tb :TagbarToggle<CR>
 let g:tagbar_phpctags_bin='/usr/local/bin/phpctags'
 let g:tagbar_autoclose = 1
 
@@ -436,7 +436,7 @@ let g:ale_fixers = {
 \ }
 
 "undotree
-nnoremap <Leader><Leader>u :NERDTreeClose<CR>:UndotreeToggle<CR>
+nnoremap <silent> <Leader><Leader>u :NERDTreeClose<CR>:UndotreeToggle<CR>
 if has("persistent_undo")
 	set undodir=~/.undodir/
 	set undofile
@@ -444,7 +444,7 @@ endif
 
 " vim-maximizer
 let g:maximizer_set_default_mapping = 0
-nmap <Leader>m :MaximizerToggle!<CR>
+nmap <silent> <Leader>m :MaximizerToggle!<CR>
 
 " vim-vue
 " Fix commenting for NERDCommenter
