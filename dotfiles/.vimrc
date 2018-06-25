@@ -169,9 +169,6 @@ nmap <C-K> <C-W><C-K>
 nmap <C-H> <C-W><C-H>
 nmap <C-L> <C-W><C-L>
 
-"ctags
-nmap <Leader>f :tagselect<space>
-
 "Fix whitespace errors
 nnoremap <Leader>fwe :%s/^ //g<CR>:nohlsearch<CR>
 
@@ -307,6 +304,7 @@ let g:tagbar_autoclose = 1
 
 "lightline
 set laststatus=2
+set noshowmode
 let g:lightline = {
 	\ 'colorscheme': 'landscape',
 	\ 'active': {
