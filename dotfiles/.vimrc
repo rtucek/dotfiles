@@ -343,15 +343,17 @@ let g:gutentags_add_default_project_roots = 0
 set tags='.tags'
 
 "ack.vim
-let g:ackprg = 'ag --vimgrep -a'
+let g:ackprg = 'ag --vimgrep --hidden --smart-case --ignore .git/'
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 
 "ctrlsf.vim
+let g:ctrlsf_regex_pattern = 1
 let g:ctrlsf_auto_close = 0
 let g:ctrlsf_extra_backend_args = {
-	\ 'ag': '--hidden'
+	\ 'ag': '--hidden --smart-case --ignore .git/'
 \ }
+nnoremap <Leader>A :CtrlSF<Space>
 
 "vim-gitgutter
 if exists('&signcolumn')
