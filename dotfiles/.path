@@ -3,3 +3,8 @@ export PATH=$PATH:/usr/local/go/bin:~/go/bin
 
 # Add PHP executable to PATH
 export PATH=$PATH:~/.config/composer/vendor/bin:~/.composer/vendor/bin
+
+# Add NPM executables to PATH
+if [[ ! "$PATH" == *~/.npm-packages/bin* ]]; then
+	export PATH="$PATH:~/.npm-packages/bin"
+fi
