@@ -1,5 +1,15 @@
 # Add go binaries to PATH
-export PATH=$PATH:/usr/local/go/bin:~/go/bin
+if [[ ! "$PATH" == */usr/local/go/bin* ]]; then
+	export PATH="$PATH:/usr/local/go/bin"
+fi
+if [[ ! "$PATH" == *~/go/bin* ]]; then
+	export PATH="$PATH:~/go/bin"
+fi
 
-# Add PHP executable to PATH
-export PATH=$PATH:~/.config/composer/vendor/bin:~/.composer/vendor/bin
+# Add PHP executables to PATH
+if [[ ! "$PATH" == *~/.config/composer/vendor/bin* ]]; then
+	export PATH="$PATH:~/.config/composer/vendor/bin"
+fi
+if [[ ! "$PATH" == *~/.composer/vendor/bin* ]]; then
+	export PATH="$PATH:~/.composer/vendor/bin"
+fi
