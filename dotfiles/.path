@@ -13,3 +13,8 @@ fi
 if [[ ! "$PATH" == *~/.composer/vendor/bin* ]]; then
 	export PATH="$PATH:~/.composer/vendor/bin"
 fi
+
+# Add NPM executables to PATH
+if [[ ! "$PATH" == *~/.npm-packages/bin* ]]; then
+	export PATH="$PATH:~/.npm-packages/bin"
+fi
