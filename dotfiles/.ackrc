@@ -1,8 +1,0 @@
---ignore-case
-
---ignore-dir=.git
---ignore-dir=.svn
-
---ignore-file=is:.tags
-
---type-set=sass=.sass,.scss
