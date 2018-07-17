@@ -333,12 +333,7 @@ function! LightlineFilename()
 endfunction
 
 "gutentags
-function! GetPwd(path)
-	return getcwd()
-endfunction
-let g:gutentags_project_root_finder='GetPwd'
 let g:gutentags_ctags_tagfile = '.tags'
-let g:gutentags_add_default_project_roots = 0
 set tags='.tags'
 
 "ack.vim
