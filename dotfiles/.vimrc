@@ -249,8 +249,8 @@ nnoremap <silent> <Leader>D :NERDTreeFind<CR>
 nnoremap <silent> <C-P> :Files<CR>
 nnoremap <silent> <Leader>p :GFiles<CR>
 nnoremap <silent> <Leader>gp :GFiles?<CR>
-nnoremap <silent> <Leader>bl :Buffers<CR>
-nnoremap <silent> <Leader>fl :BLines<CR>
+nnoremap <silent> <Leader>buf :Buffers<CR>
+nnoremap <silent> <Leader>lin :BLines<CR>
 nnoremap <silent> <Leader>tag :BTags<CR>
 nnoremap <silent> <Leader>com :Commits<CR>
 let g:fzf_layout = { 'down': '~40%' }
