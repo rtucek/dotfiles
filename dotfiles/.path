@@ -2,19 +2,19 @@
 if [[ ! "$PATH" == */usr/local/go/bin* ]]; then
 	export PATH="$PATH:/usr/local/go/bin"
 fi
-if [[ ! "$PATH" == *~/go/bin* ]]; then
-	export PATH="$PATH:~/go/bin"
+if [[ ! "$PATH" == *${HOME}/go/bin* ]]; then
+	export PATH="$PATH:${HOME}/go/bin"
 fi
 
 # Add PHP executables to PATH
-if [[ ! "$PATH" == *~/.config/composer/vendor/bin* ]]; then
-	export PATH="$PATH:~/.config/composer/vendor/bin"
+if [[ ! "$PATH" == *${HOME}/.config/composer/vendor/bin* ]]; then
+	export PATH="$PATH:${HOME}/.config/composer/vendor/bin"
 fi
-if [[ ! "$PATH" == *~/.composer/vendor/bin* ]]; then
-	export PATH="$PATH:~/.composer/vendor/bin"
+if [[ ! "$PATH" == *${HOME}/.composer/vendor/bin* ]]; then
+	export PATH="$PATH:${HOME}/.composer/vendor/bin"
 fi
 
 # Add NPM executables to PATH
-if [[ ! "$PATH" == *~/.npm-packages/bin* ]]; then
-	export PATH="$PATH:~/.npm-packages/bin"
+if [[ ! "$PATH" == *${HOME}/.npm-packages/bin* ]]; then
+	export PATH="$PATH:${HOME}/.npm-packages/bin"
 fi
