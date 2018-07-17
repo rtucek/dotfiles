@@ -55,6 +55,7 @@ Plug 'mileszs/ack.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'posva/vim-vue'
 Plug 'qpkorr/vim-bufkill'
+Plug 'rayburgemeestre/phpfolding.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'SirVer/ultisnips'
@@ -395,7 +396,7 @@ let g:bufExplorerShowRelativePath = 1
 "deoplete
 let g:deoplete#enable_at_startup = 1
 
-"deoplete PHP
+"deoplete PHP (phpcd.vim)
 let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
 let g:deoplete#ignore_sources.php = ['omni']
 
