@@ -22,6 +22,36 @@ DOTFILES=(
 
 SCRIPTPATH="$(cd "$(dirname "$0")"; pwd -P )"
 
+sr() {
+	echo "$0" | sed -r 's/[a-zA-Z\.\/]/ /g'
+}
+
+print_help() {
+	printf "%s" "\
+Usage: $0
+		[-h | --help]
+		<command>
+
+Options:
+	-h | --help
+		Show this help
+
+Commands:
+	import
+		Import dotfiles from the current user's home directory.
+		See \`$0 list\` for all files.
+	export
+		Export all dotfiles from this repository into the current user's
+		home directory.
+	list
+		List all available dotfiles in the current user's home
+		directory. These files are going to be imported by
+		\`$0 list\`
+	help
+		Sow this help
+"
+}
+
 import_dotfiles() {
 	echo "Imported the following files:"
 	for dotfile in "${DOTFILES[@]}"; do
@@ -50,16 +80,20 @@ list_dotfiles() {
 }
 
 case "$1" in
-	-i)
+	-h | --help | help)
+		print_help
+		;;
+	import)
 		import_dotfiles
 		;;
-	-e)
+	export)
 		export_dotfiles
 		;;
-	-l)
-		list
+	list)
+		list_dotfiles
 		;;
 	*)
 		echo "Command not found" >&2
+		echo "Hint: $0 --help"
 		exit 1
 esac
