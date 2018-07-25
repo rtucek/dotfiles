@@ -13,6 +13,7 @@ DOTFILES=(
 	".gitconfig"			\
 	".gitignore_global"		\
 	".misc"				\
+	".my.cnf"			\
 	".notags"			\
 	".path"				\
 	".selected_editor"		\
