@@ -4,11 +4,11 @@ My dotfiles - use them and contribute your personal changes/suggestions.
 
 ### Installation (export)
 
-Copy all files over the current existing ones (this will effectivly overwrite
+Copy all files over the current existing ones (this will effectively overwrite
 any current settings).
 
 ```
-make export
+./setup export
 ```
 
 ### Publish settings (import)
@@ -16,7 +16,7 @@ make export
 Copies a list of files into the current workspace, ready for committing.
 
 ```
-make import
+./setup import
 ```
 
 ### Contribution
