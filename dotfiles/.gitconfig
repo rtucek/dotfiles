@@ -20,11 +20,13 @@
 	verbose = true
 [merge]
 	ff = false
-	tool = vimdiff
+	tool = nvimdiff
 	conflictstyle = diff3
 	log = true
 [mergetool]
 	prompt = true
+[mergetool "nvimdiff"]
+	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [pull]
 	rebase = preserve
 [fetch]
@@ -33,6 +35,11 @@
 	program = gpg
 [diff]
 	renames = copies
+	tool = nvimdiff
+[difftool]
+	prompt = true
+[difftool "nvimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE -c '$wincmd w' -c 'wincmd L'
 [push]
 	default = simple
 [include]
