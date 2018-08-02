@@ -61,6 +61,7 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'rayburgemeestre/phpfolding.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'StanAngeloff/php.vim'
 Plug 'szw/vim-maximizer'
@@ -80,6 +81,8 @@ Plug 'w0rp/ale'
 "COLORSCHEMES
 Plug 'crusoexia/vim-monokai'
 Plug 'gosukiwi/vim-atom-dark'
+Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
 Plug 'romainl/Apprentice'
 call plug#end()
 
@@ -312,7 +315,7 @@ let g:tagbar_autoclose = 1
 set laststatus=2
 set noshowmode
 let g:lightline = {
-	\ 'colorscheme': 'landscape',
+	\ 'colorscheme': 'onedark',
 	\ 'active': {
 		\ 'left': [
 			\ ['mode', 'paste'],
@@ -483,7 +486,7 @@ syntax enable
 
 set t_ut=
 set t_Co=256
-colorscheme monokai
+colorscheme onedark
 
 "Always display tabline
 set showtabline=2
@@ -502,12 +505,6 @@ set ignorecase
 "Show line numbers
 set number
 
-"GitGutter
-highlight GitGutterAdd ctermfg=193 ctermbg=65 guifg=#d7ffaf guibg=#5f875f
-highlight GitGutterChange ctermfg=193 ctermbg=173 guifg=#FD9720 guibg=#2D2E27
-highlight link GitGutterChangeDelete GitGutterChange
-highlight GitGutterDelete ctermfg=193 ctermbg=167 guifg=#272822 guibg=#f75f5f
-
 "Tinykeymap
 let g:tinykeymaps_default = []
 call tinykeymap#Load('windows')
@@ -515,28 +512,6 @@ call tinykeymap#Map('windows', '<C-right>', 'wincmd >')
 call tinykeymap#Map('windows', '<C-left>', 'wincmd <')
 call tinykeymap#Map('windows', '<C-up>', 'wincmd +')
 call tinykeymap#Map('windows', '<C-down>', 'wincmd -')
-
-
-
-"-----DIFF COLORSCHEME-----
-"When viewing a diff or patch file
-highlight diffAdded	term=bold	ctermbg=none	ctermfg=green	cterm=bold	guibg=DarkGreen		guifg=white	gui=none
-highlight diffChanged	term=bold	ctermbg=none	ctermfg=yellow	cterm=bold	guibg=DarkYellow	guifg=white	gui=none
-highlight diffFile	term=bold	ctermbg=none	ctermfg=blue	cterm=bold	guibg=DarkYellow	guifg=white	gui=none
-highlight diffIndexLine	term=bold	ctermbg=none	ctermfg=cyan	cterm=bold	guibg=DarkRed		guifg=white	gui=none
-highlight diffLine	term=bold	ctermbg=none	ctermfg=yellow	cterm=bold	guibg=DarkMagenta	guifg=white	gui=none
-highlight diffRemoved	term=bold	ctermbg=none	ctermfg=red	cterm=bold	guibg=DarkRed		guifg=white	gui=none
-highlight diffSubname	term=bold	ctermbg=none	ctermfg=yellow	cterm=none	guibg=DarkYellow	guifg=white	gui=none
-
-if &diff
-	colorscheme apprentice
-endif
-
-
-
-"Override no matter what colorscheme
-highlight clear SpellBad
-highlight SpellBad cterm=bold,underline ctermfg=red
 
 
 
