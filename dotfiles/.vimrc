@@ -1,7 +1,7 @@
 set nocompatible
 
 "-----VIM-PLUG-----
-" Install vim-plug automatically
+"Install vim-plug automatically
 if empty(glob('~/.vim/autoload/plug.vim'))
 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -10,23 +10,23 @@ endif
 
 "PLUGINS
 call plug#begin('~/.vim/bundle')
-" vim-sensible - ONLY for vim
+"vim-sensible - ONLY for vim
 if !has('nvim')
 	Plug 'tpope/vim-sensible'
 endif
 
-" deoplete
+"deoplete
 if has('nvim')
-	" neovim
+	"neovim
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-	" vim
+	"vim
 	Plug 'Shougo/deoplete.nvim'
 	Plug 'roxma/nvim-yarp'
 	Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-" deoplete plugins
+"deoplete plugins
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
@@ -446,12 +446,12 @@ if has("persistent_undo")
 	set undofile
 endif
 
-" vim-maximizer
+"vim-maximizer
 let g:maximizer_set_default_mapping = 0
 nmap <silent> <Leader>m :MaximizerToggle!<CR>
 
-" vim-vue
-" Fix commenting for NERDCommenter
+"vim-vue
+"Fix commenting for NERDCommenter
 let g:ft = ''
 function! NERDCommenter_before()
 	if &ft == 'vue'
@@ -472,7 +472,7 @@ function! NERDCommenter_after()
 	endif
 endfunction
 
-" vim-closetag
+"vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue,*.twig'
 
 
