@@ -47,9 +47,9 @@ Commands:
 	list
 		List all available dotfiles in the current user's home
 		directory. These files are going to be imported by
-		\`$0 list\`
+		\`$0 import\`
 	help
-		Sow this help
+		Show this help
 "
 }
 
