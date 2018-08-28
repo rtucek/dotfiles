@@ -18,6 +18,8 @@
 [commit]
 	gpgsign = true
 	verbose = true
+[tag]
+	forceSignAnnotated = true
 [merge]
 	ff = false
 	tool = nvimdiff
