@@ -22,10 +22,6 @@ DOTFILES=(
 
 SCRIPTPATH="$(cd "$(dirname "$0")"; pwd -P )"
 
-sr() {
-	echo "$0" | sed -r 's/[a-zA-Z\.\/]/ /g'
-}
-
 print_help() {
 	printf "%s" "\
 Usage: $0
