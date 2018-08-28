@@ -55,8 +55,11 @@ Commands:
 import_dotfiles() {
 	echo "Imported the following files:"
 	for dotfile in "${DOTFILES[@]}"; do
+		if [ ! -d "${SCRIPTPATH}/dotfiles/${dotfile}" ]; then
+			mkdir -p "${SCRIPTPATH}/dotfiles/$(dirname $dotfile)"
+		fi
 		if [ -f "${HOME}/${dotfile}" ]; then
-			cp "${HOME}/${dotfile}" "${SCRIPTPATH}/dotfiles"
+			cp "${HOME}/${dotfile}" "${SCRIPTPATH}/dotfiles/${dotfile}"
 			echo "${HOME}/${dotfile}"
 		fi
 	done;
@@ -65,14 +68,17 @@ import_dotfiles() {
 export_dotfiles() {
 	echo "Export the following files:"
 	for dotfile in "${DOTFILES[@]}"; do
-		cp "${SCRIPTPATH}/dotfiles/${dotfile}" "${HOME}"
+		if [ ! -d "${HOME}/$(dirname $dotfile)" ]; then
+			mkdir -p "${HOME}/$(dirname $dotfile)"
+		fi
+		cp "${SCRIPTPATH}/dotfiles/${dotfile}" "${HOME}/${dotfile}"
 		echo "$dotfile"
 	done;
 }
 
 list_dotfiles() {
 	echo "Dotfiles to be considered are:"
-	for dotfile in ${DOTFILES[@]}; do
+	for dotfile in "${DOTFILES[@]}"; do
 		if [ -f "${HOME}/${dotfile}" ]; then
 			echo "${HOME}/${dotfile}";
 		fi
