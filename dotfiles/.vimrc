@@ -250,6 +250,7 @@ nnoremap <silent> <Leader>D :NERDTreeFind<CR>
 
 "fzf
 nnoremap <silent> <C-P> :Files<CR>
+nnoremap <silent> <Leader>cwdp :Files <C-R>=expand('%:p:h') . '/'<CR><CR>
 nnoremap <silent> <Leader>p :GFiles<CR>
 nnoremap <silent> <Leader>gp :GFiles?<CR>
 nnoremap <silent> <Leader>buf :Buffers<CR>
