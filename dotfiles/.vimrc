@@ -476,7 +476,7 @@ function! NERDCommenter_after()
 endfunction
 
 "vim-closetag
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue,*.twig'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue,*.twig,*.blade.php'
 
 
 
