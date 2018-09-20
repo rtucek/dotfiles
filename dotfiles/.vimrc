@@ -59,13 +59,13 @@ Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue'
 Plug 'qpkorr/vim-bufkill'
 Plug 'rayburgemeestre/phpfolding.vim'
-Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'SirVer/ultisnips'
 Plug 'StanAngeloff/php.vim'
 Plug 'szw/vim-maximizer'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tlib_vim'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-obsession'
@@ -295,9 +295,6 @@ augroup phpInsertUseAutocmd
 	autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
 	autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 augroup END
-
-"NERDCommenter
-let g:NERDSpaceDelims = 1
 
 "vim-fugitive
 noremap <silent> <Leader>gstatus :Gstatus<CR>
