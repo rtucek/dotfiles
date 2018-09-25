@@ -75,7 +75,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-php/tagbar-phpctags.vim'
 Plug 'vim-scripts/tinykeymap'
-Plug 'vim-vdebug/vdebug'
 Plug 'w0rp/ale'
 
 "COLORSCHEMES
@@ -372,25 +371,6 @@ augroup vimMarkdownAutocmd
 	autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 	autocmd BufNewFile,BufReadPost *.md.erb set filetype=markdown
 augroup END
-
-"vdebug
-let g:vdebug_options = {
-	\ 'port' : 9000,
-	\ 'server' : '',
-	\ 'timeout' : 20,
-	\ 'on_close' : 'detach',
-	\ 'ide_key' : '',
-	\ 'visualpath_maps' : {},
-	\ 'debug_window_level' : 0,
-	\ 'debug_file_level' : 0,
-	\ 'debug_file' : "",
-	\ 'marker_default' : '⬦',
-	\ 'marker_closed_tree' : '▸',
-	\ 'marker_open_tree' : '▾',
-	\ 'break_on_open': 0,
-	\ 'continuous_mode': 1,
-	\ 'watch_window_style': 'compact',
-\ }
 
 "bufexplorer
 let g:bufExplorerShowRelativePath = 1
