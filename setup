@@ -13,6 +13,7 @@ DOTFILES=(
 	".fzf.bash"			\
 	".gitconfig"			\
 	".gitignore_global"		\
+	".inputrc"			\
 	".misc"				\
 	".my.cnf"			\
 	".notags"			\
