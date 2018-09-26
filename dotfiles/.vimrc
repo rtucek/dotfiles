@@ -237,7 +237,7 @@ let g:EditorConfig_exclude_patterns = [
 \ ]
 
 "NERDTree
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 let NERDTreeIgnore = [
 	\ '\~$',
 	\ '\.sw[op]$',
@@ -299,6 +299,9 @@ augroup phpInsertUseAutocmd
 	autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
 	autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 augroup END
+
+"commentary
+autocmd FileType php setlocal commentstring=//\ %s
 
 "vim-fugitive
 noremap <silent> <Leader>gstatus :Gstatus<CR>
