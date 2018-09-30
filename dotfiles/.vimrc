@@ -391,6 +391,7 @@ let g:UltiSnipsJumpForwardTrigger = '<Leader>sn'
 let g:UltiSnipsJumpBackwardTrigger = '<Leader>sb'
 
 "vim-go
+let g:go_version_warning = 0
 let g:go_fmt_command = "goimports"
 let g:go_fold_enable = [
 	\ 'block',
