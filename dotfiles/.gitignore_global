@@ -6,4 +6,5 @@
 .tags
 .tags.lock
 .tags.temp
+/.tmuxinator.yml
 Session.vim
