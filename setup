@@ -20,7 +20,6 @@ DOTFILES=(
 	".path"				\
 	".selected_editor"		\
 	".tmux.conf"			\
-	".tmuxinator.yml"		\
 	".vimrc"			\
 )
 
