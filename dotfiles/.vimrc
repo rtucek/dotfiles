@@ -45,30 +45,22 @@ Plug 'itchyny/lightline.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'leafgarland/typescript-vim'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'lumiliet/vim-twig'
-Plug 'magicalbanana/vim-sql-syntax'
 Plug 'majutsushi/tagbar'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'pangloss/vim-javascript'
-Plug 'posva/vim-vue'
 Plug 'qpkorr/vim-bufkill'
 Plug 'rayburgemeestre/phpfolding.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
-Plug 'StanAngeloff/php.vim'
 Plug 'szw/vim-maximizer'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -391,10 +383,8 @@ let g:gitgutter_sign_modified = '±'
 let g:gitgutter_sign_modified_removed = '±'
 
 "vim-markdown
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'sql', 'json']
 augroup vimMarkdownAutocmd
 	autocmd!
-	autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 	autocmd BufNewFile,BufReadPost *.md.erb set filetype=markdown
 augroup END
 
@@ -456,28 +446,6 @@ endif
 "vim-maximizer
 let g:maximizer_set_default_mapping = 0
 nmap <silent> <Leader>m :MaximizerToggle!<CR>
-
-"vim-vue
-"Fix commenting for NERDCommenter
-let g:ft = ''
-function! NERDCommenter_before()
-	if &ft == 'vue'
-		let g:ft = 'vue'
-		let stack = synstack(line('.'), col('.'))
-		if len(stack) > 0
-			let syn = synIDattr((stack)[0], 'name')
-			if len(syn) > 0
-				exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
-			endif
-		endif
-	endif
-endfunction
-function! NERDCommenter_after()
-	if g:ft == 'vue'
-		setf vue
-		let g:ft = ''
-	endif
-endfunction
 
 "vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue,*.twig,*.blade.php'
