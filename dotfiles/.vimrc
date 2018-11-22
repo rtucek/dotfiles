@@ -59,6 +59,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue'
 Plug 'qpkorr/vim-bufkill'
 Plug 'rayburgemeestre/phpfolding.vim'
+Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
@@ -66,7 +67,6 @@ Plug 'StanAngeloff/php.vim'
 Plug 'szw/vim-maximizer'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tlib_vim'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-obsession'
@@ -299,8 +299,31 @@ augroup phpInsertUseAutocmd
 	autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 augroup END
 
-"commentary
-autocmd FileType php setlocal commentstring=//\ %s
+"nerdcommenter
+filetype plugin on
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
+"Make nerdcommenter work with vue files
+let g:ft = ''
+function! NERDCommenter_before()
+	if &ft == 'vue'
+		let g:ft = 'vue'
+		let stack = synstack(line('.'), col('.'))
+		if len(stack) > 0
+			let syn = synIDattr((stack)[0], 'name')
+			if len(syn) > 0
+				exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+			endif
+		endif
+	endif
+endfunction
+function! NERDCommenter_after()
+	if g:ft == 'vue'
+		setf vue
+		let g:ft = ''
+	endif
+endfunction
 
 "vim-fugitive
 noremap <silent> <Leader>gstatus :Gstatus<CR>
