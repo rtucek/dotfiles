@@ -296,26 +296,6 @@ filetype plugin on
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
-"Make nerdcommenter work with vue files
-let g:ft = ''
-function! NERDCommenter_before()
-	if &ft == 'vue'
-		let g:ft = 'vue'
-		let stack = synstack(line('.'), col('.'))
-		if len(stack) > 0
-			let syn = synIDattr((stack)[0], 'name')
-			if len(syn) > 0
-				exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
-			endif
-		endif
-	endif
-endfunction
-function! NERDCommenter_after()
-	if g:ft == 'vue'
-		setf vue
-		let g:ft = ''
-	endif
-endfunction
 
 "vim-fugitive
 noremap <silent> <Leader>gstatus :Gstatus<CR>
@@ -449,6 +429,29 @@ nmap <silent> <Leader>m :MaximizerToggle!<CR>
 
 "vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue,*.twig,*.blade.php'
+
+"vim-vue
+let g:vue_disable_pre_processors = 1
+"Make NERDCommenter work with vue files
+let g:ft = ''
+function! NERDCommenter_before()
+	if &ft == 'vue'
+		let g:ft = 'vue'
+		let stack = synstack(line('.'), col('.'))
+		if len(stack) > 0
+			let syn = synIDattr((stack)[0], 'name')
+			if len(syn) > 0
+				exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+			endif
+		endif
+	endif
+endfunction
+function! NERDCommenter_after()
+	if g:ft == 'vue'
+		setf vue
+		let g:ft = ''
+	endif
+endfunction
 
 
 
