@@ -57,6 +57,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
+Plug 'svermeulen/vim-easyclip'
 Plug 'szw/vim-maximizer'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tlib_vim'
@@ -151,8 +152,8 @@ function! s:VSetSearch()
 	let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
 	let @@ = temp
 endfunction
-vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>N
-vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>N
+vnoremap * :<C-U>call <SID>VSetSearch()<CR>//<CR>N
+vnoremap # :<C-U>call <SID>VSetSearch()<CR>??<CR>N
 
 "Removes the highlighted search results
 nmap <silent> <Leader><space> :nohlsearch<CR>
@@ -181,9 +182,6 @@ vnoremap <silent> <C-K> :m '<-2<CR>gv
 "(Un-)Indent lines and preserve selection
 vnoremap <silent> < <<CR>gv
 vnoremap <silent> > ><CR>gv
-
-"Don't yank selected text after overwriting via paste
-vnoremap <silent> p "_dP
 
 "Toggle relative line numbers
 nnoremap <silent> <Leader>r :set relativenumber!<CR>:set relativenumber?<CR>
@@ -452,6 +450,29 @@ function! NERDCommenter_after()
 		let g:ft = ''
 	endif
 endfunction
+
+"easyclip
+let g:EasyClipUseSubstituteDefaults = 1
+function! s:yank_list()
+	redir => ys
+	silent Yanks
+	redir END
+	return split(ys, '\n')[1:]
+endfunction
+function! s:yank_handler(reg)
+	if empty(a:reg)
+		echo "aborted register paste"
+	else
+		let token = split(a:reg, ' ')
+		execute 'Paste' . token[0]
+	endif
+endfunction
+command! FZFYank call fzf#run({
+	\ 'source': <sid>yank_list(),
+	\ 'sink': function('<sid>yank_handler'),
+	\ 'options': '-m',
+	\ 'down': 12
+\ })
 
 
 
