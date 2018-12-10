@@ -452,7 +452,11 @@ function! NERDCommenter_after()
 endfunction
 
 "easyclip
+let g:EasyClipUseCutDefaults = 0
 let g:EasyClipUseSubstituteDefaults = 1
+nmap x <Plug>MoveMotionPlug
+xmap x <Plug>MoveMotionXPlug
+nmap xx <Plug>MoveMotionLinePlug
 function! s:yank_list()
 	redir => ys
 	silent Yanks
