@@ -49,6 +49,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'mattn/emmet-vim'
+Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim'
 Plug 'qpkorr/vim-bufkill'
@@ -57,7 +58,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
-Plug 'svermeulen/vim-easyclip'
 Plug 'szw/vim-maximizer'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tlib_vim'
@@ -451,32 +451,10 @@ function! NERDCommenter_after()
 	endif
 endfunction
 
-"easyclip
-let g:EasyClipUseCutDefaults = 0
-let g:EasyClipUseSubstituteDefaults = 1
-nmap x <Plug>MoveMotionPlug
-xmap x <Plug>MoveMotionXPlug
-nmap xx <Plug>MoveMotionLinePlug
-function! s:yank_list()
-	redir => ys
-	silent Yanks
-	redir END
-	return split(ys, '\n')[1:]
-endfunction
-function! s:yank_handler(reg)
-	if empty(a:reg)
-		echo "aborted register paste"
-	else
-		let token = split(a:reg, ' ')
-		execute 'Paste' . token[0]
-	endif
-endfunction
-command! FZFYank call fzf#run({
-	\ 'source': <sid>yank_list(),
-	\ 'sink': function('<sid>yank_handler'),
-	\ 'options': '-m',
-	\ 'down': 12
-\ })
+"yankstack
+let g:yankstack_map_keys = 0
+nmap <Leader>z <Plug>yankstack_substitute_older_paste
+nmap <Leader>x <Plug>yankstack_substitute_newer_paste
 
 
 
