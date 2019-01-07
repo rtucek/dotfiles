@@ -14,6 +14,7 @@ DOTFILES=(
 	".gitignore_global"		\
 	".misc"				\
 	".my.cnf"			\
+	".myclirc"			\
 	".notags"			\
 	".path"				\
 	".selected_editor"		\
