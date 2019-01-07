@@ -11,11 +11,3 @@ export FZF_DEFAULT_OPTS='
 
 # Set default editor
 export EDITOR=nvim
-
-
-# Set default config for MySQL client
-export MYSQL_HOST=127.0.0.1
-
-
-# Set default config for PostgreSQL client
-export PGHOST=localhost

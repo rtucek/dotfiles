@@ -16,6 +16,7 @@ DOTFILES=(
 	".inputrc"			\
 	".misc"				\
 	".my.cnf"			\
+	".myclirc"			\
 	".notags"			\
 	".path"				\
 	".selected_editor"		\
