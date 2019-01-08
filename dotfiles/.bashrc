@@ -120,7 +120,7 @@ fi
 # CUSTOM CONFIGURATION
 # ------------
 # Load the rest of the dotfiles
-for file in ~/.{bash_prompt,path,exports,misc}; do
+for file in ~/.{bash_prompt,path,exports,misc,localrc}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		source "$file"
 	fi
