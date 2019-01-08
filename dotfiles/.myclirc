@@ -48,7 +48,7 @@ syntax_style = default
 key_bindings = vi
 
 # Enabling this option will show the suggestions in a wider menu. Thus more items are suggested.
-wider_completion_menu = False
+wider_completion_menu = True
 
 # MySQL prompt
 # \t - Product type (Percona, MySQL, Mariadb)
