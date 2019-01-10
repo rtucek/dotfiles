@@ -4,3 +4,6 @@ source <(npm completion)
 # Smart completion for composer
 # see https://github.com/bamarni/symfony-console-autocomplete
 source <(symfony-autocomplete)
+
+# Smart completion for pip
+source <(pip completion --bash)
