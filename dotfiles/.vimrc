@@ -39,6 +39,9 @@ Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go'
 Plug 'gregsexton/matchtag'
+Plug 'haya14busa/incsearch-easymotion.vim'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/vim-asterisk'
 Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'jlanzarotta/bufexplorer'
@@ -139,23 +142,6 @@ nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 
 "Toggle Spell check
 nnoremap <Leader>s :set spell!<CR>:set spell?<CR>
-
-"Search word under cursor
-nnoremap * *N
-nnoremap # #N
-
-"Search selection
-function! s:VSetSearch()
-	let temp = @@
-	norm! gvy
-	let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-	let @@ = temp
-endfunction
-vnoremap * :<C-U>call <SID>VSetSearch()<CR>//<CR>N
-vnoremap # :<C-U>call <SID>VSetSearch()<CR>??<CR>N
-
-"Removes the highlighted search results
-nmap <silent> <Leader><space> :nohlsearch<CR>
 
 "Tab navigation
 nnoremap <Leader>tab :tabnew<space>
@@ -455,6 +441,28 @@ let g:yankstack_map_keys = 0
 nmap <Leader>z <Plug>yankstack_substitute_older_paste
 nmap <Leader>x <Plug>yankstack_substitute_newer_paste
 
+"incsearch.vim, vim-asterisk & incsearch-easymotion.vim
+set hlsearch
+set ignorecase
+let g:incsearch#auto_nohlsearch = 1
+let g:asterisk#keeppos = 1
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *   <Plug>(incsearch-nohl)<Plug>(asterisk-*)
+map #   <Plug>(incsearch-nohl)<Plug>(asterisk-#)
+map g*  <Plug>(incsearch-nohl)<Plug>(asterisk-g*)
+map g#  <Plug>(incsearch-nohl)<Plug>(asterisk-g#)
+map z*  <Plug>(incsearch-nohl0)<Plug>(asterisk-z*)
+map gz* <Plug>(incsearch-nohl0)<Plug>(asterisk-gz*)
+map z#  <Plug>(incsearch-nohl0)<Plug>(asterisk-z#)
+map gz# <Plug>(incsearch-nohl0)<Plug>(asterisk-gz#)
+map z/ <Plug>(incsearch-easymotion-/)
+map z? <Plug>(incsearch-easymotion-?)
+map zg/ <Plug>(incsearch-easymotion-stay)
+
 
 
 "-----VISUAL-----
@@ -474,11 +482,6 @@ set cursorline
 
 "Show column length
 set ruler
-
-"Searching
-set hlsearch
-set incsearch
-set ignorecase
 
 "Show line numbers
 set number
