@@ -28,7 +28,7 @@ endif
 
 "deoplete plugins
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
 
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
@@ -463,6 +463,21 @@ map gz# <Plug>(incsearch-nohl0)<Plug>(asterisk-gz#)
 map z/ <Plug>(incsearch-easymotion-/)
 map z? <Plug>(incsearch-easymotion-?)
 map zg/ <Plug>(incsearch-easymotion-stay)
+
+"autozimu/LanguageClient-neovim (Language Server / LSP)
+"Install language servers:
+" * go => `go get github.com/sourcegraph/go-langserver`
+" * js, ts... => `npm -g install javascript-typescript-langserver`
+let g:LanguageClient_serverCommands = {
+	\ 'go': ['go-langserver', '-gocodecompletion', '-func-snippet-enabled=false', '-lint-tool=golint'],
+	\ 'javascript': ['javascript-typescript-stdio'],
+	\ 'javascript.jsx': ['javascript-typescript-stdio'],
+	\ 'typescript': ['javascript-typescript-stdio'],
+\ }
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 
 
