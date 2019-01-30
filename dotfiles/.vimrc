@@ -304,6 +304,7 @@ noremap <silent> <Leader>gblame :Gblame w<CR>
 
 "tagbar
 nnoremap <silent> <Leader>tb :TagbarToggle<CR>
+"needs manual installation/build of https://github.com/vim-php/phpctags
 let g:tagbar_phpctags_bin='/usr/local/bin/phpctags'
 let g:tagbar_autoclose = 1
 
