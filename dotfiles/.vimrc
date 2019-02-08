@@ -478,6 +478,15 @@ command! FZFYank call fzf#run({
 	\ 'down': 12
 \ })
 
+"terryma/vim-multiple-cursors
+"Fix conflict with deoplete
+function! Multiple_cursors_before()
+	call deoplete#disable()
+endfunction
+function! Multiple_cursors_after()
+	call deoplete#enable()
+endfunction
+
 
 
 "-----VISUAL-----
