@@ -394,9 +394,46 @@ nnoremap <silent> [e :ALEPreviousWrap<CR>
 nnoremap <silent> ]e :ALENextWrap<CR>
 let g:ale_completion_enabled = 1
 let g:ale_set_highlights = 0
+let g:ale_linter_aliases = {
+	\ 'vue': [
+		\ 'javascript',
+		\ 'css',
+	\ ]
+\ }
 let g:ale_linters = {
+	\ 'css': [
+		\ 'stylelint',
+	\ ],
 	\ 'javascript': [
 		\ 'eslint',
+	\ ],
+	\ 'sass': [
+		\ 'stylelint',
+	\ ],
+	\ 'scss': [
+		\ 'stylelint',
+	\ ],
+	\ 'vue': [
+		\ 'eslint',
+		\ 'stylelint',
+	\ ],
+\ }
+let g:ale_fixers = {
+	\ 'css': [
+		\ 'stylelint',
+	\ ],
+	\ 'javascript': [
+		\ 'eslint',
+	\ ],
+	\ 'sass': [
+		\ 'stylelint',
+	\ ],
+	\ 'scss': [
+		\ 'stylelint',
+	\ ],
+	\ 'vue': [
+		\ 'eslint',
+		\ 'stylelint',
 	\ ],
 \ }
 
