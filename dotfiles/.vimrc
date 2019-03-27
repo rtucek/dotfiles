@@ -160,6 +160,9 @@ nnoremap <Leader>fwe :%s/^ //g<CR>:nohlsearch<CR>
 "Unexpand 4 spaces to tab
 nnoremap <Leader>uex :%s/    /\t/g<CR>:nohlsearch<CR>
 
+"Don't yank selected text after overwriting via paste
+vnoremap <silent> p "_dP
+
 "Move lines up and down in visual mode
 vnoremap <silent> <C-J> :m '>+1<CR>gv
 vnoremap <silent> <C-K> :m '<-2<CR>gv
