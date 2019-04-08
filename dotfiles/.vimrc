@@ -51,7 +51,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'mattn/emmet-vim'
-Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim'
 Plug 'qpkorr/vim-bufkill'
@@ -476,11 +475,6 @@ function! NERDCommenter_after()
 		let g:ft = ''
 	endif
 endfunction
-
-"yankstack
-let g:yankstack_map_keys = 0
-nmap <Leader>z <Plug>yankstack_substitute_older_paste
-nmap <Leader>x <Plug>yankstack_substitute_newer_paste
 
 "incsearch.vim, vim-asterisk & incsearch-easymotion.vim
 set hlsearch
