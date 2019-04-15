@@ -55,7 +55,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-php/tagbar-phpctags.vim'
 Plug 'vim-scripts/tinykeymap'
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 "COLORSCHEMES
 Plug 'crusoexia/vim-monokai'
@@ -372,52 +372,53 @@ let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
 
 "ale
-nnoremap <silent> [e :ALEPreviousWrap<CR>
-nnoremap <silent> ]e :ALENextWrap<CR>
-let g:ale_completion_enabled = 1
-let g:ale_set_highlights = 0
-let g:ale_linter_aliases = {
-	\ 'vue': [
-		\ 'javascript',
-		\ 'css',
-	\ ]
-\ }
-let g:ale_linters = {
-	\ 'css': [
-		\ 'stylelint',
-	\ ],
-	\ 'javascript': [
-		\ 'eslint',
-	\ ],
-	\ 'sass': [
-		\ 'stylelint',
-	\ ],
-	\ 'scss': [
-		\ 'stylelint',
-	\ ],
-	\ 'vue': [
-		\ 'eslint',
-		\ 'stylelint',
-	\ ],
-\ }
-let g:ale_fixers = {
-	\ 'css': [
-		\ 'stylelint',
-	\ ],
-	\ 'javascript': [
-		\ 'eslint',
-	\ ],
-	\ 'sass': [
-		\ 'stylelint',
-	\ ],
-	\ 'scss': [
-		\ 'stylelint',
-	\ ],
-	\ 'vue': [
-		\ 'eslint',
-		\ 'stylelint',
-	\ ],
-\ }
+" nnoremap <silent> [e :ALEPreviousWrap<CR>
+" nnoremap <silent> ]e :ALENextWrap<CR>
+" let g:ale_fix_on_save = 1
+" let g:ale_completion_enabled = 1
+" let g:ale_set_highlights = 1
+" let g:ale_linter_aliases = {
+"         \ 'vue': [
+"                 \ 'javascript',
+"                 \ 'css',
+"         \ ]
+" \ }
+" let g:ale_linters = {
+"         \ 'css': [
+"                 \ 'stylelint',
+"         \ ],
+"         \ 'javascript': [
+"                 \ 'eslint',
+"         \ ],
+"         \ 'sass': [
+"                 \ 'stylelint',
+"         \ ],
+"         \ 'scss': [
+"                 \ 'stylelint',
+"         \ ],
+"         \ 'vue': [
+"                 \ 'eslint',
+"                 \ 'stylelint',
+"         \ ],
+" \ }
+" let g:ale_fixers = {
+"         \ 'css': [
+"                 \ 'stylelint',
+"         \ ],
+"         \ 'javascript': [
+"                 \ 'eslint',
+"         \ ],
+"         \ 'sass': [
+"                 \ 'stylelint',
+"         \ ],
+"         \ 'scss': [
+"                 \ 'stylelint',
+"         \ ],
+"         \ 'vue': [
+"                 \ 'eslint',
+"                 \ 'stylelint',
+"         \ ],
+" \ }
 
 "undotree
 nnoremap <silent> <Leader><Leader>u :NERDTreeClose<CR>:UndotreeToggle<CR>
