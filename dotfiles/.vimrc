@@ -55,7 +55,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-php/tagbar-phpctags.vim'
 Plug 'vim-scripts/tinykeymap'
-" Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 
 "COLORSCHEMES
 Plug 'crusoexia/vim-monokai'
@@ -372,53 +372,53 @@ let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
 
 "ale
-" nnoremap <silent> [e :ALEPreviousWrap<CR>
-" nnoremap <silent> ]e :ALENextWrap<CR>
-" let g:ale_fix_on_save = 1
-" let g:ale_completion_enabled = 1
-" let g:ale_set_highlights = 1
-" let g:ale_linter_aliases = {
-"         \ 'vue': [
-"                 \ 'javascript',
-"                 \ 'css',
-"         \ ]
-" \ }
-" let g:ale_linters = {
-"         \ 'css': [
-"                 \ 'stylelint',
-"         \ ],
-"         \ 'javascript': [
-"                 \ 'eslint',
-"         \ ],
-"         \ 'sass': [
-"                 \ 'stylelint',
-"         \ ],
-"         \ 'scss': [
-"                 \ 'stylelint',
-"         \ ],
-"         \ 'vue': [
-"                 \ 'eslint',
-"                 \ 'stylelint',
-"         \ ],
-" \ }
-" let g:ale_fixers = {
-"         \ 'css': [
-"                 \ 'stylelint',
-"         \ ],
-"         \ 'javascript': [
-"                 \ 'eslint',
-"         \ ],
-"         \ 'sass': [
-"                 \ 'stylelint',
-"         \ ],
-"         \ 'scss': [
-"                 \ 'stylelint',
-"         \ ],
-"         \ 'vue': [
-"                 \ 'eslint',
-"                 \ 'stylelint',
-"         \ ],
-" \ }
+nnoremap <silent> [e :ALEPreviousWrap<CR>
+nnoremap <silent> ]e :ALENextWrap<CR>
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+let g:ale_set_highlights = 1
+let g:ale_linter_aliases = {
+	\ 'vue': [
+  	  	  \ 'javascript',
+  	  	  \ 'css',
+	\ ]
+\ }
+let g:ale_linters = {
+	\ 'css': [
+		\ 'stylelint',
+	\ ],
+	\ 'javascript': [
+		\ 'eslint',
+	\ ],
+	\ 'sass': [
+		\ 'stylelint',
+	\ ],
+	\ 'scss': [
+		\ 'stylelint',
+	\ ],
+	\ 'vue': [
+		\ 'eslint',
+		\ 'stylelint',
+	\ ],
+\ }
+let g:ale_fixers = {
+	\ 'css': [
+		\ 'stylelint',
+	\ ],
+	\ 'javascript': [
+		\ 'eslint',
+	\ ],
+	\ 'sass': [
+		\ 'stylelint',
+	\ ],
+	\ 'scss': [
+		\ 'stylelint',
+	\ ],
+	\ 'vue': [
+		\ 'eslint',
+		\ 'stylelint',
+	\ ],
+\ }
 
 "undotree
 nnoremap <silent> <Leader><Leader>u :NERDTreeClose<CR>:UndotreeToggle<CR>
@@ -517,9 +517,6 @@ inoremap <silent><expr> <C-SPACE> coc#refresh()
 " Use <CR> for confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
-" Use `[e` and `]e` for navigate diagnostics
-nmap <silent> [e <Plug>(coc-diagnostic-prev)
-nmap <silent> ]e <Plug>(coc-diagnostic-next)
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
