@@ -375,12 +375,12 @@ let g:go_highlight_variable_assignments = 1
 nnoremap <silent> [e :ALEPreviousWrap<CR>
 nnoremap <silent> ]e :ALENextWrap<CR>
 let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 let g:ale_set_highlights = 1
 let g:ale_linter_aliases = {
 	\ 'vue': [
-		\ 'javascript',
 		\ 'css',
+		\ 'javascript',
 	\ ]
 \ }
 let g:ale_linters = {
@@ -480,6 +480,10 @@ map z? <Plug>(incsearch-easymotion-?)
 map zg/ <Plug>(incsearch-easymotion-stay)
 
 "COC
+"Config
+call coc#config('diagnostic', {
+	\ 'displayByAle': 1,
+\ })
 "Plugins
 let g:coc_global_extensions = [
 	\ 'coc-css',
