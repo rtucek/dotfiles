@@ -8,12 +8,14 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+
 "PLUGINS
 call plug#begin('~/.vim/bundle')
 "vim-sensible - ONLY for vim
 if !has('nvim')
 	Plug 'tpope/vim-sensible'
 endif
+
 
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
@@ -57,6 +59,7 @@ Plug 'vim-php/tagbar-phpctags.vim'
 Plug 'vim-scripts/tinykeymap'
 Plug 'w0rp/ale'
 
+
 "COLORSCHEMES
 Plug 'crusoexia/vim-monokai'
 Plug 'gosukiwi/vim-atom-dark'
@@ -64,6 +67,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
 Plug 'romainl/Apprentice'
 call plug#end()
+
 
 "vim-sensible
 "Apply configs from vim-sensible
@@ -198,8 +202,11 @@ let g:EditorConfig_exclude_patterns = [
 	\ '.*\.patch',
 \ ]
 
+
 "NERDTree
 let NERDTreeShowHidden = 1
+nnoremap <silent> <Leader>d :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>D :NERDTreeFind<CR>
 let NERDTreeIgnore = [
 	\ '\~$',
 	\ '\.sw[op]$',
@@ -207,8 +214,7 @@ let NERDTreeIgnore = [
 	\ '^Session.vim',
 	\ '^.git$[[dir]]',
 \ ]
-nnoremap <silent> <Leader>d :NERDTreeToggle<CR>
-nnoremap <silent> <Leader>D :NERDTreeFind<CR>
+
 
 "fzf
 nnoremap <silent> <C-P> :Files<CR>
@@ -222,8 +228,10 @@ nnoremap <silent> <Leader>com :Commits<CR>
 let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_buffers_jump = 1
 
+
 "Vim-Gutter
 set updatetime=250
+
 
 "php.vim
 let php_html_load = 0
@@ -232,28 +240,34 @@ let php_html_in_nowdoc = 0
 let php_sql_query = 0
 let php_sql_heredoc = 0
 let php_sql_nowdoc = 0
+
 function! PhpSyntaxOverride()
 	hi! def link phpDocTags	phpDefine
 	hi! def link phpDocParam phpType
 endfunction
+
 augroup phpVimAutocmd
 	autocmd!
 	autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
+
 "vim-php-namespace
 "Insert use statement
 let g:php_namespace_sort_after_insert = 1
+
 function! IPhpInsertUse()
 	call PhpInsertUse()
 	call feedkeys('a', 'n')
 endfunction
+
 
 "Expand Namespace
 function! IPhpExpandClass()
 	call PhpExpandClass()
 	call feedkeys('a', 'n')
 endfunction
+
 augroup phpInsertUseAutocmd
 	autocmd!
 	autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
@@ -262,21 +276,25 @@ augroup phpInsertUseAutocmd
 	autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 augroup END
 
+
 "nerdcommenter
 filetype plugin on
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 
+
 "vim-fugitive
 noremap <silent> <Leader>gstatus :Gstatus<CR>
 noremap <silent> <Leader>gblame :Gblame w<CR>
+
 
 "tagbar
 nnoremap <silent> <Leader>tb :TagbarToggle<CR>
 "needs manual installation/build of https://github.com/vim-php/phpctags
 let g:tagbar_phpctags_bin='/usr/local/bin/phpctags'
 let g:tagbar_autoclose = 1
+
 
 "lightline
 set laststatus=2
@@ -301,39 +319,45 @@ let g:lightline = {
 		\ 'gutentags': '%{gutentags#statusline("[Generating...]")}',
 	\ },
 \ }
+
 function! LightlineFilename()
 	let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
 	let modified = &modified ? ' +' : ''
 	return filename . modified
 endfunction
 
+
 "gutentags
 let g:gutentags_ctags_tagfile = '.tags'
 set tags='.tags'
+
 
 "ack.vim
 let g:ackprg = 'ag --vimgrep --hidden --smart-case --ignore .git/'
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 
+
 "ctrlsf.vim
 let g:ctrlsf_regex_pattern = 1
 let g:ctrlsf_auto_close = 0
+nnoremap <Leader>A :CtrlSF<Space>
 let g:ctrlsf_extra_backend_args = {
 	\ 'ag': '--hidden --smart-case --ignore .git/'
 \ }
-nnoremap <Leader>A :CtrlSF<Space>
+
 
 "vim-gitgutter
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_modified = '±'
+let g:gitgutter_sign_modified_removed = '±'
 if exists('&signcolumn')
 	set signcolumn=yes
 else
 	let g:gitgutter_sign_column_always = 1
 endif
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_modified = '±'
-let g:gitgutter_sign_modified_removed = '±'
+
 
 "vim-markdown
 augroup vimMarkdownAutocmd
@@ -341,24 +365,18 @@ augroup vimMarkdownAutocmd
 	autocmd BufNewFile,BufReadPost *.md.erb set filetype=markdown
 augroup END
 
+
 "bufexplorer
 let g:bufExplorerShowRelativePath = 1
+
 
 "ultisnips
 let g:UltiSnipsExpandTrigger = '<Leader>st'
 let g:UltiSnipsJumpForwardTrigger = '<Leader>sn'
 let g:UltiSnipsJumpBackwardTrigger = '<Leader>sb'
 
+
 "vim-go
-let g:go_version_warning = 0
-let g:go_fmt_command = "goimports"
-let g:go_fold_enable = [
-	\ 'block',
-	\ 'comment',
-	\ 'import',
-	\ 'package_comment',
-	\ 'varconst',
-\ ]
 let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
@@ -370,6 +388,16 @@ let g:go_highlight_string_spellcheck = 1
 let g:go_highlight_format_strings = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
+let g:go_version_warning = 0
+let g:go_fmt_command = "goimports"
+let g:go_fold_enable = [
+	\ 'block',
+	\ 'comment',
+	\ 'import',
+	\ 'package_comment',
+	\ 'varconst',
+\ ]
+
 
 "ale
 nnoremap <silent> [e :ALEPreviousWrap<CR>
@@ -377,12 +405,14 @@ nnoremap <silent> ]e :ALENextWrap<CR>
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0
 let g:ale_set_highlights = 1
+
 let g:ale_linter_aliases = {
 	\ 'vue': [
 		\ 'css',
 		\ 'javascript',
 	\ ]
 \ }
+
 let g:ale_linters = {
 	\ 'css': [
 		\ 'stylelint',
@@ -404,6 +434,7 @@ let g:ale_linters = {
 		\ 'stylelint',
 	\ ],
 \ }
+
 let g:ale_fixers = {
 	\ 'css': [
 		\ 'stylelint',
@@ -426,6 +457,7 @@ let g:ale_fixers = {
 	\ ],
 \ }
 
+
 "undotree
 nnoremap <silent> <Leader><Leader>u :NERDTreeClose<CR>:UndotreeToggle<CR>
 if has("persistent_undo")
@@ -433,15 +465,19 @@ if has("persistent_undo")
 	set undofile
 endif
 
+
 "vim-maximizer
 let g:maximizer_set_default_mapping = 0
 nmap <silent> <Leader>m :MaximizerToggle!<CR>
 
+
 "vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue,*.twig,*.blade.php'
 
+
 "vim-vue
 let g:vue_disable_pre_processors = 1
+
 "Make NERDCommenter work with vue files
 let g:ft = ''
 function! NERDCommenter_before()
@@ -462,6 +498,7 @@ function! NERDCommenter_after()
 		let g:ft = ''
 	endif
 endfunction
+
 
 "incsearch.vim, vim-asterisk & incsearch-easymotion.vim
 set hlsearch
@@ -485,11 +522,13 @@ map z/ <Plug>(incsearch-easymotion-/)
 map z? <Plug>(incsearch-easymotion-?)
 map zg/ <Plug>(incsearch-easymotion-stay)
 
+
 "COC
 "Config
 call coc#config('diagnostic', {
 	\ 'displayByAle': 1,
 \ })
+
 "Plugins
 let g:coc_global_extensions = [
 	\ 'coc-css',
@@ -503,6 +542,7 @@ let g:coc_global_extensions = [
 	\ 'coc-tsserver',
 	\ 'coc-vetur',
 \ ]
+
 "Some server have issues with backup files, see #649
 set nobackup
 set nowritebackup
@@ -510,6 +550,7 @@ set nowritebackup
 set cmdheight=2
 "Don't give |ins-completion-menu| messages.
 set shortmess+=c
+
 "Use tab for trigger completion with characters ahead and navigate.
 "Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -521,17 +562,20 @@ function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]=~# '\s'
 endfunction
-" Use <c-space> for trigger completion.
+
+"Use <c-space> for trigger completion.
 inoremap <silent><expr> <C-SPACE> coc#refresh()
-" Use <CR> for confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
+"Use <CR> for confirm completion, `<C-g>u` means break undo chain at current position.
+"Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
-" Remap keys for gotos
+
+"Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-" Use K for show documentation in preview window
+
+"Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
 	if &filetype == 'vim'
@@ -540,47 +584,43 @@ function! s:show_documentation()
 		call CocAction('doHover')
 	endif
 endfunction
-" Highlight symbol under cursor on CursorHold
+
+"Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
-" Remap for rename current word
+"Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
-" Remap for format selected region
+
+"Remap for format selected region
 vmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
 augroup coc
 	autocmd!
-	" Setup formatexpr specified filetype(s).
+	"Setup formatexpr specified filetype(s).
 	autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-	" Update signature help on jump placeholder
+	"Update signature help on jump placeholder
 	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+
+"Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 vmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <Plug>(coc-codeaction-selected)
-" Remap for do codeAction of current line
+"Remap for do codeAction of current line
 nmap <leader>ac <Plug>(coc-codeaction)
-" Fix autofix problem of current line
+"Fix autofix problem of current line
 nmap <leader>qf <Plug>(coc-fix-current)
-" Use `:Format` for format current buffer
+"Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
-" Use `:Fold` for fold current buffer
+"Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
-" Using CocList
-" Show all diagnostics
+
+"Using CocList
 nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
-" Manage extensions
 nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
-" Show commands
 nnoremap <silent> <space>c :<C-u>CocList commands<cr>
-" Find symbol of current document
 nnoremap <silent> <space>o :<C-u>CocList outline<cr>
-" Search workspace symbols
 nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
 nnoremap <silent> <space>j :<C-u>CocNext<CR>
-" Do default action for previous item.
 nnoremap <silent> <space>k :<C-u>CocPrev<CR>
-" Resume latest coc list
 nnoremap <silent> <space>p :<C-u>CocListResume<CR>
 
 
