@@ -493,6 +493,7 @@ call coc#config('diagnostic', {
 "Plugins
 let g:coc_global_extensions = [
 	\ 'coc-css',
+	\ 'coc-emmet',
 	\ 'coc-eslint',
 	\ 'coc-gocode',
 	\ 'coc-html',
