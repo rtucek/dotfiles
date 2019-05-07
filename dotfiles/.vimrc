@@ -405,6 +405,7 @@ nnoremap <silent> ]e :ALENextWrap<CR>
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0
 let g:ale_set_highlights = 1
+let g:ale_php_phpstan_level = 7
 
 let g:ale_linter_aliases = {
 	\ 'vue': [
@@ -419,6 +420,9 @@ let g:ale_linters = {
 	\ ],
 	\ 'javascript': [
 		\ 'eslint',
+	\ ],
+	\ 'php': [
+		\ 'phpstan',
 	\ ],
 	\ 'sass': [
 		\ 'stylelint',
