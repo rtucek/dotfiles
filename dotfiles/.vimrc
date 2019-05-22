@@ -40,7 +40,7 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim'
-Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() } }
+Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': './install.sh' }
 Plug 'qpkorr/vim-bufkill'
 Plug 'rayburgemeestre/phpfolding.vim'
 Plug 'scrooloose/nerdcommenter'
