@@ -532,6 +532,18 @@ map zg/ <Plug>(incsearch-easymotion-stay)
 call coc#config('diagnostic', {
 	\ 'displayByAle': 1,
 \ })
+call coc#config('languageserver', {
+	\ 'golang': {
+		\ 'command': 'gopls',
+		\ 'rootPatterns': [
+			\ 'go.mod',
+			\ '.vim/',
+			\ '.git/',
+			\ '.hg/',
+		\ ],
+		\ 'filetypes': ['go'],
+	\ }
+\ })
 
 "Plugins
 let g:coc_global_extensions = [
