@@ -229,8 +229,17 @@ let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_buffers_jump = 1
 
 
-"Vim-Gutter
+"vim-gitgutter
 set updatetime=250
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_modified = '±'
+let g:gitgutter_sign_modified_removed = '±'
+if exists('&signcolumn')
+	set signcolumn=yes
+else
+	let g:gitgutter_sign_column_always = 1
+endif
 
 
 "php.vim
@@ -345,18 +354,6 @@ nnoremap <Leader>A :CtrlSF<Space>
 let g:ctrlsf_extra_backend_args = {
 	\ 'ag': '--hidden --smart-case --ignore .git/'
 \ }
-
-
-"vim-gitgutter
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_modified = '±'
-let g:gitgutter_sign_modified_removed = '±'
-if exists('&signcolumn')
-	set signcolumn=yes
-else
-	let g:gitgutter_sign_column_always = 1
-endif
 
 
 "vim-markdown
@@ -477,6 +474,7 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue,*.twig,*.blade.php'
 
 "vim-vue
 let g:vue_disable_pre_processors = 1
+
 
 "Make NERDCommenter work with vue files
 let g:ft = ''
