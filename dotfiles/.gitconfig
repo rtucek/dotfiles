@@ -30,7 +30,7 @@
 [mergetool "nvimdiff"]
 	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [pull]
-	rebase = preserve
+	rebase = merges
 [fetch]
 	prune = true
 [gpg]
