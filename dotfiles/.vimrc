@@ -295,7 +295,7 @@ let g:NERDCommentEmptyLines = 1
 
 "vim-fugitive
 noremap <silent> <Leader>gstatus :Gstatus<CR>
-noremap <silent> <Leader>gblame :Gblame w<CR>
+noremap <silent> <Leader>gblame :Gblame -w<CR>
 
 
 "tagbar
