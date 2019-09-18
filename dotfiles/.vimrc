@@ -507,22 +507,27 @@ set hlsearch
 set ignorecase
 let g:incsearch#auto_nohlsearch = 1
 let g:asterisk#keeppos = 1
+"search
 map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+"Search with easymotion
+map z/ <Plug>(incsearch-easymotion-/)
+map z? <Plug>(incsearch-easymotion-?)
+map zg/ <Plug>(incsearch-easymotion-stay)
+"search forth- and backwards
 map n <Plug>(incsearch-nohl-n)
 map N <Plug>(incsearch-nohl-N)
+"search word under cursor (move)
 map * <Plug>(incsearch-nohl)<Plug>(asterisk-*)
 map # <Plug>(incsearch-nohl)<Plug>(asterisk-#)
 map g* <Plug>(incsearch-nohl)<Plug>(asterisk-g*)
 map g# <Plug>(incsearch-nohl)<Plug>(asterisk-g#)
-map z* <Plug>(incsearch-nohl0)<Plug>(asterisk-z*)
-map gz* <Plug>(incsearch-nohl0)<Plug>(asterisk-gz*)
-map z# <Plug>(incsearch-nohl0)<Plug>(asterisk-z#)
-map gz# <Plug>(incsearch-nohl0)<Plug>(asterisk-gz#)
-map z/ <Plug>(incsearch-easymotion-/)
-map z? <Plug>(incsearch-easymotion-?)
-map zg/ <Plug>(incsearch-easymotion-stay)
+"search word under cursor (stay)
+map z* <Plug>(incsearch-nohl)<Plug>(asterisk-z*)
+map z# <Plug>(incsearch-nohl)<Plug>(asterisk-z#)
+map gz* <Plug>(incsearch-nohl)<Plug>(asterisk-gz*)
+map gz# <Plug>(incsearch-nohl)<Plug>(asterisk-gz#)
 
 
 "COC
