@@ -9,6 +9,26 @@ insert_final_newline = true
 max_line_length = 80
 trim_trailing_whitespace = true
 
+[*.js]
+indent_size = 2
+indent_style = space
+
+[*.php]
+indent_size = 4
+indent_style = space
+
+[*.py]
+indent_size = 4
+indent_style = space
+
+[*.ts]
+indent_size = 2
+indent_style = space
+
+[*.vue]
+indent_size = 2
+indent_style = space
+
 [*.yml]
 indent_size = 2
 indent_style = space
