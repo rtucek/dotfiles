@@ -18,3 +18,8 @@ fi
 if [[ ! "$PATH" == *${HOME}/.npm-packages/bin* ]]; then
 	export PATH="$PATH:${HOME}/.npm-packages/bin"
 fi
+
+# Add GEM executables to PATH
+if [[ ! "$PATH" == *${HOME}/.gem/ruby/2.6.0/bin* ]]; then
+	export PATH="$PATH:${HOME}/.gem/ruby/2.6.0/bin"
+fi
