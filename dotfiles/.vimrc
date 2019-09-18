@@ -138,7 +138,7 @@ set noswapfile
 
 "Don't change default cursor
 "Kudos @binaryreverse https://github.com/neovim/neovim/issues/6005
-set guicursor=n-v-c-sm-i-ci-ve-r-cr-o:hor20-blinkwait300-blinkon200-blinkoff150
+set guicursor=
 
 
 "-----MAPPINGS-----
