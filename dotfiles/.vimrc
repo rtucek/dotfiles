@@ -122,7 +122,7 @@ set noswapfile
 
 "Don't change default cursor
 "Kudos @binaryreverse https://github.com/neovim/neovim/issues/6005
-set guicursor=n-v-c-sm-i-ci-ve-r-cr-o:hor20-blinkwait300-blinkon200-blinkoff150
+set guicursor=
 
 
 "-----MAPPINGS-----
@@ -507,22 +507,27 @@ set hlsearch
 set ignorecase
 let g:incsearch#auto_nohlsearch = 1
 let g:asterisk#keeppos = 1
+"search
 map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+"Search with easymotion
+map z/ <Plug>(incsearch-easymotion-/)
+map z? <Plug>(incsearch-easymotion-?)
+map zg/ <Plug>(incsearch-easymotion-stay)
+"search forth- and backwards
 map n <Plug>(incsearch-nohl-n)
 map N <Plug>(incsearch-nohl-N)
+"search word under cursor (move)
 map * <Plug>(incsearch-nohl)<Plug>(asterisk-*)
 map # <Plug>(incsearch-nohl)<Plug>(asterisk-#)
 map g* <Plug>(incsearch-nohl)<Plug>(asterisk-g*)
 map g# <Plug>(incsearch-nohl)<Plug>(asterisk-g#)
-map z* <Plug>(incsearch-nohl0)<Plug>(asterisk-z*)
-map gz* <Plug>(incsearch-nohl0)<Plug>(asterisk-gz*)
-map z# <Plug>(incsearch-nohl0)<Plug>(asterisk-z#)
-map gz# <Plug>(incsearch-nohl0)<Plug>(asterisk-gz#)
-map z/ <Plug>(incsearch-easymotion-/)
-map z? <Plug>(incsearch-easymotion-?)
-map zg/ <Plug>(incsearch-easymotion-stay)
+"search word under cursor (stay)
+map z* <Plug>(incsearch-nohl)<Plug>(asterisk-z*)
+map z# <Plug>(incsearch-nohl)<Plug>(asterisk-z#)
+map gz* <Plug>(incsearch-nohl)<Plug>(asterisk-gz*)
+map gz# <Plug>(incsearch-nohl)<Plug>(asterisk-gz#)
 
 
 "COC
@@ -552,10 +557,12 @@ let g:coc_global_extensions = [
 	\ 'coc-html',
 	\ 'coc-json',
 	\ 'coc-phpls',
+	\ 'coc-python',
 	\ 'coc-stylelint',
 	\ 'coc-svg',
 	\ 'coc-tsserver',
 	\ 'coc-vetur',
+	\ 'coc-yank',
 \ ]
 
 "Some server have issues with backup files, see #649
@@ -637,6 +644,9 @@ nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <space>j :<C-u>CocNext<CR>
 nnoremap <silent> <space>k :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p :<C-u>CocListResume<CR>
+
+"Coc Plugin mappings
+nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
 
 
