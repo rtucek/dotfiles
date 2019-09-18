@@ -562,6 +562,7 @@ let g:coc_global_extensions = [
 	\ 'coc-svg',
 	\ 'coc-tsserver',
 	\ 'coc-vetur',
+	\ 'coc-yank',
 \ ]
 
 "Some server have issues with backup files, see #649
@@ -643,6 +644,9 @@ nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <space>j :<C-u>CocNext<CR>
 nnoremap <silent> <space>k :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p :<C-u>CocListResume<CR>
+
+"Coc Plugin mappings
+nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
 
 
