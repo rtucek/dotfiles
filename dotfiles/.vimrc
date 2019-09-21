@@ -81,6 +81,8 @@ endif
 "The default leader is a backslash, but we use ','
 let mapleader = ','
 
+set encoding=UTF-8
+
 "Fix backspace key"
 set backspace=indent,eol,start
 
