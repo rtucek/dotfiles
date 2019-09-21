@@ -1,105 +1,110 @@
-#!/bin/bash
+#!/usr/bin/env python
 
-DOTFILES=(
-	".bash_aliases"			\
-	".bash_logout"			\
-	".bash_profile"			\
-	".bash_prompt"			\
-	".bashrc"			\
-	".ctags"			\
-	".editorconfig"			\
-	".editrc"			\
-	".exports"			\
-	".fzf.bash"			\
-	".gitconfig"			\
-	".gitignore_global"		\
-	".inputrc"			\
-	".misc"				\
-	".my.cnf"			\
-	".myclirc"			\
-	".notags"			\
-	".path"				\
-	".selected_editor"		\
-	".tmux.conf"			\
-	".vimrc"			\
-)
+import argparse
+import shutil
+import os
+import sys
 
-SCRIPTPATH="$(cd "$(dirname "$0")"; pwd -P )"
+DOTFILES = [
+    '.bash_aliases',
+    '.bash_logout',
+    '.bash_profile',
+    '.bash_prompt',
+    '.bashrc',
+    '.ctags',
+    '.editorconfig',
+    '.editrc',
+    '.exports',
+    '.fzf.bash',
+    '.gitconfig',
+    '.gitignore_global',
+    '.inputrc',
+    '.misc',
+    '.my.cnf',
+    '.myclirc',
+    '.notags',
+    '.path',
+    '.selected_editor',
+    '.tmux.conf',
+    '.vimrc',
+]
 
-print_help() {
-	printf "%s" "\
-Usage: $0
-		[-h | --help]
-		<command>
+SCRIPTPATH = '{0}/dotfiles/'.format(os.path.dirname(os.path.abspath(__file__)))
+HOMEPATH = os.path.expanduser('~')
 
-Options:
-	-h | --help
-		Show this help
+def file_exists(file):
+    """Check if given path exists and is a file."""
+    return os.path.exists(file) and os.path.isfile(file)
 
-Commands:
-	import
-		Import dotfiles from the current user's home directory.
-		See \`$0 list\` for all files.
-	export
-		Export all dotfiles from this repository into the current user's
-		home directory.
-	list
-		List all available dotfiles in the current user's home
-		directory. These files are going to be imported by
-		\`$0 import\`
-	help
-		Show this help
-"
-}
 
-import_dotfiles() {
-	echo "Imported the following files:"
-	for dotfile in "${DOTFILES[@]}"; do
-		if [ ! -d "${SCRIPTPATH}/dotfiles/${dotfile}" ]; then
-			mkdir -p "${SCRIPTPATH}/dotfiles/$(dirname $dotfile)"
-		fi
-		if [ -f "${HOME}/${dotfile}" ]; then
-			cp "${HOME}/${dotfile}" "${SCRIPTPATH}/dotfiles/${dotfile}"
-			echo "${HOME}/${dotfile}"
-		fi
-	done;
-}
+def dir_exists(directory):
+    """Check if given path exists and is a directory."""
+    return os.path.exists(directory) and os.path.isdir(directory)
 
-export_dotfiles() {
-	echo "Export the following files:"
-	for dotfile in "${DOTFILES[@]}"; do
-		if [ ! -d "${HOME}/$(dirname $dotfile)" ]; then
-			mkdir -p "${HOME}/$(dirname $dotfile)"
-		fi
-		cp "${SCRIPTPATH}/dotfiles/${dotfile}" "${HOME}/${dotfile}"
-		echo "$dotfile"
-	done;
-}
 
-list_dotfiles() {
-	echo "Dotfiles to be considered are:"
-	for dotfile in "${DOTFILES[@]}"; do
-		if [ -f "${HOME}/${dotfile}" ]; then
-			echo "${HOME}/${dotfile}";
-		fi
-	done;
-}
+def dotfile_path(file):
+    """Generate full absolute path to dotfile."""
+    return '{0}/{1}'.format(HOMEPATH, file)
 
-case "$1" in
-	-h | --help | help)
-		print_help
-		;;
-	import)
-		import_dotfiles
-		;;
-	export)
-		export_dotfiles
-		;;
-	list)
-		list_dotfiles
-		;;
-	*)
-		echo "Command not found" >&2
-		echo "Hint: $0 --help"
-		exit 1
-esac
+
+def git_path(file):
+    """Generate full absolute path to dotfile in git."""
+    return SCRIPTPATH + file
+
+
+def copy_file(dst, src):
+    """Copy file from src to destination if available."""
+    if not file_exists(src):
+        sys.stderr.write('Unknown file:', src)
+
+        return False
+
+    os.makedirs(os.path.dirname(src), exist_ok=True)
+    shutil.copy(src, dst)
+    shutil.copystat(src, dst)
+
+    return True
+
+
+def import_dotfiles():
+    """Import dotfiles into git's workspace."""
+    for file in DOTFILES:
+        abs_src_file = dotfile_path(file)
+        abs_dst_file = git_path(file)
+
+        if copy_file(abs_dst_file, abs_src_file):
+            print('imported file', abs_src_file)
+        else:
+            print('skipped unknown file', abs_src_file)
+
+
+def export_dotfiles():
+    """Export from git."""
+    for file in DOTFILES:
+        abs_src_file = git_path(file)
+        abs_dst_file = dotfile_path(file)
+
+        if copy_file(abs_dst_file, abs_src_file):
+            print('exported dotfile', abs_src_file)
+        else:
+            print('skipped exporting dotfile', abs_src_file)
+
+
+def main():
+    """Run main function"""
+    parser = argparse.ArgumentParser(description='Manage dotfiles')
+    parser.add_argument(
+        'action',
+        choices=['import', 'export'],
+        help='dotfile action (either "import" or "export")',
+    )
+    args = parser.parse_args()
+
+    if args.action == 'import':
+            import_dotfiles()
+            return
+
+    export_dotfiles()
+
+
+main()
