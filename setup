@@ -55,10 +55,9 @@ def git_path(file):
 def copy_file(dst, src):
     """Copy file from src to destination if available."""
     if not file_exists(src):
-        sys.stderr.write('Unknown file:', src)
-
         return False
 
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
     os.makedirs(os.path.dirname(src), exist_ok=True)
     shutil.copy(src, dst)
     shutil.copystat(src, dst)
@@ -75,7 +74,7 @@ def import_dotfiles():
         if copy_file(abs_dst_file, abs_src_file):
             print('imported file', abs_src_file)
         else:
-            print('skipped unknown file', abs_src_file)
+            sys.stderr.write(f'unknown file: {abs_src_file}')
 
 
 def export_dotfiles():
@@ -87,7 +86,7 @@ def export_dotfiles():
         if copy_file(abs_dst_file, abs_src_file):
             print('exported dotfile', abs_src_file)
         else:
-            print('skipped exporting dotfile', abs_src_file)
+            sys.stderr.write(f'skipped exporting dotfile {abs_src_file}')
 
 
 def main():
