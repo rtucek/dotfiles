@@ -1,0 +1,10 @@
+# ------------
+# CUSTOM CONFIGURATION
+# ------------
+# Load the rest of the dotfiles
+for file in ~/.{bash_aliases,bash_prompt,path,exports,misc,localrc}; do
+	[ -f "$file" ] && source "$file"
+done
+unset file
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
