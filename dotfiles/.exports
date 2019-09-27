@@ -11,3 +11,6 @@ export FZF_DEFAULT_OPTS='
 
 # Set default editor
 export EDITOR=nvim
+
+# Set default browser
+export BROWSER=/usr/bin/google-chrome-stable
