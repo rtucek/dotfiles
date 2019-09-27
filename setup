@@ -17,6 +17,7 @@ DOTFILES = [
     '.config/i3/keyboard-layout.sh',
     '.config/i3/polybar.sh',
     '.config/i3/sound.sh',
+    '.config/mimeapps.list',
     '.config/pcmanfm/default/pcmanfm.conf',
     '.config/polybar/config',
     '.config/tmuxinator/dotfiles.yml',
@@ -86,7 +87,7 @@ def import_dotfiles():
         if copy_file(abs_dst_file, abs_src_file):
             print('imported file', abs_src_file)
         else:
-            sys.stderr.write(f'unknown file: {abs_src_file}')
+            sys.stderr.write(f'unknown file: {abs_src_file}\n')
 
 
 def export_dotfiles():
@@ -98,7 +99,7 @@ def export_dotfiles():
         if copy_file(abs_dst_file, abs_src_file):
             print('exported dotfile', abs_src_file)
         else:
-            sys.stderr.write(f'skipped exporting dotfile {abs_src_file}')
+            sys.stderr.write(f'skipped exporting dotfile {abs_src_file}\n')
 
 
 def main():
