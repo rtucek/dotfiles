@@ -27,6 +27,8 @@ DOTFILES = [
     '.config/user-dirs.dirs',
     '.config/user-dirs.locale',
     '.ctags',
+    '.dir_colors',
+    '.dmrc',
     '.editorconfig',
     '.editrc',
     '.exports',
@@ -39,9 +41,14 @@ DOTFILES = [
     '.myclirc',
     '.notags',
     '.path',
+    '.profile',
     '.selected_editor',
     '.tmux.conf',
     '.vimrc',
+    '.Xclients',
+    '.xinitrc',
+    '.xinputrc',
+    '.Xresources',
 ]
 
 SCRIPTPATH = '{0}/dotfiles/'.format(os.path.dirname(os.path.abspath(__file__)))
