@@ -41,6 +41,7 @@ DOTFILES = [
     '.my.cnf',
     '.myclirc',
     '.notags',
+    '.npmrc',
     '.path',
     '.profile',
     '.selected_editor',
