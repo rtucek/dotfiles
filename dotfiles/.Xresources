@@ -68,7 +68,7 @@ URxvt.background:                 [100]#222D31
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
-URxvt*cursorUnderline:            true
+URxvt*cursorUnderline:            false
 URxvt*background:                 black
 URxvt*foreground:                 grey
 URxvt*saveLines:                  5000
