@@ -35,72 +35,72 @@ The dotfiles are optimized for the following setup.
 
 ### General packages
 
-bash-completion
-bat
-composer
-ctags
-docker
-firefox
-gzip
-i3-scrot
-msr-tools
-neovim
-nodejs
-npm
-polybar
-postgresql-client
-python-pip
-python2-pip
-rofi
-snapd
-unzip
-xclip
-xss-lock
-yarn
+- bash-completion
+- bat
+- composer
+- ctags
+- docker
+- firefox
+- gzip
+- i3-scrot
+- msr-tools
+- neovim
+- nodejs
+- npm
+- polybar
+- postgresql-client
+- python-pip
+- python2-pip
+- rofi
+- snapd
+- unzip
+- xclip
+- xss-lock
+- yarn
 
 
 ### Fonts
 
-ttf-dejavu
-ttf-font-awesome
+- ttf-dejavu
+- ttf-font-awesome
 
 
 ### AUR
 
-google-chrome
-tmuxinator
-xidlehook
+- google-chrome
+- tmuxinator
+- xidlehook
 
 
 ### AUR build
 
-mysql-clients (with patch from https://pastebin.com/wtVwRgFt)
+- mysql-clients (with patch from https://pastebin.com/wtVwRgFt)
 
 
 ### Snap packages
 
-mailspring
+- mailspring
 
 
 ### Composer
 
-composer global require consolidation/cgr
+- `composer global require consolidation/cgr`
 
 
 ### PIP
 
-mycli
-pgcli
+- mycli
+- pgcli
 
 
 ### Bash completion
 
-composer (cgr require bamarni/symfony-console-autocomplete)
-tmux (https://github.com/imomaliev/tmux-bash-completion/blob/master/completions/tmux)
-tmuxinator (https://github.com/tmuxinator/tmuxinator/blob/master/completion/tmuxinator.bash)
-yarn (https://github.com/dsifford/yarn-completion/blob/master/yarn-completion.bash)
+- composer (`cgr require bamarni/symfony-console-autocomplete`)
+- tmux (https://github.com/imomaliev/tmux-bash-completion/blob/master/completions/tmux)
+- tmuxinator (https://github.com/tmuxinator/tmuxinator/blob/master/completion/tmuxinator.bash)
+- yarn (https://github.com/dsifford/yarn-completion/blob/master/yarn-completion.bash)
 
 
 ### Config
 
-Reverse touchpad scrolling ("natural scrolling") - https://forum.manjaro.org/t/reversed-scrolling-in-i3-edition/25811
+- Reverse touchpad scrolling ("natural scrolling") - https://forum.manjaro.org/t/reversed-scrolling-in-i3-edition/25811
