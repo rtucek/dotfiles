@@ -306,6 +306,7 @@ exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer no
 exec --no-startup-id xss-lock blurlock
 # exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+exec_always --no-startup-id $HOME/.config/i3/touchpad.sh
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:

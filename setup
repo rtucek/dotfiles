@@ -17,6 +17,7 @@ DOTFILES = [
     '.config/i3/keyboard-layout.sh',
     '.config/i3/polybar.sh',
     '.config/i3/sound.sh',
+    '.config/i3/touchpad.sh',
     '.config/mimeapps.list',
     '.config/pcmanfm/default/pcmanfm.conf',
     '.config/pgcli/config',
