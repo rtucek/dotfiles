@@ -99,8 +99,3 @@ The dotfiles are optimized for the following setup.
 - tmux (https://github.com/imomaliev/tmux-bash-completion/blob/master/completions/tmux)
 - tmuxinator (https://github.com/tmuxinator/tmuxinator/blob/master/completion/tmuxinator.bash)
 - yarn (https://github.com/dsifford/yarn-completion/blob/master/yarn-completion.bash)
-
-
-### Config
-
-- Reverse touchpad scrolling ("natural scrolling") - https://forum.manjaro.org/t/reversed-scrolling-in-i3-edition/25811
