@@ -47,8 +47,10 @@ The dotfiles are optimized for the following setup.
 - neovim
 - nodejs
 - npm
+- pavucontrol
 - polybar
 - postgresql-client
+- pulseaudio-bluetooth
 - python-pip
 - python2-pip
 - rofi
