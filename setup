@@ -8,6 +8,7 @@ import sys
 DOTFILES = [
     '.bash_aliases',
     '.bash_bootstrap',
+    '.bash_conf',
     '.bash_logout',
     '.bash_profile',
     '.bash_prompt',

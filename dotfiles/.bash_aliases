@@ -11,9 +11,13 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# grep aliases
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
+
+# diff color alias
+alias diff='diff --color=auto'
 
 # Mock pbcopy and pbpaste
 alias pbcopy='xclip -selection c'
