@@ -55,6 +55,7 @@ The dotfiles are optimized for the following setup.
 - python2-pip
 - rofi
 - snapd
+- terminator
 - unzip
 - xclip
 - xss-lock

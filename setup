@@ -24,6 +24,7 @@ DOTFILES = [
     '.config/pgcli/config',
     '.config/polybar/config',
     '.config/rofi/config',
+    '.config/terminator/config',
     '.config/tmuxinator/dotfiles.yml',
     '.config/tmuxinator/local.yml',
     '.config/user-dirs.dirs',
