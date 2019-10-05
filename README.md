@@ -66,6 +66,7 @@ The dotfiles are optimized for the following setup.
 
 - ttf-dejavu
 - ttf-font-awesome
+- ttf-joypixels
 
 
 ### AUR
