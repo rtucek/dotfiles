@@ -1,8 +1,10 @@
-## Dotfiles
+# Dotfiles
 
 My dotfiles - use them and contribute your personal changes/suggestions.
+The `setup` script requires Python 3.
 
-### Installation (export)
+
+## Installation (export)
 
 Copy all files over the current existing ones (this will effectively overwrite
 any current settings).
@@ -11,7 +13,8 @@ any current settings).
 ./setup export
 ```
 
-### Publish settings (import)
+
+## Publish settings (import)
 
 Copies a list of files into the current workspace, ready for committing.
 
@@ -19,19 +22,84 @@ Copies a list of files into the current workspace, ready for committing.
 ./setup import
 ```
 
-### Contribution
 
-Pull requests are welcome, but please state with comments what the settings are
-actually doing, unless the setting are somehow self explaining.
+## Contribution
 
-e.g. in the `.vimrc` file, it's definitely NOT required to state explicitly, what
-`syntax enable` is doing, however would you know what those settings are doing
-without the explanation in the comments?
+Pull requests are welcome!
 
-```
-"Supress warning when changing FROM unsaved buffer
-set hidden
 
-"Demand explicit confirmation when closing unsaved buffers
-set confirm
-```
+## Dependencies
+
+The dotfiles are optimized for the following setup.
+
+
+### General packages
+
+- bash-completion
+- bat
+- composer
+- ctags
+- docker
+- firefox
+- gzip
+- i3-scrot
+- msr-tools
+- neovim
+- nodejs
+- npm
+- pavucontrol
+- polybar
+- postgresql-client
+- pulseaudio-bluetooth
+- python-pip
+- python2-pip
+- rofi
+- snapd
+- terminator
+- unzip
+- xclip
+- xss-lock
+- yarn
+
+
+### Fonts
+
+- ttf-dejavu
+- ttf-font-awesome
+- ttf-joypixels
+
+
+### AUR
+
+- google-chrome
+- tmuxinator
+- xidlehook
+
+
+### AUR build
+
+- mysql-clients (with patch from https://pastebin.com/wtVwRgFt)
+
+
+### Snap packages
+
+- mailspring
+
+
+### Composer
+
+- `composer global require consolidation/cgr`
+
+
+### PIP
+
+- mycli
+- pgcli
+
+
+### Bash completion
+
+- composer (`cgr require bamarni/symfony-console-autocomplete`)
+- tmux (https://github.com/imomaliev/tmux-bash-completion/blob/master/completions/tmux)
+- tmuxinator (https://github.com/tmuxinator/tmuxinator/blob/master/completion/tmuxinator.bash)
+- yarn (https://github.com/dsifford/yarn-completion/blob/master/yarn-completion.bash)

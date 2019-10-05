@@ -81,6 +81,8 @@ endif
 "The default leader is a backslash, but we use ','
 let mapleader = ','
 
+set encoding=UTF-8
+
 "Fix backspace key"
 set backspace=indent,eol,start
 
@@ -94,6 +96,9 @@ set copyindent
 set noexpandtab
 set preserveindent
 set softtabstop=0
+
+"Case-insensitive tab completion
+set wildignorecase
 
 "Make scrolling faster and more accurate
 set ttyfast

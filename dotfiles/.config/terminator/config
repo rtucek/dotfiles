@@ -1,0 +1,23 @@
+[global_config]
+  title_hide_sizetext = True
+[keybindings]
+  help = None
+  layout_launcher = None
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    cursor_shape = underline
+    foreground_color = "#ffffff"
+    scroll_on_keystroke = False
+    scrollbar_position = hidden
+    show_titlebar = False

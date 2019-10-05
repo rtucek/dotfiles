@@ -7,11 +7,31 @@ import sys
 
 DOTFILES = [
     '.bash_aliases',
+    '.bash_bootstrap',
+    '.bash_conf',
     '.bash_logout',
     '.bash_profile',
     '.bash_prompt',
     '.bashrc',
+    '.config/i3-scrot.conf',
+    '.config/i3/config',
+    '.config/i3/keyboard-layout.sh',
+    '.config/i3/polybar.sh',
+    '.config/i3/sound.sh',
+    '.config/i3/touchpad.sh',
+    '.config/mimeapps.list',
+    '.config/pcmanfm/default/pcmanfm.conf',
+    '.config/pgcli/config',
+    '.config/polybar/config',
+    '.config/rofi/config',
+    '.config/terminator/config',
+    '.config/tmuxinator/dotfiles.yml',
+    '.config/tmuxinator/local.yml',
+    '.config/user-dirs.dirs',
+    '.config/user-dirs.locale',
     '.ctags',
+    '.dir_colors',
+    '.dmrc',
     '.editorconfig',
     '.editrc',
     '.exports',
@@ -23,10 +43,16 @@ DOTFILES = [
     '.my.cnf',
     '.myclirc',
     '.notags',
+    '.npmrc',
     '.path',
+    '.profile',
     '.selected_editor',
     '.tmux.conf',
     '.vimrc',
+    '.Xclients',
+    '.xinitrc',
+    '.xinputrc',
+    '.Xresources',
 ]
 
 SCRIPTPATH = '{0}/dotfiles/'.format(os.path.dirname(os.path.abspath(__file__)))
@@ -74,7 +100,7 @@ def import_dotfiles():
         if copy_file(abs_dst_file, abs_src_file):
             print('imported file', abs_src_file)
         else:
-            sys.stderr.write(f'unknown file: {abs_src_file}')
+            print(f'unknown file: {abs_src_file}', file=sys.stderr)
 
 
 def export_dotfiles():
@@ -86,7 +112,7 @@ def export_dotfiles():
         if copy_file(abs_dst_file, abs_src_file):
             print('exported dotfile', abs_src_file)
         else:
-            sys.stderr.write(f'skipped exporting dotfile {abs_src_file}')
+            print(f'skipped exporting dotfile {abs_src_file}', file=sys.stderr)
 
 
 def main():
