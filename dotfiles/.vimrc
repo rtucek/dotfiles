@@ -97,6 +97,9 @@ set noexpandtab
 set preserveindent
 set softtabstop=0
 
+"Case-insensitive tab completion
+set wildignorecase
+
 "Make scrolling faster and more accurate
 set ttyfast
 
