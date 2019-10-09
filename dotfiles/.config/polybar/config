@@ -28,12 +28,12 @@ alert = #bd2c40
 
 
 
-[bar/footer]
+[bar/top]
 ; Use either of the following command to list available outputs:
 ; If unspecified, the application will pick the first one it finds.
 ; $ polybar -m | cut -d ':' -f 1
 ; $ xrandr -q | grep " connected" | cut -d ' ' -f1;monitor = ${env:MONITOR:HDMI-1}
-; monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:}
 
 ; Use the specified monitor as a fallback if the main one is not found.
 monitor-fallback = eDP-1
@@ -614,7 +614,7 @@ type = internal/i3
 ; on different bars
 ;
 ; Default: false
-; pin-workspaces = true
+pin-workspaces = true
 
 ; This will split the workspace name on ':'
 ; Default: false
