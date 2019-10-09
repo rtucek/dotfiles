@@ -56,6 +56,7 @@ The dotfiles are optimized for the following setup.
 - rofi
 - snapd
 - terminator
+- the_silver_searcher
 - unzip
 - xclip
 - xss-lock
