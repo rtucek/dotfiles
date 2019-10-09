@@ -39,6 +39,7 @@ The dotfiles are optimized for the following setup.
 - bat
 - composer
 - ctags
+- diff-so-fancy
 - docker
 - firefox
 - gzip

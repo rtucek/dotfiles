@@ -2,7 +2,7 @@
 	autocrlf = input
 	editor = nvim
 	excludesfile = ~/.gitignore_global
-	pager = diff-highlight | less -R
+	pager = diff-so-fancy | less -RFX
 [user]
 	name = Rudolf Tucek
 	email = tucek.rudolf@gmail.com
