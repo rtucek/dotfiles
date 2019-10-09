@@ -41,8 +41,10 @@ The dotfiles are optimized for the following setup.
 - ctags
 - docker
 - firefox
+- gvfs-smb
 - gzip
 - i3-scrot
+- manjaro-settings-samba
 - msr-tools
 - neovim
 - nodejs
