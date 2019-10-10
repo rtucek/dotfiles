@@ -40,6 +40,7 @@ The dotfiles are optimized for the following setup.
 - composer
 - ctags
 - docker
+- docker-compose
 - firefox
 - gzip
 - i3-scrot
