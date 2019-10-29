@@ -235,13 +235,15 @@ let g:fzf_buffers_jump = 1
 
 
 "vim-gitgutter
-set updatetime=250
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified = '±'
 let g:gitgutter_sign_modified_removed = '±'
 if exists('&signcolumn')
 	set signcolumn=yes
+	if has('nvim')
+		set signcolumn=auto:2
+	endif
 else
 	let g:gitgutter_sign_column_always = 1
 endif
@@ -539,6 +541,8 @@ map gz# <Plug>(incsearch-nohl)<Plug>(asterisk-gz#)
 "Config
 call coc#config('diagnostic', {
 	\ 'displayByAle': 1,
+	\ 'refreshOnInsertMode': 1,
+	\ 'signOffset': 999999,
 \ })
 call coc#config('languageserver', {
 	\ 'golang': {
@@ -575,6 +579,8 @@ set nobackup
 set nowritebackup
 "Better display for messages
 set cmdheight=2
+"Better experience as with the default 4000
+set updatetime=300
 "Don't give |ins-completion-menu| messages.
 set shortmess+=c
 
@@ -591,7 +597,7 @@ function! s:check_back_space() abort
 endfunction
 
 "Use <c-space> for trigger completion.
-inoremap <silent><expr> <C-SPACE> coc#refresh()
+inoremap <silent><expr> <c-space> coc#refresh()
 "Use <CR> for confirm completion, `<C-g>u` means break undo chain at current position.
 "Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
@@ -605,7 +611,7 @@ nmap <silent> gr <Plug>(coc-references)
 "Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
-	if &filetype == 'vim'
+	if (index(['vim','help'], &filetype) >= 0)
 		execute 'h '.expand('<cword>')
 	else
 		call CocAction('doHover')
@@ -635,10 +641,13 @@ augroup end
 nmap <leader>ac <Plug>(coc-codeaction)
 "Fix autofix problem of current line
 nmap <leader>qf <Plug>(coc-fix-current)
+
 "Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
 "Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 "Using CocList
 nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
