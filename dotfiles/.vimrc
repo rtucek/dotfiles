@@ -241,9 +241,6 @@ let g:gitgutter_sign_modified = '±'
 let g:gitgutter_sign_modified_removed = '±'
 if exists('&signcolumn')
 	set signcolumn=yes
-	if has('nvim')
-		set signcolumn=auto:2
-	endif
 else
 	let g:gitgutter_sign_column_always = 1
 endif
