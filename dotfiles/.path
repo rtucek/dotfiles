@@ -23,3 +23,8 @@ fi
 if [[ ! "$PATH" == *${HOME}/.gem/ruby/2.6.0/bin* ]]; then
 	export PATH="$PATH:${HOME}/.gem/ruby/2.6.0/bin"
 fi
+
+# Add any custom executables to PATH
+if [[ ! "$PATH" == *${HOME}/bin* ]]; then
+	export PATH="$PATH:${HOME}/bin"
+fi
