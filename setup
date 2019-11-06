@@ -53,6 +53,7 @@ DOTFILES = [
     '.xinitrc',
     '.xinputrc',
     '.Xresources',
+    'bin/composer',
     'bin/phpstan',
 ]
 
