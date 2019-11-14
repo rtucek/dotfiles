@@ -20,7 +20,6 @@ DOTFILES = [
     '.config/i3/sound.sh',
     '.config/i3/touchpad.sh',
     '.config/mimeapps.list',
-    '.config/pcmanfm/default/pcmanfm.conf',
     '.config/pgcli/config',
     '.config/polybar/config',
     '.config/rofi/config',
