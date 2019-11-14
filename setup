@@ -16,7 +16,6 @@ DOTFILES = [
     '.config/i3/keyboard-layout.sh',
     '.config/i3/polybar.sh',
     '.config/i3/sound.sh',
-    '.config/pcmanfm/default/pcmanfm.conf',
     '.config/polybar/config',
     '.config/tmuxinator/dotfiles.yml',
     '.config/tmuxinator/local.yml',
