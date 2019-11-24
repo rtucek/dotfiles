@@ -37,7 +37,6 @@ The dotfiles are optimized for the following setup.
 
 - bash-completion
 - bat
-- composer
 - ctags
 - diff-so-fancy
 - docker
