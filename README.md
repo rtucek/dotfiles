@@ -95,8 +95,11 @@ The dotfiles are optimized for the following setup.
 
 ### PIP
 
-- mycli
-- pgcli
+- `pip install --user --upgrade mycli`
+- `pip install --user --upgrade pgcli`
+- `pip install --user --upgrade python-language-server` (coc-python)
+- `pip2 install --user --upgrade pynvim` neovim python provider
+- `pip3 install --user --upgrade pynvim` neovim python provider
 
 
 ### Bash completion
