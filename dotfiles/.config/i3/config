@@ -302,7 +302,7 @@ exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 # exec --no-startup-id xautolock -time 5 -locker "i3exit lock"
-exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer normal 300 "i3exit lock" "" --timer normal 600 "i3exit suspend" ""
+exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer 300 "i3exit lock" "" --timer 600 "i3exit suspend" ""
 exec --no-startup-id xss-lock blurlock
 # exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
