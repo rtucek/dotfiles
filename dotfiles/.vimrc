@@ -110,7 +110,7 @@ set hidden
 set confirm
 
 "Deactivate folding
-set foldenable
+set nofoldenable
 set foldmethod=syntax
 
 "Don't use swapfiles
