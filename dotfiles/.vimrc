@@ -42,7 +42,7 @@ Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'qpkorr/vim-bufkill'
-Plug 'rayburgemeestre/phpfolding.vim'
+" Plug 'rayburgemeestre/phpfolding.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
