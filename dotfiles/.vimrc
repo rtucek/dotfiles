@@ -17,7 +17,6 @@ if !has('nvim')
 endif
 
 
-" Plug 'rayburgemeestre/phpfolding.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
 Plug 'arnaud-lb/vim-php-namespace'
@@ -47,7 +46,6 @@ Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'preservim/nerdcommenter'
-Plug 'psliwka/vim-smoothie'
 Plug 'qpkorr/vim-bufkill'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
