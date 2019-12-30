@@ -1,7 +1,7 @@
 set nocompatible
 
-"-----VIM-PLUG-----
-"Install vim-plug automatically
+" -----VIM-PLUG-----
+" Install vim-plug automatically
 if empty(glob('~/.vim/autoload/plug.vim'))
 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -9,9 +9,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 
-"PLUGINS
+" PLUGINS
 call plug#begin('~/.vim/bundle')
-"vim-sensible - ONLY for vim
+" vim-sensible - ONLY for vim
 if !has('nvim')
 	Plug 'tpope/vim-sensible'
 endif
@@ -64,7 +64,7 @@ Plug 'vim-scripts/tinykeymap'
 Plug 'w0rp/ale'
 
 
-"COLORSCHEMES
+" COLORSCHEMES
 Plug 'crusoexia/vim-monokai'
 Plug 'gosukiwi/vim-atom-dark'
 Plug 'joshdick/onedark.vim'
@@ -73,115 +73,116 @@ Plug 'romainl/Apprentice'
 call plug#end()
 
 
-"vim-sensible
-"Apply configs from vim-sensible
+" vim-sensible
+" Apply configs from vim-sensible
 if !has('nvim')
 	runtime! plugin/sensible.vim
 endif
 
 
 
-"-----GENERAL-----
-"The default leader is a backslash, but we use ','
+" -----GENERAL-----
+" The default leader is a backslash, but we use ','
 let mapleader = ','
 
 set encoding=UTF-8
 
-"Fix backspace key"
+" Fix backspace key"
 set backspace=indent,eol,start
 
-"Set language for spell check
+" Set language for spell check
 setlocal spell spelllang=en_us
 set spell
 
-"Fixing tabs and indentation
+" Fixing tabs and indentation
 set autoindent
 set copyindent
 set noexpandtab
 set preserveindent
 set softtabstop=0
 
-"Case-insensitive tab completion
+" Case-insensitive tab completion
 set wildignorecase
 
-"Make scrolling faster and more accurate
+" Make scrolling faster and more accurate
 set ttyfast
 
-"Refresh buffer automatically
+" Refresh buffer automatically
 set autoread
 
-"Use system clipboard
+" Use system clipboard
 set clipboard=unnamedplus
 
-"Add mouse support
+" Add mouse support
 set mouse=a
 
-"Suppress warning when changing FROM unsaved buffer
+" Suppress warning when changing FROM unsaved buffer
 set hidden
 
-"Demand explicit confirmation when closing unsaved buffers
+" Demand explicit confirmation when closing unsaved buffers
 set confirm
 
-"Deactivate folding
+" Deactivate folding
 set nofoldenable
 set foldmethod=syntax
 
-"Don't use swapfiles
+" Don't use swapfiles
 set noswapfile
 
-"Don't change default cursor
-"Kudos @binaryreverse https://github.com/neovim/neovim/issues/6005
+" Don't change default cursor
+" Kudos @binaryreverse https://github.com/neovim/neovim/issues/6005
 set guicursor=
 
 
-"-----MAPPINGS-----
-"Quick edit ~/.vimrc
+
+" -----MAPPINGS-----
+" Quick edit ~/.vimrc
 nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 
-"Toggle Spell check
+" Toggle Spell check
 nnoremap <Leader>s :set spell!<CR>:set spell?<CR>
 
-"Tab navigation
+" Tab navigation
 nnoremap <Leader>tab :tabnew<space>
 nnoremap <silent> <Leader>w :tabclose<CR>
 nnoremap <silent> <Leader>tabthis :tabnew %<CR>:tabprevious<CR>
 
-"Split Management
+" Split Management
 nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
 nmap <C-H> <C-W><C-H>
 nmap <C-L> <C-W><C-L>
 
-"Fix whitespace errors
+" Fix whitespace errors
 nnoremap <Leader>fwe :%s/^ //g<CR>:nohlsearch<CR>
 
-"Unexpand 4 spaces to tab
+" Unexpand 4 spaces to tab
 nnoremap <Leader>uex :%s/    /\t/g<CR>:nohlsearch<CR>
 
-"Don't yank selected text after overwriting via paste
+" Don't yank selected text after overwriting via paste
 vnoremap <silent> p "_dP
 
-"Move lines up and down in visual mode
+" Move lines up and down in visual mode
 vnoremap <silent> <C-J> :m '>+1<CR>gv
 vnoremap <silent> <C-K> :m '<-2<CR>gv
 
-"(Un-)Indent lines and preserve selection
+" (Un-)Indent lines and preserve selection
 vnoremap <silent> < <<CR>gv
 vnoremap <silent> > ><CR>gv
 
-"Toggle relative line numbers
+" Toggle relative line numbers
 nnoremap <silent> <Leader>r :set relativenumber!<CR>:set relativenumber?<CR>
 vnoremap <silent> <Leader>r <ESC>:set relativenumber!<CR>gv
 
-"Toggle folding
+" Toggle folding
 nnoremap <Leader>f :set foldenable!<CR>:set foldenable?<CR>
 
-"Sudo write
+" Sudo write
 cmap w!! w !sudo tee > /dev/null %
 
 
 
-"-----AUTO-COMMANDS-----
+" -----AUTO-COMMANDS-----
 augroup generalAutocmd
 	autocmd!
 	autocmd BufEnter * :syntax sync fromstart
@@ -189,7 +190,7 @@ augroup END
 
 
 
-"-----FUNCTIONS-----
+" -----FUNCTIONS-----
 function! s:DiffWithSaved()
 	let filetype=&ft
 	diffthis
@@ -201,9 +202,9 @@ com! DiffSaved call s:DiffWithSaved()
 
 
 
-"-----PLUGIN CONFIGURATION-----
-"editorconfig
-"Show visual mark, depending on max_line_length value
+" -----PLUGIN CONFIGURATION-----
+" editorconfig
+" Show visual mark, depending on max_line_length value
 let g:EditorConfig_max_line_indicator = "line"
 let g:EditorConfig_preserve_formatoptions = 1
 let g:EditorConfig_exclude_patterns = [
@@ -212,7 +213,7 @@ let g:EditorConfig_exclude_patterns = [
 \ ]
 
 
-"NERDTree
+" NERDTree
 let NERDTreeShowHidden = 1
 nnoremap <silent> <Leader>d :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>D :NERDTreeFind<CR>
@@ -225,7 +226,7 @@ let NERDTreeIgnore = [
 \ ]
 
 
-"fzf
+" fzf
 nnoremap <silent> <C-P> :Files<CR>
 nnoremap <silent> <Leader>cwdp :Files <C-R>=expand('%:p:h') . '/'<CR><CR>
 nnoremap <silent> <Leader>p :GFiles<CR>
@@ -238,7 +239,7 @@ let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_buffers_jump = 1
 
 
-"vim-gitgutter
+" vim-gitgutter
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified = '±'
@@ -250,7 +251,7 @@ else
 endif
 
 
-"php.vim
+" php.vim
 let php_html_load = 0
 let php_html_in_heredoc = 0
 let php_html_in_nowdoc = 0
@@ -269,8 +270,8 @@ augroup phpVimAutocmd
 augroup END
 
 
-"vim-php-namespace
-"Insert use statement
+" vim-php-namespace
+" Insert use statement
 let g:php_namespace_sort_after_insert = 1
 
 function! IPhpInsertUse()
@@ -279,7 +280,7 @@ function! IPhpInsertUse()
 endfunction
 
 
-"Expand Namespace
+" Expand Namespace
 function! IPhpExpandClass()
 	call PhpExpandClass()
 	call feedkeys('a', 'n')
@@ -294,13 +295,13 @@ augroup phpInsertUseAutocmd
 augroup END
 
 
-"nerdcommenter
+" nerdcommenter
 filetype plugin on
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 
-"Make NERDCommenter work with vue files
+" Make NERDCommenter work with vue files
 let g:ft = ''
 function! NERDCommenter_before()
 	if &ft == 'vue'
@@ -323,19 +324,19 @@ function! NERDCommenter_after()
 endfunction
 
 
-"vim-fugitive
+" vim-fugitive
 noremap <silent> <Leader>gstatus :Gstatus<CR>
 noremap <silent> <Leader>gblame :Gblame -w<CR>
 
 
-"tagbar
+" tagbar
 nnoremap <silent> <Leader>tb :TagbarToggle<CR>
-"needs manual installation/build of https://github.com/vim-php/phpctags
+" needs manual installation/build of https://github.com/vim-php/phpctags
 let g:tagbar_phpctags_bin='/usr/local/bin/phpctags'
 let g:tagbar_autoclose = 1
 
 
-"lightline
+" lightline
 set laststatus=2
 set noshowmode
 let g:lightline = {
@@ -383,18 +384,18 @@ function! LightlineFilename()
 endfunction
 
 
-"gutentags
+" gutentags
 let g:gutentags_ctags_tagfile = '.tags'
 set tags='.tags'
 
 
-"ack.vim
+" ack.vim
 let g:ackprg = 'ag --vimgrep --hidden --smart-case --ignore .git/'
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 
 
-"ctrlsf.vim
+" ctrlsf.vim
 let g:ctrlsf_regex_pattern = 1
 let g:ctrlsf_auto_close = 0
 nnoremap <Leader>A :CtrlSF<Space>
@@ -403,24 +404,24 @@ let g:ctrlsf_extra_backend_args = {
 \ }
 
 
-"vim-markdown
+" vim-markdown
 augroup vimMarkdownAutocmd
 	autocmd!
 	autocmd BufNewFile,BufReadPost *.md.erb set filetype=markdown
 augroup END
 
 
-"bufexplorer
+" bufexplorer
 let g:bufExplorerShowRelativePath = 1
 
 
-"ultisnips
+" ultisnips
 let g:UltiSnipsExpandTrigger = '<Leader>st'
 let g:UltiSnipsJumpForwardTrigger = '<Leader>sn'
 let g:UltiSnipsJumpBackwardTrigger = '<Leader>sb'
 
 
-"vim-go
+" vim-go
 let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
@@ -443,7 +444,7 @@ let g:go_fold_enable = [
 \ ]
 
 
-"ale
+" ale
 nnoremap <silent> [e :ALEPreviousWrap<CR>
 nnoremap <silent> ]e :ALENextWrap<CR>
 let g:ale_fix_on_save = 1
@@ -506,7 +507,7 @@ let g:ale_fixers = {
 \ }
 
 
-"undotree
+" undotree
 nnoremap <silent> <Leader><Leader>u :NERDTreeClose<CR>:UndotreeToggle<CR>
 if has("persistent_undo")
 	set undodir=~/.undodir/
@@ -514,49 +515,49 @@ if has("persistent_undo")
 endif
 
 
-"vim-maximizer
+" vim-maximizer
 let g:maximizer_set_default_mapping = 0
 nmap <silent> <Leader>m :MaximizerToggle!<CR>
 
 
-"vim-closetag
+" vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue,*.twig,*.blade.php'
 
 
-"vim-vue
+" vim-vue
 let g:vue_disable_pre_processors = 1
 
 
-"incsearch.vim, vim-asterisk & incsearch-easymotion.vim
+" incsearch.vim, vim-asterisk & incsearch-easymotion.vim
 set hlsearch
 set ignorecase
 let g:incsearch#auto_nohlsearch = 1
 let g:asterisk#keeppos = 1
-"search
+" search
 map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-"Search with easymotion
+" Search with easymotion
 map z/ <Plug>(incsearch-easymotion-/)
 map z? <Plug>(incsearch-easymotion-?)
 map zg/ <Plug>(incsearch-easymotion-stay)
-"search forth- and backwards
+" search forth- and backwards
 map n <Plug>(incsearch-nohl-n)
 map N <Plug>(incsearch-nohl-N)
-"search word under cursor (move)
+" search word under cursor (move)
 map * <Plug>(incsearch-nohl)<Plug>(asterisk-*)
 map # <Plug>(incsearch-nohl)<Plug>(asterisk-#)
 map g* <Plug>(incsearch-nohl)<Plug>(asterisk-g*)
 map g# <Plug>(incsearch-nohl)<Plug>(asterisk-g#)
-"search word under cursor (stay)
+" search word under cursor (stay)
 map z* <Plug>(incsearch-nohl)<Plug>(asterisk-z*)
 map z# <Plug>(incsearch-nohl)<Plug>(asterisk-z#)
 map gz* <Plug>(incsearch-nohl)<Plug>(asterisk-gz*)
 map gz# <Plug>(incsearch-nohl)<Plug>(asterisk-gz#)
 
 
-"COC
-"Config
+" COC
+" Config
 call coc#config('diagnostic', {
 	\ 'displayByAle': 1,
 	\ 'refreshOnInsertMode': 1,
@@ -575,7 +576,7 @@ call coc#config('languageserver', {
 	\ }
 \ })
 
-"Plugins
+" Plugins
 let g:coc_global_extensions = [
 	\ 'coc-css',
 	\ 'coc-emmet',
@@ -592,18 +593,18 @@ let g:coc_global_extensions = [
 	\ 'coc-yank',
 \ ]
 
-"Some server have issues with backup files, see #649
+" Some server have issues with backup files, see #649
 set nobackup
 set nowritebackup
-"Better display for messages
+" Better display for messages
 set cmdheight=2
-"Better experience as with the default 4000
+" Better experience as with the default 4000
 set updatetime=300
-"Don't give |ins-completion-menu| messages.
+" Don't give |ins-completion-menu| messages.
 set shortmess+=c
 
-"Use tab for trigger completion with characters ahead and navigate.
-"Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
 	\ pumvisible() ? "\<C-n>" :
 	\ <SID>check_back_space() ? "\<TAB>" :
@@ -614,19 +615,19 @@ function! s:check_back_space() abort
 	return !col || getline('.')[col - 1]=~# '\s'
 endfunction
 
-"Use <c-space> for trigger completion.
+" Use <c-space> for trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
-"Use <CR> for confirm completion, `<C-g>u` means break undo chain at current position.
-"Coc only does snippet and additional edit on confirm.
+" Use <CR> for confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
 
-"Remap keys for gotos
+" Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-"Use K for show documentation in preview window
+" Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
 	if (index(['vim','help'], &filetype) >= 0)
@@ -636,38 +637,38 @@ function! s:show_documentation()
 	endif
 endfunction
 
-"Highlight symbol under cursor on CursorHold
+" Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
-"Remap for rename current word
+" Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-"Remap for format selected region
+" Remap for format selected region
 vmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
 augroup coc
 	autocmd!
-	"Setup formatexpr specified filetype(s).
+	" Setup formatexpr specified filetype(s).
 	autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-	"Update signature help on jump placeholder
+	" Update signature help on jump placeholder
 	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-"Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 " vmap <leader>a <Plug>(coc-codeaction-selected)
 " nmap <leader>a <Plug>(coc-codeaction-selected)
-"Remap for do codeAction of current line
+" Remap for do codeAction of current line
 nmap <leader>ac <Plug>(coc-codeaction)
-"Fix autofix problem of current line
+" Fix autofix problem of current line
 nmap <leader>qf <Plug>(coc-fix-current)
 
-"Use `:Format` for format current buffer
+" Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
-"Use `:Fold` for fold current buffer
+" Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 " use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 
-"Using CocList
+" Using CocList
 nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
 nnoremap <silent> <space>c :<C-u>CocList commands<cr>
@@ -677,7 +678,7 @@ nnoremap <silent> <space>j :<C-u>CocNext<CR>
 nnoremap <silent> <space>k :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p :<C-u>CocListResume<CR>
 
-"Coc Plugin mappings
+" Coc Plugin mappings
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
 
@@ -687,30 +688,7 @@ let g:lightline#ale#indicator_warnings = "\uf071"
 let g:lightline#ale#indicator_errors = "\uf05e"
 let g:lightline#ale#indicator_ok = "\uf00c"
 
-
-
-"-----VISUAL-----
-
-"Syntax highlighting
-syntax enable
-
-set t_ut=
-set t_Co=256
-colorscheme onedark
-
-"Always display tabline
-set showtabline=2
-
-"Highlight current line
-set cursorline
-
-"Show column length
-set ruler
-
-"Show line numbers
-set number
-
-"Tinykeymap
+" Tinykeymap
 let g:tinykeymaps_default = []
 call tinykeymap#Load('windows')
 call tinykeymap#Map('windows', '<C-right>', 'wincmd >')
@@ -720,13 +698,36 @@ call tinykeymap#Map('windows', '<C-down>', 'wincmd -')
 
 
 
-"-----END-----
-"Auto sourcing the .vimrc file on safe
+" -----VISUAL-----
+
+" Syntax highlighting
+syntax enable
+
+set t_ut=
+set t_Co=256
+colorscheme onedark
+
+" Always display tabline
+set showtabline=2
+
+" Highlight current line
+set cursorline
+
+" Show column length
+set ruler
+
+" Show line numbers
+set number
+
+
+
+" -----END-----
+" Auto sourcing the .vimrc file on safe
 augroup sourcingAutocmd
 	autocmd!
 	autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
 
-	"Reload lightline
+	" Reload lightline
 	call lightline#init()
 	call lightline#colorscheme()
 	call lightline#update()
