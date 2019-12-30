@@ -40,6 +40,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'mattn/emmet-vim'
+Plug 'maximbaz/lightline-ale'
 Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -342,7 +343,10 @@ let g:lightline = {
 			\ ['mode', 'paste'],
 			\ ['gitbranch', 'readonly', 'filename', 'cocstatus'],
 			\ ['tagbar', 'gutentags'],
-		\ ]
+		\ ],
+		\ 'right': [
+			\ ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+		\ ],
 	\ },
 	\ 'component_function': {
 		\ 'gitbranch': 'fugitive#head',
@@ -353,6 +357,18 @@ let g:lightline = {
 		\ 'lineinfo': '%l\%L [%p%%], %c, %n',
 		\ 'tagbar': '%{tagbar#currenttag("[%s]", "", "f")}',
 		\ 'gutentags': '%{gutentags#statusline("[Generating...]")}',
+	\ },
+	\ 'component_expand': {
+		\ 'linter_checking': 'lightline#ale#checking',
+		\ 'linter_warnings': 'lightline#ale#warnings',
+		\ 'linter_errors': 'lightline#ale#errors',
+		\ 'linter_ok': 'lightline#ale#ok',
+	\ },
+	\ 'component_type': {
+		\ 'linter_checking': 'left',
+		\ 'linter_warnings': 'warning',
+		\ 'linter_errors': 'error',
+		\ 'linter_ok': 'left',
 	\ },
 \ }
 
@@ -659,6 +675,13 @@ nnoremap <silent> <space>p :<C-u>CocListResume<CR>
 
 "Coc Plugin mappings
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
+
+
+" lightline-ale
+let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_warnings = "\uf071"
+let g:lightline#ale#indicator_errors = "\uf05e"
+let g:lightline#ale#indicator_ok = "\uf00c"
 
 
 
