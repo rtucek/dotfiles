@@ -46,6 +46,7 @@ Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'preservim/nerdcommenter'
+Plug 'psliwka/vim-smoothie'
 Plug 'qpkorr/vim-bufkill'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
