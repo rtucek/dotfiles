@@ -21,6 +21,7 @@ endif
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
 Plug 'arnaud-lb/vim-php-namespace'
+Plug 'dense-analysis/ale'
 Plug 'djoshea/vim-autoread'
 Plug 'dyng/ctrlsf.vim'
 Plug 'easymotion/vim-easymotion'
@@ -61,7 +62,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-php/tagbar-phpctags.vim'
 Plug 'vim-scripts/tinykeymap'
-Plug 'w0rp/ale'
 
 
 " COLORSCHEMES
