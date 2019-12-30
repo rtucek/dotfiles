@@ -346,6 +346,8 @@ let g:lightline = {
 		\ ],
 		\ 'right': [
 			\ ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+			\ ['lineinfo'],
+			\ ['fileformat', 'fileencoding', 'filetype'],
 		\ ],
 	\ },
 	\ 'component_function': {
@@ -354,7 +356,7 @@ let g:lightline = {
 		\ 'cocstatus': 'coc#status',
 	\ },
 	\ 'component': {
-		\ 'lineinfo': '%l\%L [%p%%], %c, %n',
+		\ 'lineinfo': '%l>%c',
 		\ 'tagbar': '%{tagbar#currenttag("[%s]", "", "f")}',
 		\ 'gutentags': '%{gutentags#statusline("[Generating...]")}',
 	\ },
