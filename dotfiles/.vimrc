@@ -189,7 +189,7 @@ cmap w!! w !sudo tee > /dev/null %
 augroup generalAutocmd
 	autocmd!
 	autocmd BufEnter * :syntax sync fromstart
-augroup END
+augroup end
 
 
 
@@ -270,7 +270,7 @@ endfunction
 augroup phpVimAutocmd
 	autocmd!
 	autocmd FileType php call PhpSyntaxOverride()
-augroup END
+augroup end
 
 
 " vim-php-namespace
@@ -295,7 +295,7 @@ augroup phpInsertUseAutocmd
 	autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
 	autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
 	autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
-augroup END
+augroup end
 
 
 " nerdcommenter
@@ -414,7 +414,7 @@ let g:ctrlsf_extra_backend_args = {
 augroup vimMarkdownAutocmd
 	autocmd!
 	autocmd BufNewFile,BufReadPost *.md.erb set filetype=markdown
-augroup END
+augroup end
 
 
 " bufexplorer
@@ -740,4 +740,4 @@ augroup sourcingAutocmd
 	call lightline#init()
 	call lightline#colorscheme()
 	call lightline#update()
-augroup END
+augroup end
