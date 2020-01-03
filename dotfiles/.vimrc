@@ -644,7 +644,10 @@ endfunction
 " Highlight symbol under cursor on CursorHold
 augroup cocCursorhold
 	autocmd!
+	" Highlight element under cursor when idle
 	autocmd CursorHold * silent call CocActionAsync('highlight')
+	" Show signature help for parameters in insert mode when idle
+	autocmd CursorHoldI * silent call CocActionAsync('showSignatureHelp')
 augroup end
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
