@@ -641,7 +641,10 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup cocCursorhold
+	autocmd!
+	autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup end
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
