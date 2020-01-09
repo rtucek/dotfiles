@@ -577,7 +577,7 @@ call coc#config('languageserver', {
 			\ '.hg/',
 		\ ],
 		\ 'filetypes': ['go'],
-	\ }
+	\ },
 \ })
 
 " Plugins
