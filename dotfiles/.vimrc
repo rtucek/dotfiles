@@ -148,6 +148,12 @@ nnoremap <Leader>tab :tabnew<space>
 nnoremap <silent> <Leader>w :tabclose<CR>
 nnoremap <silent> <Leader>tabthis :tabnew %<CR>:tabprevious<CR>
 
+" Better navigation with wrapped lines
+noremap <silent> k gk
+noremap <silent> j gj
+noremap <silent> 0 g0
+noremap <silent> $ g$
+
 " Split Management
 nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
