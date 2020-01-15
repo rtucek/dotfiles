@@ -42,6 +42,7 @@ The dotfiles are optimized for the following setup.
 - docker
 - docker-compose
 - firefox
+- fwupd
 - gzip
 - i3-scrot
 - msr-tools
