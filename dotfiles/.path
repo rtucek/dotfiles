@@ -20,8 +20,9 @@ if [[ ! "$PATH" == *"${HOME}/.npm-packages/bin"* ]]; then
 fi
 
 # Add GEM executables to PATH
-if [[ ! "$PATH" == *"${HOME}/.gem/ruby/2.6.0/bin"* ]]; then
-	export PATH="${PATH}:${HOME}/.gem/ruby/2.6.0/bin"
+GEMPATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin"
+if [[ ! "$PATH" == *"$GEMPATH"* ]]; then
+	export PATH="${PATH}:$GEMPATH"
 fi
 
 # Add any custom executables to PATH
