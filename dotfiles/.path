@@ -1,30 +1,31 @@
 # Add go binaries to PATH
-if [[ ! "$PATH" == */usr/local/go/bin* ]]; then
-	export PATH="$PATH:/usr/local/go/bin"
+if [[ ! "$PATH" == *"/usr/local/go/bin"* ]]; then
+	export PATH="${PATH}:/usr/local/go/bin"
 fi
-if [[ ! "$PATH" == *${HOME}/go/bin* ]]; then
-	export PATH="$PATH:${HOME}/go/bin"
+if [[ ! "$PATH" == *"${HOME}/go/bin"* ]]; then
+	export PATH="${PATH}:${HOME}/go/bin"
 fi
 
 # Add PHP executables to PATH
-if [[ ! "$PATH" == *${HOME}/.config/composer/vendor/bin* ]]; then
-	export PATH="$PATH:${HOME}/.config/composer/vendor/bin"
+if [[ ! "$PATH" == *"${HOME}/.config/composer/vendor/bin"* ]]; then
+	export PATH="${PATH}:${HOME}/.config/composer/vendor/bin"
 fi
-if [[ ! "$PATH" == *${HOME}/.composer/vendor/bin* ]]; then
-	export PATH="$PATH:${HOME}/.composer/vendor/bin"
+if [[ ! "$PATH" == *"${HOME}/.composer/vendor/bin"* ]]; then
+	export PATH="${PATH}:${HOME}/.composer/vendor/bin"
 fi
 
 # Add NPM executables to PATH
-if [[ ! "$PATH" == *${HOME}/.npm-packages/bin* ]]; then
-	export PATH="$PATH:${HOME}/.npm-packages/bin"
+if [[ ! "$PATH" == *"${HOME}/.npm-packages/bin"* ]]; then
+	export PATH="${PATH}:${HOME}/.npm-packages/bin"
 fi
 
 # Add GEM executables to PATH
-if [[ ! "$PATH" == *${HOME}/.gem/ruby/2.6.0/bin* ]]; then
-	export PATH="$PATH:${HOME}/.gem/ruby/2.6.0/bin"
+GEMPATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin"
+if [[ ! "$PATH" == *"$GEMPATH"* ]]; then
+	export PATH="${PATH}:$GEMPATH"
 fi
 
 # Add any custom executables to PATH
-if [[ ! "$PATH" == *${HOME}/bin* ]]; then
-	export PATH="$PATH:${HOME}/bin"
+if [[ ! "$PATH" == *"${HOME}/bin"* ]]; then
+	export PATH="${PATH}:${HOME}/bin"
 fi
