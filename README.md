@@ -50,6 +50,7 @@ The dotfiles are optimized for the following setup.
 - nodejs
 - npm
 - pavucontrol
+- percona-server & percona-server-clients (mysql)
 - polybar
 - postgresql-client
 - pulseaudio-bluetooth
@@ -77,11 +78,6 @@ The dotfiles are optimized for the following setup.
 - google-chrome
 - tmuxinator
 - xidlehook
-
-
-### AUR build
-
-- mysql-clients (with patch from https://pastebin.com/wtVwRgFt)
 
 
 ### Snap packages
