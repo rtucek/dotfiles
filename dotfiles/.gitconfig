@@ -66,3 +66,8 @@
 	stripLeadingSymbols = false
 	markEmptyLines = false
 	useUnicodeRuler = false
+
+[format]
+	signOff = true
+	coverLetter = auto
+	coverFromDescription = auto
