@@ -140,15 +140,15 @@ set guicursor=
 
 " -----MAPPINGS-----
 " Quick edit ~/.vimrc
-nmap <silent> <Leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
 
 " Toggle Spell check
-nnoremap <Leader>s :set spell!<CR>:set spell?<CR>
+nnoremap <leader>s :set spell!<CR>:set spell?<CR>
 
 " Tab navigation
-nnoremap <Leader>tab :tabnew<space>
-nnoremap <silent> <Leader>w :tabclose<CR>
-nnoremap <silent> <Leader>tabthis :tabnew %<CR>:tabprevious<CR>
+nnoremap <leader>tab :tabnew<space>
+nnoremap <silent> <leader>w :tabclose<CR>
+nnoremap <silent> <leader>tabthis :tabnew %<CR>:tabprevious<CR>
 
 " Better navigation with wrapped lines
 noremap <silent> k gk
@@ -163,10 +163,10 @@ nmap <C-H> <C-W><C-H>
 nmap <C-L> <C-W><C-L>
 
 " Fix whitespace errors
-nnoremap <Leader>fwe :%s/^ //g<CR>:nohlsearch<CR>
+nnoremap <leader>fwe :%s/^ //g<CR>:nohlsearch<CR>
 
 " Unexpand 4 spaces to tab
-nnoremap <Leader>uex :%s/    /\t/g<CR>:nohlsearch<CR>
+nnoremap <leader>uex :%s/    /\t/g<CR>:nohlsearch<CR>
 
 " Don't yank selected text after overwriting via paste
 vnoremap <silent> p "_dP
@@ -180,11 +180,11 @@ vnoremap <silent> < <<CR>gv
 vnoremap <silent> > ><CR>gv
 
 " Toggle relative line numbers
-nnoremap <silent> <Leader>r :set relativenumber!<CR>:set relativenumber?<CR>
-vnoremap <silent> <Leader>r <ESC>:set relativenumber!<CR>gv
+nnoremap <silent> <leader>r :set relativenumber!<CR>:set relativenumber?<CR>
+vnoremap <silent> <leader>r <ESC>:set relativenumber!<CR>gv
 
 " Toggle folding
-nnoremap <Leader>f :set foldenable!<CR>:set foldenable?<CR>
+nnoremap <leader>f :set foldenable!<CR>:set foldenable?<CR>
 
 " Sudo write
 cmap w!! w !sudo tee > /dev/null %
@@ -224,8 +224,8 @@ let g:EditorConfig_exclude_patterns = [
 
 " NERDTree
 let NERDTreeShowHidden = 1
-nnoremap <silent> <Leader>d :NERDTreeToggle<CR>
-nnoremap <silent> <Leader>D :NERDTreeFind<CR>
+nnoremap <silent> <leader>d :NERDTreeToggle<CR>
+nnoremap <silent> <leader>D :NERDTreeFind<CR>
 let NERDTreeIgnore = [
 	\ '\~$',
 	\ '\.sw[op]$',
@@ -237,13 +237,13 @@ let NERDTreeIgnore = [
 
 " fzf
 nnoremap <silent> <C-P> :Files<CR>
-nnoremap <silent> <Leader>cwdp :Files <C-R>=expand('%:p:h') . '/'<CR><CR>
-nnoremap <silent> <Leader>p :GFiles<CR>
-nnoremap <silent> <Leader>gp :GFiles?<CR>
-nnoremap <silent> <Leader>buf :Buffers<CR>
-nnoremap <silent> <Leader>lin :BLines<CR>
-nnoremap <silent> <Leader>tag :BTags<CR>
-nnoremap <silent> <Leader>com :Commits<CR>
+nnoremap <silent> <leader>cwdp :Files <C-R>=expand('%:p:h') . '/'<CR><CR>
+nnoremap <silent> <leader>p :GFiles<CR>
+nnoremap <silent> <leader>gp :GFiles?<CR>
+nnoremap <silent> <leader>buf :Buffers<CR>
+nnoremap <silent> <leader>lin :BLines<CR>
+nnoremap <silent> <leader>tag :BTags<CR>
+nnoremap <silent> <leader>com :Commits<CR>
 let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_buffers_jump = 1
 
@@ -297,10 +297,10 @@ endfunction
 
 augroup phpInsertUseAutocmd
 	autocmd!
-	autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-	autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
-	autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
-	autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+	autocmd FileType php inoremap <leader>u <Esc>:call IPhpInsertUse()<CR>
+	autocmd FileType php noremap <leader>u :call PhpInsertUse()<CR>
+	autocmd FileType php inoremap <leader>e <Esc>:call IPhpExpandClass()<CR>
+	autocmd FileType php noremap <leader>e :call PhpExpandClass()<CR>
 augroup end
 
 
@@ -334,12 +334,12 @@ endfunction
 
 
 " vim-fugitive
-noremap <silent> <Leader>gstatus :Gstatus<CR>
-noremap <silent> <Leader>gblame :Gblame -w<CR>
+noremap <silent> <leader>gstatus :Gstatus<CR>
+noremap <silent> <leader>gblame :Gblame -w<CR>
 
 
 " tagbar
-nnoremap <silent> <Leader>tb :TagbarToggle<CR>
+nnoremap <silent> <leader>tb :TagbarToggle<CR>
 " needs manual installation/build of https://github.com/vim-php/phpctags via
 " ```
 " cgr techlivezheng/phpctags
@@ -404,13 +404,13 @@ set tags='.tags'
 " ack.vim
 let g:ackprg = 'ag --vimgrep --hidden --smart-case --ignore .git/'
 cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
+nnoremap <leader>a :Ack!<space>
 
 
 " ctrlsf.vim
 let g:ctrlsf_regex_pattern = 1
 let g:ctrlsf_auto_close = 0
-nnoremap <Leader>A :CtrlSF<Space>
+nnoremap <leader>A :CtrlSF<space>
 let g:ctrlsf_extra_backend_args = {
 	\ 'ag': '--hidden --smart-case --ignore .git/'
 \ }
@@ -428,9 +428,9 @@ let g:bufExplorerShowRelativePath = 1
 
 
 " ultisnips
-let g:UltiSnipsExpandTrigger = '<Leader>st'
-let g:UltiSnipsJumpForwardTrigger = '<Leader>sn'
-let g:UltiSnipsJumpBackwardTrigger = '<Leader>sb'
+let g:UltiSnipsExpandTrigger = '<leader>st'
+let g:UltiSnipsJumpForwardTrigger = '<leader>sn'
+let g:UltiSnipsJumpBackwardTrigger = '<leader>sb'
 
 
 " vim-go
@@ -520,7 +520,7 @@ let g:ale_fixers = {
 
 
 " undotree
-nnoremap <silent> <Leader><Leader>u :NERDTreeClose<CR>:UndotreeToggle<CR>
+nnoremap <silent> <leader><leader>u :NERDTreeClose<CR>:UndotreeToggle<CR>
 if has("persistent_undo")
 	set undodir=~/.undodir/
 	set undofile
@@ -529,7 +529,7 @@ endif
 
 " vim-maximizer
 let g:maximizer_set_default_mapping = 0
-nmap <silent> <Leader>m :MaximizerToggle!<CR>
+nmap <silent> <leader>m :MaximizerToggle!<CR>
 
 
 " vim-closetag
@@ -626,11 +626,11 @@ function! s:check_back_space() abort
 	return !col || getline('.')[col - 1]=~# '\s'
 endfunction
 
-" Use <c-space> for trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" Use <C-space> for trigger completion.
+inoremap <silent><expr> <C-space> coc#refresh()
 " Use <CR> for confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -686,11 +686,11 @@ command! -nargs=? Fold :call CocAction('fold', <f-args>)
 command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " Using CocList
-nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
-nnoremap <silent> <space>c :<C-u>CocList commands<cr>
-nnoremap <silent> <space>o :<C-u>CocList outline<cr>
-nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>a :<C-u>CocList diagnostics<CR>
+nnoremap <silent> <space>e :<C-u>CocList extensions<CR>
+nnoremap <silent> <space>c :<C-u>CocList commands<CR>
+nnoremap <silent> <space>o :<C-u>CocList outline<CR>
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<CR>
 nnoremap <silent> <space>j :<C-u>CocNext<CR>
 nnoremap <silent> <space>k :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p :<C-u>CocListResume<CR>
@@ -715,25 +715,27 @@ call tinykeymap#Map('windows', '<C-down>', 'wincmd -')
 " vim-yoink
 let g:yoinkMaxItems = 50
 let g:yoinkIncludeDeleteOperations = 1
-let g:yoinkSavePersistently = 1
 let g:yoinkSyncSystemClipboardOnFocus = 1
+if has('nvim')
+	let g:yoinkSavePersistently = 1
+endif
 
 " Basic functionality
-nmap <c-n> <plug>(YoinkPostPasteSwapBack)
-nmap <c-p> <plug>(YoinkPostPasteSwapForward)
-nmap p <plug>(YoinkPaste_p)
-nmap P <plug>(YoinkPaste_P)
+nmap <C-n> <Plug>(YoinkPostPasteSwapBack)
+nmap <C-p> <Plug>(YoinkPostPasteSwapForward)
+nmap p <Plug>(YoinkPaste_p)
+nmap P <Plug>(YoinkPaste_P)
 
 " Swap pointer of current yank
-nmap [y <plug>(YoinkRotateBack)
-nmap ]y <plug>(YoinkRotateForward)
+nmap [y <Plug>(YoinkRotateBack)
+nmap ]y <Plug>(YoinkRotateForward)
 
 
 " vim-subversive
 " For supporting yoink in visual mode
-xmap s <plug>(SubversiveSubstitute)
-xmap p <plug>(SubversiveSubstitute)
-xmap P <plug>(SubversiveSubstitute)
+xmap s <Plug>(SubversiveSubstitute)
+xmap p <Plug>(SubversiveSubstitute)
+xmap P <Plug>(SubversiveSubstitute)
 
 
 
