@@ -721,8 +721,8 @@ if has('nvim')
 endif
 
 " Basic functionality
-nmap <C-n> <Plug>(YoinkPostPasteSwapBack)
-nmap <C-p> <Plug>(YoinkPostPasteSwapForward)
+nmap [p <Plug>(YoinkPostPasteSwapBack)
+nmap ]p <Plug>(YoinkPostPasteSwapForward)
 nmap p <Plug>(YoinkPaste_p)
 nmap P <Plug>(YoinkPaste_P)
 
