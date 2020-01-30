@@ -54,6 +54,8 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
+Plug 'svermeulen/vim-subversive'
+Plug 'svermeulen/vim-yoink'
 Plug 'szw/vim-maximizer'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-fugitive'
@@ -600,7 +602,6 @@ let g:coc_global_extensions = [
 	\ 'coc-svg',
 	\ 'coc-tsserver',
 	\ 'coc-vetur',
-	\ 'coc-yank',
 \ ]
 
 " Some server have issues with backup files, see #649
@@ -694,15 +695,13 @@ nnoremap <silent> <space>j :<C-u>CocNext<CR>
 nnoremap <silent> <space>k :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p :<C-u>CocListResume<CR>
 
-" Coc Plugin mappings
-nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
-
 
 " lightline-ale
 let g:lightline#ale#indicator_checking = "\uf110"
 let g:lightline#ale#indicator_warnings = "\uf071"
 let g:lightline#ale#indicator_errors = "\uf05e"
 let g:lightline#ale#indicator_ok = "\uf00c"
+
 
 " Tinykeymap
 let g:tinykeymaps_default = []
@@ -711,6 +710,30 @@ call tinykeymap#Map('windows', '<C-right>', 'wincmd >')
 call tinykeymap#Map('windows', '<C-left>', 'wincmd <')
 call tinykeymap#Map('windows', '<C-up>', 'wincmd +')
 call tinykeymap#Map('windows', '<C-down>', 'wincmd -')
+
+
+" vim-yoink
+let g:yoinkMaxItems = 50
+let g:yoinkIncludeDeleteOperations = 1
+let g:yoinkSavePersistently = 1
+let g:yoinkSyncSystemClipboardOnFocus = 1
+
+" Basic functionality
+nmap <c-n> <plug>(YoinkPostPasteSwapBack)
+nmap <c-p> <plug>(YoinkPostPasteSwapForward)
+nmap p <plug>(YoinkPaste_p)
+nmap P <plug>(YoinkPaste_P)
+
+" Swap pointer of current yank
+nmap [y <plug>(YoinkRotateBack)
+nmap ]y <plug>(YoinkRotateForward)
+
+
+" vim-subversive
+" For supporting yoink in visual mode
+xmap s <plug>(SubversiveSubstitute)
+xmap p <plug>(SubversiveSubstitute)
+xmap P <plug>(SubversiveSubstitute)
 
 
 
