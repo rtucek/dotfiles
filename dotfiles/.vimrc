@@ -434,6 +434,10 @@ let g:UltiSnipsJumpBackwardTrigger = '<leader>sb'
 
 
 " vim-go
+let g:go_get_update = 1
+let g:go_doc_keywordprg_enabled = 0
+let g:go_def_mapping_enabled = 0
+let g:go_gopls_enabled = 0
 let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
@@ -445,15 +449,6 @@ let g:go_highlight_string_spellcheck = 1
 let g:go_highlight_format_strings = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
-let g:go_version_warning = 0
-let g:go_fmt_command = "goimports"
-let g:go_fold_enable = [
-	\ 'block',
-	\ 'comment',
-	\ 'import',
-	\ 'package_comment',
-	\ 'varconst',
-\ ]
 
 
 " ale
@@ -575,6 +570,8 @@ call coc#config('diagnostic', {
 	\ 'refreshOnInsertMode': 1,
 	\ 'signOffset': 999999,
 \ })
+
+" gopls can be installed by vim-go's `:GoInstallBinaries` cmd
 call coc#config('languageserver', {
 	\ 'golang': {
 		\ 'command': 'gopls',
@@ -593,7 +590,6 @@ let g:coc_global_extensions = [
 	\ 'coc-css',
 	\ 'coc-emmet',
 	\ 'coc-eslint',
-	\ 'coc-gocode',
 	\ 'coc-html',
 	\ 'coc-json',
 	\ 'coc-phpls',
@@ -666,6 +662,8 @@ augroup coc
 	autocmd!
 	" Setup formatexpr specified filetype(s).
 	autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+	" Format/re-organize imports
+	autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 	" Update signature help on jump placeholder
 	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
