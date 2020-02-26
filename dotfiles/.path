@@ -14,9 +14,9 @@ if [[ ! "$PATH" == *"${HOME}/.composer/vendor/bin"* ]]; then
 	export PATH="${PATH}:${HOME}/.composer/vendor/bin"
 fi
 
-# Add NPM executables to PATH
-if [[ ! "$PATH" == *"${HOME}/.npm-packages/bin"* ]]; then
-	export PATH="${PATH}:${HOME}/.npm-packages/bin"
+# Add yarn executables to PATH
+if [[ ! "$PATH" == *"${HOME}/.yarn/bin"* ]]; then
+	export PATH="${PATH}:${HOME}/.yarn/bin"
 fi
 
 # Add GEM executables to PATH
