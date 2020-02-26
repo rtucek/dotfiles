@@ -1,3 +1,6 @@
+# Source nvm
+source /usr/share/nvm/init-nvm.sh
+
 # Smart completion for npm commands
 source <(npm completion)
 

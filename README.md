@@ -47,8 +47,6 @@ The dotfiles are optimized for the following setup.
 - i3-scrot
 - msr-tools
 - neovim
-- nodejs
-- npm
 - pavucontrol
 - percona-server & percona-server-clients (mysql)
 - polybar
@@ -63,7 +61,6 @@ The dotfiles are optimized for the following setup.
 - unzip
 - xclip
 - xss-lock
-- yarn
 
 
 ### Fonts
@@ -76,6 +73,7 @@ The dotfiles are optimized for the following setup.
 ### AUR
 
 - google-chrome
+- nvm
 - tmuxinator
 - xidlehook
 
@@ -88,6 +86,24 @@ The dotfiles are optimized for the following setup.
 ### Composer
 
 - `composer global require consolidation/cgr`
+
+
+### nvm
+
+- Install npm via `nvm install-latest-npm`
+
+
+### npm
+
+- Install yarn via npm. Let yarn manage itself by re-installing yarn and
+  removing it afterwards via npm again.
+  `npm -g install yarn; yarn global add yarn; npm -g remove yarn`
+
+
+### yarn
+
+- @vue/cli
+- neovim
 
 
 ### PIP
