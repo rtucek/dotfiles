@@ -45,6 +45,7 @@ The dotfiles are optimized for the following setup.
 - fwupd
 - gzip
 - i3-scrot
+- lastpass-cli
 - msr-tools
 - neovim
 - pavucontrol
