@@ -470,6 +470,13 @@ let g:ale_linters = {
 	\ 'css': [
 		\ 'stylelint',
 	\ ],
+	\ 'go': [
+		\ 'gobuild',
+		\ 'gofmt',
+		\ 'golint',
+		\ 'gotype',
+		\ 'govet',
+	\ ],
 	\ 'javascript': [
 		\ 'eslint',
 	\ ],
@@ -494,6 +501,10 @@ let g:ale_linters = {
 let g:ale_fixers = {
 	\ 'css': [
 		\ 'stylelint',
+	\ ],
+	\ 'go': [
+		\ 'gofmt',
+		\ 'goimports',
 	\ ],
 	\ 'javascript': [
 		\ 'eslint',
