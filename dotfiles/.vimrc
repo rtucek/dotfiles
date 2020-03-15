@@ -28,7 +28,6 @@ Plug 'djoshea/vim-autoread'
 Plug 'dyng/ctrlsf.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'fatih/vim-go'
 Plug 'gregsexton/matchtag'
 Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'haya14busa/incsearch.vim'
@@ -433,24 +432,6 @@ let g:UltiSnipsJumpForwardTrigger = '<leader>sn'
 let g:UltiSnipsJumpBackwardTrigger = '<leader>sb'
 
 
-" vim-go
-let g:go_get_update = 1
-let g:go_doc_keywordprg_enabled = 0
-let g:go_def_mapping_enabled = 0
-let g:go_gopls_enabled = 0
-let g:go_highlight_extra_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_string_spellcheck = 1
-let g:go_highlight_format_strings = 1
-let g:go_highlight_variable_declarations = 1
-let g:go_highlight_variable_assignments = 1
-
-
 " ale
 nnoremap <silent> [e :ALEPreviousWrap<CR>
 nnoremap <silent> ]e :ALENextWrap<CR>
@@ -582,25 +563,12 @@ call coc#config('diagnostic', {
 	\ 'signOffset': 999999,
 \ })
 
-" gopls can be installed by vim-go's `:GoInstallBinaries` cmd
-call coc#config('languageserver', {
-	\ 'golang': {
-		\ 'command': 'gopls',
-		\ 'rootPatterns': [
-			\ 'go.mod',
-			\ '.vim/',
-			\ '.git/',
-			\ '.hg/',
-		\ ],
-		\ 'filetypes': ['go'],
-	\ },
-\ })
-
 " Plugins
 let g:coc_global_extensions = [
 	\ 'coc-css',
 	\ 'coc-emmet',
 	\ 'coc-eslint',
+	\ 'coc-go',
 	\ 'coc-html',
 	\ 'coc-json',
 	\ 'coc-phpls',
