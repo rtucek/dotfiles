@@ -13,6 +13,7 @@ DOTFILES = [
     '.bash_profile',
     '.bash_prompt',
     '.bashrc',
+    '.cargo/config',
     '.config/ctags/default.ctags',
     '.config/i3-scrot.conf',
     '.config/i3/config',
