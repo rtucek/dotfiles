@@ -16,5 +16,5 @@ docker run \
 	-e COMPOSER_CACHE_DIR=$COMPOSER_CACHE_DIR \
 	-v $COMPOSER_CACHE_DIR:$COMPOSER_CACHE_DIR \
 	-v "$PWD":/app \
-	composer:1.10.4 \
+	composer:1.10.5 \
 	"$@"
