@@ -2,7 +2,9 @@
 	autocrlf = input
 	editor = nvim
 	excludesfile = ~/.gitignore_global
-	pager = diff-so-fancy | less -RFX
+	pager = /usr/share/git/diff-highlight/diff-highlight | less -RFX
+	; pager = diff-so-fancy | less -RFX
+	; pager = delta --keep-plus-minus-markers --theme='zenburn'
 [user]
 	name = Rudolf Tucek
 	email = tucek.rudolf@gmail.com
@@ -47,13 +49,10 @@
 	default = simple
 [include]
 	path = ~/.localgitconfig
+[interactive]
+	diffFilter = delta --color-only
 [color]
 	ui = true
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
 [color "diff"]
 	meta = 11
 	frag = magenta bold
@@ -66,7 +65,6 @@
 	stripLeadingSymbols = false
 	markEmptyLines = false
 	useUnicodeRuler = false
-
 [format]
 	signOff = true
 	coverLetter = auto

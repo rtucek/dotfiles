@@ -43,6 +43,7 @@ The dotfiles are optimized for the following setup.
 - docker-compose
 - firefox
 - fwupd
+- git-delta
 - gzip
 - i3-scrot
 - lastpass-cli
