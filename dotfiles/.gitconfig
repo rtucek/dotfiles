@@ -49,8 +49,8 @@
 	default = simple
 [include]
 	path = ~/.localgitconfig
-[interactive]
-	diffFilter = delta --color-only
+; [interactive]
+;         diffFilter = delta --color-only
 [color]
 	ui = true
 [color "diff"]
