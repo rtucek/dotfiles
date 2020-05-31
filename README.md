@@ -59,6 +59,7 @@ The dotfiles are optimized for the following setup.
 - rofi
 - snapd
 - terminator
+- testssl.sh
 - the_silver_searcher
 - unzip
 - xclip
@@ -74,6 +75,7 @@ The dotfiles are optimized for the following setup.
 
 ### AUR
 
+- certigo
 - google-chrome
 - nvm
 - tmuxinator
