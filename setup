@@ -58,7 +58,6 @@ DOTFILES = [
     '.Xresources',
     'bin/composer',
     'bin/phpstan',
-    'bin/testssl.sh',
 ]
 
 SCRIPTPATH = '{0}/dotfiles/'.format(os.path.dirname(os.path.abspath(__file__)))
