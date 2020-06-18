@@ -8,7 +8,7 @@
 [user]
 	name = Rudolf Tucek
 	email = tucek.rudolf@gmail.com
-	signingkey = 41E89AAAC718851C
+	signingkey = E88726B5A2BA52DD
 [alias]
 	fork-point = !bash -c 'diff -u <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
 	lg = !git lg1
