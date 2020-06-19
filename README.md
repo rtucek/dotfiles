@@ -47,6 +47,7 @@ The dotfiles are optimized for the following setup.
 - gzip
 - i3-scrot
 - lastpass-cli
+- mailspring
 - msr-tools
 - neovim
 - pavucontrol
@@ -84,7 +85,7 @@ The dotfiles are optimized for the following setup.
 
 ### Snap packages
 
-- mailspring
+n/a
 
 
 ### Composer
