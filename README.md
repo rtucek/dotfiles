@@ -62,6 +62,7 @@ The dotfiles are optimized for the following setup.
 - terminator
 - testssl.sh
 - the_silver_searcher
+- thunderbird
 - unzip
 - xclip
 - xss-lock

@@ -13,11 +13,15 @@ application/x-extension-xht=google-chrome.desktop
 image/jpeg=viewnior.desktop;gpicview.desktop;
 image/png=viewnior.desktop;gpicview.desktop;
 text/plain=mousepad.desktop
-x-scheme-handler/mailto=userapp-Thunderbird.desktop
+x-scheme-handler/mailto=thunderbird.desktop
 message/rfc822=userapp-Thunderbird.desktop
 application/pdf=epdfview.desktop
 application/x-bittorrent=deluge.desktop
 x-scheme-handler/webcal=google-chrome.desktop
+x-scheme-handler/mailspring=mailspring.desktop
+x-scheme-handler/feed=userapp-Thunderbird-545VM0.desktop
+application/rss+xml=userapp-Thunderbird-545VM0.desktop
+application/x-extension-rss=userapp-Thunderbird-545VM0.desktop
 
 [Added Associations]
 x-scheme-handler/http=google-chrome.desktop;
@@ -38,3 +42,6 @@ x-scheme-handler/mailto=userapp-Thunderbird.desktop;
 message/rfc822=userapp-Thunderbird.desktop;
 application/pdf=epdfview.desktop;
 application/x-bittorrent=deluge.desktop;
+x-scheme-handler/feed=userapp-Thunderbird-545VM0.desktop;
+application/rss+xml=userapp-Thunderbird-545VM0.desktop;
+application/x-extension-rss=userapp-Thunderbird-545VM0.desktop;
