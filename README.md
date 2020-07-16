@@ -54,6 +54,7 @@ The dotfiles are optimized for the following setup.
 - percona-server & percona-server-clients (mysql)
 - polybar
 - postgresql-client
+- postman-bin
 - pulseaudio-bluetooth
 - python-pip
 - python2-pip
