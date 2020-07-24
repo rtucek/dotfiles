@@ -24,17 +24,8 @@ cycle() {
 	set_kbdlayout "$next_layout"
 }
 
-i3status() {
-	while :
-	do
-		read line
-		block="{\"full_text\":\"$(get_kbdlayout)\"}"
-		echo "${line/\[\{/\[$block,\{}"|| exit 1
-	done
-}
-
 subcommand="$1"
-shift || (echo "Please specify one of: get, set <layout>, cycle <layout1> <layout2> ... <layoutN>, i3status" && exit)
+shift || (echo "Please specify one of: get, set <layout>, cycle <layout1> <layout2> ... <layoutN>" && exit)
 
 case $subcommand in
 	"get")
@@ -45,8 +36,5 @@ case $subcommand in
 		;;
 	"cycle")
 		cycle "$@"
-		;;
-	"i3status")
-		i3status
 		;;
 esac
