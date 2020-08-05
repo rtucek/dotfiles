@@ -26,7 +26,7 @@ DOTFILES = [
     '.config/i3/touchpad.sh',
     '.config/mimeapps.list',
     '.config/pgcli/config',
-    '.config/picom.conf',
+    '.config/picom/picom.conf',
     '.config/polybar/config',
     '.config/ranger/commands.py',
     '.config/ranger/devicons.py',
