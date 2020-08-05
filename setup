@@ -16,6 +16,7 @@ DOTFILES = [
     '.bashrc',
     '.cargo/config',
     '.config/bat/config',
+    '.config/bat/syntaxes/PHP.sublime-syntax',
     '.config/ctags/default.ctags',
     '.config/i3-scrot.conf',
     '.config/i3/config',
