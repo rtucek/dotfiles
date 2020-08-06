@@ -5,10 +5,11 @@ export FZF_DEFAULT_OPTS='
 	--preview=" \
 		[[ $(file --mime {}) =~ binary ]] &&
 			echo {} is a binary file ||
-			(less {} | ccat --color=always) 2> /dev/null
+			(less {} | bat --color always --tabs 8 --theme \"Monokai Extended\" --wrap auto {}) 2> /dev/null
 	"
 	--preview-window="right:hidden"
-	--bind="ctrl-h:preview-down,ctrl-l:preview-up,ctrl-p:toggle-preview,f1:execute(ccat --color=always {} | less -NR)"
+	--height="100%"
+	--bind="ctrl-h:preview-down,ctrl-l:preview-up,ctrl-p:toggle-preview,ctrl-y:execute-silent(echo -n {} | xclip -selection c)+abort"
 '
 
 # Set default editor
