@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Don't exit shell on EOF
 set -o ignoreeof
 

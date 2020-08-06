@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # override some default commands
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
