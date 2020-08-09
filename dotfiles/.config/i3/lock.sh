@@ -3,26 +3,26 @@
 # Set keyboard layout to en
 ~/.config/i3/keyboard-layout.sh set us
 
-# Take screenshot and blur it
-import -window root /tmp/screenshot.png
-convert /tmp/screenshot.png -blur 0x8 /tmp/screenshotblur.png
-rm /tmp/screenshot.png
+# Don't start i3lock if already running
+pgrep -u $UID -x i3lock && exit 0
 
-# Terminate already running lock screen instances
-killall -q i3lock
+# Most important:
+# Once we've started the lockscreen in fullscreen, our default xidlehook won't
+# trigger a suspend anymore, now we're responsible on our own to suspend the
+# machine after a certain timeout in locked mode.
+xidlehook --timer 300 "systemctl suspend" "" &
+XIDLEHOOK=$!
 
-# Wait until the processes have been shut down
-while pgrep -u $UID -x i3lock >/dev/null; do sleep 1; done
+# Start matrix rain in foreground
+i3-sensible-terminal -f -e "sleep 1; i3-msg fullscreen enable global; unimatrix -afs 97 -l kkkknnssss" &
 
-case "$1" in
-	--nofork)
-		exec i3lock --nofork -i /tmp/screenshotblur.png
-		;;
-	*)
-		# Lock the screen and fork
-		i3lock -i /tmp/screenshotblur.png
-		# sleep 1 adds a small delay to prevent possible race conditions with suspend
-		sleep 1
-		exit 0
-esac
+# Start lockscreen
+sleep 1.5
+XSS_SLEEP_LOCK_FD=$XSS_SLEEP_LOCK_FD i3lock -n
 
+# At this stage, the session has been unlocked. Now we shall end the
+# matrix rain too.
+kill -SIGINT $XIDLEHOOK
+pgrep unimatrix | xargs kill -SIGINT
+
+exit 0
