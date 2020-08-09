@@ -18,6 +18,7 @@ DOTFILES = [
     '.config/bat/config',
     '.config/bat/syntaxes/PHP.sublime-syntax',
     '.config/ctags/default.ctags',
+    '.config/htop/htoprc',
     '.config/i3-scrot.conf',
     '.config/i3/config',
     '.config/i3/i3exit.sh',
