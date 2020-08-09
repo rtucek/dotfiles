@@ -5,7 +5,7 @@
 
 case "$1" in
 	lock)
-		$HOME/.config/i3/lock.sh --nofork
+		loginctl lock-session
 		;;
 	logout)
 		i3-msg exit
@@ -14,10 +14,10 @@ case "$1" in
 		dm-tool switch-to-greeter
 		;;
 	suspend)
-		$HOME/.config/i3/lock.sh && $logind suspend
+		$logind suspend
 		;;
 	hibernate)
-		$HOME/.config/i3/lock.sh && $logind hibernate
+		$logind hibernate
 		;;
 	reboot)
 		$logind reboot

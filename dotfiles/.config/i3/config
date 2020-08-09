@@ -294,7 +294,7 @@ exec --no-startup-id xrandr --output eDP1 --primary --mode 1920x1080
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 # exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
+# exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id pamac-tray
 # exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
@@ -303,7 +303,7 @@ exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id start_conky_green
 # exec --no-startup-id xautolock -time 5 -locker "i3exit lock"
 exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer 300 "$HOME/.config/i3/i3exit.sh lock" "" --timer 600 "i3exit suspend" ""
-exec --no-startup-id xss-lock -- $HOME/.config/i3/lock.sh
+exec --no-startup-id xss-lock -l -- $HOME/.config/i3/i3exit.sh lock
 # exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id $HOME/.config/i3/touchpad.sh
