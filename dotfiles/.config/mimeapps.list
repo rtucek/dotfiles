@@ -22,6 +22,7 @@ x-scheme-handler/mailspring=mailspring.desktop
 x-scheme-handler/feed=thunderbird.desktop
 application/rss+xml=thunderbird.desktop
 application/x-extension-rss=thunderbird.desktop
+x-scheme-handler/postman=Postman.desktop
 
 [Added Associations]
 x-scheme-handler/http=google-chrome.desktop;
