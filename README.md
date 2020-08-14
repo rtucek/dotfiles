@@ -45,6 +45,7 @@ The dotfiles are optimized for the following setup.
 - fwupd
 - git-delta
 - gzip
+- i3-battery-popup-git
 - i3-scrot
 - lastpass-cli
 - mailspring
