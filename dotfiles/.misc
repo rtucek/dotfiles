@@ -12,3 +12,8 @@ source <(symfony-autocomplete)
 
 # Smart completion for pip
 source <(pip completion --bash)
+
+# 1password
+if [ $(command -v op) ]; then
+	source <(op completion bash)
+fi

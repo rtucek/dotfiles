@@ -35,6 +35,7 @@ The dotfiles are optimized for the following setup.
 
 ### General packages
 
+- 1password
 - bash-completion
 - bat
 - ctags
