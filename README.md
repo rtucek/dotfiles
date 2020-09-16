@@ -66,6 +66,7 @@ The dotfiles are optimized for the following setup.
 - testssl.sh
 - the_silver_searcher
 - thunderbird
+- unimatrix-git
 - unzip
 - xclip
 - xss-lock
@@ -120,7 +121,6 @@ n/a
 - `pip install --user --upgrade mycli`
 - `pip install --user --upgrade pgcli`
 - `pip install --user --upgrade python-language-server` (coc-python)
-- `pip install git+https://github.com/will8211/unimatrix.git` screensaver
 - `pip2 install --user --upgrade pynvim` (neovim python provider)
 - `pip3 install --user --upgrade pynvim` (neovim python provider)
 - `sudo pip install --upgrade ranger-fm`

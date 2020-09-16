@@ -23,6 +23,6 @@ XSS_SLEEP_LOCK_FD=$XSS_SLEEP_LOCK_FD i3lock -n
 # At this stage, the session has been unlocked. Now we shall end the
 # matrix rain too.
 kill -SIGINT $XIDLEHOOK
-pgrep unimatrix | xargs kill -SIGINT
+ps ax | grep unimatrix | grep -v grep | awk '{print $1}' | xargs kill -SIGINT
 
 exit 0
