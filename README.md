@@ -123,7 +123,6 @@ n/a
 - `pip install --user --upgrade python-language-server` (coc-python)
 - `pip2 install --user --upgrade pynvim` (neovim python provider)
 - `pip3 install --user --upgrade pynvim` (neovim python provider)
-- `sudo pip install --upgrade ranger-fm`
 
 
 ### Bash completion
