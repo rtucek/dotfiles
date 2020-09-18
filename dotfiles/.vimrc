@@ -65,6 +65,20 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-php/tagbar-phpctags.vim'
 Plug 'vim-scripts/tinykeymap'
 
+" COC extensions
+Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+Plug 'josa42/coc-sh', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-stylelint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'iamcco/coc-svg', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
 
 " COLORSCHEMES
 Plug 'crusoexia/vim-monokai'
@@ -562,23 +576,6 @@ call coc#config('diagnostic', {
 	\ 'refreshOnInsertMode': 1,
 	\ 'signOffset': 999999,
 \ })
-
-" Plugins
-let g:coc_global_extensions = [
-	\ 'coc-css',
-	\ 'coc-emmet',
-	\ 'coc-eslint',
-	\ 'coc-go',
-	\ 'coc-html',
-	\ 'coc-json',
-	\ 'coc-phpls',
-	\ 'coc-python',
-	\ 'coc-sh',
-	\ 'coc-stylelint',
-	\ 'coc-svg',
-	\ 'coc-tsserver',
-	\ 'coc-vetur',
-\ ]
 
 " Some server have issues with backup files, see #649
 set nobackup
