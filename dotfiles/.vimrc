@@ -56,6 +56,7 @@ Plug 'SirVer/ultisnips'
 Plug 'svermeulen/vim-subversive'
 Plug 'svermeulen/vim-yoink'
 Plug 'szw/vim-maximizer'
+Plug 'tommcdo/vim-lion'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
@@ -66,17 +67,17 @@ Plug 'vim-php/tagbar-phpctags.vim'
 Plug 'vim-scripts/tinykeymap'
 
 " COC extensions
+Plug 'iamcco/coc-svg', {'do': 'yarn install --frozen-lockfile'}
+Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile'}
+Plug 'josa42/coc-sh', {'do': 'yarn install --frozen-lockfile'}
 Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-Plug 'josa42/coc-sh', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-stylelint', {'do': 'yarn install --frozen-lockfile'}
-Plug 'iamcco/coc-svg', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
 
@@ -711,6 +712,10 @@ nmap ]y <Plug>(YoinkRotateForward)
 xmap s <Plug>(SubversiveSubstitute)
 xmap p <Plug>(SubversiveSubstitute)
 xmap P <Plug>(SubversiveSubstitute)
+
+
+" vim-lion
+let g:lion_squeeze_spaces = 1
 
 
 
