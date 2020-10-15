@@ -45,6 +45,7 @@ The dotfiles are optimized for the following setup.
 - firefox
 - fwupd
 - git-delta
+- gnome-keyring
 - gzip
 - i3-battery-popup-git
 - i3-scrot
@@ -54,6 +55,7 @@ The dotfiles are optimized for the following setup.
 - neovim
 - pavucontrol
 - percona-server & percona-server-clients (mysql)
+- picom
 - polybar
 - postgresql-client
 - postman-bin
