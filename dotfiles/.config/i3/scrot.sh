@@ -23,7 +23,7 @@ do
 	case "$1" in
 	-d|--desktop)
 	;;
-	-u|--focused)
+	-u|--focus)
 		MODE="--focused"
 	;;
 	-s|--select)
