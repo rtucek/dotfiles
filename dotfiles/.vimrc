@@ -476,6 +476,9 @@ let g:ale_linters = {
 	\ 'javascript': [
 		\ 'eslint',
 	\ ],
+	\ 'javascriptreact': [
+		\ 'eslint',
+	\ ],
 	\ 'php': [
 		\ 'phpstan',
 	\ ],
@@ -503,6 +506,9 @@ let g:ale_fixers = {
 		\ 'goimports',
 	\ ],
 	\ 'javascript': [
+		\ 'eslint',
+	\ ],
+	\ 'javascriptreact': [
 		\ 'eslint',
 	\ ],
 	\ 'sass': [
