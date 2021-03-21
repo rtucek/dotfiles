@@ -352,7 +352,7 @@ endfunction
 
 " vim-fugitive
 noremap <silent> <leader>gstatus :Gstatus<CR>
-noremap <silent> <leader>gblame :Gblame -w<CR>
+noremap <silent> <leader>gblame :Git blame -w<CR>
 
 
 " tagbar
