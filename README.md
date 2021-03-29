@@ -51,6 +51,7 @@ The dotfiles are optimized for the following setup.
 - i3-scrot
 - lastpass-cli
 - mailspring
+- mkcert
 - msr-tools
 - neovim
 - pavucontrol
