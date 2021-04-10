@@ -54,9 +54,11 @@ The dotfiles are optimized for the following setup.
 - mkcert
 - msr-tools
 - neovim
+- osquery
 - pavucontrol
 - percona-server & percona-server-clients (mysql)
 - picom
+- pigz
 - polybar
 - postgresql-client
 - postman-bin
