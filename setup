@@ -15,7 +15,6 @@ DOTFILES = [
     '.bash_prompt',
     '.bashrc',
     '.cargo/config',
-    '.config/1Password/settings/settings.json',
     '.config/bat/config',
     '.config/bat/syntaxes/PHP.sublime-syntax',
     '.config/ctags/default.ctags',
