@@ -18,9 +18,5 @@ export EDITOR=nvim
 # Set default browser
 export BROWSER=/usr/bin/google-chrome-stable
 
-# Just an empty placeholder so NPM does not crash if missing...
-# The actual auth token (if available) should go to ~/.localrc
-export NPM_TOKEN=""
-
 # Set default terminal
 export TERMINAL=/usr/bin/terminator
