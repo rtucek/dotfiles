@@ -8,6 +8,7 @@ import sys
 DOTFILES = [
     '.bash_aliases',
     '.bash_bootstrap',
+    '.bash_completion',
     '.bash_conf',
     '.bash_gpg',
     '.bash_logout',
@@ -53,7 +54,6 @@ DOTFILES = [
     '.gnupg/gpg-agent.conf',
     '.gnupg/gpg.conf',
     '.inputrc',
-    '.misc',
     '.my.cnf',
     '.myclirc',
     '.notags',

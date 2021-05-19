@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Source nvm
+source /usr/share/nvm/init-nvm.sh
+
+# Smart completion for npm commands
+if command -v npm &> /dev/null; then
+	source <(npm completion)
+fi
+
+# Smart completion for composer
+# see https://github.com/bamarni/symfony-console-autocomplete
+if command -v symfony-autocomplete &> /dev/null; then
+	source <(symfony-autocomplete)
+fi
+
+# Smart completion for pip
+if command -v pip &> /dev/null; then
+	source <(pip completion --bash)
+fi

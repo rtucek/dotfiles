@@ -4,7 +4,16 @@
 # CUSTOM CONFIGURATION
 # ------------
 # Load the rest of the dotfiles
-for file in ~/.{bash_conf,bash_aliases,bash_prompt,path,exports,bash_gpg,misc,localrc}; do
-	[ -f "$file" ] && source "$file"
+DOTFILES=(
+	".exports"
+	".path"
+	".bash_conf"
+	".bash_aliases"
+	".bash_prompt"
+	".bash_gpg"
+	".localrc"
+)
+for DOTFILE in ${DOTFILES[@]}; do
+	FILE="${HOME}/${DOTFILE}"
+	[ -f "$FILE" ] && source "$FILE"
 done
-unset file
