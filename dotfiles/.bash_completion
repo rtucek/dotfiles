@@ -18,3 +18,7 @@ fi
 if command -v pip &> /dev/null; then
 	source <(pip completion --bash)
 fi
+
+if command -v arch-audit &> /dev/null; then
+	source <(arch-audit completions bash)
+fi
