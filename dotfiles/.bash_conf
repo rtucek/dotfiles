@@ -3,18 +3,20 @@
 # Don't exit shell on EOF
 set -o ignoreeof
 
+
+
+## BASH HISTORY
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
-
+HISTCONTROL=ignoreboth:erasedups
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=-1
+HISTFILESIZE=-1
+
 
 
 # check the window size after each command and, if necessary,
@@ -33,6 +35,7 @@ if ! shopt -oq posix; then
 		. /etc/bash_completion
 	fi
 fi
+
 
 
 # Expand alias in non-interactive shells

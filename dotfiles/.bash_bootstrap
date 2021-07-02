@@ -9,6 +9,7 @@ DOTFILES=(
 	".path"
 	".bash_conf"
 	".bash_aliases"
+	".bash_scripts"
 	".bash_prompt"
 	".bash_gpg"
 	".localrc"

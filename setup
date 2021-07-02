@@ -14,6 +14,7 @@ DOTFILES = [
     '.bash_logout',
     '.bash_profile',
     '.bash_prompt',
+    '.bash_scripts',
     '.bashrc',
     '.cargo/config',
     '.config/bat/config',
