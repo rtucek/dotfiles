@@ -120,3 +120,5 @@ export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1
 [ -f ~/.bash_bootstrap ] && source ~/.bash_bootstrap
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[[ -s "/home/rtucek/.gvm/scripts/gvm" ]] && source "/home/rtucek/.gvm/scripts/gvm"
