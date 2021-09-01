@@ -4,5 +4,5 @@ docker run \
 	-t \
 	--rm \
 	-v $PWD:/app \
-	phpstan/phpstan:0.12.82 \
+	phpstan/phpstan:0.12.89 \
 	${@//"${PWD}/"}
