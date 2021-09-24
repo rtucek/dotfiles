@@ -152,6 +152,10 @@ set noswapfile
 " Kudos @binaryreverse https://github.com/neovim/neovim/issues/6005
 set guicursor=
 
+" Disable some unused provider
+let g:loaded_python_provider = 0
+let g:loaded_perl_provider = 0
+
 
 
 " -----MAPPINGS-----
