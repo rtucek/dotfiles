@@ -64,7 +64,6 @@ The dotfiles are optimized for the following setup.
 - postman-bin
 - pulseaudio-bluetooth
 - python-pip
-- python2-pip
 - rofi
 - snapd
 - terminator
@@ -126,8 +125,7 @@ n/a
 - `pip install --user --upgrade mycli`
 - `pip install --user --upgrade pgcli`
 - `pip install --user --upgrade python-language-server` (coc-python)
-- `pip2 install --user --upgrade pynvim` (neovim python provider)
-- `pip3 install --user --upgrade pynvim` (neovim python provider)
+- `pip install --user --upgrade pynvim` (neovim python provider)
 
 
 ### Bash completion
