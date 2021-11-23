@@ -134,3 +134,29 @@ n/a
 - tmux (https://github.com/imomaliev/tmux-bash-completion/blob/master/completions/tmux)
 - tmuxinator (https://github.com/tmuxinator/tmuxinator/blob/master/completion/tmuxinator.bash)
 - yarn (https://github.com/dsifford/yarn-completion/blob/master/yarn-completion.bash)
+
+
+## CPU clock modulation fix
+
+Dell XPS devices may become slow after system wakeups. This is due to aggressive
+[suspend settings in clock modulation
+settings](https://wiki.archlinux.org/title/Dell_XPS_13_2-in-1_(7390)#Sleep/Suspend_causes_slow_system).
+
+To fix this issue, add the systemd unit file to
+`/etc/systemd/system/msr-fix.service`, then enable it via
+`sudo systemctl enaled msr-fix.service`. The unit file will explicitly reset the
+necessary CPU register.
+
+```
+[Unit]
+Description=Fix MSR after wakeup
+After=suspend.target
+
+[Service]
+User=root
+Type=oneshot
+ExecStart=wrmsr -a 0x19a 0x0
+
+[Install]
+WantedBy=suspend.target
+```
