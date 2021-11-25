@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 import argparse
-import shutil
 import os
+import shutil
 import sys
 
 DOTFILES = [
@@ -20,6 +20,7 @@ DOTFILES = [
     '.config/bat/config',
     '.config/bat/syntaxes/PHP.sublime-syntax',
     '.config/ctags/default.ctags',
+    '.config/dunst/dunstrc',
     '.config/htop/htoprc',
     '.config/i3-scrot.conf',
     '.config/i3/config',
