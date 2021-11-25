@@ -14,7 +14,7 @@ if [[ $VOLUME == 0 || "$MUTE" == "yes" ]]; then
 		-a "changeVolume" \
 		-u low \
 		-t 500 \
-		-i audio-volume-muted \
+		-i audio-volume-muted-symbolic.symbolic \
 		-h string:synchronous:my-progress "Volume muted"
 else
 	# Show the volume notification
@@ -22,10 +22,10 @@ else
 		-a "changeVolume" \
 		-u low \
 		-t 500 \
-		-i audio-volume-high \
+		-i audio-volume-high-symbolic.symbolic \
 		-h int:value:$VOLUME \
 		-h string:synchronous:my-progress "Volume: ${VOLUME}%"
 fi
 
 # Play the volume changed sound
-pactl play-sample audio-volume-change $SINK
+paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
