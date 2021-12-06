@@ -38,6 +38,7 @@ The dotfiles are optimized for the following setup.
 - arch-audit
 - bash-completion
 - bat
+- chezmoi
 - ctags
 - diff-so-fancy
 - docker
