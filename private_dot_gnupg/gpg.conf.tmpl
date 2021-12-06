@@ -12,7 +12,7 @@ charset utf-8
 # The default key to sign with. If this option is not used, the default key is
 # the first key found in the secret keyring
 
-default-key 41E89AAAC718851C
+default-key {{ .gpg.signingkey }}
 
 #-----------------------------
 # behavior

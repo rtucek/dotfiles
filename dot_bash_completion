@@ -4,12 +4,8 @@
 source /usr/share/nvm/init-nvm.sh
 
 # Smart completion for npm commands
-#
-# Just an empty placeholder so NPM does not crash if missing...
-# The actual auth token (if available) should go to ~/.localrc
-
 if command -v npm &> /dev/null; then
-	source <(NPM_TOKEN="${NPM_TOKEN:-}" npm completion)
+	source <(npm completion)
 fi
 
 # Smart completion for composer

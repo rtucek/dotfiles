@@ -353,7 +353,7 @@ full-at = 98
 ; Use the following command to list batteries and adapters:
 ; $ ls -1 /sys/class/power_supply/
 battery = BAT0
-adapter = ADP1
+adapter = {{ .polybar.battery_adapter }}
 
 ; If an inotify event haven't been reported in this many
 ; seconds, manually poll for new values.
@@ -919,7 +919,7 @@ label-connected-padding = 1
 [module/net-eth]
 type = internal/network
 
-interface = enx34298f9240b4
+interface = {{ .polybar.net_interface_eth }}
 
 ; Seconds to sleep between updates
 ; Default: 1

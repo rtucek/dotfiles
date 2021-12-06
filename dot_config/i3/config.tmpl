@@ -291,7 +291,7 @@ mode "resize" {
 }
 
 # Screen resolution
-exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080
+exec --no-startup-id xrandr --output eDP-1 --primary --mode {{ .i3.resolution }}
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

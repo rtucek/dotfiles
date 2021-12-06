@@ -1,26 +1,19 @@
 # Dotfiles
 
 My dotfiles - use them and contribute your personal changes/suggestions.
-The `setup` script requires Python 3.
 
 
-## Installation (export)
+## Installation
 
-Copy all files over the current existing ones (this will effectively overwrite
-any current settings).
+Dotfiles are managed by [chezmoi](https://github.com/twpayne/chezmoi).
 
-```
-./setup export
-```
+A couple of template variables have to be set for proper configuration.
+Use the sample config file from `dot_config/chezmoi/chezmoi.toml.sample` and
+copy it to `~/.config/chezmoi/chezmoi.toml`, then set the value accordingly and
+run `chezmoi apply` for having the actual dotfiles being put a their right
+place.
 
-
-## Publish settings (import)
-
-Copies a list of files into the current workspace, ready for committing.
-
-```
-./setup import
-```
+Refer to [chezmoi's docs](https://www.chezmoi.io/) for further details.
 
 
 ## Contribution
@@ -38,6 +31,7 @@ The dotfiles are optimized for the following setup.
 - arch-audit
 - bash-completion
 - bat
+- chezmoi
 - ctags
 - diff-so-fancy
 - docker
