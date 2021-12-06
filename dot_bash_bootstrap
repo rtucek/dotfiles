@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# ------------
+# CUSTOM CONFIGURATION
+# ------------
+# Load the rest of the dotfiles
+DOTFILES=(
+	".exports"
+	".path"
+	".bash_conf"
+	".bash_aliases"
+	".bash_scripts"
+	".bash_prompt"
+	".bash_gpg"
+	".localrc"
+)
+for DOTFILE in ${DOTFILES[@]}; do
+	FILE="${HOME}/${DOTFILE}"
+	[ -f "$FILE" ] && source "$FILE"
+done

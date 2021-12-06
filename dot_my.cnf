@@ -1,0 +1,10 @@
+[mysql]
+auto-rehash
+auto-vertical-output
+pager = less -FX
+
+[mysql]
+pager = less -FX
+
+[mysqldump]
+column-statistics = 0

@@ -1,0 +1,10 @@
+*.sublime-project
+*.sublime-workspace
+*.swp
+*~
+.DS_Store
+.tags
+.tags.lock
+.tags.temp
+/.tmuxinator.yml
+Session.vim

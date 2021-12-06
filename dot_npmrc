@@ -1,0 +1,7 @@
+//prefix=/home/rtucek/.npm-packages
+git=git
+git-tag-version=true
+sign-git-commit=true
+sign-git-tag=true
+tag-version-prefix=v
+//registry.npmjs.org/:_authToken=${NPM_TOKEN}

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+docker run \
+	-t \
+	--rm \
+	-v $PWD:/app \
+	phpstan/phpstan:0.12.89 \
+	${@//"${PWD}/"}
