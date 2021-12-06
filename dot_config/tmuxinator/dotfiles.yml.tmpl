@@ -1,7 +1,7 @@
-# /home/rtucek/.config/tmuxinator/dotfiles.yml
+# {{ .chezmoi.homeDir }}/.config/tmuxinator/dotfiles.yml
 
 name: dotfiles
-root: ~/projects/dotfiles
+root: {{ .chezmoi.sourceDir }}
 
 # Optional tmux socket
 # socket_name: foo
