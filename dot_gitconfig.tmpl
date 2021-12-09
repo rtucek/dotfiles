@@ -10,7 +10,9 @@
 [user]
 	name = {{ .git.name }}
 	email = {{ .git.email }}
+{{- if .git.signingkey }}
 	signingkey = {{ .git.signingkey }}
+{{- end }}
 
 [alias]
 	fork-point = !bash -c 'diff -u <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
@@ -24,15 +26,19 @@
 	helper = cache --timeout=3600
 
 [commit]
+{{- if .git.signingkey }}
 	gpgsign = true
+{{- end }}
 	verbose = true
 
 [gpg]
 	program = gpg
+{{- if .git.signingkey }}
 
 [tag]
 	forceSignAnnotated = true
 	gpgSign = true
+{{- end }}
 
 [format]
 	signOff = true

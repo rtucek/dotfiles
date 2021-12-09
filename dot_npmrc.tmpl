@@ -4,4 +4,6 @@ git-tag-version=true
 sign-git-commit=true
 sign-git-tag=true
 tag-version-prefix=v
+{{- if .npm.token }}
 //registry.npmjs.org/:_authToken={{ .npm.token }}
+{{- end }}

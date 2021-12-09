@@ -683,11 +683,13 @@ nnoremap <silent> <space>s :<C-u>CocList -I symbols<CR>
 nnoremap <silent> <space>j :<C-u>CocNext<CR>
 nnoremap <silent> <space>k :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p :<C-u>CocListResume<CR>
+{{- if .vim.coc.intelephense_licensekey}}
 
 " CocConfig (if any)
 call coc#config('intelephense', {
 	\ 'licenceKey': '{{ .vim.coc.intelephense_licensekey }}',
 \ })
+{{- end }}
 
 
 " lightline-ale
