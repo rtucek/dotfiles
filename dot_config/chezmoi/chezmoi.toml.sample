@@ -12,6 +12,9 @@
 [data.npm]
 	token = ""
 
+[data.vim.coc]
+	intelephense_licensekey = ""
+
 [data.polybar]
 	battery_adapter = "ADP1"
 	net_interface_eth = "enx34298f9240b4"

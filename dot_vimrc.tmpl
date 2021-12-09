@@ -684,6 +684,11 @@ nnoremap <silent> <space>j :<C-u>CocNext<CR>
 nnoremap <silent> <space>k :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p :<C-u>CocListResume<CR>
 
+" CocConfig (if any)
+call coc#config('intelephense', {
+	\ 'licenceKey': '{{ .vim.coc.intelephense_licensekey }}',
+\ })
+
 
 " lightline-ale
 let g:lightline#ale#indicator_checking = "\uf110"
