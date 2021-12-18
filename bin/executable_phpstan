@@ -4,5 +4,5 @@ docker run \
 	-t \
 	--rm \
 	-v $PWD:/app \
-	phpstan/phpstan:0.12.89 \
+	ghcr.io/phpstan/phpstan:1.2.0 \
 	${@//"${PWD}/"}
