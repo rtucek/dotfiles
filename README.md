@@ -44,7 +44,6 @@ The dotfiles are optimized for the following setup.
 - i3-battery-popup-git
 - i3-scrot
 - lastpass-cli
-- mailspring
 - mkcert
 - msr-tools
 - neovim
@@ -55,7 +54,6 @@ The dotfiles are optimized for the following setup.
 - pigz
 - polybar
 - postgresql-client
-- postman-bin
 - pulseaudio-bluetooth
 - python-pip
 - rofi
@@ -64,7 +62,6 @@ The dotfiles are optimized for the following setup.
 - testssl.sh
 - the_silver_searcher
 - thunderbird
-- unimatrix-git
 - unzip
 - xclip
 - xss-lock
@@ -81,8 +78,11 @@ The dotfiles are optimized for the following setup.
 
 - certigo
 - google-chrome
+- mailspring
 - nvm
+- postman-bin
 - tmuxinator
+- unimatrix-git
 - xidlehook (screensaver)
 
 
