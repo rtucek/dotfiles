@@ -5,4 +5,5 @@ docker run \
 	--rm \
 	-v $PWD:/app \
 	ghcr.io/phpstan/phpstan:1.2.0 \
-	${@//"${PWD}/"}
+	${@//"${PWD}/"/"/app/"} \
+	| sed -E "s/\/app\//${PWD//"/"/"\/"}\//"
