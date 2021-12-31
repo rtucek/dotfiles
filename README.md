@@ -79,7 +79,6 @@ The dotfiles are optimized for the following setup.
 - certigo
 - dragon-drag-and-drop
 - google-chrome
-- mailspring
 - nvm
 - postman-bin
 - tmuxinator
