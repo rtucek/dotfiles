@@ -40,6 +40,7 @@ The dotfiles are optimized for the following setup.
 - fwupd
 - git-delta
 - gnome-keyring
+- go
 - gzip
 - i3-battery-popup-git
 - i3-scrot
