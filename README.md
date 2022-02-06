@@ -107,6 +107,9 @@ Most important commands are:
   `nvm alias default node`
 - Use most recent version
   `nvm use default`
+- Upgrade npm to the latest version
+  `nvm install-latest-npm`
+
 
 ### npm
 
