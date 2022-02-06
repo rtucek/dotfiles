@@ -99,20 +99,35 @@ n/a
 
 ### nvm
 
-- Install npm via `nvm install-latest-npm`
+Most important commands are:
 
+- Installing most recent LTS version
+  `nvm install --lts`
+- Alias most recent node version as default
+  `nvm alias default node`
+- Use most recent version
+  `nvm use default`
 
 ### npm
 
-- Install yarn via npm. Let yarn manage itself by re-installing yarn and
-  removing it afterwards via npm again.
-  `npm -g install yarn; yarn global add yarn; npm -g remove yarn`
+The following npm packages are considered as standard.
+Install them via `npm install --global [packages]`:
+
+- @vue/cli
+- create-react-app
+- neovim
 
 
 ### yarn
 
-- @vue/cli
-- neovim
+Install yarn via npm. Let yarn manage itself by re-installing yarn globally and
+removing it afterwards via npm again.
+
+```
+npm -g install yarn
+yarn global add yarn
+npm -g remove yarn
+```
 
 
 ### PIP
