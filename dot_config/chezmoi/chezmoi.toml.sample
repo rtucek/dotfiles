@@ -1,3 +1,16 @@
+# Config
+[edit]
+    command = "nvim"
+
+[merge]
+    command = "nvim"
+    args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
+
+[diff]
+	pager = "delta"
+
+
+# Data to be replaced
 [data.git]
 	name = "Rudolf Tucek"
 	email = "tucek.rudolf@gmail.com"
