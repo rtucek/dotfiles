@@ -78,7 +78,6 @@ The dotfiles are optimized for the following setup.
 ### AUR
 
 - certigo
-- dragon-drag-and-drop
 - google-chrome
 - nvm
 - postman-bin
