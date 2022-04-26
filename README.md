@@ -30,7 +30,7 @@ The dotfiles are optimized for the following setup.
 
 - arch-audit
 - bash-completion
-- bat
+- bat [1]
 - chezmoi
 - ctags
 - diff-so-fancy
@@ -38,7 +38,7 @@ The dotfiles are optimized for the following setup.
 - docker-compose
 - firefox
 - fwupd
-- git-delta
+- git-delta [1]
 - gnome-keyring
 - go
 - gzip
@@ -66,6 +66,12 @@ The dotfiles are optimized for the following setup.
 - unzip
 - xclip
 - xss-lock
+
+> As a special case, in order to have syntax highlighting for PHP work with
+> `bat` in combination with `delta` diffs, refer to [these
+> instructions](https://github.com/dandavison/delta/issues/162#issuecomment-625952288).
+>
+> It's necessary to perform this step, whenever `bat` gets updated.
 
 
 ### Fonts
