@@ -1,0 +1,4 @@
+Host *
+	SetEnv TERM=xterm-256color
+
+Include config.local
