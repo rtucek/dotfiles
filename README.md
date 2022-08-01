@@ -44,6 +44,7 @@ The dotfiles are optimized for the following setup.
 - gzip
 - i3-battery-popup-git
 - i3-scrot
+- kubectl
 - lastpass-cli
 - mkcert
 - msr-tools
@@ -85,6 +86,7 @@ The dotfiles are optimized for the following setup.
 
 - certigo
 - google-chrome
+- kind-bin
 - nvm
 - postman-bin
 - tmuxinator
