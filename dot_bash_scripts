@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Quick HTTPBIN server for request inspection
+httpbin() {
+	docker run -it --rm --name httpbin -p "${1:-8080}:80" kennethreitz/httpbin
+}
+
+
+
 # Open any file via xdg-open in the background
 function open() {
 	nohup xdg-open "$*" > /dev/null 2>&1 &
