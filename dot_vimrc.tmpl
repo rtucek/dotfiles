@@ -593,6 +593,9 @@ call coc#config('diagnostic', {
 	\ 'refreshOnInsertMode': 1,
 	\ 'signOffset': 999999,
 \ })
+call coc#config('yaml.schemas', {
+	\ 'kubernetes': '*.yaml',
+\ })
 
 " General config
 " Some server have issues with backup files, see #649
