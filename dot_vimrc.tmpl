@@ -588,6 +588,10 @@ map gz# <Plug>(incsearch-nohl)<Plug>(asterisk-gz#)
 
 " COC
 " Config
+call coc#config('suggest', {
+	\ 'noselect': 1,
+	\ 'enablePreselect': 0,
+ \ })
 call coc#config('diagnostic', {
 	\ 'displayByAle': 1,
 	\ 'refreshOnInsertMode': 1,
