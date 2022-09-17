@@ -65,7 +65,7 @@ The dotfiles are optimized for the following setup.
 - testssl.sh
 - the_silver_searcher
 - thunderbird
-- tmux
+- tmux [[3](#[3]-install-tmux-plugins)]
 - unzip
 - xclip
 - xss-lock
@@ -185,6 +185,18 @@ sudo usermod -aG docker $USER
 newgrp docker
 ```
 
+
+### [3] Install tmux plugins
+
+After tmux has been installed, run the following commands in order to install
+and setup tmux plugin manager ([TPM](https://github.com/tmux-plugins/tpm)) for
+the first time. The following commands below will clone TPM's source code and
+install it at the right location, then type; `Ctrl + SPACE + I` in order to
+actually install tmux plugins.
+
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
 
 ### CPU clock modulation fix
 
