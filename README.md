@@ -30,15 +30,15 @@ The dotfiles are optimized for the following setup.
 
 - arch-audit
 - bash-completion
-- bat [1]
+- bat [[1]](#[1]-syntax-highlight-with-bat-and-cat)
 - chezmoi
 - ctags
 - diff-so-fancy
-- docker
+- docker [[2]](#[2]-docker-post-installation)
 - docker-compose
 - firefox
 - fwupd
-- git-delta [1]
+- git-delta [[1]](#[1]-syntax-highlight-with-bat-and-cat)
 - gnome-keyring
 - go
 - gzip
@@ -68,12 +68,6 @@ The dotfiles are optimized for the following setup.
 - unzip
 - xclip
 - xss-lock
-
-> As a special case, in order to have syntax highlighting for PHP work with
-> `bat` in combination with `delta` diffs, refer to [these
-> instructions](https://github.com/dandavison/delta/issues/162#issuecomment-625952288).
->
-> It's necessary to perform this step, whenever `bat` gets updated.
 
 
 ### Fonts
@@ -159,7 +153,39 @@ pip install --user --upgrade pynvim # (neovim python provider)
 - yarn (https://github.com/dsifford/yarn-completion/blob/master/yarn-completion.bash)
 
 
-## CPU clock modulation fix
+## Addendum
+
+### [1] Syntax highlight with bat and cat
+
+As a special case, in order to have syntax highlighting for PHP work with
+`bat` in combination with `delta` diffs, refer to [these
+instructions](https://github.com/dandavison/delta/issues/162#issuecomment-625952288).
+
+It's necessary to perform this step, whenever `bat` gets updated.
+
+
+### [2] Docker post-installation
+
+By default, the docker installation requires some manual actions. For instance,
+the docker daemon is not started automatically. It's required to run `sudo
+systemctl start docker` after the installation and likewise, it's required to
+run every docker command with sudo. For convenience, you'd typically want to run
+these commands once ([based on Docker's official
+docs](https://docs.docker.com/engine/install/linux-postinstall/):
+
+```bash
+# Start docker and containerd daemon upon boot
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+
+# Run docker commands root-less
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+
+### CPU clock modulation fix
 
 Dell XPS devices may become slow after system wakeups. This is due to aggressive
 [suspend settings in clock modulation
