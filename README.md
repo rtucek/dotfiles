@@ -211,6 +211,18 @@ Defaults pwfeedback
 ```
 
 
+### Pacman tweaks
+
+There are some nice2have tweaks for pacman. Simply add these lines to the
+`/etc/pacman.conf` file.
+
+```
+Color
+# Add fancy gimmick to progres bar
+ILoveCandy
+```
+
+
 ### CPU clock modulation fix
 
 Dell XPS devices may become slow after system wakeups. This is due to aggressive
