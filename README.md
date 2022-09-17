@@ -102,21 +102,21 @@ n/a
 
 ### Composer
 
-- `composer global require consolidation/cgr`
+```bash
+composer global require consolidation/cgr
+```
 
 
 ### nvm
 
 Most important commands are:
 
-- Installing most recent LTS version
-  `nvm install --lts`
-- Alias most recent node version as default
-  `nvm alias default node`
-- Use most recent version
-  `nvm use default`
-- Upgrade npm to the latest version
-  `nvm install-latest-npm`
+```bash
+nvm install --lts # Installing most recent LTS version
+nvm alias default node # Alias most recent node version as default
+nvm use default # Use most recent version
+nvm install-latest-npm # Upgrade npm to the latest version
+```
 
 
 ### npm
@@ -143,10 +143,12 @@ npm -g remove yarn
 
 ### PIP
 
-- `pip install --user --upgrade mycli`
-- `pip install --user --upgrade pgcli`
-- `pip install --user --upgrade python-language-server` (coc-python)
-- `pip install --user --upgrade pynvim` (neovim python provider)
+```bash
+pip install --user --upgrade mycli
+pip install --user --upgrade pgcli`
+pip install --user --upgrade python-language-server # (coc-python)
+pip install --user --upgrade pynvim # (neovim python provider)
+```
 
 
 ### Bash completion
