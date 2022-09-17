@@ -198,6 +198,19 @@ actually install tmux plugins.
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
+
+### sudo password indicator
+
+When using `sudo`, it's convenient to have a masked password indicator in case
+sudo requires to enter the user's password. In order to have a password
+indicator, simply run `sudo visudo` and add the following lines below.
+
+```diff
+# Have a masked password indicator, when typing the password for sudo
+Defaults pwfeedback
+```
+
+
 ### CPU clock modulation fix
 
 Dell XPS devices may become slow after system wakeups. This is due to aggressive
