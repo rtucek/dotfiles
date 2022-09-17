@@ -48,6 +48,7 @@ The dotfiles are optimized for the following setup.
 - lastpass-cli
 - mkcert
 - msr-tools
+- mysql-workbench 
 - neovim
 - osquery
 - pavucontrol
