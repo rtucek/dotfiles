@@ -61,6 +61,7 @@ The dotfiles are optimized for the following setup.
 - python-pip
 - rofi
 - snapd
+- tcpdump
 - terminator
 - testssl.sh
 - the_silver_searcher
@@ -69,6 +70,7 @@ The dotfiles are optimized for the following setup.
 - unzip
 - xclip
 - xss-lock
+- yubioath-desktop
 
 
 ### Fonts
