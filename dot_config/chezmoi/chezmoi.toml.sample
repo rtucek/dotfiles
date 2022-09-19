@@ -32,3 +32,10 @@
 	battery_adapter = "ADP1"
 	net_interface_eth = "enx34298f9240b4"
 	net_interface_wlp = "wlp0s20f3"
+
+[data.nitrogen]
+	bg_mode = "5"
+	posx = "1484"
+	posy = "64"
+	sizex = "522"
+	sizey = "591"
