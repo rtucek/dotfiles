@@ -29,7 +29,7 @@ else
 		-u low \
 		-t 500 \
 		-i audio-volume-high-symbolic.symbolic \
-		-h int:value:$VOLUME \
+		-h int:value:${VOLUME} \
 		-h string:synchronous:my-progress "Volume: ${VOLUME}%"
 fi
 

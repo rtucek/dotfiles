@@ -31,6 +31,7 @@ The dotfiles are optimized for the following setup.
 - arch-audit
 - bash-completion
 - bat [[1]](#[1]-syntax-highlight-with-bat-and-cat)
+- brightnessctl
 - chezmoi
 - ctags
 - diff-so-fancy

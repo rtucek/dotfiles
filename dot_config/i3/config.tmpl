@@ -57,8 +57,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.config/i3/sound.sh "set
 bindsym XF86AudioMute exec --no-startup-id $HOME/.config/i3/sound.sh "set-sink-mute" "toggle" # mute sound
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec --no-startup-id $HOME/.config/i3/brightness.sh "+5%"
+bindsym XF86MonBrightnessDown exec --no-startup-id $HOME/.config/i3/brightness.sh "5%-"
 
 # Application keybindings
 bindsym $mod+Ctrl+b exec i3-sensible-terminal -e 'bmenu'
