@@ -50,11 +50,11 @@ The dotfiles are optimized for the following setup.
 - lastpass-cli
 - mkcert
 - msr-tools
-- mysql-workbench 
+- mysql-workbench
 - neovim
 - osquery
 - pavucontrol
-- percona-server & percona-server-clients (mysql)
+- percona-server-clients
 - picom
 - pigz
 - polybar
