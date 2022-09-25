@@ -154,7 +154,6 @@ pip install --user --upgrade pynvim # (neovim python provider)
 
 - composer (`cgr require bamarni/symfony-console-autocomplete`)
 - tmux (https://github.com/imomaliev/tmux-bash-completion/blob/master/completions/tmux)
-- tmuxinator (https://github.com/tmuxinator/tmuxinator/blob/master/completion/tmuxinator.bash)
 - yarn (https://github.com/dsifford/yarn-completion/blob/master/yarn-completion.bash)
 
 
