@@ -261,6 +261,27 @@ Security](https://wiki.archlinux.org/title/Security#Lock_out_user_after_three_fa
 ```
 
 
+### Handling lid-switch, power key pressing and similar
+
+The handling of certain hardware events like lid-switch, short or long pressing
+of power key, etc., are handled by systemd's `systemd-logind.service`.
+
+The default settings may be viewed by running `systemd-analyze cat-config
+systemd/logind.conf`. In order to override default behavior place the following
+sample snippet below into a `/etc/systemd/logind.conf.d/*.conf` file (e.g.
+`/etc/systemd/logind.conf.d/00-override.conf`), then restart the process via
+`sudo systemctl restart systemd-logind.service`.
+
+```ini
+[Login]
+HandlePowerKey=suspend
+HandlePowerKeyLongPress=poweroff
+HandleLidSwitch=suspend
+HandleLidSwitchExternalPower=suspend
+HandleLidSwitchDocked=ignore
+```
+
+
 ### CPU clock modulation fix
 
 Dell XPS devices may become slow after system wakeups. This is due to aggressive
