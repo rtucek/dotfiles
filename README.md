@@ -41,10 +41,12 @@ The dotfiles are optimized for the following setup.
 - fwupd
 - git-delta [[1]](#[1]-syntax-highlight-with-bat-and-cat)
 - gnome-keyring
+- gnu-netcat
 - go
 - gzip
 - i3-battery-popup-git
 - i3-scrot
+- ipcalc
 - jq
 - kubectl
 - lastpass-cli
@@ -70,6 +72,7 @@ The dotfiles are optimized for the following setup.
 - thunderbird
 - tmux [[3](#[3]-install-tmux-plugins)]
 - unzip
+- whois
 - xclip
 - xss-lock
 - yubioath-desktop
@@ -85,6 +88,7 @@ The dotfiles are optimized for the following setup.
 ### AUR
 
 - certigo
+- csvtools-git
 - google-chrome
 - kind-bin
 - nvm
