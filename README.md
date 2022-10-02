@@ -59,6 +59,7 @@ The dotfiles are optimized for the following setup.
 - percona-server-clients
 - picom
 - pigz
+- playerctl
 - polybar
 - postgresql-client
 - pulseaudio-bluetooth
