@@ -289,8 +289,8 @@ HandleLidSwitchDocked=ignore
 
 ### CPU clock modulation fix
 
-Dell XPS devices may become slow after system wakeups. This is due to aggressive
-[suspend settings in clock modulation
+Some Dell XPS devices may become slow after system wakeups. This is due to
+aggressive [suspend settings in clock modulation
 settings](https://wiki.archlinux.org/title/Dell_XPS_13_2-in-1_(7390)#Sleep/Suspend_causes_slow_system).
 
 To fix this issue, add the systemd unit file to
@@ -311,3 +311,45 @@ ExecStart=wrmsr -a 0x19a 0x0
 [Install]
 WantedBy=suspend.target
 ```
+
+
+### Fix hotplug issue with Thunderbolt [4]
+
+Given the following symptoms:
+> Devices, connected via Thunderbolt don't work if "hot plugged in" (that is,
+> after the OS has booted). However, if the device is connected at cold boot
+> time, the device works mystically. In particular, to a Dock connected devices
+> like keyboards and mouses don't assume to have any powered state (e.g. the
+> laser pointer of a mouse remains switched off).
+
+This is due to the [OS' security
+settings](https://wiki.archlinux.org/title/Thunderbolt#User_device_authorization).
+The OS - by default - protects against [DMA
+attacks](https://en.wikipedia.org/wiki/DMA_attack) such as
+[Thunderstrike](https://trmm.net/Thunderstrike_2/), by setting the security mode
+to `user` or `secure`. So the in some form or another, we have to "approve" the
+connected device.
+
+One way to simply get away with it, is to add a udev rule to
+`/etc/udev/rules.d/99-removable.rules`, which just authorizes essentially every
+hot-plugged Thunderbolt device:
+
+```
+ACTION=="add", SUBSYSTEM=="thunderbolt", ATTR{authorized}=="0", ATTR{authorized}="1"
+```
+
+The rule will become effective after the next reboot, however you can also avoid
+a reboot by live-reloading udev rules:
+
+```bash
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
+However, a much simpler approach would be actually authorizing the device via
+`bolt`.
+
+Sources:
+- [Thunderbolt](https://wiki.archlinux.org/title/Thunderbolt)
+- [Thunderbolt - udev rule (Arch Wiki)](https://wiki.archlinux.org/title/Thunderbolt#Automatically_connect_any_device)
+- [Live-reload udev rule (unix.stackexchange.com)](https://unix.stackexchange.com/a/39371/213414)
