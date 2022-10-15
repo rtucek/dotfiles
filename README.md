@@ -30,16 +30,17 @@ The dotfiles are optimized for the following setup.
 
 - arch-audit
 - bash-completion
-- bat [[1]](#[1]-syntax-highlight-with-bat-and-cat)
+- bat [[1]](#syntax-highlight-with-bat-and-cat-[1])
+- bolt [[4]](#fix-hotplug-issue-with-thunderbolt-[4])
 - brightnessctl
 - chezmoi
 - ctags
 - diff-so-fancy
-- docker [[2]](#[2]-docker-post-installation)
+- docker [[2]](#docker-post-installation-[2])
 - docker-compose
 - firefox
 - fwupd
-- git-delta [[1]](#[1]-syntax-highlight-with-bat-and-cat)
+- git-delta [[1]](#syntax-highlight-with-bat-and-cat-[1])
 - gnome-keyring
 - gnu-netcat
 - go
@@ -71,7 +72,7 @@ The dotfiles are optimized for the following setup.
 - testssl.sh
 - the_silver_searcher
 - thunderbird
-- tmux [[3](#[3]-install-tmux-plugins)]
+- tmux [[3]](#install-tmux-plugins-[3])
 - unzip
 - whois
 - xclip
@@ -164,7 +165,7 @@ pip install --user --upgrade pynvim # (neovim python provider)
 
 ## Addendum
 
-### [1] Syntax highlight with bat and cat
+### Syntax highlight with bat and cat [1]
 
 As a special case, in order to have syntax highlighting for PHP work with
 `bat` in combination with `delta` diffs, refer to [these
@@ -173,7 +174,7 @@ instructions](https://github.com/dandavison/delta/issues/162#issuecomment-625952
 It's necessary to perform this step, whenever `bat` gets updated.
 
 
-### [2] Docker post-installation
+### Docker post-installation [2]
 
 By default, the docker installation requires some manual actions. For instance,
 the docker daemon is not started automatically. It's required to run `sudo
@@ -194,7 +195,7 @@ newgrp docker
 ```
 
 
-### [3] Install tmux plugins
+### Install tmux plugins [3]
 
 After tmux has been installed, run the following commands in order to install
 and setup tmux plugin manager ([TPM](https://github.com/tmux-plugins/tpm)) for
@@ -262,7 +263,7 @@ Security](https://wiki.archlinux.org/title/Security#Lock_out_user_after_three_fa
  # The default is 900 (15 minutes).
  # fail_interval = 900
  #
- 
+
 ```
 
 
