@@ -38,6 +38,7 @@ The dotfiles are optimized for the following setup.
 - diff-so-fancy
 - docker [[2]](#docker-post-installation-[2])
 - docker-compose
+- dog
 - firefox
 - fwupd
 - git-delta [[1]](#syntax-highlight-with-bat-and-cat-[1])
