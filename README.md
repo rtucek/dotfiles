@@ -59,6 +59,7 @@ The dotfiles are optimized for the following setup.
 - osquery
 - pavucontrol
 - percona-server-clients
+- percona-toolkit
 - picom
 - pigz
 - playerctl
