@@ -150,10 +150,13 @@ npm -g remove yarn
 ### PIP
 
 ```bash
+# SQL CLIs, by courtesy of https://github.com/dbcli
+pip install --user --upgrade litecli
 pip install --user --upgrade mycli
-pip install --user --upgrade pgcli`
-pip install --user --upgrade python-language-server # (coc-python)
+pip install --user --upgrade pgcli
+
 pip install --user --upgrade pynvim # (neovim python provider)
+pip install --user --upgrade python-language-server # (coc-python)
 ```
 
 
