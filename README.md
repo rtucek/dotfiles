@@ -29,6 +29,7 @@ The dotfiles are optimized for the following setup.
 ### General packages
 
 - arch-audit
+- [autorandr](https://github.com/phillipberndt/autorandr)
 - bash-completion
 - bat [[1]](#syntax-highlight-with-bat-and-cat-[1])
 - bolt [[4]](#fix-hotplug-issue-with-thunderbolt-[4])
