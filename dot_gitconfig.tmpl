@@ -15,6 +15,7 @@
 {{- end }}
 
 [alias]
+	get-branch = !bash -c 'git branch -ra | grep -i $1' -
 	fork-point = !bash -c 'diff -u <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
 	lg = !git lg1
 	lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset) %C(bold yellow)%d%C(reset)' --branches --remotes --tags
