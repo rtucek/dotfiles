@@ -1,5 +1,6 @@
 #!/bin/bash
 
+COMPOSER_VERSION=2.5.1
 COMPOSER_HOME=${COMPOSER_HOME:-$HOME/.config/composer}
 COMPOSER_CACHE_DIR=${COMPOSER_CACHE_DIR:-$HOME/.cache/composer}
 
@@ -16,5 +17,5 @@ docker run \
 	-e "COMPOSER_CACHE_DIR=${COMPOSER_CACHE_DIR}" \
 	-v "${COMPOSER_CACHE_DIR}:${COMPOSER_CACHE_DIR}" \
 	-v "$PWD":/app \
-	composer:2.5.0 \
+	"composer:${COMPOSER_VERSION}" \
 	"$@"
