@@ -1,9 +1,12 @@
 #!/bin/bash
 
+PHPSTAN_VERSION=1.9.14
+PHP_VERSION=php8.1
 docker run \
 	-t \
 	--rm \
 	-v $PWD:/app \
-	ghcr.io/phpstan/phpstan:1.2.0 \
+	"ghcr.io/phpstan/phpstan:${PHPSTAN_VERSION}-${PHP_VERSION}" \
 	${@//"${PWD}/"/"/app/"} \
 	| sed -E "s/\/app\//${PWD//"/"/"\/"}\//"
+
