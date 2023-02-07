@@ -50,6 +50,7 @@ The dotfiles are optimized for the following setup.
 - i3-battery-popup-git
 - i3-scrot
 - ipcalc
+- jless
 - jq
 - kubectl
 - lastpass-cli
