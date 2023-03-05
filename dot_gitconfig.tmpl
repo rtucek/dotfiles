@@ -3,20 +3,18 @@
 	editor = nvim
 	excludesfile = ~/.gitignore_global
 	; pager = /usr/share/git/diff-highlight/diff-highlight | less -RFX
-	; pager = diff-so-fancy | less -RFX
-	; pager = delta --keep-plus-minus-markers --theme='zenburn'
 	pager = delta
+	; pager = delta --keep-plus-minus-markers --theme='zenburn'
+	; pager = diff-so-fancy | less -RFX
 
 [user]
 	name = {{ .git.name }}
 	email = {{ .git.email }}
-{{- if .git.signingkey }}
 	signingkey = {{ .git.signingkey }}
-{{- end }}
 
 [alias]
-	get-branch = !bash -c 'git branch -ra | grep -i $1' -
 	fork-point = !bash -c 'diff -u <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
+	get-branch = !bash -c 'git branch -ra | grep -i $1' -
 	lg = !git lg1
 	lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset) %C(bold yellow)%d%C(reset)' --branches --remotes --tags
 	lg2 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset) %C(bold yellow)%d%C(reset)' --all
@@ -45,9 +43,9 @@
 {{- end }}
 
 [format]
-	signOff = true
-	coverLetter = auto
 	coverFromDescription = auto
+	coverLetter = auto
+	signOff = true
 
 [fetch]
 	prune = true
@@ -59,11 +57,11 @@
 	default = simple
 
 [merge]
-	ff = false
-	tool = nvimdiff
-	conflictstyle = diff3
-	log = true
 	autoStash = true
+	conflictstyle = diff3
+	ff = false
+	log = true
+	tool = nvimdiff
 
 [mergetool]
 	prompt = true
@@ -89,27 +87,27 @@
 	ui = true
 
 [color "diff"]
-	meta = 11
-	frag = magenta bold
 	commit = yellow bold
-	old = red bold
+	frag = magenta bold
+	meta = 11
 	new = green bold
+	old = red bold
 	; whitespace = red reverse
 
 [diff-so-fancy]
 	changeHunkIndicators = false
-	stripLeadingSymbols = false
 	markEmptyLines = false
+	stripLeadingSymbols = false
 	useUnicodeRuler = false
 
 [delta]
 	color-only = true
-	syntax-theme = Monokai Extended
-	line-numbers = true
 	hunk-header-style = syntax
-	whitespace-error-style = normal
+	line-numbers = true
 	minus-style = syntax "#3f0001"
 	; side-by-side = true
+	syntax-theme = Monokai Extended
+	whitespace-error-style = normal
 
 [rebase]
 	autoStash = true
