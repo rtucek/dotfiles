@@ -36,6 +36,7 @@ The dotfiles are optimized for the following setup.
 - brightnessctl
 - chezmoi
 - ctags
+- devspace-bin
 - diff-so-fancy
 - docker [[2]](#docker-post-installation-[2])
 - docker-compose
@@ -71,6 +72,7 @@ The dotfiles are optimized for the following setup.
 - python-pip
 - rofi
 - snapd
+- stern
 - tcpdump
 - terminator
 - testssl.sh
