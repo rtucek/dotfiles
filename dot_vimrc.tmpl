@@ -22,6 +22,10 @@ if !has('nvim-0.9')
 	" editorconfig is built-in as of nvim 0.9
 	Plug 'editorconfig/editorconfig-vim'
 endif
+if has('nvim')
+	" treesitter works only with nvim
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+endif
 
 
 Plug 'airblade/vim-gitgutter'
@@ -52,7 +56,6 @@ Plug 'mbbill/undotree'
 Plug 'mg979/vim-visual-multi'
 Plug 'mileszs/ack.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'preservim/nerdcommenter'
 Plug 'qpkorr/vim-bufkill'
 Plug 'scrooloose/nerdtree'
@@ -429,9 +432,17 @@ function! LightlineFilename()
 	return filename . modified
 endfunction
 
-function! TreeSitterStatus()
-	return nvim_treesitter#statusline(500)
-endfunction
+if has('nvim')
+	function! TreeSitterStatus()
+		return nvim_treesitter#statusline(500)
+	endfunction
+else
+	" even tough, tree-sitter is not loaded, lightline expects this function
+	" just declare a noop so it doesn't break
+	function! TreeSitterStatus()
+		return ''
+	endfunction
+endif
 
 
 " gutentags
