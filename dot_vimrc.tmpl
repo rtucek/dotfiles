@@ -14,9 +14,13 @@ endif
 
 " PLUGINS
 call plug#begin('~/.vim/bundle')
-" vim-sensible - ONLY for vim
 if !has('nvim')
+	" vim-sensible - ONLY for vim
 	Plug 'tpope/vim-sensible'
+endif
+if !has('nvim-0.9')
+	" editorconfig is built-in as of nvim 0.9
+	Plug 'editorconfig/editorconfig-vim'
 endif
 
 
@@ -27,7 +31,6 @@ Plug 'dense-analysis/ale'
 Plug 'djoshea/vim-autoread'
 Plug 'dyng/ctrlsf.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'gregsexton/matchtag'
 Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'haya14busa/incsearch.vim'
@@ -230,14 +233,26 @@ com! DiffSaved call s:DiffWithSaved()
 
 
 " -----PLUGIN CONFIGURATION-----
-" editorconfig
-" Show visual mark, depending on max_line_length value
-let g:EditorConfig_max_line_indicator = "line"
-let g:EditorConfig_preserve_formatoptions = 1
-let g:EditorConfig_exclude_patterns = [
-	\ '.*\.diff',
-	\ '.*\.patch',
-\ ]
+if !has('nvim-0.9')
+	" editorconfig is built-in as of nvim v0.9
+
+	" editorconfig
+	" Show visual mark, depending on max_line_length value
+	let g:EditorConfig_verbose = 1
+	let g:EditorConfig_max_line_indicator = "line"
+	let g:EditorConfig_enable_for_new_buf = 1
+	let g:EditorConfig_preserve_formatoptions = 1
+	let g:EditorConfig_exclude_patterns = [
+		\ '.*\.diff',
+		\ '.*\.patch',
+	\ ]
+else
+	" Neovim v0.9 and above specific config
+	"
+	" set colorcolumn explicitly, so the ruler of max_line_indicator gets
+	" displayed
+	set colorcolumn=+1
+endif
 
 
 " NERDTree
