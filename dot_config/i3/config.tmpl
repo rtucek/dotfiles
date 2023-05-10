@@ -400,7 +400,15 @@ exec_always --no-startup-id $HOME/.config/i3/polybar.sh
 
 # Set inner/outer gaps
 gaps inner 14
-gaps outer -2
+# Temporary workaround to stop using negative gaps in i3, because it causes
+# issues with polybar. Polybar will handle it, starting from v3.7.0, however
+# it's unreleased yet.
+# Refer to these links:
+# - https://www.reddit.com/r/i3wm/comments/101wp5q/polybar_workspace_module_broken_after_move_from/
+# - https://github.com/polybar/polybar/issues/2888
+# - https://github.com/polybar/polybar/pull/2889
+# gaps outer -2
+gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
