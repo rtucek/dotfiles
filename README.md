@@ -54,6 +54,7 @@ The dotfiles are optimized for the following setup.
 - ipcalc
 - jless
 - jq
+- k9s
 - kubectl
 - lastpass-cli
 - mkcert
