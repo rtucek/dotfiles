@@ -71,6 +71,7 @@ The dotfiles are optimized for the following setup.
 - polybar
 - postgresql-client
 - pulseaudio-bluetooth
+- pwgen
 - python-pip
 - rofi
 - snapd
