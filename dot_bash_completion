@@ -22,3 +22,7 @@ fi
 if command -v arch-audit &> /dev/null; then
 	source <(arch-audit completions bash)
 fi
+
+if command -v op &> /dev/null; then
+	source <(op completion bash)
+fi

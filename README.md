@@ -28,6 +28,7 @@ The dotfiles are optimized for the following setup.
 
 ### General packages
 
+- 1password-cli
 - arch-audit
 - [autorandr](https://github.com/phillipberndt/autorandr)
 - bash-completion
