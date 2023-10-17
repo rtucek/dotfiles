@@ -48,3 +48,4 @@ x-scheme-handler/feed=thunderbird.desktop;
 application/rss+xml=thunderbird.desktop;
 application/x-extension-rss=thunderbird.desktop;
 x-scheme-handler/mid=userapp-Thunderbird-829TE1.desktop;
+application/x-ole-storage=org.mozilla.Thunderbird.desktop;
