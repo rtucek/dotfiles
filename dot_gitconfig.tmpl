@@ -20,6 +20,7 @@
 	lg2 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset) %C(bold yellow)%d%C(reset)' --all
 	patch = !git --no-pager diff --no-color
 	permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
+	no-ci-push = push -o ci.skip
 
 [credential]
 	helper = cache --timeout=3600
