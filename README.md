@@ -81,6 +81,7 @@ The dotfiles are optimized for the following setup.
 - pwgen
 - python-pip
 - python-pipx
+- python-pynvim
 - rofi
 - snapd
 - stern
@@ -167,7 +168,6 @@ npm -g remove yarn
 ### PIP
 
 ```bash
-pipx install pynvim # (neovim python provider)
 pipx install python-language-server # (coc-python)
 ```
 
