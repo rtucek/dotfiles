@@ -51,6 +51,7 @@ The dotfiles are optimized for the following setup.
 - go
 - gzip
 - helm
+- httpie
 - i3-battery-popup-git
 - i3-scrot
 - ipcalc
@@ -59,17 +60,21 @@ The dotfiles are optimized for the following setup.
 - k9s
 - kubectl
 - lastpass-cli
+- litecli
 - mkcert
 - msr-tools
 - mtr
+- mycli
 - mysql-workbench
 - neovim
 - osquery
 - pavucontrol
 - percona-server-clients
 - percona-toolkit
+- pgcli
 - picom
 - pigz
+- pipx
 - playerctl
 - polybar
 - postgresql-client
@@ -162,13 +167,8 @@ npm -g remove yarn
 ### PIP
 
 ```bash
-# SQL CLIs, by courtesy of https://github.com/dbcli
-pip install --user --upgrade litecli
-pip install --user --upgrade mycli
-pip install --user --upgrade pgcli
-
-pip install --user --upgrade pynvim # (neovim python provider)
-pip install --user --upgrade python-language-server # (coc-python)
+pipx install pynvim # (neovim python provider)
+pipx install python-language-server # (coc-python)
 ```
 
 
