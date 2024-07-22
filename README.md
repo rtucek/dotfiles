@@ -370,3 +370,11 @@ Sources:
 - [Thunderbolt](https://wiki.archlinux.org/title/Thunderbolt)
 - [Thunderbolt - udev rule (Arch Wiki)](https://wiki.archlinux.org/title/Thunderbolt#Automatically_connect_any_device)
 - [Live-reload udev rule (unix.stackexchange.com)](https://unix.stackexchange.com/a/39371/213414)
+
+
+### GPG keyservers
+
+My GPG keys are generally distributed via the following public keyservers:
+- keys.openpgp.org
+- keyserver.ubuntu.com
+- pgp.mit.edu
