@@ -19,10 +19,17 @@ if command -v pip &> /dev/null; then
 	source <(pip completion --bash)
 fi
 
+# Smart completion for pipx
+if command -v pipx &> /dev/null && command -v register-python-argcomplete &> /dev/null; then
+	eval "$(register-python-argcomplete pipx)"
+fi
+
+# Smart completion for arch-audit
 if command -v arch-audit &> /dev/null; then
 	source <(arch-audit completions bash)
 fi
 
+# Smart completion for op (1password cli client)
 if command -v op &> /dev/null; then
 	source <(op completion bash)
 fi
