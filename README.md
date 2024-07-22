@@ -85,6 +85,7 @@ The dotfiles are optimized for the following setup.
 - the_silver_searcher
 - thunderbird
 - tmux [[3]](#install-tmux-plugins-[3])
+- tree-sitter-cli
 - unzip
 - whois
 - xclip
