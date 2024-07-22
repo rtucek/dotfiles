@@ -74,13 +74,13 @@ The dotfiles are optimized for the following setup.
 - pgcli
 - picom
 - pigz
-- pipx
 - playerctl
 - polybar
 - postgresql-client
 - pulseaudio-bluetooth
 - pwgen
 - python-pip
+- python-pipx
 - rofi
 - snapd
 - stern
