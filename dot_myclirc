@@ -70,7 +70,7 @@ enable_pager = True
 
 # Cause result sets to be displayed vertically if they are too wide for the current window,
 # and using normal tabular format otherwise. (This applies to statements terminated by ; or \G.)
-auto_vertical_output = True
+; auto_vertical_output = True
 
 # Custom colors for the completion menu, toolbar, etc.
 [colors]
