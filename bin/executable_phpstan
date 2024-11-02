@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PHPSTAN_VERSION=1.9.14
-PHP_VERSION=php8.1
+PHPSTAN_VERSION=1.12.7
+PHP_VERSION=php8.3
 docker run \
 	-t \
 	--rm \
