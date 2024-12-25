@@ -5,6 +5,17 @@ My dotfiles - use them and contribute your personal changes/suggestions.
 
 ## Installation
 
+The specifically target Arch-alike distributions. For instance, the
+instructions here should also work for Manjaro, which builds upon Arch.
+
+Most importantly, it's require to install a package manager, which
+makes use of the AUR. [yay](https://github.com/Jguer/yay) is by far
+the best one I've ever seen and can simply be installed like so.
+
+```bash
+sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+```
+
 Dotfiles are managed by [chezmoi](https://github.com/twpayne/chezmoi).
 
 A couple of template variables have to be set for proper configuration.
@@ -29,6 +40,8 @@ The dotfiles are optimized for the following setup.
 ### General packages
 
 - 1password-cli
+- alsa-utils
+- arandr
 - arch-audit
 - autorandr [github.com/phillipberndt/autorandr](https://github.com/phillipberndt/autorandr)
 - bash-completion
@@ -42,8 +55,10 @@ The dotfiles are optimized for the following setup.
 - docker [[2]](#docker-post-installation-[2])
 - docker-compose
 - dog
+- dunst
 - firefox
 - fwupd
+- fzf
 - git-delta [[1]](#syntax-highlight-with-bat-and-cat-[1])
 - glab
 - gnome-keyring
@@ -53,20 +68,22 @@ The dotfiles are optimized for the following setup.
 - helm
 - httpie
 - i3-battery-popup-git
-- i3-scrot
 - ipcalc
 - jless
 - jq
 - k9s
 - kubectl
 - lastpass-cli
+- less
 - litecli
+- lsb-release
 - mkcert
 - msr-tools
 - mtr
 - mycli
 - mysql-workbench
 - neovim
+- nitrogen
 - osquery
 - pavucontrol
 - percona-server-clients
@@ -75,6 +92,7 @@ The dotfiles are optimized for the following setup.
 - picom
 - pigz
 - playerctl
+- polkit-gnome
 - polybar
 - postgresql-client
 - pulseaudio-bluetooth
@@ -82,8 +100,12 @@ The dotfiles are optimized for the following setup.
 - python-pip
 - python-pipx
 - python-pynvim
+- ranger
 - rofi
+- ruby-erb
+- scrot
 - snapd
+- sound-theme-freedesktop
 - stern
 - tcpdump
 - terminator
@@ -93,8 +115,10 @@ The dotfiles are optimized for the following setup.
 - tmux [[3]](#install-tmux-plugins-[3])
 - tree-sitter-cli
 - unzip
+- vi
 - whois
 - xclip
+- xorg-xinput
 - xss-lock
 - yubioath-desktop
 
@@ -104,6 +128,9 @@ The dotfiles are optimized for the following setup.
 - ttf-dejavu
 - ttf-font-awesome
 - ttf-joypixels
+- noto-fonts-cjk
+- noto-fonts-emoji
+- noto-fonts
 
 
 ### AUR
@@ -116,7 +143,7 @@ The dotfiles are optimized for the following setup.
 - postman-bin
 - tmuxinator
 - unimatrix-git
-- xidlehook (screensaver)
+- xidlehook
 
 
 ### Snap packages
