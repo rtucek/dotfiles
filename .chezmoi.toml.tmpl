@@ -1,0 +1,54 @@
+chezmoi:template:left-delimiter="{{{" right-delimiter="}}}"
+# Config
+[edit]
+    command = "nvim"
+
+[merge]
+    command = "nvim"
+    args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
+
+[diff]
+	pager = "delta"
+
+
+# Data to be replaced
+[data.git]
+	name = "Rudolf Tucek"
+	email = "tucek.rudolf@gmail.com"
+	signingkey = "0x49593BD010DE4723"
+
+[data.gpg]
+	signingkey = "0x49593BD010DE4723"
+	# we use either one of these 3:
+	# - keys.openpgp.org
+	# - keyserver.ubuntu.com
+	# - pgp.mit.edu
+	keyserver = "keys.openpgp.org"
+
+[data.i3]
+	# Run `xrandr --listmonitors` in order to see all available monitors
+	monitor = "eDP"
+	# Run `xrandr --current` in order to see supported dimensions
+	resolution = "2880x1800"
+
+[data.npm]
+	token = ""
+
+[data.vim.coc]
+	intelephense_licensekey = ""
+
+[data.polybar]
+	# Run `xrandr --listmonitors` in order to see all available monitors
+	monitor = "eDP"
+	# Run `ls -1 /sys/class/power_supply/` in order to get an overview.
+	battery_adapter = "ADP1"
+	# Run `ip link` for an overview of applicable interfaces
+	net_interface_eth = "enx34298f9240b4"
+	net_interface_wlp = "wlan0"
+
+[data.nitrogen]
+	bg_mode = "5"
+	posx = "1484"
+	posy = "64"
+	sizex = "522"
+	sizey = "591"
