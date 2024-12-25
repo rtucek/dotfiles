@@ -1,5 +1,5 @@
 # i3 config file (v4)
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
@@ -295,7 +295,7 @@ mode "resize" {
 }
 
 # Screen resolution
-exec --no-startup-id xrandr --output eDP-1 --primary --mode {{ .i3.resolution }}
+exec --no-startup-id xrandr --output {{ .i3.monitor }} --primary --mode {{ .i3.resolution }}
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -357,9 +357,9 @@ exec_always --no-startup-id $HOME/.config/i3/polybar.sh
 #	 status_command i3status
 #	 position bottom
 #
-# ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+# ## please set your primary output first. Example: 'xrandr --output {{ .i3.monitor }} --primary'
 # #	tray_output primary
-# #	tray_output eDP1
+# #	tray_output {{ .i3.monitor }}
 #
 #	 bindsym button4 nop
 #	 bindsym button5 nop

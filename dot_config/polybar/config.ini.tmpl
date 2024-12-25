@@ -36,7 +36,7 @@ alert = #bd2c40
 monitor = ${env:MONITOR:}
 
 ; Use the specified monitor as a fallback if the main one is not found.
-monitor-fallback = eDP-1
+monitor-fallback = {{ .polybar.monitor }}
 
 ; Use fuzzy matching for monitors (currently only ignores dashes -) (unreleased)
 ; Useful when monitors are named differently with different drivers.

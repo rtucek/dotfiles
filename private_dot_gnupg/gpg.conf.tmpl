@@ -4,6 +4,7 @@
 # on the 2017-01-29
 
 charset utf-8
+
 {{- if .gpg.signingkey }}
 
 #-----------------------------
@@ -13,7 +14,8 @@ charset utf-8
 # The default key to sign with. If this option is not used, the default key is
 # the first key found in the secret keyring
 default-key {{ .gpg.signingkey }}
-{{- end }}
+
+{{ end -}}
 
 #-----------------------------
 # behavior
@@ -39,15 +41,17 @@ verify-options show-uid-validity
 # the agent before it asks for a passphrase.
 use-agent
 
+{{- if .gpg.keyserver }}
+
 #-----------------------------
 # keyserver
 #-----------------------------
 
 # This is the server that --recv-keys, --send-keys, and --search-keys will
 # communicate with to receive keys from, send keys to, and search for keys on
-keyserver keys.openpgp.org
-# keyserver keyserver.ubuntu.com
-# keyserver pgp.mit.edu
+keyserver {{ .gpg.keyserver }}
+
+{{ end -}}
 
 # When using --refresh-keys, if the key in question has a preferred keyserver
 # URL, then disable use of that preferred keyserver to refresh the key from
