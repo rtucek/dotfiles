@@ -84,6 +84,7 @@ The dotfiles are optimized for the following setup.
 - mysql-workbench
 - neovim
 - nitrogen
+- openssh
 - osquery
 - pavucontrol
 - percona-server-clients
