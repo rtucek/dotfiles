@@ -64,6 +64,7 @@ The dotfiles are optimized for the following setup.
 - gnome-keyring
 - gnu-netcat
 - go
+- gparted
 - gzip
 - helm
 - httpie
@@ -114,8 +115,11 @@ The dotfiles are optimized for the following setup.
 - the_silver_searcher
 - thunderbird
 - tmux [[3]](#install-tmux-plugins-[3])
+- torbrowser-launcher
 - tree-sitter-cli
+- udisks2
 - unzip
+- veracrypt
 - vi
 - whois
 - xclip
