@@ -1,11 +1,10 @@
-chezmoi:template:left-delimiter="{{{" right-delimiter="}}}"
 # Config
 [edit]
     command = "nvim"
 
 [merge]
     command = "nvim"
-    args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
+    args = ["-d", "{{ "{{"  }} .Destination {{ "}}"  }}", "{{ "{{"  }} .Source {{ "}}"  }}", "{{ "{{"  }} .Target {{ "}}"  }}"]
 
 [diff]
 	pager = "delta"
