@@ -88,6 +88,7 @@ The dotfiles are optimized for the following setup.
 - openssh
 - osquery
 - pavucontrol
+- pcmanfm
 - percona-server-clients
 - percona-toolkit
 - pgcli
