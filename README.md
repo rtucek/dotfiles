@@ -131,12 +131,13 @@ The dotfiles are optimized for the following setup.
 
 ### Fonts
 
-- ttf-dejavu
-- ttf-font-awesome
-- ttf-joypixels
+- noto-fonts
 - noto-fonts-cjk
 - noto-fonts-emoji
-- noto-fonts
+- ttf-dejavu
+- ttf-font-awesome
+- ttf-input-nerd
+- ttf-joypixels
 
 
 ### AUR
