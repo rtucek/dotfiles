@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Set keyboard layout to en
+~/.config/i3/keyboard-layout.sh set us
+
+if [[ "$(pgrep -u $UID -x i3lock)" ]]; then
+	# Don't start i3lock if already running
+
+	# As a special case, check XSS_SLEEP_LOCK_FD is set, due to the
+	# invocation of `xss --transfer-sleep-lock [...]`.
+	#
+	# If this is the case, the system is preparing for sleep and the
+	# lock-manager is supposed to "signal readiness" by closing the given
+	# FD.
+	# Under normal circumstances, i3lock is taking care about this.
+	#
+	# However, in case i3lock is already running, we'll just have to close
+	# the FD by ourself and let the existing i3lock process take over.
+	if [[ -v "XSS_SLEEP_LOCK_FD" && -e "/dev/fd/${XSS_SLEEP_LOCK_FD}" ]]; then
+		exec {XSS_SLEEP_LOCK_FD}<&-
+	fi
+
+	# i3lock is already running anyways
+	exit 0
+fi
+
+# Most important:
+# Once we've started the lockscreen in fullscreen, our default xidlehook won't
+# trigger a suspend anymore, now we're responsible on our own to suspend the
+# machine after a certain timeout in locked mode.
+xidlehook --detect-sleep --timer {{ .system.idle_suspend }} "$HOME/.config/i3/i3exit.sh suspend" "" &
+XIDLEHOOK=$!
+
+# Start matrix rain in foreground
+i3-sensible-terminal -f -e "sleep 1; i3-msg fullscreen enable global; unimatrix -afs 97 -l kkkknnssss" &
+
+# Start lockscreen
+sleep 1.5
+i3lock -n
+
+# At this stage, the session has been unlocked.
+## First, let's stop the time which would put us again in suspend mode in case,
+## the mache becomes idle again while being locked.
+kill -SIGINT $XIDLEHOOK
+## Now we shall end the matrix rain too.
+ps ax | grep unimatrix | grep -v grep | awk '{print $1}' | xargs kill -SIGINT
+
+exit 0
