@@ -60,6 +60,7 @@ The dotfiles are optimized for the following setup.
 - firefox
 - fwupd
 - fzf
+- gimp
 - git-delta [[1]](#syntax-highlight-with-bat-and-cat-[1])
 - glab
 - gnome-keyring
