@@ -78,6 +78,7 @@ The dotfiles are optimized for the following setup.
 - less
 - litecli
 - lsb-release
+- man-db
 - mkcert
 - msr-tools
 - mtr
