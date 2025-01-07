@@ -81,6 +81,7 @@ The dotfiles are optimized for the following setup.
 - litecli
 - lsb-release
 - lshw
+- lsof
 - man-db
 - mkcert
 - msr-tools

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+SOCKET_PATH="${XDG_RUNTIME_DIR}/xidlehook.socket"
+
+if [[ -S "$SOCKET_PATH" ]]; then
+	# socket file still exists
+
+	# first, kill the process, that's making use of it...
+	kill -SIGTERM "$(lsof -t "$SOCKET_PATH")"
+
+	# ... and second, remove the socket file in case it's still lurking
+	# around.
+	if [[ -S "$SOCKET_PATH" ]]; then
+		rm "$SOCKET_PATH"
+	fi
+fi
+
+# Start xidlehook
+xidlehook \
+	--socket "$SOCKET_PATH" \
+	--detect-sleep \
+	--not-when-audio \
+	--not-when-fullscreen \
+	--timer {{ .system.idle_lockscreen }} "$HOME/.config/i3/i3exit.sh lock" ""
