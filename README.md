@@ -418,3 +418,48 @@ My GPG keys are generally distributed via the following public keyservers:
 - keys.openpgp.org
 - keyserver.ubuntu.com
 - pgp.mit.edu
+
+
+### Fix automatic wake ups from suspend
+
+For some Tuxedo Laptops, the Laptop wakes up automatically within a couple of
+seconds. This is due to a bug in the BIOS, which can be seen in the syslog,
+based on these log entries:
+
+```
+[...]
+xxx xx xx:xx:xx archlinux kernel: ACPI BIOS Error (bug): Could not resolve symbol [\_SB.ACDC.RTAC], AE_NOT_FOUND (20230628/psargs-332)
+xxx xx xx:xx:xx archlinux kernel: ACPI Error: Aborting method \_SB.PEP._DSM due to previous error (AE_NOT_FOUND) (20230628/psparse-529)
+[...]
+```
+
+For mitigation, the kernel parameter `acpi.ec_no_wakeup=1` must be set in
+`/etc/default/grub`:
+
+```diff
+-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
++GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi.ec_no_wakeup=1"
+```
+
+> Don't forget to run `sudo update-grub` in order re-build and deploy the grub
+> config, so that it becomes effective from the next system boot onwards..
+
+For testing purpose, the `acpi.ec_no_wakeup=1` parameter can also be set at
+post-boot with the sysfs interface:
+
+```bash
+# Read current state of acpi.ec_no_wakeup via ...
+cat /sys/module/acpi/parameters/ec_no_wakeup
+# ... Y -> 1 (on); N -> 0 (off)
+# Set the value by writing 1 or 0 to the file: e.g.
+echo "1" | sudo tee /sys/module/acpi/parameters/ec_no_wakeup
+```
+
+It's worth pointing out, that even with setting the parameter, the error will
+still be logged to syslog, however the automatic wake ups are prevented this
+way.
+
+
+Links:
+- [Tuxedo FAQ / Device Immediately Wakes Up After Suspend](https://www.tuxedocomputers.com/en/FAQ-TUXEDO-InfinityBook-Pro-15-Gen9.tuxedo#3675)
+- [Arch Wiki / /sys/module/acpi/parameters/ec_no_wakeup](https://wiki.archlinux.org/title/Power_management/Wakeup_triggers#/sys/module/acpi/parameters/ec_no_wakeup)
