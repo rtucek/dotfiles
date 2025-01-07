@@ -499,3 +499,21 @@ sudo ufw default deny routed
 Links:
 - [Arch Wiki / Uncomplicated Firewall](https://wiki.archlinux.org/title/Uncomplicated_Firewall)
 - [Ubuntu Wiki / UFW](https://help.ubuntu.com/community/UFW)
+
+
+### Have systemd using same default console editor
+
+By default, systemd may use any available console-based editor.
+However, the `SYSTEMD_EDITOR` ENV allows configuring any editor of preference.
+In order to have `sudo` based commands inheriting this ENV, add the following
+line to the sudoers file manually via `visudo`.
+
+```diff
+ ##
+ ## Preserve editor environment variables for visudo.
+ ## To preserve these for all commands, remove the "!visudo" qualifier.
+ Defaults!/usr/bin/visudo env_keep += "SUDO_EDITOR EDITOR VISUAL"
++Defaults env_keep += "SYSTEMD_EDITOR"
+ ##
+ ## Use a hard-coded PATH instead of the user's to find commands.
+```
