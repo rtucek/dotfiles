@@ -52,6 +52,7 @@ The dotfiles are optimized for the following setup.
 - ctags
 - devspace-bin
 - diff-so-fancy
+- dmidecode
 - docker [[2]](#docker-post-installation-[2])
 - docker-compose
 - dog
@@ -78,6 +79,7 @@ The dotfiles are optimized for the following setup.
 - less
 - litecli
 - lsb-release
+- lshw
 - man-db
 - mkcert
 - msr-tools
@@ -121,6 +123,7 @@ The dotfiles are optimized for the following setup.
 - tree-sitter-cli
 - udisks2
 - unzip
+- usbutils
 - veracrypt
 - vi
 - whois
