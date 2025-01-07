@@ -124,6 +124,7 @@ The dotfiles are optimized for the following setup.
 - torbrowser-launcher
 - tree-sitter-cli
 - udisks2
+- ufw [[5]](#ufw-post-install-actions-[5])
 - unzip
 - usbutils
 - veracrypt
@@ -463,3 +464,38 @@ way.
 Links:
 - [Tuxedo FAQ / Device Immediately Wakes Up After Suspend](https://www.tuxedocomputers.com/en/FAQ-TUXEDO-InfinityBook-Pro-15-Gen9.tuxedo#3675)
 - [Arch Wiki / /sys/module/acpi/parameters/ec_no_wakeup](https://wiki.archlinux.org/title/Power_management/Wakeup_triggers#/sys/module/acpi/parameters/ec_no_wakeup)
+
+
+### ufw post-install actions [5]
+
+ufw may not be active right away post-install.
+Check via `systemctl status ufw` if ufw is running and/or auto-started upon
+system boots and if not, run `sudo systemctl enable --now ufw` in order to have
+systemd manage ufw accordingly.
+
+Further, run `sudo ufw status` in order to check if ufw itself is active (which
+is typically never the case post-install). `sudo ufw enable` will eventually
+enable ufw.
+
+Finally, check if the current rules are the "sane and sensitive defaults":
+
+```bash
+$ sudo ufw status verbose
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), deny (routed)
+New profiles: skip
+```
+
+Mind the `Default: deny (incoming), allow (outgoing), deny (routed)` line. In
+case default rules are different by default, you may correct them with:
+
+```bash
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw default deny routed
+```
+
+Links:
+- [Arch Wiki / Uncomplicated Firewall](https://wiki.archlinux.org/title/Uncomplicated_Firewall)
+- [Ubuntu Wiki / UFW](https://help.ubuntu.com/community/UFW)
