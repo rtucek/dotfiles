@@ -46,6 +46,7 @@ The dotfiles are optimized for the following setup.
 - autorandr [github.com/phillipberndt/autorandr](https://github.com/phillipberndt/autorandr)
 - bash-completion
 - bat [[1]](#syntax-highlight-with-bat-and-cat-[1])
+- bluez-utils
 - bolt [[4]](#fix-hotplug-issue-with-thunderbolt-[4])
 - brightnessctl
 - chezmoi
