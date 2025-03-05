@@ -115,6 +115,7 @@ The dotfiles are optimized for the following setup.
 - scrot
 - snapd
 - sound-theme-freedesktop
+- speedtest-cli
 - stern
 - tcpdump
 - terminator
