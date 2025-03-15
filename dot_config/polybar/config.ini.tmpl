@@ -144,7 +144,7 @@ font-4 = "DejaVu Sans:style=Book:size=10;1"
 ;   modules-right = ipc clock
 modules-left = i3 xwindow
 modules-center = date xkeyboard
-modules-right = pulseaudio {{ if .polybar.backlight_card -}} backlight {{- end }} net-wifi net-eth net-docker net-vpn cpu memory temperature filesystem {{ if .polybar.battery_adapter -}} battery {{- end }} powermenu
+modules-right = pulseaudio {{ if .polybar.backlight_card -}} backlight {{- end }} {{ range .polybar.net_wifi -}} net-wifi-{{ . }} {{ end -}} net-eth net-docker net-vpn cpu memory temperature filesystem {{ if .polybar.battery_adapter -}} battery {{- end }} powermenu
 
 ; The separator will be inserted between the output of each module
 ; separator =
@@ -1046,10 +1046,11 @@ label-padding = 1
 
 
 
-[module/net-wifi]
+{{ range .polybar.net_wifi -}}
+[module/net-wifi-{{ . }}]
 type = internal/network
 
-interface = {{ .polybar.net_interface_wlp }}
+interface = {{ . }}
 
 ; Seconds to sleep between updates
 ; Default: 1
@@ -1151,6 +1152,10 @@ animation-packetloss-1 =
 animation-packetloss-1-foreground = #ffa64c
 ; Framerate in milliseconds
 animation-packetloss-framerate = 500
+
+
+
+{{ end -}}
 
 
 
