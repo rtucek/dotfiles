@@ -144,7 +144,7 @@ font-4 = "DejaVu Sans:style=Book:size=10;1"
 ;   modules-right = ipc clock
 modules-left = i3 xwindow
 modules-center = date xkeyboard
-modules-right = pulseaudio {{ if .polybar.backlight_card -}} backlight {{- end }} net-wifi net-eth net-docker net-vpn cpu memory temperature filesystem battery powermenu
+modules-right = pulseaudio {{ if .polybar.backlight_card -}} backlight {{- end }} net-wifi net-eth net-docker net-vpn cpu memory temperature filesystem {{ if .polybar.battery_adapter -}} battery {{- end }} powermenu
 
 ; The separator will be inserted between the output of each module
 ; separator =
@@ -342,6 +342,7 @@ bar-empty-foreground = ${styling.foreground}
 
 
 
+{{ if .polybar.battery_adapter -}}
 [module/battery]
 type = internal/battery
 
@@ -461,6 +462,10 @@ animation-discharging-foreground = ${styling.foreground}
 
 ; Framerate in milliseconds
 animation-discharging-framerate = 750
+
+
+
+{{ end -}}
 
 
 
