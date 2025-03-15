@@ -144,7 +144,7 @@ font-4 = "DejaVu Sans:style=Book:size=10;1"
 ;   modules-right = ipc clock
 modules-left = i3 xwindow
 modules-center = date xkeyboard
-modules-right = pulseaudio backlight net-wifi net-eth net-docker net-vpn cpu memory temperature filesystem battery powermenu
+modules-right = pulseaudio {{ if .polybar.backlight_card -}} backlight {{- end }} net-wifi net-eth net-docker net-vpn cpu memory temperature filesystem battery powermenu
 
 ; The separator will be inserted between the output of each module
 ; separator =
@@ -300,12 +300,13 @@ screenchange-reload = true
 
 
 
+{{ if .polybar.backlight_card -}}
 [module/backlight]
 type = internal/backlight
 
 ; Use the following command to list available cards:
 ; $ ls -1 /sys/class/backlight/
-card = intel_backlight
+card = {{ .polybar.backlight_card }}
 
 ; Available tags:
 ;   <label> (default)
@@ -334,6 +335,10 @@ bar-fill-font = 2
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${styling.foreground}
+
+
+
+{{ end -}}
 
 
 
