@@ -16,7 +16,12 @@ the best one I've ever seen and can simply be installed like so.
 sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 ```
 
-Dotfiles are managed by [chezmoi](https://github.com/twpayne/chezmoi).
+Then, you'd want to install all relevant packages from the [General
+packages](#general-packages), [Fonts](#fonts) and [AUR](#aur) sections.
+
+Dotfiles are managed by [`chezmoi`](https://github.com/twpayne/chezmoi). Run
+`chezmoi init rtucek` in order to download all dotfiles, followed by `chezmoi
+cd` for jumping directly to the git repo of the dotfiles.
 
 A couple of template variables have to be set for proper configuration.
 Use the sample config file from `dot_config/chezmoi/chezmoi.toml.sample` and
