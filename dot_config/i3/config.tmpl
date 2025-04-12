@@ -301,12 +301,12 @@ exec --no-startup-id xrandr --output {{ .i3.monitor }} --primary --mode {{ .i3.r
 exec_always --no-startup-id gnome-keyring-daemon --start
 exec_always --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id i3-battery-popup -n -t 10s
 exec_always --no-startup-id $HOME/.config/i3/touchpad.sh
 exec_always --no-startup-id $HOME/.config/i3/screensaver.sh
 exec_always --no-startup-id $HOME/.config/i3/xss-lock.sh
 exec_always --no-startup-id $HOME/.config/i3/xidlehook.sh
 exec_always --no-startup-id $HOME/.config/i3/udiskie.sh
+exec_always --no-startup-id $HOME/.config/i3/i3-battery-popup.sh
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
