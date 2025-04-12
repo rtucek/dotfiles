@@ -285,12 +285,15 @@ Defaults pwfeedback
 ### Pacman tweaks
 
 There are some nice2have tweaks for pacman. Simply add these lines to the
-`/etc/pacman.conf` file.
+`/etc/pacman.conf` file (or uncomment existing ones).
 
 ```
+# Have colored output
 Color
-# Add fancy gimmick to progres bar
+# Add fancy pacman gimmick to progres bar
 ILoveCandy
+# Multiple simultaneous downloads
+ParallelDownloads = 5
 ```
 
 
