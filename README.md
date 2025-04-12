@@ -85,6 +85,7 @@ The dotfiles are optimized for the following setup.
 - lsb-release
 - lshw
 - lsof
+- lvm2
 - man-db
 - mkcert
 - msr-tools
