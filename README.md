@@ -72,6 +72,7 @@ The dotfiles are optimized for the following setup.
 - helm
 - httpie
 - i3-battery-popup-git
+- inxi
 - ipcalc
 - jless
 - jq
