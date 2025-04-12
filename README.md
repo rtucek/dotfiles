@@ -139,6 +139,7 @@ The dotfiles are optimized for the following setup.
 - xclip
 - xorg-xinput
 - xss-lock
+- yay
 - yubioath-desktop
 
 
