@@ -68,6 +68,7 @@ The dotfiles are optimized for the following setup.
 - gnu-netcat
 - go
 - gparted
+- gufw
 - gzip
 - helm
 - httpie
