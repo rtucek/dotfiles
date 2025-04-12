@@ -111,6 +111,7 @@ The dotfiles are optimized for the following setup.
 - python-pynvim
 - ranger
 - rofi
+- rsync
 - ruby-erb
 - scrot
 - snapd
