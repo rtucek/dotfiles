@@ -110,7 +110,7 @@ The dotfiles are optimized for the following setup.
 - pigz
 - playerctl
 - polkit-gnome
-- polybar
+- polybar [[6]](#permissions-for-polybar-[6])
 - postgresql-client
 - pulseaudio-bluetooth
 - pwgen
@@ -575,3 +575,36 @@ line to the sudoers file manually via `visudo`.
  ##
  ## Use a hard-coded PATH instead of the user's to find commands.
 ```
+
+
+### Permissions for Polybar [6]
+
+Many modules may not work out of the box. Inspect
+`~/.config/polybar/config.ini`, which might require a few parameters to be
+properly templated via chezmoi.
+
+#### Change backlight via scrolling
+
+For having support for changing the backlight via scrolling, do the following:
+
+1) Add your user to the `video` group.
+
+```bash
+sudo usermod -aG video $USER
+newgrp video
+```
+
+2) Add the following udev rule `/etc/udev/rules.d/99-backlight.rules`
+
+```
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
+```
+
+Reload udev via:
+
+```bash
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
+In case it does not work, try rebooting the system.

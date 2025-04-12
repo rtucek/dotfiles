@@ -308,6 +308,40 @@ type = internal/backlight
 ; $ ls -1 /sys/class/backlight/
 card = {{ .polybar.backlight_card }}
 
+; Use the `/sys/class/backlight/.../actual-brightness` file
+; rather than the regular `brightness` file.
+; New in version 3.6.0
+; Changed in version: 3.7.0: Defaults to true also on amdgpu backlights
+; Default: true
+use-actual-brightness = true
+
+; Interval in seconds after which after which the current brightness is read
+; (even if no update is detected).
+; Use this as a fallback if brightness updates are not registering in polybar
+; (which happens if the use-actual-brightness is false).
+; There is no guarantee on the precisio of this timing.
+; Set to 0 to turn off
+; New in version 3.7.0
+; Default: 0 (5 if use-actual-brightness is false)
+poll-interval = 0
+
+; Enable changing the backlight with the scroll wheel
+; NOTE: This may require additional configuration on some systems. Polybar will
+; write to `/sys/class/backlight/${self.card}/brightness` which requires polybar
+; to have write access to that file.
+; DO NOT RUN POLYBAR AS ROOT.
+; The recommended way is to add the user to the
+; `video` group and give that group write-privileges for the `brightness` file.
+; See the ArchWiki for more information:
+; https://wiki.archlinux.org/index.php/Backlight#ACPI
+; Default: false
+enable-scroll = true
+
+; Interval for changing the brightness (in percentage points).
+; New in version 3.7.0
+; Default: 5
+scroll-interval = 10
+
 ; Available tags:
 ;   <label> (default)
 ;   <ramp>
