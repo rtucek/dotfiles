@@ -129,6 +129,7 @@ The dotfiles are optimized for the following setup.
 - tmux [[3]](#install-tmux-plugins-[3])
 - torbrowser-launcher
 - tree-sitter-cli
+- udiskie
 - udisks2
 - ufw [[5]](#ufw-post-install-actions-[5])
 - unzip
