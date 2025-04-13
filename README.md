@@ -136,6 +136,7 @@ The dotfiles are optimized for the following setup.
 - thunderbird
 - tmux [[3]](#install-tmux-plugins-[3])
 - torbrowser-launcher
+- tree
 - tree-sitter-cli
 - udiskie
 - udisks2
