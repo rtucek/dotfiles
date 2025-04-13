@@ -48,7 +48,7 @@ The dotfiles are optimized for the following setup.
 - alsa-utils
 - arandr
 - arch-audit
-- autorandr [github.com/phillipberndt/autorandr](https://github.com/phillipberndt/autorandr)
+- autorandr [[8]](#autorandr-post-installation-activation-[8])
 - bash-completion
 - bat [[1]](#syntax-highlight-with-bat-and-cat-[1])
 - bluez-utils
@@ -108,7 +108,7 @@ The dotfiles are optimized for the following setup.
 - pgcli
 - picom
 - pigz
-- pipewire
+- pipewire [[7]](#pipewire-post-installation-activation-[7])
 - pipewire-pulse
 - playerctl
 - polkit-gnome
@@ -615,7 +615,7 @@ sudo udevadm trigger
 In case it does not work, try rebooting the system.
 
 
-### Pipewire post-installation activation
+### Pipewire post-installation activation [7]
 
 [`pipewire`](https://wiki.archlinux.org/title/PipeWire) is used as the audio
 router and processor. For audio session management,
@@ -632,4 +632,18 @@ patchbay GUI for pipewire.
 ```bash
 systemctl enable --user --now pipewire
 systemctl enable --user --now pipewire-pulse
+```
+
+
+### Autorandr post-installation activation [8]
+
+[`autorandr`](https://github.com/phillipberndt/autorandr) is used to
+automatically detect monitors, storing profiles and auto-applying them upon
+reconnect.
+
+In order to work properly, the following 2 systemd services should be activated:
+
+```bash
+sudo systemctl enable --now autorandr.service
+sudo systemctl enable --now autorandr-lid-listener.service
 ```
