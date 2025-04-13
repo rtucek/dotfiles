@@ -76,6 +76,7 @@ The dotfiles are optimized for the following setup.
 - gufw
 - gzip
 - helm
+- helvum
 - httpie
 - i3-battery-popup-git
 - inxi
@@ -101,18 +102,19 @@ The dotfiles are optimized for the following setup.
 - nitrogen
 - openssh
 - osquery
-- pavucontrol
 - pcmanfm
 - percona-server-clients
 - percona-toolkit
 - pgcli
 - picom
 - pigz
+- pipewire
+- pipewire-pulse
 - playerctl
 - polkit-gnome
 - polybar [[6]](#permissions-for-polybar-[6])
 - postgresql-client
-- pulseaudio-bluetooth
+- pw-volume
 - pwgen
 - python-pip
 - python-pipx
@@ -127,6 +129,7 @@ The dotfiles are optimized for the following setup.
 - speedtest-cli
 - stern
 - tcpdump
+- tela-circle-icon-theme-manjaro
 - terminator
 - testssl.sh
 - the_silver_searcher
@@ -142,6 +145,7 @@ The dotfiles are optimized for the following setup.
 - veracrypt
 - vi
 - whois
+- wireplumber
 - xclip
 - xorg-xinput
 - xss-lock
@@ -608,3 +612,23 @@ sudo udevadm trigger
 ```
 
 In case it does not work, try rebooting the system.
+
+
+### Pipewire post-installation activation
+
+[`pipewire`](https://wiki.archlinux.org/title/PipeWire) is used as the audio
+router and processor. For audio session management,
+[`wireplumber`](https://wiki.archlinux.org/title/WirePlumber) is used.
+
+Additionally, the `pipewire-pulse` package is installed for mimicking
+[`pulseaudio`](https://wiki.archlinux.org/title/PulseAudio) for some
+applications. In order to have both services working reliably, make sure systemd
+is running them upon startup.
+
+[`helvum`](https://gitlab.freedesktop.org/pipewire/helvum) may be used as
+patchbay GUI for pipewire.
+
+```bash
+systemctl enable --user --now pipewire
+systemctl enable --user --now pipewire-pulse
+```

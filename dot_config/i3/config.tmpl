@@ -39,22 +39,10 @@ bindsym $mod+Shift+d exec --no-startup-id "rofi -show run -modi 'run,ssh'"
 # # launch categorized menu
 # bindsym $mod+z exec --no-startup-id morc_menu
 
-################################################################################################
-## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
-################################################################################################
-
-# exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec i3-sensible-terminal -e 'alsamixer'
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
-
-################################################################################################
-
 # Updating sound
-bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.config/i3/sound.sh "set-sink-volume" "+5%" #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.config/i3/sound.sh "set-sink-volume" "-5%" #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id $HOME/.config/i3/sound.sh "set-sink-mute" "toggle" # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.config/i3/sound.sh "volume" "+5%" # increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.config/i3/sound.sh "volume" "-5%" # decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id $HOME/.config/i3/sound.sh "mute" "toggle" # mute sound
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id $HOME/.config/i3/brightness.sh "+5%"
@@ -217,7 +205,6 @@ for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
 for_window [title="About Pale Moon"] floating enable
 for_window [class="Pamac-manager"] floating enable
-for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal

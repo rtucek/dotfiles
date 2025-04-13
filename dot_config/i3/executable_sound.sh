@@ -1,37 +1,65 @@
 #!/bin/bash
 
-# Active sink
-SINK=$(pacmd list-sinks | perl -n -e'/^\s*\*\s+index:\s+([0-9]+)$/ && print $1' | head -n 1)
+# set -x
 
-pactl "$1" $SINK "$2" > /dev/null
+VOLUME="$(pactl get-sink-volume "@DEFAULT_SINK@" | grep -Po '\d+(?=%)' | head -n 1)"
+MUTED="$(pactl get-sink-mute @DEFAULT_SINK@ | grep -Po 'yes|no')"
 
-VOLUME=$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(($SINK + 1)) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
-MUTE=$(pactl list sinks | grep '^[[:space:]]Mute:' | head -n $(($SINK + 1)) | tail -n 1 | sed -e 's,.*\(yes\|no\).*,\1,')
+if [[ "$1" == "mute" && "$2" == "toggle" ]]; then
+	# toggle mute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-# As as special case, unmute if already muted, but volume change request
-if [[ "$MUTE" == "yes" && "$1" == "set-sink-volume" ]]; then
-	pactl "set-sink-mute" $SINK "toggle"
-	MUTE="no"
-fi
+	MSG="Volume muted"
+	ICON="/usr/share/icons/Tela-circle-manjaro/24/panel/audio-volume-muted-blocking.svg"
+	if [[ "$MUTED" == "yes" ]]; then
+		# in this case, we toggle to unmute
+		MSG="Volume unmuted"
+		ICON="/usr/share/icons/Tela-circle-manjaro/24/panel/audio-volume-muted.svg"
+	fi
 
-if [[ $VOLUME == 0 || "$MUTE" == "yes" ]]; then
-	# Show the sound muted notification
 	notify-send \
 		-a "changeVolume" \
-		-u low \
-		-t 500 \
-		-i audio-volume-muted-symbolic.symbolic \
-		-h string:synchronous:my-progress "Volume muted"
-else
+		-u normal \
+		-t 1500 \
+		-i "$ICON" \
+		-h string:synchronous:my-progress "$MSG"
+
+	exit 0
+fi
+
+if [[ "$1" == "volume" ]]; then
+	# Force unmuting upon changing sound
+	pactl set-sink-mute "@DEFAULT_SINK@" no
+
+	DIFF="$(echo "$2" | grep -Po "[\+\-]\d+(?=%)")"
+
+	# Round properly
+	TARGET_VOLUME="$(( (("$VOLUME" / 5) * 5) + "$DIFF" ))"
+
+	# Do not go beyond the boundaries of 0 and 100
+	TARGET_VOLUME="$(( 0 <= $TARGET_VOLUME ? $TARGET_VOLUME : 0 ))"
+	TARGET_VOLUME="$(( $TARGET_VOLUME <= 100 ? $TARGET_VOLUME : 100 ))"
+
+	# set again with properly rounded value
+	pactl set-sink-volume "@DEFAULT_SINK@" "${TARGET_VOLUME}%"
+
+	# icon to display
+	ICON="/usr/share/icons/Tela-circle-manjaro/24/panel/audio-volume-low.svg"
+	if [[ "$TARGET_VOLUME" -ge "33" ]]; then
+		ICON="/usr/share/icons/Tela-circle-manjaro/24/panel/audio-volume-medium.svg"
+	fi
+	if [[ "$TARGET_VOLUME" -ge "66" ]]; then
+		ICON="/usr/share/icons/Tela-circle-manjaro/24/panel/audio-volume-high.svg"
+	fi
+
 	# Show the volume notification
 	notify-send \
 		-a "changeVolume" \
-		-u low \
-		-t 500 \
-		-i audio-volume-high-symbolic.symbolic \
-		-h int:value:${VOLUME} \
-		-h string:synchronous:my-progress "Volume: ${VOLUME}%"
-fi
+		-u normal \
+		-t 1500 \
+		-i "$ICON" \
+		-h string:synchronous:my-progress "Volume: ${TARGET_VOLUME}%"
 
-# Play the volume changed sound
-paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+	# Play the volume changed sound
+	paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+fi
