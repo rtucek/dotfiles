@@ -538,14 +538,24 @@ Links:
 
 ### ufw post-install actions [5]
 
-ufw may not be active right away post-install.
-Check via `systemctl status ufw` if ufw is running and/or auto-started upon
-system boots and if not, run `sudo systemctl enable --now ufw` in order to have
-systemd manage ufw accordingly.
+[Uncomplicated Firewall (aka
+ufw)](https://wiki.archlinux.org/title/Uncomplicated_Firewall) may not be active
+right away post-install. This can be fixed with systemd.
 
-Further, run `sudo ufw status` in order to check if ufw itself is active (which
-is typically never the case post-install). `sudo ufw enable` will eventually
-enable ufw.
+```bash
+sudo systemctl enable --now ufw.service
+```
+
+Further, even if ufw is started via systemd, ufw may not be initialized. Run the
+following commands in order to check and fix (if needed).
+
+```bash
+$ sudo ufw status
+Status: inactive
+# explicitly enable ufw
+$ sudo ufw enable
+Firewall is active and enabled on system startup
+```
 
 Finally, check if the current rules are the "sane and sensitive defaults":
 
