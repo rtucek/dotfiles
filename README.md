@@ -44,7 +44,6 @@ The dotfiles are optimized for the following setup.
 
 ### General packages
 
-- 1password-cli
 - alsa-utils
 - arandr
 - arch-audit
@@ -167,6 +166,8 @@ The dotfiles are optimized for the following setup.
 
 ### AUR
 
+- 1password
+- 1password-cli
 - certigo
 - csvtools-git
 - google-chrome
