@@ -203,7 +203,7 @@ Most important commands are:
 
 ```bash
 nvm install --lts # Installing most recent LTS version
-nvm alias default node # Alias most recent node version as default
+nvm alias default "lts/*" # Alias most recent lts node version as default
 nvm use default # Use most recent version
 nvm install-latest-npm # Upgrade npm to the latest version
 ```
@@ -267,8 +267,8 @@ docs](https://docs.docker.com/engine/install/linux-postinstall/):
 
 ```bash
 # Start docker and containerd daemon upon boot
-sudo systemctl enable docker.service
-sudo systemctl enable containerd.service
+sudo systemctl enable --now docker.service
+sudo systemctl enable --now containerd.service
 
 # Run docker commands root-less
 sudo groupadd docker
@@ -297,8 +297,8 @@ sudo requires to enter the user's password. In order to have a password
 indicator, simply run `sudo visudo` and add the following lines below.
 
 ```diff
-# Have a masked password indicator, when typing the password for sudo
-Defaults pwfeedback
++# Have a masked password indicator, when typing the password for sudo
++Defaults pwfeedback
 ```
 
 
@@ -307,13 +307,13 @@ Defaults pwfeedback
 There are some nice2have tweaks for pacman. Simply add these lines to the
 `/etc/pacman.conf` file (or uncomment existing ones).
 
-```
-# Have colored output
-Color
-# Add fancy pacman gimmick to progres bar
-ILoveCandy
-# Multiple simultaneous downloads
-ParallelDownloads = 5
+```diff
++# Have colored output
++Color
++# Add fancy pacman gimmick to progres bar
++ILoveCandy
++# Multiple simultaneous downloads
++ParallelDownloads = 5
 ```
 
 
@@ -637,8 +637,8 @@ is running them upon startup.
 patchbay GUI for pipewire.
 
 ```bash
-systemctl enable --user --now pipewire
-systemctl enable --user --now pipewire-pulse
+systemctl enable --user --now pipewire.service
+systemctl enable --user --now pipewire-pulse.service
 ```
 
 
