@@ -70,6 +70,7 @@ The dotfiles are optimized for the following setup.
 - gimp
 - git-delta [[1]](#syntax-highlight-with-bat-and-cat-[1])
 - glab
+- globalprotect-openconnect
 - gnome-keyring
 - gnu-netcat
 - go
@@ -100,7 +101,9 @@ The dotfiles are optimized for the following setup.
 - mycli
 - mysql-workbench
 - neovim
+- networkmanager-openconnect
 - nitrogen
+- openconnect
 - openssh
 - osquery
 - pcmanfm
@@ -129,6 +132,7 @@ The dotfiles are optimized for the following setup.
 - sound-theme-freedesktop
 - speedtest-cli
 - stern
+- strongswan
 - tcpdump
 - tela-circle-icon-theme-manjaro
 - terminator
