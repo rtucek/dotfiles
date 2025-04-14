@@ -50,6 +50,8 @@ The dotfiles are optimized for the following setup.
 - autorandr [[8]](#autorandr-post-installation-activation-[8])
 - bash-completion
 - bat [[1]](#syntax-highlight-with-bat-and-cat-[1])
+- bluetui
+- bluez
 - bluez-utils
 - bolt [[4]](#fix-hotplug-issue-with-thunderbolt-[4])
 - brightnessctl
@@ -648,3 +650,17 @@ In order to work properly, the following 2 systemd services should be activated:
 sudo systemctl enable --now autorandr.service
 sudo systemctl enable --now autorandr-lid-listener.service
 ```
+
+
+### Bluetooth support
+
+For having [Bluetooth](https://wiki.archlinux.org/title/Bluetooth) working, the
+`bluetoothd` daemon must run in the background.
+Run the following systemd command in order to run bluetoothd from the beginning.
+
+```bash
+sudo systemctl enable --now bluetooth.service
+```
+
+Tools like [`bluetui`](https://github.com/pythops/bluetui) and
+`bluetoothctl` may be used for frontends for interacting.
