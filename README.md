@@ -668,3 +668,14 @@ sudo systemctl enable --now bluetooth.service
 
 Tools like [`bluetui`](https://github.com/pythops/bluetui) and
 `bluetoothctl` may be used for frontends for interacting.
+
+
+### Yubikey support
+
+[Yubikey](https://wiki.archlinux.org/title/YubiKey) builds upon the smartcard
+interface, whose service may not be running.
+You may enable the service to become available via systemd activation:
+
+```bash
+sudo systemctl enable --now pcscd.service
+```
