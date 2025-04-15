@@ -154,6 +154,7 @@ The dotfiles are optimized for the following setup.
 - wireplumber
 - xclip
 - xorg-xinput
+- xorg-xkill
 - xss-lock
 - yay
 - yubioath-desktop
