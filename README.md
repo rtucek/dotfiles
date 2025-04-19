@@ -93,7 +93,6 @@ The dotfiles are optimized for the following setup.
 - lsb-release
 - lshw
 - lsof
-- lvm2
 - man-db
 - mkcert
 - msr-tools
@@ -158,6 +157,22 @@ The dotfiles are optimized for the following setup.
 - xss-lock
 - yay
 - yubioath-desktop
+
+
+### FS support
+
+- bcachefs-tools
+- btrfs-progs
+- btrfs-tools
+- cryptsetup
+- dosfstools.
+- exfatprogs
+- hfsprogrs
+- hfsutils
+- lvm2
+- mtools
+- ntfs-3g
+- ntfs-progrs
 
 
 ### Fonts
