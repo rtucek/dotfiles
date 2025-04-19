@@ -319,7 +319,7 @@ use-actual-brightness = true
 ; (even if no update is detected).
 ; Use this as a fallback if brightness updates are not registering in polybar
 ; (which happens if the use-actual-brightness is false).
-; There is no guarantee on the precisio of this timing.
+; There is no guarantee on the precision of this timing.
 ; Set to 0 to turn off
 ; New in version 3.7.0
 ; Default: 0 (5 if use-actual-brightness is false)
@@ -510,6 +510,10 @@ type = internal/cpu
 ; Default: 1
 interval = 2
 
+; Default: 80
+; New in version 3.6.0
+warn-percentage = 80
+
 format-underline = #418cf1
 
 format-prefix = 
@@ -528,6 +532,7 @@ format = <label>
 ;   %percentage-sum% - Cumulative load on all cores
 ;   %percentage-cores% - load percentage for each core
 ;   %percentage-core[1-9]% - load percentage for specific core
+; New in version 3.6.0
 label = %percentage%%
 label-margin-left = 1
 
