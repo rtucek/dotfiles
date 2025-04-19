@@ -144,7 +144,7 @@ font-4 = "DejaVu Sans:style=Book:size=10;1"
 ;   modules-right = ipc clock
 modules-left = i3 xwindow
 modules-center = date xkeyboard
-modules-right = pulseaudio {{ if .polybar.backlight_card -}} backlight {{- end }} {{ range .polybar.net_wifi -}} net-wifi-{{ . }} {{ end -}} {{ range .polybar.net_eth -}} net-eth-{{ . }} {{ end -}} net-docker net-vpn cpu memory temperature filesystem {{ if .polybar.battery_adapter -}} battery {{- end }} powermenu
+modules-right = pulseaudio {{ if .polybar.backlight_card -}} backlight {{ end -}} {{ range .polybar.net_wifi -}} net-wifi-{{ . }} {{ end -}} {{ range .polybar.net_eth -}} net-eth-{{ . }} {{ end -}} net-docker net-vpn cpu memory {{ if .polybar.temperature_zone_type -}} temperature {{ end -}} filesystem {{ if .polybar.battery_adapter -}} battery {{ end -}} powermenu
 
 ; The separator will be inserted between the output of each module
 ; separator =
@@ -1321,6 +1321,7 @@ bar-volume-empty-foreground = ${styling.foreground-alt}
 
 
 
+{{ if .polybar.temperature_zone_type -}}
 [module/temperature]
 type = internal/temperature
 
@@ -1334,12 +1335,12 @@ interval = 3
 ; Default: 0
 thermal-zone = 0
 
-; Full path of temperature sysfs path
-; Use `sensors` to find preferred temperature source, then run
-; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
-; to find path to desired file
-; Default reverts to thermal zone setting
-; hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+; Select thermal zone by name
+; The name has to match the contents of /sys/class/thermal/thermal_zone*/type
+; for the desired thermal zone.
+; New in version 3.7.0
+; Default: ""
+zone-type = {{ .polybar.thermal_zone }}
 
 ; Threshold temperature to display warning label (in degrees celsius)
 ; Default: 80
@@ -1381,6 +1382,10 @@ ramp-2 = 
 ramp-3 = 
 ramp-4 = 
 ramp-foreground = ${styling.foreground}
+
+
+
+{{ end -}}
 
 
 

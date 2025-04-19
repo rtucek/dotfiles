@@ -43,6 +43,9 @@
 	intelephense_licensekey = ""
 
 [data.polybar]
+	# Select thermal zone by name
+	# Run `cat /sys/class/thermal/thermal_zone*/type`
+	temperature_zone_type = ""
 	# Run `xrandr --listmonitors` in order to see all available monitors
 	monitor = "eDP"
 	# Run `ls -1 /sys/class/power_supply/` in order to get an overview.
