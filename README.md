@@ -165,7 +165,7 @@ The dotfiles are optimized for the following setup.
 - btrfs-progs
 - btrfs-tools
 - cryptsetup
-- dosfstools.
+- dosfstools
 - exfatprogs
 - hfsprogrs
 - hfsutils
