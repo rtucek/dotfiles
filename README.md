@@ -190,6 +190,7 @@ The dotfiles are optimized for the following setup.
 
 - 1password
 - 1password-cli
+- auto-cpufreq [[9]](http://localhost:8530/1#auto-cpufreq-post-installation-activation-[9])
 - certigo
 - csvtools-git
 - google-chrome
@@ -705,3 +706,16 @@ You may enable the service to become available via systemd activation:
 ```bash
 sudo systemctl enable --now pcscd.service
 ```
+
+
+### auto-cpufreq post-installation activation [9]
+
+THe `auto-cpufreq` daemon need to be activated via systemd first.
+
+```bash
+sudo systemctl enable --now auto-cpufreq
+```
+
+Once done, `auto-cpufreq --stats` allows live-observing the profile. For
+instance on AC, the `performance` governor will be applied, otherwise the
+`powersave` governor when relying on battery.

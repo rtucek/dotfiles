@@ -33,3 +33,8 @@ fi
 if command -v op &> /dev/null; then
 	source <(op completion bash)
 fi
+
+# Smart completion for op (auto-cpufreq cli client)
+if command -v auto-cpufreq &> /dev/null; then
+	eval "$(_AUTO_CPUFREQ_COMPLETE=bash_source auto-cpufreq)"
+fi
