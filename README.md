@@ -81,6 +81,7 @@ The dotfiles are optimized for the following setup.
 - helvum
 - httpie
 - i3-battery-popup-git
+- imagemagick
 - inxi
 - ipcalc
 - jless
