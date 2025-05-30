@@ -198,6 +198,7 @@ The dotfiles are optimized for the following setup.
 - kind-bin
 - nvm
 - postman-bin
+- ptcpdump
 - tmuxinator
 - unimatrix-git
 - xidlehook
