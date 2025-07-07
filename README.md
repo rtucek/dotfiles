@@ -191,7 +191,7 @@ The dotfiles are optimized for the following setup.
 
 - 1password
 - 1password-cli
-- auto-cpufreq [[9]](http://localhost:8530/1#auto-cpufreq-post-installation-activation-[9])
+- auto-cpufreq [[9]](#auto-cpufreq-post-installation-activation-[9])
 - certigo
 - csvtools-git
 - google-chrome
