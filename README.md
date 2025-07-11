@@ -123,6 +123,7 @@ The dotfiles are optimized for the following setup.
 - python-pip
 - python-pipx
 - python-pynvim
+- qemu-full
 - ranger
 - rofi
 - rsync
