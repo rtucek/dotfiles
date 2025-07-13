@@ -90,6 +90,7 @@ The dotfiles are optimized for the following setup.
 - kubectl
 - lastpass-cli
 - less
+- libvirt
 - litecli
 - lsb-release
 - lshw
@@ -151,6 +152,8 @@ The dotfiles are optimized for the following setup.
 - usbutils
 - veracrypt
 - vi
+- virt-manager
+- virt-viewer
 - whois
 - wireplumber
 - xclip
