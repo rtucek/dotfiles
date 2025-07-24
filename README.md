@@ -178,6 +178,7 @@ The dotfiles are optimized for the following setup.
 - mtools
 - ntfs-3g
 - ntfs-progrs
+- xfsprogs
 
 
 ### Fonts
