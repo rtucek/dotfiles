@@ -301,18 +301,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 
-### sudo password indicator
-
-When using `sudo`, it's convenient to have a masked password indicator in case
-sudo requires to enter the user's password. In order to have a password
-indicator, simply run `sudo visudo` and add the following lines below.
-
-```diff
-+# Have a masked password indicator, when typing the password for sudo
-+Defaults pwfeedback
-```
-
-
 ### Pacman tweaks
 
 There are some nice2have tweaks for pacman. Simply add these lines to the
