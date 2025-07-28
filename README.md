@@ -45,9 +45,7 @@ The dotfiles are optimized for the following setup.
 ### General packages
 
 - alsa-utils
-- arandr
 - arch-audit
-- autorandr [[8]](#autorandr-post-installation-activation-[8])
 - bash-completion
 - bat [[1]](#syntax-highlight-with-bat-and-cat-[1])
 - bluetui
@@ -57,7 +55,6 @@ The dotfiles are optimized for the following setup.
 - brightnessctl
 - chezmoi
 - ctags
-- devspace-bin
 - diff-so-fancy
 - dmidecode
 - docker [[2]](#docker-post-installation-[2])
@@ -80,7 +77,6 @@ The dotfiles are optimized for the following setup.
 - helm
 - helvum
 - httpie
-- i3-battery-popup-git
 - imagemagick
 - inxi
 - ipcalc
@@ -88,10 +84,8 @@ The dotfiles are optimized for the following setup.
 - jq
 - k9s
 - kubectl
-- lastpass-cli
 - less
 - libvirt
-- litecli
 - lsb-release
 - lshw
 - lsof
@@ -99,7 +93,6 @@ The dotfiles are optimized for the following setup.
 - mkcert
 - msr-tools
 - mtr
-- mycli
 - mysql-workbench
 - neovim
 - networkmanager-openconnect
@@ -111,33 +104,25 @@ The dotfiles are optimized for the following setup.
 - percona-server-clients
 - percona-toolkit
 - pgcli
-- picom
 - pigz
 - pipewire [[7]](#pipewire-post-installation-activation-[7])
 - pipewire-pulse
 - playerctl
-- polkit-gnome
-- polybar [[6]](#permissions-for-polybar-[6])
 - postgresql-client
-- pw-volume
 - pwgen
 - python-pip
 - python-pipx
 - python-pynvim
 - qemu-full
 - ranger
-- rofi
 - rsync
 - ruby-erb
-- scrot
-- snapd
 - sound-theme-freedesktop
 - speedtest-cli
 - stern
 - strongswan
 - tcpdump
 - tela-circle-icon-theme-manjaro
-- terminator
 - testssl.sh
 - the_silver_searcher
 - thunderbird
@@ -157,11 +142,6 @@ The dotfiles are optimized for the following setup.
 - whois
 - wireplumber
 - xclip
-- xorg-xinput
-- xorg-xkill
-- xss-lock
-- yay
-- yubioath-desktop
 
 
 ### FS support
@@ -199,14 +179,21 @@ The dotfiles are optimized for the following setup.
 - auto-cpufreq [[9]](#auto-cpufreq-post-installation-activation-[9])
 - certigo
 - csvtools-git
+- devspace-bin
 - google-chrome
 - kind-bin
+- lastpass-cli
+- litecli
+- mycli
 - nvm
 - postman-bin
 - ptcpdump
+- pw-volume
+- snapd
 - tmuxinator
 - unimatrix-git
-- xidlehook
+- yay
+- yubioath-desktop
 
 
 ### Snap packages
@@ -717,7 +704,7 @@ sudo systemctl enable --now pcscd.service
 
 ### auto-cpufreq post-installation activation [9]
 
-THe `auto-cpufreq` daemon need to be activated via systemd first.
+The `auto-cpufreq` daemon need to be activated via systemd first.
 
 ```bash
 sudo systemctl enable --now auto-cpufreq
