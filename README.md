@@ -187,9 +187,9 @@ The dotfiles are optimized for the following setup.
 - noto-fonts-cjk
 - noto-fonts-emoji
 - ttf-dejavu
-- ttf-font-awesome
 - ttf-input-nerd
 - ttf-joypixels
+- woff2-font-awesome
 
 
 ### AUR
