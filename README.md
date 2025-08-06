@@ -115,6 +115,7 @@ The dotfiles are optimized for the following setup.
 - python-pynvim
 - qemu-full
 - ranger
+- rofi
 - rsync
 - ruby-erb
 - sound-theme-freedesktop
