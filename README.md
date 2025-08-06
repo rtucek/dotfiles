@@ -97,6 +97,7 @@ The dotfiles are optimized for the following setup.
 - neovim
 - networkmanager-openconnect
 - nitrogen
+- nvm
 - openconnect
 - openssh
 - osquery
@@ -186,7 +187,6 @@ The dotfiles are optimized for the following setup.
 - lastpass-cli
 - litecli
 - mycli
-- nvm
 - postman-bin
 - ptcpdump
 - pw-volume
