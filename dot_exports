@@ -9,4 +9,4 @@ export SYSTEMD_EDITOR="$EDITOR"
 export BROWSER=/usr/bin/google-chrome-stable
 
 # Set default terminal
-export TERMINAL=/usr/bin/terminator
+export TERMINAL=/usr/bin/kitty
