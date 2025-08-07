@@ -48,6 +48,7 @@ The dotfiles are optimized for the following setup.
 - arch-audit
 - bash-completion
 - bat [[1]](#syntax-highlight-with-bat-and-cat-[1])
+- bc
 - bluetui
 - bluez
 - bluez-utils
