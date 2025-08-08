@@ -269,27 +269,6 @@ instructions](https://github.com/dandavison/delta/issues/162#issuecomment-625952
 It's necessary to perform this step, whenever `bat` gets updated.
 
 
-### Docker post-installation [2]
-
-By default, the docker installation requires some manual actions. For instance,
-the docker daemon is not started automatically. It's required to run `sudo
-systemctl start docker` after the installation and likewise, it's required to
-run every docker command with sudo. For convenience, you'd typically want to run
-these commands once ([based on Docker's official
-docs](https://docs.docker.com/engine/install/linux-postinstall/):
-
-```bash
-# Start docker and containerd daemon upon boot
-sudo systemctl enable --now docker.service
-sudo systemctl enable --now containerd.service
-
-# Run docker commands root-less
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
-```
-
-
 ### Install tmux plugins [3]
 
 After tmux has been installed, run the following commands in order to install
