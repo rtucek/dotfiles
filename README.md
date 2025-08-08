@@ -303,21 +303,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 
-### Pacman tweaks
-
-There are some nice2have tweaks for pacman. Simply add these lines to the
-`/etc/pacman.conf` file (or uncomment existing ones).
-
-```diff
-+# Have colored output
-+Color
-+# Add fancy pacman gimmick to progres bar
-+ILoveCandy
-+# Multiple simultaneous downloads
-+ParallelDownloads = 5
-```
-
-
 ### Faillock account lockout
 
 Faillock with cause a temporary account lock for users, who mistype their
