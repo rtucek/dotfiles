@@ -317,69 +317,6 @@ Security](https://wiki.archlinux.org/title/Security#Lock_out_user_after_three_fa
 ```
 
 
-### Handling lid-switch, power key pressing and similar
-
-The handling of certain hardware events like lid-switch, short or long pressing
-of power key, etc., are handled by systemd's `systemd-logind.service`.
-
-The default settings may be viewed by running `systemd-analyze cat-config
-systemd/logind.conf`.
-
-In order to override default behavior, create a drop-in for the config file
-by adding overrides into any `/etc/systemd/logind.conf.d/*.conf`.
-This is typically done by:
-
-```bash
-sudo mkdir -p /etc/systemd/logind.conf.d
-systemd-analyze cat-config systemd/logind.conf | sudo tee /etc/systemd/logind.conf.d/90-logind.conf
-```
-
-Then, open `/etc/systemd/logind.conf.d/90-logind.conf` and leave only your
-overrides un-commented. Below are some sample customizations.
-
-```diff
---- /etc/systemd/logind.conf
-+++ /etc/systemd/logind.conf.d/90-logind.conf
-@@ -1,3 +1,4 @@
-+# /etc/systemd/logind.conf
- #  This file is part of systemd.
- #
- #  systemd is free software; you can redistribute it and/or modify it under the
-@@ -24,18 +25,18 @@
- #KillExcludeUsers=root
- #InhibitDelayMaxSec=5
- #UserStopDelaySec=10
--#SleepOperation=suspend-then-hibernate suspend
--#HandlePowerKey=poweroff
--#HandlePowerKeyLongPress=ignore
-+SleepOperation=suspend-then-hibernate suspend
-+HandlePowerKey=suspend
-+HandlePowerKeyLongPress=poweroff
- #HandleRebootKey=reboot
- #HandleRebootKeyLongPress=poweroff
- #HandleSuspendKey=suspend
- #HandleSuspendKeyLongPress=hibernate
- #HandleHibernateKey=hibernate
- #HandleHibernateKeyLongPress=ignore
--#HandleLidSwitch=suspend
--#HandleLidSwitchExternalPower=suspend
--#HandleLidSwitchDocked=ignore
-+HandleLidSwitch=suspend
-+HandleLidSwitchExternalPower=suspend
-+HandleLidSwitchDocked=suspend
- #HandleSecureAttentionKey=secure-attention-key
- #PowerKeyIgnoreInhibited=no
- #SuspendKeyIgnoreInhibited=no
-```
-
-Finally, run `sudo systemctl reload systemd-logind.service` in order to have any
-changes being applied.
-
-Links:
-- [LOGIND.CONF(5)](https://man.archlinux.org/man/logind.conf.5.en)
-- [SYSTEMD-LOGIND.SERVICE(8)](https://man.archlinux.org/man/systemd-logind.8)
-
-
 ### Fix hotplug issue with Thunderbolt [4]
 
 Given the following symptoms:
