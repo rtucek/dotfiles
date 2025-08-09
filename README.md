@@ -282,41 +282,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 
-### Faillock account lockout
-
-Faillock with cause a temporary account lock for users, who mistype their
-password too often. Usually, the default values are a lockout of 10 minutes
-after 3 failed attempts. In case this is unwanted, disable faillock like so by
-modifying `/etc/security/faillock.conf` (source: [Arch Wiki -
-Security](https://wiki.archlinux.org/title/Security#Lock_out_user_after_three_failed_login_attempts)):
-
-```diff
- #
- # Only track failed user authentications attempts for local users
- # in /etc/passwd and ignore centralized (AD, IdM, LDAP, etc.) users.
- # The `faillock` command will also no longer track user failed
- # authentication attempts. Enabling this option will prevent a
- # double-lockout scenario where a user is locked out locally and
- # in the centralized mechanism.
- # Enabled if option is present.
- # local_users_only
- #
- # Deny access if the number of consecutive authentication failures
- # for this user during the recent interval exceeds n tries.
- # The default is 3.
--# deny = 3
-+deny = 0
- #
- # The length of the interval during which the consecutive
- # authentication failures must happen for the user account
- # lock out is <replaceable>n</replaceable> seconds.
- # The default is 900 (15 minutes).
- # fail_interval = 900
- #
-
-```
-
-
 ### Fix hotplug issue with Thunderbolt [4]
 
 Given the following symptoms:
