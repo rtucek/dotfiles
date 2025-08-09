@@ -628,16 +628,3 @@ You may enable the service to become available via systemd activation:
 ```bash
 sudo systemctl enable --now pcscd.service
 ```
-
-
-### auto-cpufreq post-installation activation [9]
-
-The `auto-cpufreq` daemon need to be activated via systemd first.
-
-```bash
-sudo systemctl enable --now auto-cpufreq
-```
-
-Once done, `auto-cpufreq --stats` allows live-observing the profile. For
-instance on AC, the `performance` governor will be applied, otherwise the
-`powersave` governor when relying on battery.
