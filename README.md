@@ -135,7 +135,7 @@ The dotfiles are optimized for the following setup.
 - tree-sitter-cli
 - udiskie
 - udisks2
-- ufw [[5]](#ufw-post-install-actions-[5])
+- ufw
 - unzip
 - usbutils
 - veracrypt
@@ -375,51 +375,6 @@ way.
 Links:
 - [Tuxedo FAQ / Device Immediately Wakes Up After Suspend](https://www.tuxedocomputers.com/en/FAQ-TUXEDO-InfinityBook-Pro-15-Gen9.tuxedo#3675)
 - [Arch Wiki / /sys/module/acpi/parameters/ec_no_wakeup](https://wiki.archlinux.org/title/Power_management/Wakeup_triggers#/sys/module/acpi/parameters/ec_no_wakeup)
-
-
-### ufw post-install actions [5]
-
-[Uncomplicated Firewall (aka
-ufw)](https://wiki.archlinux.org/title/Uncomplicated_Firewall) may not be active
-right away post-install. This can be fixed with systemd.
-
-```bash
-sudo systemctl enable --now ufw.service
-```
-
-Further, even if ufw is started via systemd, ufw may not be initialized. Run the
-following commands in order to check and fix (if needed).
-
-```bash
-$ sudo ufw status
-Status: inactive
-# explicitly enable ufw
-$ sudo ufw enable
-Firewall is active and enabled on system startup
-```
-
-Finally, check if the current rules are the "sane and sensitive defaults":
-
-```bash
-$ sudo ufw status verbose
-Status: active
-Logging: on (low)
-Default: deny (incoming), allow (outgoing), deny (routed)
-New profiles: skip
-```
-
-Mind the `Default: deny (incoming), allow (outgoing), deny (routed)` line. In
-case default rules are different by default, you may correct them with:
-
-```bash
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw default deny routed
-```
-
-Links:
-- [Arch Wiki / Uncomplicated Firewall](https://wiki.archlinux.org/title/Uncomplicated_Firewall)
-- [Ubuntu Wiki / UFW](https://help.ubuntu.com/community/UFW)
 
 
 ### Have systemd using same default console editor
