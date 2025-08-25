@@ -169,8 +169,10 @@ The dotfiles are optimized for the following setup.
 - noto-fonts
 - noto-fonts-cjk
 - noto-fonts-emoji
+- otf-font-awesome
 - ttf-dejavu
 - ttf-input-nerd
+- ttf-jetbrains-mono-nerd
 - ttf-joypixels
 - woff2-font-awesome
 

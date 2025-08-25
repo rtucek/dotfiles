@@ -42,6 +42,28 @@
 		"vim: coc intelephense license key"
 -}}
 
+{{- /* waybar config */ -}}
+{{-
+	$waybarEthInterface := promptStringOnce
+		. "waybar.net.eth"
+		"Waybar: Eth interface name"
+-}}
+{{-
+	$waybarWifiInterface := promptStringOnce
+		. "waybar.net.wifi"
+		"Waybar: WiFi interface name"
+-}}
+{{-
+	$waybarTemperaturZone := promptStringOnce .
+		"waybar.net.temperatur.thermal_zone"
+		"Waybar: temperature thermal zone ID (leave blank for having Waybar selecting a sensitive default)"
+-}}
+{{-
+	$waybarTemperaturHwmonPath := promptStringOnce
+		. "waybar.net.temperature.hwmon_path"
+		"Waybar: HWMON file path to use instead of thermal zone ID (leave blank for having Waybar selecting a sensitive default)"
+-}}
+
 # Config
 [edit]
     command = "nvim"
@@ -79,3 +101,29 @@
 
 [data.vim.coc]
 	intelephense_licensekey = {{ $vimCocIntelephenseLicenseKey | quote }}
+
+[data.waybar]
+	# Run `ls -1 /sys/class/power_supply/` in order to get an overview.
+	[data.waybar.power]
+	show = true
+	adapter = ""
+	battery = ""
+
+	# Run `bluetoothctl list` in order to see available controller
+	[data.waybar.bluetooth]
+	show = true
+	controller = ""
+
+	# Run `ip link` for an overview of applicable interfaces
+	[data.waybar.net]
+	eth = {{ $waybarEthInterface | quote }}
+	wifi = {{ $waybarWifiInterface | quote }}
+
+	# see https://github.com/Alexays/Waybar/wiki/Module:-Temperature
+	# Waybar picks sensitive defaults if below is left blank.
+	[data.waybar.temperature]
+	# The thermal zone, as in /sys/class/thermal/.
+	thermal_zone = {{ $waybarTemperaturZone | quote }}
+	# The temperature path to use
+	# e.g. /sys/class/hwmon/hwmon2/temp1_input instead of one in /sys/class/thermal/.
+	hwmon_path = {{ $waybarTemperaturHwmonPath | quote }}
