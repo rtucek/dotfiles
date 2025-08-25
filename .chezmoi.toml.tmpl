@@ -1,10 +1,54 @@
+{{- /* git commit config */ -}}
+{{-
+	$gitName := promptStringOnce
+		. "git.name"
+		"git: committer name"
+-}}
+{{-
+	$gitEmail := promptStringOnce
+		. "git.email"
+		"git: committer email"
+-}}
+
+{{- /* gpg config */ -}}
+{{-
+	$gpgSigningKey := promptStringOnce
+		. "gpg.signingkey"
+		"GPG: signing key"
+-}}
+{{-
+	$gpgKeyservers := list
+		"keys.openpgp.org"
+		"keyserver.ubuntu.com"
+		"pgp.mit.edu"
+-}}
+{{-
+	$gpgKeyserver := promptChoiceOnce
+		. "gpg.keyserver"
+		"GPG: preferred keyserver" $gpgKeyservers
+-}}
+
+{{- /* npm config */ -}}
+{{-
+	$npmToken := promptStringOnce
+		. "npm.token"
+		"npm: npmjs.com token"
+-}}
+
+{{- /* vim/nvim config */ -}}
+{{-
+	$vimCocIntelephenseLicenseKey := promptStringOnce
+		. "vim.coc.intelephense_licensekey"
+		"vim: coc intelephense license key"
+-}}
+
 # Config
 [edit]
     command = "nvim"
 
 [merge]
     command = "nvim"
-    args = ["-d", "{{ "{{"  }} .Destination {{ "}}"  }}", "{{ "{{"  }} .Source {{ "}}"  }}", "{{ "{{"  }} .Target {{ "}}"  }}"]
+    args = ["-d", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
 
 [diff]
 	pager = "delta"
@@ -18,20 +62,20 @@
 	# it's scheduled after the lock screen has been scheduled
 	idle_suspend = "300"
 [data.git]
-	name = "Rudolf Tucek"
-	email = "tucek.rudolf@gmail.com"
-	signingkey = "0x49593BD010DE4723"
+	name = {{ $gitName | quote }}
+	email = {{ $gitEmail | quote }}
+	signingkey = {{ $gpgSigningKey | quote }}
 
 [data.gpg]
-	signingkey = "0x49593BD010DE4723"
-	# we use either one of these 3:
-	# - keys.openpgp.org
-	# - keyserver.ubuntu.com
-	# - pgp.mit.edu
-	keyserver = "keys.openpgp.org"
+	signingkey = {{ $gpgSigningKey | quote }}
+	# we use either one of these:
+	{{- range $gpgKeyservers }}
+	# - {{ . }}
+	{{- end }}
+	keyserver = {{ $gpgKeyserver | quote }}
 
 [data.npm]
-	token = ""
+	token = {{ $npmToken | quote }}
 
 [data.vim.coc]
-	intelephense_licensekey = ""
+	intelephense_licensekey = {{ $vimCocIntelephenseLicenseKey | quote }}
