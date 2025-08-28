@@ -52,23 +52,33 @@
 
 {{- /* waybar config */ -}}
 {{-
-	$waybarEthInterface := promptStringOnce
-		. "waybar.net.eth"
-		"Waybar: Eth interface name"
+	$waybarPowerAdapter := promptStringOnce
+		. "waybar.power.adapter"
+		"Waybar: power adater ID (leave blank for having Waybar selecting a sensitive default)"
 -}}
 {{-
-	$waybarWifiInterface := promptStringOnce
+	$waybarPowerBattery := promptStringOnce
+		. "waybar.power.battery"
+		"Waybar: battery ID (leave blank for having Waybar selecting a sensitive default)"
+-}}
+{{-
+	$waybarNetEthInterface := promptStringOnce
+		. "waybar.net.eth"
+		"Waybar: ethernet interface name"
+-}}
+{{-
+	$waybarNetWifiInterface := promptStringOnce
 		. "waybar.net.wifi"
 		"Waybar: WiFi interface name"
 -}}
 {{-
 	$waybarTemperaturZone := promptStringOnce .
-		"waybar.net.temperatur.thermal_zone"
+		"waybar.temperature.thermal_zone"
 		"Waybar: temperature thermal zone ID (leave blank for having Waybar selecting a sensitive default)"
 -}}
 {{-
 	$waybarTemperaturHwmonPath := promptStringOnce
-		. "waybar.net.temperature.hwmon_path"
+		. "waybar.temperature.hwmon_path"
 		"Waybar: HWMON file path to use instead of thermal zone ID (leave blank for having Waybar selecting a sensitive default)"
 -}}
 
@@ -115,10 +125,11 @@
 
 [data.waybar]
 	# Run `ls -1 /sys/class/power_supply/` in order to get an overview.
+	# Waybar picks sensitive defaults if below is left blank.
 	[data.waybar.power]
 	show = true
-	adapter = ""
-	battery = ""
+	adapter = {{ $waybarPowerAdapter | quote }}
+	battery = {{ $waybarPowerBattery | quote }}
 
 	# Run `bluetoothctl list` in order to see available controller
 	[data.waybar.bluetooth]
@@ -127,8 +138,8 @@
 
 	# Run `ip link` for an overview of applicable interfaces
 	[data.waybar.net]
-	eth = {{ $waybarEthInterface | quote }}
-	wifi = {{ $waybarWifiInterface | quote }}
+	eth = {{ $waybarNetEthInterface | quote }}
+	wifi = {{ $waybarNetWifiInterface | quote }}
 
 	# see https://github.com/Alexays/Waybar/wiki/Module:-Temperature
 	# Waybar picks sensitive defaults if below is left blank.
