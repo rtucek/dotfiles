@@ -10,18 +10,19 @@ general {
 	fail_timeout = 2000 # 2 seconds
 }
 
-# uncomment to enable fingerprint authentication
 auth {
 	pam {
 		enabled = true
 		module = hyprlock
 	}
+	{{- if .hyprlock.fingerprint_enabled }}
 	fingerprint {
-		enabled = false
-		ready_message = Scan fingerprint to unlock
+		enabled = true
+		ready_message = Scan fingerprint to unlock or enter password
 		present_message = Scanning...
 		retry_delay = 250 # in milliseconds
 	}
+	{{- end }}
 }
 
 animations {
@@ -53,8 +54,8 @@ input-field {
 	rounding = 15
 
 	font_family = $font
-	placeholder_text = Input password...
-	fail_text = $PAMFAIL
+	placeholder_text = {{ if .hyprlock.fingerprint_enabled -}} $FPRINTPROMPT {{- else -}} $PAMPROMPT {{- end }}
+	fail_text = {{ if .hyprlock.fingerprint_enabled -}} $FPRINTFAIL {{ end -}} $PAMFAIL
 
 	# uncomment to use a letter instead of a dot to indicate the typed password
 	# dots_text_format = *
@@ -99,7 +100,7 @@ label {
 	font_size = 24
 	onclick = hyprctl switchxkblayout all next
 
-	position = 250, -20
+	position = 0, 80
 	halign = center
 	valign = center
 }

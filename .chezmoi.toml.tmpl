@@ -42,6 +42,14 @@
 		"vim: coc intelephense license key"
 -}}
 
+{{- /* hyprlock config */ -}}
+{{-
+	$hyprlockFingerprintEnabled := promptBoolOnce
+		. "hyprlock.fingerprint_enabled"
+		"hyprlock: enable fingerprint reader"
+-}}
+
+
 {{- /* waybar config */ -}}
 {{-
 	$waybarEthInterface := promptStringOnce
@@ -101,6 +109,9 @@
 
 [data.vim.coc]
 	intelephense_licensekey = {{ $vimCocIntelephenseLicenseKey | quote }}
+
+[data.hyprlock]
+	fingerprint_enabled = {{ $hyprlockFingerprintEnabled }}
 
 [data.waybar]
 	# Run `ls -1 /sys/class/power_supply/` in order to get an overview.
