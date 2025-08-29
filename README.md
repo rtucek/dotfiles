@@ -106,6 +106,7 @@ The dotfiles are optimized for the following setup.
 - pcmanfm
 - percona-server-clients
 - percona-toolkit
+- perl-image-exiftool
 - pgcli
 - pigz
 - pipewire [[7]](#pipewire-post-installation-activation-[7])
