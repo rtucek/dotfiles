@@ -122,6 +122,7 @@ The dotfiles are optimized for the following setup.
 - rofi
 - rsync
 - ruby-erb
+- seahorse
 - sound-theme-freedesktop
 - speedtest-cli
 - stern
