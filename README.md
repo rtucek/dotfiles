@@ -99,6 +99,7 @@ The dotfiles are optimized for the following setup.
 - networkmanager-openconnect
 - nitrogen
 - nvm
+- nwg-display
 - openconnect
 - openssh
 - osquery
