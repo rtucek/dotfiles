@@ -147,7 +147,7 @@ The dotfiles are optimized for the following setup.
 - virt-viewer
 - whois
 - wireplumber
-- xclip
+- wl-clipboard
 
 
 ### FS support

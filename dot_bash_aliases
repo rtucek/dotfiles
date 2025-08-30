@@ -22,5 +22,5 @@ alias fgrep='fgrep --colour=auto'
 alias diff='diff --color=auto'
 
 # Mock pbcopy and pbpaste
-alias pbcopy='xclip -selection c'
-alias pbpaste='xclip -selection clipboard -o'
+alias pbcopy='wl-copy'
+alias pbpaste='wl-paste'
