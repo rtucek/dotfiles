@@ -46,6 +46,7 @@ The dotfiles are optimized for the following setup.
 
 - alsa-utils
 - arch-audit
+- arch-wiki-docs
 - bash-completion
 - bat [[1]](#syntax-highlight-with-bat-and-cat-[1])
 - bc
