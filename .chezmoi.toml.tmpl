@@ -42,6 +42,13 @@
 		"vim: coc intelephense license key"
 -}}
 
+{{- /* hyprland config */ -}}
+{{-
+	$hyprlandPrimaryMonitorConfig := promptStringOnce
+		. "hyprland.primaryMonitorConfig"
+		"hyprland: primary monitor config"
+-}}
+
 {{- /* hyprlock config */ -}}
 {{-
 	$hyprlockFingerprintEnabled := promptBoolOnce
@@ -119,6 +126,27 @@
 
 [data.vim.coc]
 	intelephense_licensekey = {{ $vimCocIntelephenseLicenseKey | quote }}
+
+[data.hyprland]
+	# monitor config shall be written as defined by
+	# https://wiki.hypr.land/Configuring/Monitors/
+	primaryMonitorConfig = "desc:BOE NE135A1M-NY1,2880x1920@120.00,0x0,1.5"
+
+	# Additional external monitors shall be declared as an array of objects,
+	# where each object must have a `config` property, encoded like
+	# `primaryMonitorConfig` and `comment` property string. `comment` may be
+	# left blank.
+	#
+	# Example:
+	#
+	# [[data.hyprland.externalMonitors]]
+	# comment = "my external monitor"
+	# config = "desc:LG Electronics LG ULTRAGEAR 408BOHE0K857,2560x1440@143.99100,1920x0,1"
+	#
+	# [[data.hyprland.externalMonitors]]
+	# comment = "my 2nd external monitor"
+	# config = "[...]"
+	externalMonitors = []
 
 [data.hyprlock]
 	fingerprint_enabled = {{ $hyprlockFingerprintEnabled }}
