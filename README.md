@@ -97,6 +97,7 @@ The dotfiles are optimized for the following setup.
 - mtr
 - mysql-workbench
 - neovim
+- network-manager-applet
 - networkmanager-openconnect
 - nitrogen
 - nvm
