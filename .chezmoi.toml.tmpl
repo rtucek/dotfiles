@@ -49,6 +49,38 @@
 		"hyprland: primary monitor config"
 -}}
 
+{{- /* hypridle config */ -}}
+{{-
+	$hypridleScreenDim := promptIntOnce
+		. "hypridle.screen_dim"
+		"hypridle: dim screen after N seconds"
+		150
+-}}
+{{-
+	$hypridleKeyboardBacklightDim := promptIntOnce
+		. "hypridle.keyboard_backlight_dim"
+		"hypridle: dim keyboard backlight after N seconds"
+		150
+-}}
+{{-
+	$hypridleScreenLock := promptIntOnce
+		. "hypridle.screen_lock"
+		"hypridle: lock screen after N seconds"
+		300
+-}}
+{{-
+	$hypridleScreenOff := promptIntOnce
+		. "hypridle.screen_off"
+		"hypridle: lock screen after N seconds"
+		450
+-}}
+{{-
+	$hypridleSuspend := promptIntOnce
+		. "hypridle.suspend"
+		"hypridle: suspend after N seconds"
+		600
+-}}
+
 {{- /* hyprlock config */ -}}
 {{-
 	$hyprlockFingerprintEnabled := promptBoolOnce
@@ -100,14 +132,6 @@
 [diff]
 	pager = "delta"
 
-
-# Data to be replaced
-[data.system]
-	# idle time, after which the lock screen is activated
-	idle_lockscreen = "300"
-	# idle time, after which the machine suspends
-	# it's scheduled after the lock screen has been scheduled
-	idle_suspend = "300"
 [data.git]
 	name = {{ $gitName | quote }}
 	email = {{ $gitEmail | quote }}
@@ -147,6 +171,15 @@
 	# comment = "my 2nd external monitor"
 	# config = "[...]"
 	externalMonitors = []
+
+[data.hypridle]
+	# all values in seconds
+	# set to 0 for skipping listener
+	screen_dim = {{ $hypridleScreenDim }}
+	keyboard_backlight_dim = {{ $hypridleKeyboardBacklightDim }}
+	screen_lock = {{ $hypridleScreenLock }}
+	screen_off = {{ $hypridleScreenOff }}
+	suspend = {{ $hypridleSuspend }}
 
 [data.hyprlock]
 	fingerprint_enabled = {{ $hyprlockFingerprintEnabled }}
