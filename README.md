@@ -63,6 +63,7 @@ The dotfiles are optimized for the following setup.
 - docker-compose
 - dog
 - dunst
+- fastfetch
 - firefox
 - fwupd
 - fzf
