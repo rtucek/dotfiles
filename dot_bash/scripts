@@ -7,13 +7,6 @@ httpbin() {
 
 
 
-# Open any file via xdg-open in the background
-function open() {
-	nohup xdg-open "$*" > /dev/null 2>&1 &
-}
-
-
-
 # Synchronize history between bash sessions
 #
 # Make history from other terminals available to the current one. However,

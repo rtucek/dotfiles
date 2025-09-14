@@ -24,3 +24,6 @@ alias diff='diff --color=auto'
 # Mock pbcopy and pbpaste
 alias pbcopy='wl-copy'
 alias pbpaste='wl-paste'
+
+# Open file via CLI
+alias open='xdg-open'
