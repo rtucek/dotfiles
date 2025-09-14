@@ -4,6 +4,8 @@ COMPOSER_VERSION=2.8.10
 COMPOSER_HOME=${COMPOSER_HOME:-$HOME/.config/composer}
 COMPOSER_CACHE_DIR=${COMPOSER_CACHE_DIR:-$HOME/.cache/composer}
 
+mkdir -p "$COMPOSER_HOME" "$COMPOSER_CACHE_DIR"
+
 docker run \
 	-it \
 	--rm \
