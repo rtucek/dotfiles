@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMPOSER_VERSION=2.8.11
+COMPOSER_VERSION=2.8.12
 COMPOSER_HOME=${COMPOSER_HOME:-$HOME/.config/composer}
 COMPOSER_CACHE_DIR=${COMPOSER_CACHE_DIR:-$HOME/.cache/composer}
 
@@ -9,11 +9,11 @@ mkdir -p "$COMPOSER_HOME" "$COMPOSER_CACHE_DIR"
 docker run \
 	-it \
 	--rm \
-	-u $(id -u):$(id -g) \
+	-u "$(id -u):$(id -g)" \
 	-v /etc/passwd:/etc/passwd:ro \
 	-v /etc/group:/etc/group:ro \
 	-e SSH_AUTH_SOCK=/ssh-auth.sock \
-	-v $SSH_AUTH_SOCK:/ssh-auth.sock \
+	-v '$SSH_AUTH_SOCK:/ssh-auth.sock' \
 	-e "COMPOSER_HOME=${COMPOSER_HOME}" \
 	-v "${COMPOSER_HOME}:${COMPOSER_HOME}" \
 	-e "COMPOSER_CACHE_DIR=${COMPOSER_CACHE_DIR}" \
