@@ -161,6 +161,7 @@ The dotfiles are optimized for the following setup.
 - xorg-xkill
 - xss-lock
 - yay
+- yubikey-manager
 - yubioath-desktop
 
 
