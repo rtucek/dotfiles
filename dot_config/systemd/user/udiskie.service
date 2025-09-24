@@ -1,0 +1,9 @@
+[Unit]
+Description=Udiskie daemon
+Documentation=man:udiskie(8) https://github.com/coldfix/udiskie/wiki
+
+[Service]
+ExecStart=/usr/bin/udiskie
+
+[Install]
+WantedBy=multi-user.target
