@@ -102,7 +102,7 @@ The dotfiles are optimized for the following setup.
 - networkmanager-openconnect
 - nitrogen
 - nvm
-- nwg-display
+- nwg-displays
 - openconnect
 - openssh
 - osquery
@@ -453,20 +453,6 @@ patchbay GUI for pipewire.
 ```bash
 systemctl enable --user --now pipewire.service
 systemctl enable --user --now pipewire-pulse.service
-```
-
-
-### Autorandr post-installation activation [8]
-
-[`autorandr`](https://github.com/phillipberndt/autorandr) is used to
-automatically detect monitors, storing profiles and auto-applying them upon
-reconnect.
-
-In order to work properly, the following 2 systemd services should be activated:
-
-```bash
-sudo systemctl enable --now autorandr.service
-sudo systemctl enable --now autorandr-lid-listener.service
 ```
 
 
