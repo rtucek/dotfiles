@@ -10,7 +10,7 @@ fi
 
 # Smart completion for composer
 # see https://github.com/bamarni/symfony-console-autocomplete
-if command -v symfony-autocomplete &> /dev/null; then
+if command -v php &> /dev/null && command -v symfony-autocomplete &> /dev/null; then
 	source <(symfony-autocomplete)
 fi
 
