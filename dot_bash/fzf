@@ -1,7 +1,9 @@
+#!/bin/bash
+
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */home/rtucek/.fzf/bin* ]]; then
-	PATH="${PATH:+${PATH}:}/home/rtucek/.fzf/bin"
+if [[ ! "$PATH" == *${HOME}/.fzf/bin* ]]; then
+	PATH="${PATH:+${PATH}:}${HOME}/.fzf/bin"
 fi
 
 if command -v fzf &> /dev/null; then
