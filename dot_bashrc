@@ -1,0 +1,27 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# ------------
+# CUSTOM CONFIGURATION
+# ------------
+# Load the rest of the dotfiles
+DOTFILES=(
+	".bash/exports"
+	".bash/path"
+	".bash/conf"
+	".bash/aliases"
+	".bash/scripts"
+	".bash/prompt"
+	".bash/gpg"
+	".bash/fzf"
+	".bash/completion"
+	".localrc"
+)
+for DOTFILE in ${DOTFILES[@]}; do
+	FILE="${HOME}/${DOTFILE}"
+	[ -f "$FILE" ] && source "$FILE"
+done

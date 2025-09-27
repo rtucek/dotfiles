@@ -45,11 +45,11 @@ The dotfiles are optimized for the following setup.
 ### General packages
 
 - alsa-utils
-- arandr
 - arch-audit
-- autorandr [[8]](#autorandr-post-installation-activation-[8])
+- arch-wiki-docs
 - bash-completion
 - bat [[1]](#syntax-highlight-with-bat-and-cat-[1])
+- bc
 - bluetui
 - bluez
 - bluez-utils
@@ -57,13 +57,13 @@ The dotfiles are optimized for the following setup.
 - brightnessctl
 - chezmoi
 - ctags
-- devspace-bin
 - diff-so-fancy
 - dmidecode
 - docker [[2]](#docker-post-installation-[2])
 - docker-compose
 - dog
 - dunst
+- fastfetch
 - firefox
 - fwupd
 - fzf
@@ -80,7 +80,6 @@ The dotfiles are optimized for the following setup.
 - helm
 - helvum
 - httpie
-- i3-battery-popup-git
 - imagemagick
 - inxi
 - ipcalc
@@ -88,10 +87,9 @@ The dotfiles are optimized for the following setup.
 - jq
 - k9s
 - kubectl
-- lastpass-cli
 - less
+- libreoffice-fresh
 - libvirt
-- litecli
 - lsb-release
 - lshw
 - lsof
@@ -99,27 +97,26 @@ The dotfiles are optimized for the following setup.
 - mkcert
 - msr-tools
 - mtr
-- mycli
 - mysql-workbench
 - neovim
+- network-manager-applet
 - networkmanager-openconnect
 - nitrogen
+- nvm
+- nwg-displays
 - openconnect
 - openssh
 - osquery
 - pcmanfm
 - percona-server-clients
 - percona-toolkit
+- perl-image-exiftool
 - pgcli
-- picom
 - pigz
 - pipewire [[7]](#pipewire-post-installation-activation-[7])
 - pipewire-pulse
 - playerctl
-- polkit-gnome
-- polybar [[6]](#permissions-for-polybar-[6])
 - postgresql-client
-- pw-volume
 - pwgen
 - python-pip
 - python-pipx
@@ -129,15 +126,13 @@ The dotfiles are optimized for the following setup.
 - rofi
 - rsync
 - ruby-erb
-- scrot
-- snapd
+- seahorse
 - sound-theme-freedesktop
 - speedtest-cli
 - stern
 - strongswan
 - tcpdump
 - tela-circle-icon-theme-manjaro
-- terminator
 - testssl.sh
 - the_silver_searcher
 - thunderbird
@@ -147,7 +142,7 @@ The dotfiles are optimized for the following setup.
 - tree-sitter-cli
 - udiskie
 - udisks2
-- ufw [[5]](#ufw-post-install-actions-[5])
+- ufw
 - unzip
 - usbutils
 - veracrypt
@@ -156,13 +151,8 @@ The dotfiles are optimized for the following setup.
 - virt-viewer
 - whois
 - wireplumber
-- xclip
-- xorg-xinput
-- xorg-xkill
-- xss-lock
-- yay
+- wl-clipboard
 - yubikey-manager
-- yubioath-desktop
 
 
 ### FS support
@@ -187,8 +177,10 @@ The dotfiles are optimized for the following setup.
 - noto-fonts
 - noto-fonts-cjk
 - noto-fonts-emoji
+- otf-font-awesome
 - ttf-dejavu
 - ttf-input-nerd
+- ttf-jetbrains-mono-nerd
 - ttf-joypixels
 - woff2-font-awesome
 
@@ -200,14 +192,20 @@ The dotfiles are optimized for the following setup.
 - auto-cpufreq [[9]](#auto-cpufreq-post-installation-activation-[9])
 - certigo
 - csvtools-git
+- devspace-bin
 - google-chrome
 - kind-bin
-- nvm
+- lastpass-cli
+- litecli
+- mycli
 - postman-bin
 - ptcpdump
+- pw-volume
+- snapd
 - tmuxinator
 - unimatrix-git
-- xidlehook
+- yay
+- yubioath-desktop
 
 
 ### Snap packages
@@ -281,27 +279,6 @@ instructions](https://github.com/dandavison/delta/issues/162#issuecomment-625952
 It's necessary to perform this step, whenever `bat` gets updated.
 
 
-### Docker post-installation [2]
-
-By default, the docker installation requires some manual actions. For instance,
-the docker daemon is not started automatically. It's required to run `sudo
-systemctl start docker` after the installation and likewise, it's required to
-run every docker command with sudo. For convenience, you'd typically want to run
-these commands once ([based on Docker's official
-docs](https://docs.docker.com/engine/install/linux-postinstall/):
-
-```bash
-# Start docker and containerd daemon upon boot
-sudo systemctl enable --now docker.service
-sudo systemctl enable --now containerd.service
-
-# Run docker commands root-less
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
-```
-
-
 ### Install tmux plugins [3]
 
 After tmux has been installed, run the following commands in order to install
@@ -312,157 +289,6 @@ actually install tmux plugins.
 
 ```bash
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
-
-
-### sudo password indicator
-
-When using `sudo`, it's convenient to have a masked password indicator in case
-sudo requires to enter the user's password. In order to have a password
-indicator, simply run `sudo visudo` and add the following lines below.
-
-```diff
-+# Have a masked password indicator, when typing the password for sudo
-+Defaults pwfeedback
-```
-
-
-### Pacman tweaks
-
-There are some nice2have tweaks for pacman. Simply add these lines to the
-`/etc/pacman.conf` file (or uncomment existing ones).
-
-```diff
-+# Have colored output
-+Color
-+# Add fancy pacman gimmick to progres bar
-+ILoveCandy
-+# Multiple simultaneous downloads
-+ParallelDownloads = 5
-```
-
-
-### Faillock account lockout
-
-Faillock with cause a temporary account lock for users, who mistype their
-password too often. Usually, the default values are a lockout of 10 minutes
-after 3 failed attempts. In case this is unwanted, disable faillock like so by
-modifying `/etc/security/faillock.conf` (source: [Arch Wiki -
-Security](https://wiki.archlinux.org/title/Security#Lock_out_user_after_three_failed_login_attempts)):
-
-```diff
- #
- # Only track failed user authentications attempts for local users
- # in /etc/passwd and ignore centralized (AD, IdM, LDAP, etc.) users.
- # The `faillock` command will also no longer track user failed
- # authentication attempts. Enabling this option will prevent a
- # double-lockout scenario where a user is locked out locally and
- # in the centralized mechanism.
- # Enabled if option is present.
- # local_users_only
- #
- # Deny access if the number of consecutive authentication failures
- # for this user during the recent interval exceeds n tries.
- # The default is 3.
--# deny = 3
-+deny = 0
- #
- # The length of the interval during which the consecutive
- # authentication failures must happen for the user account
- # lock out is <replaceable>n</replaceable> seconds.
- # The default is 900 (15 minutes).
- # fail_interval = 900
- #
-
-```
-
-
-### Handling lid-switch, power key pressing and similar
-
-The handling of certain hardware events like lid-switch, short or long pressing
-of power key, etc., are handled by systemd's `systemd-logind.service`.
-
-The default settings may be viewed by running `systemd-analyze cat-config
-systemd/logind.conf`.
-
-In order to override default behavior, create a drop-in for the config file
-by adding overrides into any `/etc/systemd/logind.conf.d/*.conf`.
-This is typically done by:
-
-```bash
-sudo mkdir -p /etc/systemd/logind.conf.d
-systemd-analyze cat-config systemd/logind.conf | sudo tee /etc/systemd/logind.conf.d/90-logind.conf
-```
-
-Then, open `/etc/systemd/logind.conf.d/90-logind.conf` and leave only your
-overrides un-commented. Below are some sample customizations.
-
-```diff
---- /etc/systemd/logind.conf
-+++ /etc/systemd/logind.conf.d/90-logind.conf
-@@ -1,3 +1,4 @@
-+# /etc/systemd/logind.conf
- #  This file is part of systemd.
- #
- #  systemd is free software; you can redistribute it and/or modify it under the
-@@ -24,18 +25,18 @@
- #KillExcludeUsers=root
- #InhibitDelayMaxSec=5
- #UserStopDelaySec=10
--#SleepOperation=suspend-then-hibernate suspend
--#HandlePowerKey=poweroff
--#HandlePowerKeyLongPress=ignore
-+SleepOperation=suspend-then-hibernate suspend
-+HandlePowerKey=suspend
-+HandlePowerKeyLongPress=poweroff
- #HandleRebootKey=reboot
- #HandleRebootKeyLongPress=poweroff
- #HandleSuspendKey=suspend
- #HandleSuspendKeyLongPress=hibernate
- #HandleHibernateKey=hibernate
- #HandleHibernateKeyLongPress=ignore
--#HandleLidSwitch=suspend
--#HandleLidSwitchExternalPower=suspend
--#HandleLidSwitchDocked=ignore
-+HandleLidSwitch=suspend
-+HandleLidSwitchExternalPower=suspend
-+HandleLidSwitchDocked=suspend
- #HandleSecureAttentionKey=secure-attention-key
- #PowerKeyIgnoreInhibited=no
- #SuspendKeyIgnoreInhibited=no
-```
-
-Finally, run `sudo systemctl reload systemd-logind.service` in order to have any
-changes being applied.
-
-Links:
-- [LOGIND.CONF(5)](https://man.archlinux.org/man/logind.conf.5.en)
-- [SYSTEMD-LOGIND.SERVICE(8)](https://man.archlinux.org/man/systemd-logind.8)
-
-
-### CPU clock modulation fix
-
-Some Dell XPS devices may become slow after system wakeups. This is due to
-aggressive [suspend settings in clock modulation
-settings](https://wiki.archlinux.org/title/Dell_XPS_13_2-in-1_(7390)#Sleep/Suspend_causes_slow_system).
-
-To fix this issue, add the systemd unit file to
-`/etc/systemd/system/msr-fix.service`, then enable it via `sudo systemctl enable
-msr-fix.service`. The unit file will explicitly reset the necessary CPU
-register.
-
-```ini
-[Unit]
-Description=Fix MSR after wakeup
-After=suspend.target
-
-[Service]
-User=root
-Type=oneshot
-ExecStart=wrmsr -a 0x19a 0x0
-
-[Install]
-WantedBy=suspend.target
 ```
 
 
@@ -561,51 +387,6 @@ Links:
 - [Arch Wiki / /sys/module/acpi/parameters/ec_no_wakeup](https://wiki.archlinux.org/title/Power_management/Wakeup_triggers#/sys/module/acpi/parameters/ec_no_wakeup)
 
 
-### ufw post-install actions [5]
-
-[Uncomplicated Firewall (aka
-ufw)](https://wiki.archlinux.org/title/Uncomplicated_Firewall) may not be active
-right away post-install. This can be fixed with systemd.
-
-```bash
-sudo systemctl enable --now ufw.service
-```
-
-Further, even if ufw is started via systemd, ufw may not be initialized. Run the
-following commands in order to check and fix (if needed).
-
-```bash
-$ sudo ufw status
-Status: inactive
-# explicitly enable ufw
-$ sudo ufw enable
-Firewall is active and enabled on system startup
-```
-
-Finally, check if the current rules are the "sane and sensitive defaults":
-
-```bash
-$ sudo ufw status verbose
-Status: active
-Logging: on (low)
-Default: deny (incoming), allow (outgoing), deny (routed)
-New profiles: skip
-```
-
-Mind the `Default: deny (incoming), allow (outgoing), deny (routed)` line. In
-case default rules are different by default, you may correct them with:
-
-```bash
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw default deny routed
-```
-
-Links:
-- [Arch Wiki / Uncomplicated Firewall](https://wiki.archlinux.org/title/Uncomplicated_Firewall)
-- [Ubuntu Wiki / UFW](https://help.ubuntu.com/community/UFW)
-
-
 ### Have systemd using same default console editor
 
 By default, systemd may use any available console-based editor.
@@ -677,20 +458,6 @@ systemctl enable --user --now pipewire-pulse.service
 ```
 
 
-### Autorandr post-installation activation [8]
-
-[`autorandr`](https://github.com/phillipberndt/autorandr) is used to
-automatically detect monitors, storing profiles and auto-applying them upon
-reconnect.
-
-In order to work properly, the following 2 systemd services should be activated:
-
-```bash
-sudo systemctl enable --now autorandr.service
-sudo systemctl enable --now autorandr-lid-listener.service
-```
-
-
 ### Bluetooth support
 
 For having [Bluetooth](https://wiki.archlinux.org/title/Bluetooth) working, the
@@ -714,16 +481,3 @@ You may enable the service to become available via systemd activation:
 ```bash
 sudo systemctl enable --now pcscd.service
 ```
-
-
-### auto-cpufreq post-installation activation [9]
-
-THe `auto-cpufreq` daemon need to be activated via systemd first.
-
-```bash
-sudo systemctl enable --now auto-cpufreq
-```
-
-Once done, `auto-cpufreq --stats` allows live-observing the profile. For
-instance on AC, the `performance` governor will be applied, otherwise the
-`powersave` governor when relying on battery.

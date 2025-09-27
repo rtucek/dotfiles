@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == *${HOME}/.fzf/bin* ]]; then
+	PATH="${PATH:+${PATH}:}${HOME}/.fzf/bin"
+fi
+
+if command -v fzf &> /dev/null; then
+	eval "$(fzf --bash)"
+fi

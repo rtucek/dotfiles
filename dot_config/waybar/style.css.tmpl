@@ -1,0 +1,286 @@
+/* General Styling */
+* {
+	min-height: 0;
+	min-width: 0;
+	/* pacman -S ttf-jetbrains-mono-nerd */
+	font-family: Lexend, "JetBrainsMono NFP";
+	font-size: 16px;
+	font-weight: 600;
+}
+
+
+window#waybar {
+	transition-property: background-color;
+	transition-duration: 0.5s;
+	/* background-color: #1e1e2e; */
+	/* background-color: #181825; */
+	background-color: #11111b;
+	/* background-color: rgba(24, 24, 37, 0.6); */
+}
+window#waybar.empty #window {
+	background-color: transparent;
+}
+
+
+#workspaces button {
+	padding: 0.3rem 0.6rem;
+	margin: 0.4rem 0.25rem;
+	border-radius: 6px;
+	/* background-color: #181825; */
+	background-color: #1e1e2e;
+	color: #cdd6f4;
+}
+#workspaces button:hover {
+	color: #1e1e2e;
+	background-color: #cdd6f4;
+}
+#workspaces button.active {
+	background-color: #1e1e2e;
+	color: #89b4fa;
+}
+#workspaces button.urgent {
+	background-color: #1e1e2e;
+	color: #f38ba8;
+}
+
+
+tooltip {
+	background-color: #181825;
+	border: 2px solid #89b4fa;
+}
+
+
+
+/* Background of widgets */
+#backlight,
+{{- if .waybar.power.show }}
+#battery,
+{{- end }}
+{{- if .waybar.bluetooth.show }}
+#bluetooth,
+{{- end }}
+#clock,
+#cpu,
+#custom-capslock,
+#custom-lock,
+#custom-logout,
+#custom-reboot,
+#custom-shutdown,
+#custom-suspend,
+#custom-vpn,
+#disk,
+#idle_inhibitor,
+#language,
+#memory,
+#network,
+#privacy,
+#systemd-failed-units,
+#temperature,
+#tray,
+#window,
+#wireplumber {
+	padding: 0.3rem 0.6rem;
+	margin: 0.4rem 0.25rem;
+	border-radius: 6px;
+	/* background-color: #181825; */
+	background-color: #1e1e2e;
+}
+
+
+/* Custom widgets */
+#custom-capslock {
+	color: #cdc1ff;
+}
+#custom-capslock.active {
+  animation: capslock_active_blinker 2s linear infinite;
+}
+@keyframes capslock_active_blinker {
+	50% {
+		color: #eb6383;
+	}
+}
+
+#custom-lock {
+	color: #cdc1ff;
+}
+
+#custom-logout {
+	color: #8d77ab;
+}
+
+#custom-shutdown {
+	color: #f38ba8;
+}
+
+#custom-suspend {
+	color: #687fe5;
+}
+
+#custom-reboot {
+	color: #fff9bd;
+}
+
+#custom-vpn {
+	color: #d1d3d4;
+}
+#custom-vpn.active {
+	color: #86b0bd;
+}
+
+
+
+/* Widgets */
+#backlight {
+	color: #ef9c66;
+}
+{{- if .waybar.power.show }}
+
+
+#battery {
+	color: #ece3ce;
+}
+#battery.plugged,
+#battery.charging {
+	color: #a3dc9a;
+}
+#battery.discharging.warning {
+  animation: battery_warning_blinker 2s linear infinite;
+}
+@keyframes battery_warning_blinker {
+	50% {
+		color: #11111b;
+	}
+}
+#battery.discharging.critical {
+  animation: battery_critical_blinker 2s linear infinite;
+}
+@keyframes battery_critical_blinker {
+	50% {
+		color: #11111b;
+	}
+}
+{{- end }}
+{{- if .waybar.bluetooth.show }}
+
+
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected {
+	color: #007aff;
+}
+#bluetooth.disabled,
+#bluetooth.no-controller,
+#bluetooth.off {
+	color: #65647c;
+}
+#bluetooth.discovering {
+  animation: bluetooth_scanning_blinker 2s linear infinite;
+}
+@keyframes bluetooth_scanning_blinker {
+	50% {
+		color: #9cf196;
+	}
+}
+#bluetooth.discoverable {
+  animation: bluetooth_discoverable_blinker 2s linear infinite;
+}
+@keyframes bluetooth_discoverable_blinker {
+	50% {
+		color: #eb6383;
+	}
+}
+{{- end }}
+
+
+#clock {
+	color: #eff8ff;
+}
+
+
+#cpu {
+	color: #94e2d5;
+}
+
+
+#disk {
+	color: #9ad0ec;
+}
+
+
+#idle_inhibitor.deactivated {
+	color: #65647c;
+}
+#idle_inhibitor.activated {
+	color: #54bab9;
+	animation: idle_inhibitor_active 2s linear infinite;
+}
+@keyframes idle_inhibitor_active {
+	50% {
+		color: #11111b;
+	}
+}
+
+
+#language {
+	color: #878ecd;
+}
+
+
+#memory {
+	color: #cb80ab;
+}
+
+
+#network {
+	color: #cba6f7;
+}
+#network.disabled {
+	color: #65647c;
+}
+
+
+#privacy {
+	color: #ffcf81;
+	animation: privacy_warning 2s linear infinite;
+}
+@keyframes privacy_warning {
+	50% {
+		color: #11111b;
+	}
+}
+
+
+#systemd-failed-units {
+	color: #bb6464;
+	animation: systemd_failed_units_degraded 2s linear infinite;
+}
+@keyframes systemd_failed_units_degraded {
+	50% {
+		color: #11111b;
+	}
+}
+
+
+#temperature {
+	color: #95d2b3;
+
+}
+#temperature.critical {
+	color: #bb6464;
+	animation: temperature_critical 2s linear infinite;
+}
+@keyframes temperature_critical {
+	50% {
+		color: #11111b;
+	}
+}
+
+
+#window {
+	color: #cdd6f4;
+}
+
+
+#wireplumber {
+	color: #b4befe;
+}
