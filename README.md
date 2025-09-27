@@ -88,6 +88,7 @@ The dotfiles are optimized for the following setup.
 - k9s
 - kubectl
 - less
+- libreoffice-fresh
 - libvirt
 - lsb-release
 - lshw
