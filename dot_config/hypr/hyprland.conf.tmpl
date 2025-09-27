@@ -305,7 +305,9 @@ bindl = , XF86RFKill, exec, ~/bin/rfkill-toggle.sh
 
 # Bindings for making screenshots
 bind = , Print, exec, grimblast --notify save area "$(xdg-user-dir PICTURES)/$(date --utc '+%F_%H.%M.%S').png"
-bind = SHIFT, Print, exec, grimblast --notify save active "$(xdg-user-dir PICTURES)/$(date --utc '+%F_%H.%M.%S').png"
+bind = $mainMod, Print, exec, grimblast --notify copy area
+bind = CTRL, Print, exec, grimblast --notify save active "$(xdg-user-dir PICTURES)/$(date --utc '+%F_%H.%M.%S').png"
+bind = $mainMod CTRL, Print, exec, grimblast --notify copy active
 
 
 ##############################
