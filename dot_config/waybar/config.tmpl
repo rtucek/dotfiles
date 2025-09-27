@@ -31,6 +31,7 @@
 		{{- if .waybar.bluetooth.show }}
 		"bluetooth",
 		{{- end }}
+		"custom/vpn",
 		{{- if .waybar.net.wifi }}
 		"network#wifi",
 		{{- end }}
@@ -120,6 +121,12 @@
 		"tooltip": true,
 		"tooltip-format": "󰏥 suspend",
 		"on-click": "systemctl suspend",
+	},
+	"custom/vpn": {
+		"format": "{}",
+		"exec": "~/bin/nmcli-active-vpn-conn.sh",
+		"return-type": "json",
+		"interval": 3,
 	},
 
 	///////////////////////////
