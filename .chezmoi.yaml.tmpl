@@ -1,0 +1,239 @@
+{{- /* git commit config */ -}}
+{{-
+  $gitName := promptStringOnce
+    . "git.name"
+    "git: committer name"
+-}}
+{{-
+  $gitEmail := promptStringOnce
+    . "git.email"
+    "git: committer email"
+-}}
+
+{{- /* gpg config */ -}}
+{{-
+  $gpgSigningKey := promptStringOnce
+    . "gpg.signingkey"
+    "GPG: signing key"
+-}}
+{{-
+  $gpgKeyservers := list
+    "keys.openpgp.org"
+    "keyserver.ubuntu.com"
+    "pgp.mit.edu"
+-}}
+{{-
+  $gpgKeyserver := promptChoiceOnce
+    . "gpg.keyserver"
+    "GPG: preferred keyserver" $gpgKeyservers
+-}}
+
+{{- /* npm config */ -}}
+{{-
+  $npmToken := promptStringOnce
+    . "npm.token"
+    "npm: npmjs.com token"
+-}}
+
+{{- /* vim/nvim config */ -}}
+{{-
+  $vimCocIntelephenseLicenseKey := promptStringOnce
+    . "vim.coc.intelephense_licensekey"
+    "vim: coc intelephense license key"
+-}}
+
+{{- /* hyprland config */ -}}
+{{-
+  $hyprlandPrimaryMonitorOutput := promptStringOnce
+    . "hyprland.primaryMonitorConfig.output"
+    "hyprland: primary monitor output ID"
+-}}
+{{-
+  $hyprlandPrimaryMonitorMode := promptStringOnce
+    . "hyprland.primaryMonitorConfig.mode"
+    "hyprland: primary monitor mode"
+-}}
+{{-
+  $hyprlandPrimaryMonitorPosition := promptStringOnce
+    . "hyprland.primaryMonitorConfig.position"
+    "hyprland: primary monitor position"
+    "0x0"
+-}}
+{{-
+  $hyprlandPrimaryMonitorScale := promptStringOnce
+    . "hyprland.primaryMonitorConfig.scale"
+    "hyprland: primary monitor scale"
+    "1.0"
+-}}
+
+{{- /* hypridle config */ -}}
+{{-
+  $hypridleScreenDim := promptIntOnce
+    . "hypridle.screen_dim"
+    "hypridle: dim screen after N seconds"
+    150
+-}}
+{{-
+  $hypridleKeyboardBacklightDim := promptIntOnce
+    . "hypridle.keyboard_backlight_dim"
+    "hypridle: dim keyboard backlight after N seconds"
+    150
+-}}
+{{-
+  $hypridleScreenLock := promptIntOnce
+    . "hypridle.screen_lock"
+    "hypridle: lock screen after N seconds"
+    300
+-}}
+{{-
+  $hypridleScreenOff := promptIntOnce
+    . "hypridle.screen_off"
+    "hypridle: turn screen off after N seconds"
+    450
+-}}
+{{-
+  $hypridleSuspend := promptIntOnce
+    . "hypridle.suspend"
+    "hypridle: suspend after N seconds"
+    600
+-}}
+
+{{- /* hyprlock config */ -}}
+{{-
+  $hyprlockFingerprintEnabled := promptBoolOnce
+    . "hyprlock.fingerprint_enabled"
+    "hyprlock: enable fingerprint reader"
+-}}
+
+
+{{- /* waybar config */ -}}
+{{-
+  $waybarPowerAdapter := promptStringOnce
+    . "waybar.power.adapter"
+    "Waybar: power adater ID (leave blank for having Waybar selecting a sensitive default)"
+-}}
+{{-
+  $waybarPowerBattery := promptStringOnce
+    . "waybar.power.battery"
+    "Waybar: battery ID (leave blank for having Waybar selecting a sensitive default)"
+-}}
+{{-
+  $waybarNetEthInterface := promptStringOnce
+    . "waybar.net.eth"
+    "Waybar: ethernet interface name"
+-}}
+{{-
+  $waybarNetWifiInterface := promptStringOnce
+    . "waybar.net.wifi"
+    "Waybar: WiFi interface name"
+-}}
+{{-
+  $waybarTemperaturZone := promptStringOnce .
+    "waybar.temperature.thermal_zone"
+    "Waybar: temperature thermal zone ID (leave blank for having Waybar selecting a sensitive default)"
+-}}
+{{-
+  $waybarTemperaturHwmonPath := promptStringOnce
+    . "waybar.temperature.hwmon_path"
+    "Waybar: HWMON file path to use instead of thermal zone ID (leave blank for having Waybar selecting a sensitive default)"
+-}}
+
+# Config
+edit:
+    command: "nvim"
+
+merge:
+    command: "nvim"
+    args: ["-d", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
+
+diff:
+  pager: "delta"
+
+data:
+  git:
+    name: {{ $gitName | quote }}
+    email: {{ $gitEmail | quote }}
+    signingkey: {{ $gpgSigningKey | quote }}
+
+  gpg:
+    signingkey: {{ $gpgSigningKey | quote }}
+    # we use either one of these:
+    {{- range $gpgKeyservers }}
+    # - {{ . }}
+    {{- end }}
+    keyserver: {{ $gpgKeyserver | quote }}
+
+  npm:
+    token: {{ $npmToken | quote }}
+
+  vim:
+    coc:
+      intelephense_licensekey: {{ $vimCocIntelephenseLicenseKey | quote }}
+
+  hyprland:
+    # monitor config shall be written as defined by Hyprland's `monitorv2`
+    # spec.
+    # https://wiki.hypr.land/Configuring/Monitors/
+    primaryMonitorConfig:
+      output: {{ $hyprlandPrimaryMonitorOutput | quote }}
+      mode: {{ $hyprlandPrimaryMonitorMode | quote }}
+      position: {{ $hyprlandPrimaryMonitorPosition | quote }}
+      scale: {{ $hyprlandPrimaryMonitorScale | quote }}
+
+    # Additional external monitors shall be declared as an array of objects,
+    # similar to the `primaryMonitorConfig` object. Optionally, a `comment`
+    # property may be provided for a free-text description.
+    #
+    # Example:
+    #
+    # externalMonitors:
+    # - comment: "my external monitor"
+    #   output: "desc:LG Electronics LG ULTRAGEAR 408BOHE0K857"
+    #   mode: "2560x1440@143.99100"
+    #   position: "1920x0"
+    #   scale: "1"
+    # - comment: "my 2nd external monitor"
+    #   output: "[...]"
+    #   mode: "[...]"
+    #   position: "[...]"
+    #   scale: "[...]"
+    externalMonitors: []
+
+  hypridle:
+    # all values in seconds
+    # set to 0 for skipping listener
+    screen_dim: {{ $hypridleScreenDim }}
+    keyboard_backlight_dim: {{ $hypridleKeyboardBacklightDim }}
+    screen_lock: {{ $hypridleScreenLock }}
+    screen_off: {{ $hypridleScreenOff }}
+    suspend: {{ $hypridleSuspend }}
+
+  hyprlock:
+    fingerprint_enabled: {{ $hyprlockFingerprintEnabled }}
+
+  waybar:
+    # Run `ls -1 /sys/class/power_supply/` in order to get an overview.
+    # Waybar picks sensitive defaults if below is left blank.
+    power:
+      show: true
+      adapter: {{ $waybarPowerAdapter | quote }}
+      battery: {{ $waybarPowerBattery | quote }}
+
+    # Run `bluetoothctl list` in order to see available controller
+    bluetooth:
+      show: true
+      controller: ""
+
+    # Run `ip link` for an overview of applicable interfaces
+    net:
+      eth: {{ $waybarNetEthInterface | quote }}
+      wifi: {{ $waybarNetWifiInterface | quote }}
+
+    # see https://github.com/Alexays/Waybar/wiki/Module:-Temperature
+    # Waybar picks sensitive defaults if below is left blank.
+    temperature:
+      # The thermal zone, as in /sys/class/thermal/.
+      thermal_zone: {{ $waybarTemperaturZone | quote }}
+      # The temperature path to use
+      # e.g. /sys/class/hwmon/hwmon2/temp1_input instead of one in /sys/class/thermal/.
+      hwmon_path: {{ $waybarTemperaturHwmonPath | quote }}
