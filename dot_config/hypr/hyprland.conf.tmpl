@@ -4,15 +4,27 @@
 
 # See https://wiki.hypr.land/Configuring/Monitors/
 
+{{ if .hyprland.primaryMonitorConfig.output -}}
 # Primary monitor
-monitor={{ .hyprland.primaryMonitorConfig }}
+monitorv2 {
+	output = {{ .hyprland.primaryMonitorConfig.output }}
+	mode = {{ default "preferred" .hyprland.primaryMonitorConfig.mode }}
+	position = {{ default "auto" .hyprland.primaryMonitorConfig.position }}
+	scale = {{ default "auto" .hyprland.primaryMonitorConfig.scale }}
+}
+{{- end }}
 
 {{- range .hyprland.externalMonitors }}
 
 {{ if .comment -}}
 # {{ .comment }}
 {{ end -}}
-monitor={{ .config }}
+monitorv2 {
+	output = {{ .output }}
+	mode = {{ .mode }}
+	position = {{ .position }}
+	scale = {{ .scale }}
+}
 {{- end }}
 
 # Sensitive default for arbitrary new monitor
