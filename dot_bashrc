@@ -17,7 +17,6 @@ DOTFILES=(
 	".bash/scripts"
 	".bash/prompt"
 	".bash/gpg"
-	".bash/fzf"
 	".bash/completion"
 	".localrc"
 )
@@ -25,3 +24,5 @@ for DOTFILE in ${DOTFILES[@]}; do
 	FILE="${HOME}/${DOTFILE}"
 	[ -f "$FILE" ] && source "$FILE"
 done
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
