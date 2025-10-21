@@ -138,7 +138,7 @@ decoration {
 
 # https://wiki.hypr.land/Configuring/Variables/#animations
 animations {
-	enabled = yes, please :)
+	enabled = true
 
 	# Default animations, see https://wiki.hypr.land/Configuring/Animations/ for more
 
@@ -189,7 +189,7 @@ master {
 # https://wiki.hypr.land/Configuring/Variables/#misc
 misc {
 	force_default_wallpaper = 0 # Set to 0 or 1 to disable the anime mascot wallpapers
-	disable_hyprland_logo = true # If true disables the random hyprland logo / anime girl background. :(
+	disable_hyprland_logo = true # If true disables the random hyprland logo / anime girl background.
 }
 
 
@@ -336,4 +336,4 @@ bind = $mainMod CTRL, Print, exec, grimblast --notify copy active
 windowrule = suppressevent maximize, class:.*
 
 # Fix some dragging issues with XWayland
-windowrule = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
+windowrule = nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0
