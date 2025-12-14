@@ -62,11 +62,7 @@ tooltip {
 #clock,
 #cpu,
 #custom-capslock,
-#custom-lock,
-#custom-logout,
-#custom-reboot,
-#custom-shutdown,
-#custom-suspend,
+#custom-power-buttons,
 #custom-vpn,
 #disk,
 #idle_inhibitor,
@@ -92,7 +88,7 @@ tooltip {
 	color: #cdc1ff;
 }
 #custom-capslock.active {
-  animation: capslock_active_blinker 2s linear infinite;
+	animation: capslock_active_blinker 2s linear infinite;
 }
 @keyframes capslock_active_blinker {
 	50% {
@@ -100,25 +96,20 @@ tooltip {
 	}
 }
 
-#custom-lock {
-	color: #cdc1ff;
-}
 
-#custom-logout {
-	color: #8d77ab;
-}
-
-#custom-shutdown {
+#custom-power-buttons {
 	color: #f38ba8;
 }
-
-#custom-suspend {
-	color: #687fe5;
+/* Menu list of power-buttons */
+menu {
+	border-radius: 15px;
+	background: #161320;
+	color: #b5e8e0;
+}
+menuitem {
+	border-radius: 15px;
 }
 
-#custom-reboot {
-	color: #fff9bd;
-}
 
 #custom-vpn {
 	color: #d1d3d4;
@@ -144,7 +135,7 @@ tooltip {
 	color: #a3dc9a;
 }
 #battery.discharging.warning {
-  animation: battery_warning_blinker 2s linear infinite;
+	animation: battery_warning_blinker 2s linear infinite;
 }
 @keyframes battery_warning_blinker {
 	50% {
@@ -152,7 +143,7 @@ tooltip {
 	}
 }
 #battery.discharging.critical {
-  animation: battery_critical_blinker 2s linear infinite;
+	animation: battery_critical_blinker 2s linear infinite;
 }
 @keyframes battery_critical_blinker {
 	50% {
@@ -174,7 +165,7 @@ tooltip {
 	color: #65647c;
 }
 #bluetooth.discovering {
-  animation: bluetooth_scanning_blinker 2s linear infinite;
+	animation: bluetooth_scanning_blinker 2s linear infinite;
 }
 @keyframes bluetooth_scanning_blinker {
 	50% {
@@ -182,7 +173,7 @@ tooltip {
 	}
 }
 #bluetooth.discoverable {
-  animation: bluetooth_discoverable_blinker 2s linear infinite;
+	animation: bluetooth_discoverable_blinker 2s linear infinite;
 }
 @keyframes bluetooth_discoverable_blinker {
 	50% {

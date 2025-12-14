@@ -47,7 +47,7 @@
 		"temperature",
 		"disk",
 		"tray",
-		"group/power-buttons",
+		"custom/power-buttons",
 	],
 
 	///////////////////////////
@@ -66,21 +66,6 @@
 			"click-to-reveal": false,
 		},
 	},
-	"group/power-buttons": {
-		"orientation": "horizontal",
-		"modules": [
-			"custom/shutdown",
-			"custom/reboot",
-			"custom/logout",
-			"custom/lock",
-			"custom/suspend",
-		],
-		"drawer": {
-			"transition-duration": 500,
-			"transition-left-to-right": false,
-			"click-to-reveal": false,
-		},
-	},
 
 	///////////////////////////
 	// custom
@@ -92,35 +77,18 @@
 		"return-type": "json",
 		"format": "{}",
 	},
-	"custom/lock": {
-		"format": "",
-		"tooltip": true,
-		"tooltip-format": " lock",
-		"on-click": "loginctl lock-session",
-	},
-	"custom/logout": {
-		"format": "󰗽",
-		"tooltip": true,
-		"tooltip-format": "󰗽 logout",
-		"on-click": "uwsm stop",
-	},
-	"custom/reboot": {
-		"format": "󰜉",
-		"tooltip": true,
-		"tooltip-format": "󰜉 reboot",
-		"on-click": "systemctl reboot",
-	},
-	"custom/shutdown": {
-		"format": "󰐥",
-		"tooltip": true,
-		"tooltip-format": "󰐥 shutdown",
-		"on-click": "systemctl poweroff",
-	},
-	"custom/suspend": {
-		"format": "󰏥",
-		"tooltip": true,
-		"tooltip-format": "󰏥 suspend",
-		"on-click": "systemctl suspend",
+	"custom/power-buttons": {
+		"format": "⏻",
+		"tooltip": false,
+		"menu": "on-click",
+		"menu-file": "~/.config/waybar/power_menu.xml",
+		"menu-actions": {
+			"lock": "loginctl lock-session",
+			"logout": "uwsm stop",
+			"reboot": "systemctl reboot",
+			"shutdown": "systemctl poweroff",
+			"suspend": "systemctl suspend",
+		},
 	},
 	"custom/vpn": {
 		"format": "{}",
