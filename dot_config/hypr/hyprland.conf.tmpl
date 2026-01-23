@@ -170,10 +170,35 @@ animations {
 # "Smart gaps" / "No gaps when only"
 workspace = w[tv1], gapsout:9, gapsin:0
 workspace = f[1], gapsout:0, gapsin:0
-windowrule = bordersize 2, floating:0, onworkspace:w[tv1]
-windowrule = rounding 10, floating:0, onworkspace:w[tv1]
-windowrule = bordersize 0, floating:0, onworkspace:f[1]
-windowrule = rounding 0, floating:0, onworkspace:f[1]
+windowrule {
+	name = smartgaps1
+
+	match:workspace = w[tv1]
+
+	rounding = 10
+
+}
+windowrule {
+	name = smartgaps2
+
+	match:workspace = w[tv1]
+
+	border_size = 2
+}
+windowrule {
+	name = smartgaps3
+
+	match:workspace = f[1]
+
+	border_size = 0
+}
+windowrule {
+	name = smartgaps4
+
+	match:workspace = f[1]
+
+	rounding = 0
+}
 
 # See https://wiki.hypr.land/Configuring/Dwindle-Layout/ for more
 dwindle {
@@ -330,10 +355,34 @@ bind = $mainMod CTRL, Print, exec, grimblast --notify copy active
 # See https://wiki.hypr.land/Configuring/Workspace-Rules/ for workspace rules
 
 # Example windowrule
-# windowrule = float,class:^(kitty)$,title:^(kitty)$
+windowrule {
+	name = kitty
+
+	match:class = ^(kitty)$,title:^(kitty)$
+
+	float = on
+}
 
 # Ignore maximize requests from apps. You'll probably like this.
-windowrule = suppressevent maximize, class:.*
+windowrule {
+	name = suppressevent
+
+	match:class = .*
+
+	suppress_event = maximize
+}
+
 
 # Fix some dragging issues with XWayland
-windowrule = nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0
+windowrule {
+	name = xwayland_fix
+
+	match:class = ^$
+	match:title = ^$
+	match:xwayland = true
+	match:pin = false
+
+	float = true
+	fullscreen = false
+	no_focus = true
+}
