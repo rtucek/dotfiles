@@ -188,8 +188,6 @@ The dotfiles are optimized for the following setup.
 
 ### AUR
 
-- 1password
-- 1password-cli
 - auto-cpufreq [[9]](#auto-cpufreq-post-installation-activation-[9])
 - certigo
 - csvtools-git
