@@ -189,10 +189,10 @@ The dotfiles are optimized for the following setup.
 ### AUR
 
 - auto-cpufreq [[9]](#auto-cpufreq-post-installation-activation-[9])
+- brave-bin
 - certigo
 - csvtools-git
 - devspace-bin
-- google-chrome
 - kind-bin
 - lastpass-cli
 - litecli
