@@ -114,8 +114,8 @@ The dotfiles are optimized for the following setup.
 - pgcli
 - pigz
 - pipewire [[7]](#pipewire-post-installation-activation-[7])
-- pipewire-pulse
 - pipewire-libcamera
+- pipewire-pulse
 - playerctl
 - postgresql-client
 - pwgen
