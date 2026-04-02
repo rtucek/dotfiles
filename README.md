@@ -449,8 +449,9 @@ Additionally, the `pipewire-pulse` package is installed for mimicking
 applications. In order to have both services working reliably, make sure systemd
 is running them upon startup.
 
-[`helvum`](https://gitlab.freedesktop.org/pipewire/helvum) may be used as
-patchbay GUI for pipewire.
+Either [`helvum`](https://gitlab.freedesktop.org/pipewire/helvum) or
+[`hyprpwcenter`](https://wiki.hypr.land/Hypr-Ecosystem/hyprpwcenter/) may be
+used as patchbay GUI for pipewire.
 
 ```bash
 systemctl enable --user --now pipewire.service
