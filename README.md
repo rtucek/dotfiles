@@ -95,6 +95,7 @@ The dotfiles are optimized for the following setup.
 - lsof
 - man-db
 - mkcert
+- monique
 - msr-tools
 - mtr
 - mysql-workbench
@@ -103,7 +104,6 @@ The dotfiles are optimized for the following setup.
 - networkmanager-openconnect
 - nitrogen
 - nvm
-- nwg-displays
 - openconnect
 - openssh
 - osquery
