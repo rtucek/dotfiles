@@ -193,6 +193,7 @@ The dotfiles are optimized for the following setup.
 - certigo
 - csvtools-git
 - devspace-bin
+- grimblast-git
 - kind-bin
 - lastpass-cli
 - litecli
