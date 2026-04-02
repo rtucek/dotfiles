@@ -79,6 +79,7 @@ The dotfiles are optimized for the following setup.
 - gzip
 - helm
 - helvum
+- htop
 - httpie
 - imagemagick
 - inxi
