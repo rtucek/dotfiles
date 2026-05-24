@@ -1,5 +1,5 @@
 {
-  description = "Description for the project";
+  description = "rtucek's NixOS and Home-Manager flake";
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
