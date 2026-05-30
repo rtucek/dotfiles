@@ -1,0 +1,5 @@
+{
+  hardware.brillo = {
+    enable = true;
+  };
+}
