@@ -1,11 +1,11 @@
 { lib, pkgs, ... }:
 {
+  # OpenSSH should generally be disabled by default and only activated when
+  # needed via systemd.
+  systemd.services.sshd.wantedBy = lib.mkForce [ ];
+
   services.openssh = {
-    # OpenSSH should generally be disabled by default. Nonetheless, for the
-    # event the sshd will be manually (and hopefully only temporarily) started
-    # and/or activated via an overlay, this config shall apply with the
-    # following  sensitive defaults.
-    enable = false;
+    enable = true;
 
     allowSFTP = true;
 
