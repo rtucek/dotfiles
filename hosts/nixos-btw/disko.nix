@@ -18,13 +18,46 @@
                 mountOptions = [ "umask=0077" ];
               };
             };
-            root = {
+            luks = {
               size = "100%";
               content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/";
+                type = "luks";
+                name = "volgroup0";
+                extraOpenArgs = [ ];
+                settings = {
+                };
+                additionalKeyFiles = [ ];
+                content = {
+                  type = "lvm_pv";
+                  vg = "volgroup0";
+                };
               };
+            };
+          };
+        };
+      };
+    };
+    lvm_vg = {
+      volgroup0 = {
+        type = "lvm_vg";
+        lvs = {
+          lv_root = {
+            size = "30%VG";
+            content = {
+              type = "filesystem";
+              format = "ext4";
+              mountpoint = "/";
+              mountOptions = [
+                "defaults"
+              ];
+            };
+          };
+          lv_home = {
+            size = "30%VG";
+            content = {
+              type = "filesystem";
+              format = "ext4";
+              mountpoint = "/home";
             };
           };
         };
