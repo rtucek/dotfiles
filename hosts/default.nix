@@ -13,6 +13,7 @@
 
         modules = laptop ++ [
           ./nixos-btw
+          inputs.disko.nixosModules.disko
         ];
       };
     };
