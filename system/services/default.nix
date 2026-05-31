@@ -1,3 +1,5 @@
 {
-  # nothing here at the moment
+  imports = [
+    ./greetd.nix
+  ];
 }

@@ -11,9 +11,6 @@ let
     ./programs
 
     ./services
-    # TODO: coming soon
-    # ./servcies/greetd.nix
-    # ./services/pipewire.nix
   ];
 
   laptop = desktop ++ [
