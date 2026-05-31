@@ -13,7 +13,7 @@
 
   nix =
     let
-      flakeInputs = lib.filterAttrs (_: v: lib.istype "flake" v) inputs;
+      flakeInputs = lib.filterAttrs (_: v: lib.isType "flake" v) inputs;
     in
     {
       # Pin the registry.

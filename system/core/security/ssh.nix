@@ -17,8 +17,7 @@
   };
 
   environment.systemPackages = [
-    # In any case, install openssh anyways, since we'll need the ssh client
-    # anyways.
+    # In any case, install openssh anyways, since we'll need the ssh client.
     pkgs.openssh
   ];
 }

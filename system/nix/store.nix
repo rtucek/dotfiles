@@ -6,14 +6,15 @@
   };
 
   nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+      persistent = true;
+    };
+
     settings = {
       auto-optimise-store = true;
-
-      gc = {
-        automatic = true;
-        dates = "weekly";
-        persitent = true;
-      };
 
       # for direnv GC roots
       keep-derivations = true;
