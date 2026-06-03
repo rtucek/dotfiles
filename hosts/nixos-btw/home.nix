@@ -5,10 +5,16 @@
   home.username = "rtucek";
   home.homeDirectory = "/home/rtucek";
 
+  imports = [
+    ../../home
+  ];
+
   # Packages that should be installed to the user profile.
   home.packages = [
     pkgs.htop
     pkgs.fortune
+    pkgs.fastfetch
+    pkgs.brave
   ];
 
   # This value determines the Home Manager release that your

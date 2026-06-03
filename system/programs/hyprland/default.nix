@@ -10,7 +10,6 @@ in
 {
   environment.systemPackages = [
     pkgs.hyprland
-    pkgs.kitty
   ];
 
   programs.hyprland = {
