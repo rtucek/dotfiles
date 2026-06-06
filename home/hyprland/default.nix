@@ -7,5 +7,6 @@
     ./hyprpaper.nix
     ./hyprpolkitagent.nix
     ./hyprsysteminfo.nix
+    ./qt.nix
   ];
 }
