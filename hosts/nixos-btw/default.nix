@@ -13,4 +13,8 @@
   };
 
   networking.hostName = "nixos-btw";
+
+  security.pam.services.hyprlock = {
+    enable = true;
+  };
 }
