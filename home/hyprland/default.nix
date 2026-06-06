@@ -5,5 +5,6 @@
     ./hyprlock.nix
     ./hyprpaper.nix
     ./hyprpolkitagent.nix
+    ./hyprsysteminfo.nix
   ];
 }
