@@ -8,5 +8,6 @@
     ./hyprpolkitagent.nix
     ./hyprsysteminfo.nix
     ./qt.nix
+    ./waybar
   ];
 }
