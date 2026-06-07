@@ -1,6 +1,7 @@
 {
   imports = [
     ./clipboard.nix
+    ./fonts.nix
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
