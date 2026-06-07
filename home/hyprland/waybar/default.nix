@@ -90,7 +90,7 @@
           menu-file = ./power-menu.xml;
           menu-actions = {
             lock = "${lib.getBin pkgs.systemd}/bin/loginctl lock-session";
-            logout = "${lib.getExe pkgs.hyprshutdown}";
+            logout = "${lib.getExe pkgs.uwsm} stop";
             reboot = "${lib.getBin pkgs.systemd}/bin/systemctl reboot";
             shutdown = "${lib.getBin pkgs.systemd}/bin/systemctl poweroff";
             suspend = "${lib.getBin pkgs.systemd}/bin/systemctl suspend";
