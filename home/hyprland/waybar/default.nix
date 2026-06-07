@@ -274,7 +274,7 @@
 
         "network#ethernet" = {
           # see https://github.com/Alexays/Waybar/wiki/Module:-Network
-          interface = "";
+          interface = "en*";
           interval = 5;
           tooltip = true;
           format-ethernet = "󰈁";
@@ -292,7 +292,7 @@
 
         "network#wifi" = {
           # see https://github.com/Alexays/Waybar/wiki/Module:-Network
-          interface = "";
+          interface = "wl*";
           interval = 5;
           tooltip = true;
           format-icons = [
