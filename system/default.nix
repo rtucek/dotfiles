@@ -4,6 +4,7 @@ let
 
     ./hardware/fwupd.nix
     ./hardware/graphics.nix
+    ./hardware/sound.nix
 
     ./network
     ./network/avahi.nix
