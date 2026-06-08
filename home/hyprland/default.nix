@@ -5,7 +5,7 @@
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
-    ./hyprpaper.nix
+    ./hyprpaper
     ./hyprpolkitagent.nix
     ./hyprsysteminfo.nix
     ./qt.nix
