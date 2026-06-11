@@ -8,6 +8,7 @@
     ./hyprpaper
     ./hyprpolkitagent.nix
     ./hyprsysteminfo.nix
+    ./notification
     ./qt.nix
     ./waybar
   ];
