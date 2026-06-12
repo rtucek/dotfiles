@@ -18,6 +18,9 @@
         capslock-check = "${
           import ../../scripts/capslock-check.nix { inherit pkgs lib; }
         }/bin/capslock-check.sh";
+        nmcli-active-vpn-conn = "${
+          import ../../scripts/nmcli-active-vpn-conn.nix { inherit pkgs lib; }
+        }/bin/nmcli-active-vpn-conn.sh";
       in
       [
         {
@@ -106,13 +109,12 @@
               suspend = "${lib.getBin pkgs.systemd}/bin/systemctl suspend";
             };
           };
-          # TODO: add script
-          # "custom/vpn" = {
-          #   format = "{}";
-          #   exec = "~/bin/nmcli-active-vpn-conn.sh";
-          #   return-type = "json";
-          #   interval = 3;
-          # };
+          "custom/vpn" = {
+            format = "{}";
+            exec = nmcli-active-vpn-conn;
+            return-type = "json";
+            interval = 3;
+          };
 
           ###########################
           ## modules
