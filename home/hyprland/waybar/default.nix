@@ -21,6 +21,7 @@
         nmcli-active-vpn-conn = "${
           import ../../scripts/nmcli-active-vpn-conn.nix { inherit pkgs lib; }
         }/bin/nmcli-active-vpn-conn.sh";
+        backlight = "${import ../../scripts/backlight.nix { inherit pkgs lib; }}/bin/backlight.sh";
       in
       [
         {
@@ -120,30 +121,29 @@
           ## modules
           ###########################
 
-          # TODO: add script
-          # backlight = {
-          #   # see https://github.com/Alexays/Waybar/wiki/Module:-Backlight
-          #   interval = 2;
-          #   format = "{icon} {percent}%";
-          #   format-icons = [
-          #     "󰛩"
-          #     "󱩎"
-          #     "󱩏"
-          #     "󱩐"
-          #     "󱩑"
-          #     "󱩒"
-          #     "󱩓"
-          #     "󱩔"
-          #     "󱩕"
-          #     "󱩖"
-          #     "󰛨"
-          #   ];
-          #   scroll-step = 5;
-          #   on-scroll-up = "~/bin/backlight.sh \"+5%\"";
-          #   on-scroll-down = "~/bin/backlight.sh \"-5%\"";
-          #   smooth-scrolling-threshold = 3;
-          #   tooltip = false;
-          # };
+          backlight = {
+            # see https://github.com/Alexays/Waybar/wiki/Module:-Backlight
+            interval = 2;
+            format = "{icon} {percent}%";
+            format-icons = [
+              "󰛩"
+              "󱩎"
+              "󱩏"
+              "󱩐"
+              "󱩑"
+              "󱩒"
+              "󱩓"
+              "󱩔"
+              "󱩕"
+              "󱩖"
+              "󰛨"
+            ];
+            scroll-step = 5;
+            on-scroll-up = "${backlight} \"+5%\"";
+            on-scroll-down = "${backlight} \"-5%\"";
+            smooth-scrolling-threshold = 3;
+            tooltip = false;
+          };
 
           battery = {
             # see https://github.com/Alexays/Waybar/wiki/Module:-Battery
@@ -193,7 +193,7 @@
             locale = "de_AT.UTF-8";
             ## "timezone": "Europe/Vienna",
             ## "timezones": [
-            ## 	"UTC",
+            ##   "UTC",
             ## ],
             tooltip = true;
             tooltip-format = "<tt><small>{calendar}</small></tt>";

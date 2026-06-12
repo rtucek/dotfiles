@@ -15,7 +15,7 @@ pkgs.writeShellScriptBin "capslock-check.sh" ''
     TEXT="{ \"text\": \"\"}"
 
     if [[ "$CAPS_ON" == "1" ]]; then
-    	TEXT="{ \"text\": \"󰘲\", \"class\": \"active\"}"
+      TEXT="{ \"text\": \"󰘲\", \"class\": \"active\"}"
     fi
 
     echo "$TEXT" | ${jq} --unbuffered --compact-output
