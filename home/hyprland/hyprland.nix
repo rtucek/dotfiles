@@ -19,6 +19,7 @@
     settings =
       let
         sound = "${import ../scripts/sound.nix { inherit pkgs lib; }}/bin/sound.sh";
+        backlight = "${import ../scripts/backlight.nix { inherit pkgs lib; }}/bin/backlight.sh";
 
         # Smart gaps
         # See https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/#smart-gaps
@@ -65,8 +66,8 @@
           _var = "ALT";
         };
 
-        terminal = {
-          _var = "${lib.getExe pkgs.kitty}";
+        backlight = {
+          _var = "${backlight}";
         };
 
         fileManager = {
@@ -87,6 +88,10 @@
 
         sound = {
           _var = "${sound}";
+        };
+
+        terminal = {
+          _var = "${lib.getExe pkgs.kitty}";
         };
 
         ########################
@@ -611,7 +616,29 @@
               }
             ];
           }
-          # TODO: multimedia keys (play, stop, next, previous...)
+
+          # Brightness control
+          {
+            _args = [
+              "XF86MonBrightnessUp"
+              (mkLuaInline "hl.dsp.exec_cmd(backlight .. \" \\\"+5%\\\"\")")
+              {
+                locked = true;
+                repeating = true;
+              }
+            ];
+          }
+          {
+            _args = [
+              "XF86MonBrightnessDown"
+              (mkLuaInline "hl.dsp.exec_cmd(backlight .. \" \\\"-5%\\\"\")")
+              {
+                locked = true;
+                repeating = true;
+              }
+            ];
+          }
+
           # TODO: brightness
           # TODO: screenshots
         ];
