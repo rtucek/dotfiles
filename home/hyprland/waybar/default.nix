@@ -7,6 +7,7 @@
 {
   home.packages = [
     pkgs.waybar
+    pkgs.hyprpwcenter
   ];
 
   programs.waybar = {
@@ -22,6 +23,7 @@
           import ../../scripts/nmcli-active-vpn-conn.nix { inherit pkgs lib; }
         }/bin/nmcli-active-vpn-conn.sh";
         backlight = "${import ../../scripts/backlight.nix { inherit pkgs lib; }}/bin/backlight.sh";
+        sound = "${import ../../scripts/sound.nix { inherit pkgs lib; }}/bin/sound.sh";
       in
       [
         {
@@ -388,27 +390,26 @@
             spacing = 10;
           };
 
-          # TODO: add script + wireplumber
-          # wireplumber = {
-          #   # see https://github.com/Alexays/Waybar/wiki/Module:-WirePlumber
-          #   format = "{icon} {volume}%";
-          #   format-muted = "󰖁";
-          #   format-icons = [
-          #     "󰕿"
-          #     "󰖀"
-          #     "󰕾"
-          #   ];
-          #   on-scroll-up = "~/bin/sound.sh \"volume\" \"+5%\"";
-          #   on-scroll-down = "~/bin/sound.sh \"volume\" \"-5%\"";
-          #   on-click = "~/bin/sound.sh \"mute\" \"toggle\"";
-          #   on-click-middle = "helvum";
-          #   scroll-step = 5;
-          #   max-volume = 100;
-          #   tooltip = true;
-          #   tooltip-format = "Volume:\t{volume}%\nNode:\t{node_name}";
-          #   smooth-scrolling-threshold = 3;
-          #   node-type = "Audio/Sink";
-          # };
+          wireplumber = {
+            # see https://github.com/Alexays/Waybar/wiki/Module:-WirePlumber
+            format = "{icon} {volume}%";
+            format-muted = "󰖁";
+            format-icons = [
+              "󰕿"
+              "󰖀"
+              "󰕾"
+            ];
+            on-scroll-up = "${sound} \"volume\" \"+5%\"";
+            on-scroll-down = "${sound} \"volume\" \"-5%\"";
+            on-click = "${sound} \"mute\" \"toggle\"";
+            on-click-middle = "${lib.getExe pkgs.hyprpwcenter}";
+            scroll-step = 5;
+            max-volume = 100;
+            tooltip = true;
+            tooltip-format = "Volume:\t{volume}%\nNode:\t{node_name}";
+            smooth-scrolling-threshold = 3;
+            node-type = "Audio/Sink";
+          };
 
         }
       ];
