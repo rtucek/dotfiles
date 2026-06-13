@@ -18,6 +18,8 @@
     configType = "lua";
     settings =
       let
+        sound = "${import ../scripts/sound.nix { inherit pkgs lib; }}/bin/sound.sh";
+
         # Smart gaps
         # See https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/#smart-gaps
         smart-gaps = {
@@ -81,6 +83,10 @@
 
         shutdown = {
           _var = "${lib.getExe pkgs.hyprshutdown}";
+        };
+
+        sound = {
+          _var = "${sound}";
         };
 
         ########################
@@ -575,7 +581,36 @@
           }
 
           # Multimedia keys
-          # TODO: volume (require pipewire setup)
+          {
+            _args = [
+              "XF86AudioRaiseVolume"
+              (mkLuaInline "hl.dsp.exec_cmd(sound .. \" \\\"volume\\\" \\\"+5%\\\"\")")
+              {
+                locked = true;
+                repeating = true;
+              }
+            ];
+          }
+          {
+            _args = [
+              "XF86AudioLowerVolume"
+              (mkLuaInline "hl.dsp.exec_cmd(sound .. \" \\\"volume\\\" \\\"-5%\\\"\")")
+              {
+                locked = true;
+                repeating = true;
+              }
+            ];
+          }
+          {
+            _args = [
+              "XF86AudioMute"
+              (mkLuaInline "hl.dsp.exec_cmd(sound .. \" \\\"mute\\\" \\\"toggle\\\"\")")
+              {
+                locked = true;
+                repeating = true;
+              }
+            ];
+          }
           # TODO: multimedia keys (play, stop, next, previous...)
           # TODO: brightness
           # TODO: screenshots
