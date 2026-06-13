@@ -24,8 +24,7 @@
                 type = "luks";
                 name = "volgroup0";
                 extraOpenArgs = [ ];
-                settings = {
-                };
+                settings = { };
                 additionalKeyFiles = [ ];
                 content = {
                   type = "lvm_pv";

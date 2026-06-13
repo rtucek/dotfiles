@@ -410,7 +410,6 @@
             smooth-scrolling-threshold = 3;
             node-type = "Audio/Sink";
           };
-
         }
       ];
 
