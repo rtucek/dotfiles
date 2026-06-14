@@ -6,6 +6,7 @@
     pkgs.pcmanfm
     pkgs.rofi
     pkgs.yazi
+    pkgs.playerctl
   ];
 
   wayland.windowManager.hyprland = {
@@ -80,6 +81,10 @@
 
         menu = {
           _var = "${lib.getExe pkgs.rofi} -show drun -drun-show-actions";
+        };
+
+        playerctl = {
+          _var = "${lib.getExe pkgs.playerctl}";
         };
 
         shutdown = {
@@ -639,7 +644,36 @@
             ];
           }
 
-          # TODO: brightness
+          # Multimedia control
+          {
+            _args = [
+              "XF86AudioNext"
+              (mkLuaInline "hl.dsp.exec_cmd(playerctl .. \" \\\"next\\\"\")")
+              { locked = true; }
+            ];
+          }
+          {
+            _args = [
+              "XF86AudioPrev"
+              (mkLuaInline "hl.dsp.exec_cmd(playerctl .. \" \\\"previous\\\"\")")
+              { locked = true; }
+            ];
+          }
+          {
+            _args = [
+              "XF86AudioPlay"
+              (mkLuaInline "hl.dsp.exec_cmd(playerctl .. \" \\\"play-pause\\\"\")")
+              { locked = true; }
+            ];
+          }
+          {
+            _args = [
+              "XF86AudioPause"
+              (mkLuaInline "hl.dsp.exec_cmd(playerctl .. \" \\\"play-pause\\\"\")")
+              { locked = true; }
+            ];
+          }
+
           # TODO: screenshots
         ];
 
