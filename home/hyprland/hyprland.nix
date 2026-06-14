@@ -2,11 +2,13 @@
 {
   home.packages = [
     pkgs.hyprshutdown
+    pkgs.coreutils-full
     pkgs.kitty
     pkgs.pcmanfm
     pkgs.rofi
     pkgs.yazi
     pkgs.playerctl
+    pkgs.grimblast
   ];
 
   wayland.windowManager.hyprland = {
@@ -72,12 +74,20 @@
           _var = "${backlight}";
         };
 
+        date = {
+          _var = "${lib.getBin pkgs.coreutils-full}/bin/date";
+        };
+
         fileManager = {
           _var = "${lib.getExe pkgs.pcmanfm}";
         };
 
         fileManagerCli = {
           _var = "${lib.getExe pkgs.yazi}";
+        };
+
+        grimblast = {
+          _var = "${lib.getExe pkgs.grimblast}";
         };
 
         menu = {
@@ -102,6 +112,10 @@
 
         terminal = {
           _var = "${lib.getExe pkgs.kitty}";
+        };
+
+        xdgUserDirs = {
+          _var = "${lib.getBin pkgs.xdg-user-dirs}/bin/xdg-user-dir";
         };
 
         ########################
@@ -679,7 +693,35 @@
             ];
           }
 
-          # TODO: screenshots
+          # Screenshots
+          {
+            _args = [
+              "Print"
+              (mkLuaInline "hl.dsp.exec_cmd(grimblast .. \" --notify save area \\\"$(\" .. xdgUserDirs .. \" PICTURES)/$(\" .. date .. \" --utc '+%F_%H.%M.%S').png\\\"\")")
+              { locked = true; }
+            ];
+          }
+          {
+            _args = [
+              (mkLuaInline "mod .. \" + Print\"")
+              (mkLuaInline "hl.dsp.exec_cmd(grimblast .. \" --notify copy area\")")
+              { locked = true; }
+            ];
+          }
+          {
+            _args = [
+              "CTRL + Print"
+              (mkLuaInline "hl.dsp.exec_cmd(grimblast .. \" --notify save active \\\"$(\" .. xdgUserDirs .. \" PICTURES)/$(\" .. date .. \" --utc '+%F_%H.%M.%S').png\\\"\")")
+              { locked = true; }
+            ];
+          }
+          {
+            _args = [
+              (mkLuaInline "mod .. \" + CTRL + Print\"")
+              (mkLuaInline "hl.dsp.exec_cmd(grimblast .. \" --notify copy active\")")
+              { locked = true; }
+            ];
+          }
 
           # Other XF86 key bindings
           {
