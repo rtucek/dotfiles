@@ -21,6 +21,7 @@
       let
         sound = "${import ../scripts/sound.nix { inherit pkgs lib; }}/bin/sound.sh";
         backlight = "${import ../scripts/backlight.nix { inherit pkgs lib; }}/bin/backlight.sh";
+        rfkill-toggle = "${import ../scripts/rfkill-toggle.nix { inherit pkgs lib; }}/bin/rfkill-toggle.sh";
 
         # Smart gaps
         # See https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/#smart-gaps
@@ -85,6 +86,10 @@
 
         playerctl = {
           _var = "${lib.getExe pkgs.playerctl}";
+        };
+
+        rfkillToggle = {
+          _var = "${rfkill-toggle}";
         };
 
         shutdown = {
@@ -675,6 +680,15 @@
           }
 
           # TODO: screenshots
+
+          # Other XF86 key bindings
+          {
+            _args = [
+              "XF86RFKill"
+              (mkLuaInline "hl.dsp.exec_cmd(rfkillToggle)")
+              { locked = true; }
+            ];
+          }
         ];
 
         ################################
