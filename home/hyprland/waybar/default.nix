@@ -193,10 +193,10 @@
             format = "󰔠 {:%a, %Y-%m-%d %H:%M:%S}";
             # locale MUST be enabled
             locale = "de_AT.UTF-8";
-            ## "timezone": "Europe/Vienna",
-            ## "timezones": [
-            ##   "UTC",
-            ## ],
+            # "timezone": "Europe/Vienna",
+            # "timezones": [
+            #   "UTC",
+            # ],
             tooltip = true;
             tooltip-format = "<tt><small>{calendar}</small></tt>";
             calendar = {
@@ -213,12 +213,11 @@
               };
             };
             actions = {
-              # TODO: figure out how to deal with duplicate keys...
-              # "on-click-right"= "mode";
+              "on-click-right" = "mode";
+              "on-scroll-up" = "shift_up";
+              "on-scroll-down" = "shift_down";
               # "on-scroll-up"= "tz_up";
               # "on-scroll-down"= "tz_down";
-              # "on-scroll-up"= "shift_up";
-              # "on-scroll-down"= "shift_down";
             };
           };
 
