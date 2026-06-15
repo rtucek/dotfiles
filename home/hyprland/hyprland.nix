@@ -24,6 +24,16 @@
         sound = "${import ../scripts/sound.nix { inherit pkgs lib; }}/bin/sound.sh";
         backlight = "${import ../scripts/backlight.nix { inherit pkgs lib; }}/bin/backlight.sh";
         rfkill-toggle = "${import ../scripts/rfkill-toggle.nix { inherit pkgs lib; }}/bin/rfkill-toggle.sh";
+        fileManager = "${lib.getExe pkgs.pcmanfm}";
+        fileManagerCli = "${lib.getExe pkgs.yazi}";
+        terminal = "${lib.getExe pkgs.kitty}";
+        menu = "${lib.getExe pkgs.rofi}";
+        playerctl = "${lib.getExe pkgs.playerctl}";
+        rfkillToggle = "${rfkill-toggle}";
+        logout = "${lib.getExe pkgs.hyprshutdown}";
+        date = "${lib.getBin pkgs.coreutils-full}/bin/date";
+        grimblast = "${lib.getExe pkgs.grimblast}";
+        xdgUserDirs = "${lib.getBin pkgs.xdg-user-dirs}/bin/xdg-user-dir";
 
         # Smart gaps
         # See https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/#smart-gaps
@@ -68,54 +78,6 @@
 
         mod = {
           _var = "ALT";
-        };
-
-        backlight = {
-          _var = "${backlight}";
-        };
-
-        date = {
-          _var = "${lib.getBin pkgs.coreutils-full}/bin/date";
-        };
-
-        fileManager = {
-          _var = "${lib.getExe pkgs.pcmanfm}";
-        };
-
-        fileManagerCli = {
-          _var = "${lib.getExe pkgs.yazi}";
-        };
-
-        grimblast = {
-          _var = "${lib.getExe pkgs.grimblast}";
-        };
-
-        menu = {
-          _var = "${lib.getExe pkgs.rofi} -show drun -drun-show-actions";
-        };
-
-        playerctl = {
-          _var = "${lib.getExe pkgs.playerctl}";
-        };
-
-        rfkillToggle = {
-          _var = "${rfkill-toggle}";
-        };
-
-        shutdown = {
-          _var = "${lib.getExe pkgs.hyprshutdown}";
-        };
-
-        sound = {
-          _var = "${sound}";
-        };
-
-        terminal = {
-          _var = "${lib.getExe pkgs.kitty}";
-        };
-
-        xdgUserDirs = {
-          _var = "${lib.getBin pkgs.xdg-user-dirs}/bin/xdg-user-dir";
         };
 
         ########################
@@ -481,7 +443,7 @@
           {
             _args = [
               (mkLuaInline "mod .. \" + Q\"")
-              (mkLuaInline "hl.dsp.exec_cmd(terminal)")
+              (mkLuaInline "hl.dsp.exec_cmd('${terminal}')")
             ];
           }
           {
@@ -493,19 +455,19 @@
           {
             _args = [
               (mkLuaInline "mod .. \" + M\"")
-              (mkLuaInline "hl.dsp.exec_cmd(shutdown)")
+              (mkLuaInline "hl.dsp.exec_cmd('${logout}')")
             ];
           }
           {
             _args = [
               (mkLuaInline "mod .. \" + E\"")
-              (mkLuaInline "hl.dsp.exec_cmd(fileManager)")
+              (mkLuaInline "hl.dsp.exec_cmd('${fileManager}')")
             ];
           }
           {
             _args = [
               (mkLuaInline "mod .. \" + SHIFT + E\"")
-              (mkLuaInline "hl.dsp.exec_cmd(terminal .. \" \" .. fileManagerCli)")
+              (mkLuaInline "hl.dsp.exec_cmd('${terminal} ${fileManagerCli}')")
             ];
           }
           {
@@ -517,7 +479,7 @@
           {
             _args = [
               (mkLuaInline "mod .. \" + R\"")
-              (mkLuaInline "hl.dsp.exec_cmd(menu)")
+              (mkLuaInline "hl.dsp.exec_cmd('${menu} -show drun -drun-show-actions')")
             ];
           }
           {
@@ -613,7 +575,7 @@
           {
             _args = [
               "XF86AudioRaiseVolume"
-              (mkLuaInline "hl.dsp.exec_cmd(sound .. \" \\\"volume\\\" \\\"+5%\\\"\")")
+              (mkLuaInline "hl.dsp.exec_cmd(\"${sound} volume '+5%'\")")
               {
                 locked = true;
                 repeating = true;
@@ -623,7 +585,7 @@
           {
             _args = [
               "XF86AudioLowerVolume"
-              (mkLuaInline "hl.dsp.exec_cmd(sound .. \" \\\"volume\\\" \\\"-5%\\\"\")")
+              (mkLuaInline "hl.dsp.exec_cmd(\"${sound} volume '-5%'\")")
               {
                 locked = true;
                 repeating = true;
@@ -633,7 +595,7 @@
           {
             _args = [
               "XF86AudioMute"
-              (mkLuaInline "hl.dsp.exec_cmd(sound .. \" \\\"mute\\\" \\\"toggle\\\"\")")
+              (mkLuaInline "hl.dsp.exec_cmd(\"${sound} mute toggle\")")
               {
                 locked = true;
                 repeating = true;
@@ -645,7 +607,7 @@
           {
             _args = [
               "XF86MonBrightnessUp"
-              (mkLuaInline "hl.dsp.exec_cmd(backlight .. \" \\\"+5%\\\"\")")
+              (mkLuaInline "hl.dsp.exec_cmd(\"${backlight} '+5%'\")")
               {
                 locked = true;
                 repeating = true;
@@ -655,7 +617,7 @@
           {
             _args = [
               "XF86MonBrightnessDown"
-              (mkLuaInline "hl.dsp.exec_cmd(backlight .. \" \\\"-5%\\\"\")")
+              (mkLuaInline "hl.dsp.exec_cmd(\"${backlight} '-5%'\")")
               {
                 locked = true;
                 repeating = true;
@@ -667,28 +629,28 @@
           {
             _args = [
               "XF86AudioNext"
-              (mkLuaInline "hl.dsp.exec_cmd(playerctl .. \" \\\"next\\\"\")")
+              (mkLuaInline "hl.dsp.exec_cmd(\"${playerctl} 'next'\")")
               { locked = true; }
             ];
           }
           {
             _args = [
               "XF86AudioPrev"
-              (mkLuaInline "hl.dsp.exec_cmd(playerctl .. \" \\\"previous\\\"\")")
+              (mkLuaInline "hl.dsp.exec_cmd(\"${playerctl} 'previous'\")")
               { locked = true; }
             ];
           }
           {
             _args = [
               "XF86AudioPlay"
-              (mkLuaInline "hl.dsp.exec_cmd(playerctl .. \" \\\"play-pause\\\"\")")
+              (mkLuaInline "hl.dsp.exec_cmd(\"${playerctl} 'play-pause'\")")
               { locked = true; }
             ];
           }
           {
             _args = [
               "XF86AudioPause"
-              (mkLuaInline "hl.dsp.exec_cmd(playerctl .. \" \\\"play-pause\\\"\")")
+              (mkLuaInline "hl.dsp.exec_cmd(\"${playerctl} 'play-pause'\")")
               { locked = true; }
             ];
           }
@@ -697,28 +659,28 @@
           {
             _args = [
               "Print"
-              (mkLuaInline "hl.dsp.exec_cmd(grimblast .. \" --notify save area \\\"$(\" .. xdgUserDirs .. \" PICTURES)/$(\" .. date .. \" --utc '+%F_%H.%M.%S').png\\\"\")")
+              (mkLuaInline "hl.dsp.exec_cmd('${grimblast} --notify save area \"$(${xdgUserDirs} PICTURES)/$(${date} --utc \\'+%F_%H.%M.%S\\').png')")
               { locked = true; }
             ];
           }
           {
             _args = [
               (mkLuaInline "mod .. \" + Print\"")
-              (mkLuaInline "hl.dsp.exec_cmd(grimblast .. \" --notify copy area\")")
+              (mkLuaInline "hl.dsp.exec_cmd('${grimblast} --notify copy area')")
               { locked = true; }
             ];
           }
           {
             _args = [
               "CTRL + Print"
-              (mkLuaInline "hl.dsp.exec_cmd(grimblast .. \" --notify save active \\\"$(\" .. xdgUserDirs .. \" PICTURES)/$(\" .. date .. \" --utc '+%F_%H.%M.%S').png\\\"\")")
+              (mkLuaInline "hl.dsp.exec_cmd('${grimblast} --notify save active \"$(${xdgUserDirs} PICTURES)/$(${date} --utc \\'+%F_%H.%M.%S\\').png')")
               { locked = true; }
             ];
           }
           {
             _args = [
               (mkLuaInline "mod .. \" + CTRL + Print\"")
-              (mkLuaInline "hl.dsp.exec_cmd(grimblast .. \" --notify copy active\")")
+              (mkLuaInline "hl.dsp.exec_cmd('${grimblast} --notify copy active')")
               { locked = true; }
             ];
           }
@@ -727,7 +689,7 @@
           {
             _args = [
               "XF86RFKill"
-              (mkLuaInline "hl.dsp.exec_cmd(rfkillToggle)")
+              (mkLuaInline "hl.dsp.exec_cmd('${rfkillToggle}')")
               { locked = true; }
             ];
           }
