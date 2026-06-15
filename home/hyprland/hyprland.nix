@@ -21,19 +21,19 @@
     configType = "lua";
     settings =
       let
-        sound = "${import ../scripts/sound.nix { inherit pkgs lib; }}/bin/sound.sh";
+        # Paths to binaries
         backlight = "${import ../scripts/backlight.nix { inherit pkgs lib; }}/bin/backlight.sh";
-        rfkill-toggle = "${import ../scripts/rfkill-toggle.nix { inherit pkgs lib; }}/bin/rfkill-toggle.sh";
+        date = "${lib.getBin pkgs.coreutils-full}/bin/date";
         fileManager = "${lib.getExe pkgs.pcmanfm}";
-        fileManagerCli = "${lib.getExe pkgs.yazi}";
-        terminal = "${lib.getExe pkgs.kitty}";
+        filemanager-cli = "${lib.getExe pkgs.yazi}";
+        grimblast = "${lib.getExe pkgs.grimblast}";
+        logout = "${lib.getExe pkgs.hyprshutdown}";
         menu = "${lib.getExe pkgs.rofi}";
         playerctl = "${lib.getExe pkgs.playerctl}";
-        rfkillToggle = "${rfkill-toggle}";
-        logout = "${lib.getExe pkgs.hyprshutdown}";
-        date = "${lib.getBin pkgs.coreutils-full}/bin/date";
-        grimblast = "${lib.getExe pkgs.grimblast}";
-        xdgUserDirs = "${lib.getBin pkgs.xdg-user-dirs}/bin/xdg-user-dir";
+        rfkill-toggle = "${import ../scripts/rfkill-toggle.nix { inherit pkgs lib; }}/bin/rfkill-toggle.sh";
+        sound = "${import ../scripts/sound.nix { inherit pkgs lib; }}/bin/sound.sh";
+        terminal = "${lib.getExe pkgs.kitty}";
+        xdg-user-dirs = "${lib.getBin pkgs.xdg-user-dirs}/bin/xdg-user-dir";
 
         # Smart gaps
         # See https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/#smart-gaps
@@ -467,7 +467,7 @@
           {
             _args = [
               (mkLuaInline "mod .. \" + SHIFT + E\"")
-              (mkLuaInline "hl.dsp.exec_cmd('${terminal} ${fileManagerCli}')")
+              (mkLuaInline "hl.dsp.exec_cmd('${terminal} ${filemanager-cli}')")
             ];
           }
           {
@@ -659,7 +659,7 @@
           {
             _args = [
               "Print"
-              (mkLuaInline "hl.dsp.exec_cmd('${grimblast} --notify save area \"$(${xdgUserDirs} PICTURES)/$(${date} --utc \\'+%F_%H.%M.%S\\').png')")
+              (mkLuaInline "hl.dsp.exec_cmd('${grimblast} --notify save area \"$(${xdg-user-dirs} PICTURES)/$(${date} --utc \\'+%F_%H.%M.%S\\').png')")
               { locked = true; }
             ];
           }
@@ -673,7 +673,7 @@
           {
             _args = [
               "CTRL + Print"
-              (mkLuaInline "hl.dsp.exec_cmd('${grimblast} --notify save active \"$(${xdgUserDirs} PICTURES)/$(${date} --utc \\'+%F_%H.%M.%S\\').png')")
+              (mkLuaInline "hl.dsp.exec_cmd('${grimblast} --notify save active \"$(${xdg-user-dirs} PICTURES)/$(${date} --utc \\'+%F_%H.%M.%S\\').png')")
               { locked = true; }
             ];
           }
@@ -689,7 +689,7 @@
           {
             _args = [
               "XF86RFKill"
-              (mkLuaInline "hl.dsp.exec_cmd('${rfkillToggle}')")
+              (mkLuaInline "hl.dsp.exec_cmd('${rfkill-toggle}')")
               { locked = true; }
             ];
           }
