@@ -18,6 +18,13 @@
 
   networking.hostName = "nixos-btw";
 
+  programs.nixvim = {
+    enable = true;
+    defaultEditor = true;
+    # TODO: enable, once using home manager
+    # vimdiffAlias = true;
+  };
+
   security.pam.services.hyprlock = {
     enable = true;
   };

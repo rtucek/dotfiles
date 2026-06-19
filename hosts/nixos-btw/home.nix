@@ -30,10 +30,6 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.neovim = {
-    enable = true;
-  };
-
   services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 1800;
