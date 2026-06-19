@@ -5,9 +5,9 @@
     defaultEditor = true;
     vimdiffAlias = true;
     enableMan = true;
-    enablePrintInit = true;
     waylandSupport = true;
 
+    # Language providers
     withNodeJs = true;
     withPerl = true;
     withPython3 = true;
@@ -17,6 +17,8 @@
       enable = true;
     };
 
-    colorschemes.gruvbox.enable = true;
+    colorschemes.onedark.enable = true;
+
+    clipboard.register = "unnamedplus";
   };
 }
