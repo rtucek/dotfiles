@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -6,6 +11,7 @@
   home.homeDirectory = "/home/rtucek";
 
   imports = [
+    inputs.nixvim.homeModules.nixvim
     ../../home
   ];
 

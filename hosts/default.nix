@@ -15,7 +15,6 @@
           ./nixos-btw
           inputs.disko.nixosModules.disko
           inputs.home-manager.nixosModules.home-manager
-          inputs.nixvim.nixosModules.nixvim
         ];
       };
     };
