@@ -1,9 +1,9 @@
 { ... }:
 {
   imports = [
-    ./settings.nix
-
+    ./keybindings.nix
     ./languages
+    ./settings.nix
   ];
 
   programs.nixvim = {
