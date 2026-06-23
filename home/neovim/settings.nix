@@ -64,6 +64,23 @@
 
       # Don't use swapfiles
       swapfile = false;
+
+      # -----VISUAL-----
+
+      # Syntax highlighting
+      syntax = "enable";
+
+      # Always display tabline
+      showtabline = 2;
+
+      # Highlight line of the current cursor
+      cursorline = true;
+
+      # Show column length
+      ruler = true;
+
+      # Show line numbers
+      number = true;
     };
 
     localOpts = {
