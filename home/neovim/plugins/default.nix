@@ -1,6 +1,7 @@
 {
   imports = [
-    ./git.nix
     ./fs.nix
+    ./git.nix
+    ./icons.nix
   ];
 }
