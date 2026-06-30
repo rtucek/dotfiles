@@ -79,25 +79,25 @@
             };
           };
 
-          # LSP integration
-          "gd" = {
-            action = "lsp_definitions";
-            optons = {
-              desc = "Goto definition under the cursor";
-            };
-          };
-          "gr" = {
-            action = "lsp_references";
-            options = {
-              desc = "Find references under the cursor";
-            };
-          };
-          "gi" = {
-            action = "lsp_implementations";
-            options = {
-              desc = "Find implementations under the cursor";
-            };
-          };
+          # # LSP integration
+          # "gd" = {
+          #   action = "lsp_definitions";
+          #   options = {
+          #     desc = "Goto definition under the cursor";
+          #   };
+          # };
+          # "gr" = {
+          #   action = "lsp_references";
+          #   options = {
+          #     desc = "Find references under the cursor";
+          #   };
+          # };
+          # "gi" = {
+          #   action = "lsp_implementations";
+          #   options = {
+          #     desc = "Find implementations under the cursor";
+          #   };
+          # };
         };
       };
     };

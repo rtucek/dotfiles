@@ -2,7 +2,7 @@
 {
   imports = [
     ./keybindings.nix
-    ./languages
+    ./lsp
     ./plugins
     ./settings.nix
   ];
