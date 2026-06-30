@@ -4,5 +4,6 @@
     ./fs.nix
     ./git.nix
     ./icons.nix
+    ./treesitter.nix
   ];
 }
