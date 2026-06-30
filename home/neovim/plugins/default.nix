@@ -1,5 +1,6 @@
 {
   imports = [
+    ./editing.nix
     ./finder.nix
     ./fs.nix
     ./git.nix
