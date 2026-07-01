@@ -65,6 +65,12 @@
       # Don't use swapfiles
       swapfile = false;
 
+      # Optimize search
+      incsearch = true;
+      hlsearch = true;
+      ignorecase = true;
+      smartcase = true;
+
       # -----VISUAL-----
 
       # Syntax highlighting
