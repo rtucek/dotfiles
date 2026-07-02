@@ -5,6 +5,7 @@
     ./fs.nix
     ./git.nix
     ./icons.nix
+    ./lightline.nix
     ./treesitter.nix
   ];
 }
