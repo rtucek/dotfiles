@@ -7,5 +7,6 @@
     ./icons.nix
     ./lightline.nix
     ./treesitter.nix
+    ./undotree.nix
   ];
 }
