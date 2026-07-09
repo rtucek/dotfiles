@@ -250,12 +250,11 @@
 
           "hyprland/workspaces" = {
             # see https://github.com/Alexays/Waybar/wiki/Module:-Hyprland#workspaces
-            active-only = true;
+            active-only = false;
             on-click = "activate";
             format = "{id}";
             all-outputs = false;
             disable-scroll = false;
-            # "active-only"= false;
           };
 
           "hyprland/window" = {
