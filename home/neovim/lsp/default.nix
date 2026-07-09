@@ -2,7 +2,7 @@
 {
   imports = [
     ./golang.nix
-    # ./nix.nix
+    ./nix.nix
     # ./sh.nix
   ];
 
