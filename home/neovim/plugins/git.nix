@@ -12,6 +12,12 @@
       gitgutter = {
         enable = true;
         recommendedSettings = true;
+        settings = {
+          sign_added = "+";
+          sign_removed = "-";
+          sign_modified = "±";
+          sign_modified_removed = "±";
+        };
       };
 
       # see https://github.com/tpope/vim-fugitive/
