@@ -6,6 +6,11 @@
       vim-surround = {
         enable = true;
       };
+
+      # see https://github.com/nvim-mini/mini.indentscope/
+      mini-indentscope = {
+        enable = true;
+      };
     };
   };
 }
