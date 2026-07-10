@@ -6,6 +6,7 @@
     ./git.nix
     ./icons.nix
     ./lightline.nix
+    ./motion.nix
     ./treesitter.nix
     ./undotree.nix
   ];
