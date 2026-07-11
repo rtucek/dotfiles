@@ -10,6 +10,7 @@
     ./hyprsysteminfo.nix
     ./notification
     ./qt.nix
+    ./rofi.nix
     ./waybar
   ];
 }
