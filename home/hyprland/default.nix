@@ -1,6 +1,7 @@
 {
   imports = [
     ./clipboard.nix
+    ./dunst.nix
     ./fonts.nix
     ./hypridle.nix
     ./hyprland.nix
@@ -8,7 +9,6 @@
     ./hyprpaper
     ./hyprpolkitagent.nix
     ./hyprsysteminfo.nix
-    ./notification
     ./qt.nix
     ./rofi.nix
     ./waybar
