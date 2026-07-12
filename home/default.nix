@@ -1,5 +1,6 @@
 {
   imports = [
+    ./editorconfig
     ./hyprland
     ./neovim
   ];
