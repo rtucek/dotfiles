@@ -55,7 +55,10 @@
 
   services.gpg-agent = {
     enable = true;
-    pinentry.package = pkgs.pinentry-gnome3;
+    pinentry = {
+      package = pkgs.pinentry-all;
+      program = "pinentry-gnome3";
+    };
 
     enableBashIntegration = true;
     enableFishIntegration = true;
