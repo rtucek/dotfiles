@@ -5,5 +5,6 @@
     ./gpg
     ./hyprland
     ./neovim
+    ./tmux
   ];
 }
