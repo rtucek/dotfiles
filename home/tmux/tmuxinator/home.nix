@@ -5,6 +5,8 @@
       name = "home";
       root = "~/";
 
+      startup_window = "cli";
+
       windows =
         let
           htop = "${lib.getExe pkgs.htop}";
