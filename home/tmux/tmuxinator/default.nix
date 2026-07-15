@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./dotfiles.nix
     ./home.nix
   ];
 
