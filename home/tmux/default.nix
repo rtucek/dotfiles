@@ -1,5 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
+  home.packages = [
+    pkgs.wl-clipboard
+  ];
+
   programs.tmux = {
     enable = true;
     sensibleOnTop = true;
@@ -154,12 +158,22 @@
       set -g message-style bg=colour166
     '';
 
-    plugins = with pkgs; [
-      tmuxPlugins.copycat
-      tmuxPlugins.open
-      tmuxPlugins.pain-control
-      tmuxPlugins.sessionist
-      tmuxPlugins.yank
-    ];
+    plugins =
+      let
+        wl-copy = "${lib.getBin pkgs.wl-clipboard}/bin/wl-copy";
+      in
+      with pkgs;
+      [
+        tmuxPlugins.copycat
+        tmuxPlugins.open
+        tmuxPlugins.pain-control
+        tmuxPlugins.sessionist
+        {
+          plugin = tmuxPlugins.yank;
+          extraConfig = ''
+            set -g @override_copy_command '${wl-copy}'
+          '';
+        }
+      ];
   };
 }
