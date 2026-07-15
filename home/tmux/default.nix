@@ -174,6 +174,7 @@
             set -g @override_copy_command '${wl-copy}'
           '';
         }
+        tmuxPlugins.jump
       ];
   };
 }
