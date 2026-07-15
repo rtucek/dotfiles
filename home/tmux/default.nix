@@ -1,5 +1,9 @@
 { pkgs, lib, ... }:
 {
+  imports = [
+    ./tmuxinator
+  ];
+
   home.packages = [
     pkgs.wl-clipboard
   ];
