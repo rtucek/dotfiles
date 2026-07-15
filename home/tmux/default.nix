@@ -7,6 +7,7 @@
     secureSocket = true;
 
     prefix = "C-Space";
+    keyMode = "vi";
 
     mouse = true;
     baseIndex = 1;
@@ -152,5 +153,13 @@
       set -g message-style fg=colour232
       set -g message-style bg=colour166
     '';
+
+    plugins = with pkgs; [
+      tmuxPlugins.copycat
+      tmuxPlugins.open
+      tmuxPlugins.pain-control
+      tmuxPlugins.sessionist
+      tmuxPlugins.yank
+    ];
   };
 }
