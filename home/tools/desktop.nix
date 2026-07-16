@@ -5,9 +5,6 @@
     pkgs.wl-clipboard
     pkgs.kitty
 
-    # Email
-    pkgs.thunderbird
-
     # Encryption
     pkgs.veracrypt
 
@@ -20,4 +17,14 @@
     # HTTP client
     pkgs.postman
   ];
+
+  programs = {
+    thunderbird = {
+      enable = true;
+      languagePacks = [
+        "en-US"
+        "de"
+      ];
+    };
+  };
 }
