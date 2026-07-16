@@ -9,6 +9,8 @@ let
     ./network
     ./network/avahi.nix
 
+    ./virtualisation
+
     ./programs
 
     ./services
