@@ -7,7 +7,7 @@
       diff = "${lib.getBin pkgs.diffutils}/bin/diff";
       git = "${lib.getExe pkgs.git}";
       grep = "${lib.getExe pkgs.gnugrep}";
-      head = "${lib.getBin pkgs.coreutils}/bin/head";
+      head = "${lib.getBin pkgs.coreutils-full}/bin/head";
       nvim = "${lib.getExe pkgs.neovim}";
       sed = "${lib.getExe pkgs.gnused}";
     in
