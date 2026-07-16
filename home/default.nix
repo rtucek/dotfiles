@@ -6,5 +6,6 @@
     ./hyprland
     ./neovim
     ./tmux
+    ./tools
   ];
 }
