@@ -4,10 +4,6 @@
     ./tmuxinator
   ];
 
-  home.packages = [
-    pkgs.wl-clipboard
-  ];
-
   programs.tmux = {
     enable = true;
     sensibleOnTop = true;

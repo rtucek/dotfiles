@@ -9,6 +9,8 @@
     pkgs.zstd
 
     # Inspect
+    pkgs.pcmanfm
+    pkgs.yazi
     pkgs.bat
     pkgs.file
     pkgs.less

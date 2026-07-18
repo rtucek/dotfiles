@@ -1,16 +1,5 @@
 { lib, pkgs, ... }:
 {
-  home.packages = [
-    pkgs.hyprshutdown
-    pkgs.coreutils-full
-    pkgs.kitty
-    pkgs.pcmanfm
-    pkgs.rofi
-    pkgs.yazi
-    pkgs.playerctl
-    pkgs.grimblast
-  ];
-
   wayland.windowManager.hyprland =
     let
       # Mod key

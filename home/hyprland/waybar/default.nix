@@ -1,15 +1,12 @@
+{ pkgs, lib, ... }:
+let
+  hyprctl = "${lib.getBin pkgs.hyprland}/bin/hyprctl";
+  hyprpwcenter = "${lib.getExe pkgs.hyprpwcenter}";
+  loginctl = "${lib.getBin pkgs.systemd}/bin/loginctl";
+  systemctl = "${lib.getBin pkgs.systemd}/bin/systemctl";
+  uwsm = "${lib.getExe pkgs.uwsm}";
+in
 {
-  self,
-  pkgs,
-  lib,
-  ...
-}:
-{
-  home.packages = [
-    pkgs.waybar
-    pkgs.hyprpwcenter
-  ];
-
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -105,11 +102,11 @@
             menu = "on-click";
             menu-file = ./power-menu.xml;
             menu-actions = {
-              lock = "${lib.getBin pkgs.systemd}/bin/loginctl lock-session";
-              logout = "${lib.getExe pkgs.uwsm} stop";
-              reboot = "${lib.getBin pkgs.systemd}/bin/systemctl reboot";
-              shutdown = "${lib.getBin pkgs.systemd}/bin/systemctl poweroff";
-              suspend = "${lib.getBin pkgs.systemd}/bin/systemctl suspend";
+              lock = "${loginctl} lock-session";
+              logout = "${uwsm} stop";
+              reboot = "${systemctl} reboot";
+              shutdown = "${systemctl} poweroff";
+              suspend = "${systemctl} suspend";
             };
           };
           "custom/vpn" = {
@@ -243,9 +240,9 @@
             format-en = "en";
             format-de = "de";
             keyboard-name = "at-translated-set-2-keyboard";
-            on-click = "${lib.getBin pkgs.hyprland}/bin/hyprctl switchxkblayout at-translated-set-2-keyboard next";
-            on-scroll-up = "${lib.getBin pkgs.hyprland}/bin/hyprctl switchxkblayout at-translated-set-2-keyboard next";
-            on-scroll-down = "${lib.getBin pkgs.hyprland}/bin/hyprctl switchxkblayout at-translated-set-2-keyboard prev";
+            on-click = "${hyprctl} switchxkblayout at-translated-set-2-keyboard next";
+            on-scroll-up = "${hyprctl} switchxkblayout at-translated-set-2-keyboard next";
+            on-scroll-down = "${hyprctl} switchxkblayout at-translated-set-2-keyboard prev";
           };
 
           "hyprland/workspaces" = {
@@ -400,7 +397,7 @@
             on-scroll-up = "${sound} \"volume\" \"+5%\"";
             on-scroll-down = "${sound} \"volume\" \"-5%\"";
             on-click = "${sound} \"mute\" \"toggle\"";
-            on-click-middle = "${lib.getExe pkgs.hyprpwcenter}";
+            on-click-middle = "${hyprpwcenter}";
             scroll-step = 5;
             max-volume = 100;
             tooltip = true;
