@@ -7,5 +7,6 @@
     ./neovim
     ./tmux
     ./tools
+    ./xdg
   ];
 }
