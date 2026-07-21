@@ -8,11 +8,11 @@
       specialArgs = { inherit inputs self; };
     in
     {
-      nixos-btw = inputs.nixpkgs.lib.nixosSystem {
+      qemu-nixos-btw = inputs.nixpkgs.lib.nixosSystem {
         inherit specialArgs;
 
         modules = laptop ++ [
-          ./nixos-btw
+          ./qemu-nixos-btw
           inputs.disko.nixosModules.disko
           inputs.home-manager.nixosModules.home-manager
         ];

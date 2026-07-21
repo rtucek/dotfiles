@@ -16,7 +16,7 @@
     users.rtucek = ./home.nix;
   };
 
-  networking.hostName = "nixos-btw";
+  networking.hostName = "qemu-nixos-btw";
 
   security.pam.services.hyprlock = {
     enable = true;

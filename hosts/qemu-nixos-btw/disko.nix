@@ -2,8 +2,7 @@
   disko.devices = {
     disk = {
       main = {
-        # When using disko-install, we will overwrite this value from the commandline
-        device = "/dev/disk/by-id/some-disk-id";
+        device = "/dev/nvme0n1";
         type = "disk";
         content = {
           type = "gpt";
@@ -41,7 +40,7 @@
         type = "lvm_vg";
         lvs = {
           lv_root = {
-            size = "30%VG";
+            size = "33%VG";
             content = {
               type = "filesystem";
               format = "ext4";
@@ -52,7 +51,7 @@
             };
           };
           lv_home = {
-            size = "30%VG";
+            size = "33%VG";
             content = {
               type = "filesystem";
               format = "ext4";
