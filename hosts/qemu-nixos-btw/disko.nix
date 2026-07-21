@@ -1,8 +1,9 @@
+{ lib, ... }:
 {
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/nvme0n1";
+        device = lib.mkDefault "/dev/nvme0n1";
         type = "disk";
         content = {
           type = "gpt";
@@ -17,18 +18,31 @@
                 mountOptions = [ "umask=0077" ];
               };
             };
+
             luks = {
               size = "100%";
               content = {
                 type = "luks";
                 name = "volgroup0";
-                extraOpenArgs = [ ];
-                settings = { };
-                additionalKeyFiles = [ ];
+                # To be provided via nisos-anywhere.
+                # e.g. via...
+                #
+                # ```
+                # nix run github:numtide/nixos-anywhere -- \
+                #     --disk-encryption-keys /tmp/disk.key <(echo -n "MyFullDiskPassword123#") \
+                #     --flake .#qemu-nixos-btw \
+                #     user@host
+                # ```
+                passwordFile = "/tmp/disk.key";
+                settings = {
+                  allowDiscards = true;
+                };
                 content = {
                   type = "lvm_pv";
                   vg = "volgroup0";
                 };
+                # additionalKeyFiles = [ ];
+                # extraOpenArgs = [ ];
               };
             };
           };
@@ -50,6 +64,7 @@
               ];
             };
           };
+
           lv_home = {
             size = "33%VG";
             content = {
