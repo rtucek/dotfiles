@@ -5,6 +5,7 @@
     pkgs.coreutils-full
 
     # System management (local & remote)
+    pkgs.efibootmgr
     pkgs.util-linux
     pkgs.openssh
 
