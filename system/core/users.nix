@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 {
-  sops.secrets.initial_hashed_password.neededForUsers = true;
+  sops.secrets.initial_hashed_password = {
+    sopsFile = ../../secrets/users/rtucek.yaml;
+    neededForUsers = true;
+  };
+
   users.users.rtucek = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets.initial_hashed_password.path;
