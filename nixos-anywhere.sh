@@ -9,9 +9,9 @@ trap cleanup EXIT
 
 install -d -m700 "$temp/secrets"
 sops decrypt \
-	--extract '["age_key"]' \
+	--extract '["host_key"]' \
 	--output $temp/secrets/keys.txt \
-	./secrets/users/rtucek.yaml
+	secrets/hosts/qemu-nixos-btw.yaml
 chmod 600 "$temp/secrets/keys.txt"
 
 SSHPASS=nixos nix run github:nix-community/nixos-anywhere -- \
