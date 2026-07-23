@@ -21,8 +21,8 @@ in
   systemd.user.services.clone-dotfiles = {
     Unit = {
       Description = "Clone dotfiles repo";
-      Wants = "network-online.target";
-      After = "network-online.target";
+      Wants = "NetworkManager-wait-online.service";
+      After = "NetworkManager-wait-online.service";
     };
     Service = {
       Type = "oneshot";
