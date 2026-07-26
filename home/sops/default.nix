@@ -1,5 +1,9 @@
-{ config, ... }:
+{ config, inputs, ... }:
 {
+  imports = [
+    inputs.sops-nix.homeManagerModules.sops
+  ];
+
   sops = {
     log = [
       "keyImport"

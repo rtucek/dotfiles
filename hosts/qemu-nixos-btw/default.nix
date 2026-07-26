@@ -1,18 +1,23 @@
-{
-  inputs,
-  home-manager,
-  ...
-}:
+{ inputs, home-manager, ... }:
 {
   imports = [
     ./hardware-configuration.nix
   ];
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = { inherit inputs; };
-    users.rtucek = ./home.nix;
+  home-manager.users = {
+    rtucek = {
+      imports = [
+        ../../home
+      ];
+
+      home = {
+        stateVersion = "26.05";
+        username = "rtucek";
+        homeDirectory = "/home/rtucek";
+      };
+
+      programs.home-manager.enable = true;
+    };
   };
 
   networking.hostName = "qemu-nixos-btw";

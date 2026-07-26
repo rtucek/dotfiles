@@ -1,6 +1,8 @@
-{ ... }:
+{ inputs, ... }:
 {
   imports = [
+    inputs.nixvim.homeModules.nixvim
+
     ./keybindings.nix
     ./lsp
     ./plugins
