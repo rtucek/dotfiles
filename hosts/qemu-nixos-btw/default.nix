@@ -18,8 +18,4 @@
 
   networking.hostName = "qemu-nixos-btw";
   sops.defaultSopsFile = ../../secrets/hosts/qemu-nixos-btw.yaml;
-
-  security.pam.services.hyprlock = {
-    enable = true;
-  };
 }

@@ -1,6 +1,9 @@
 {
   programs.hyprlock = {
+    # Note: `security.pam.services.hyprlock.enable = true` is required in order
+    # to work.
     enable = true;
+
     settings =
       let
         fingerprint_auth_enabled = false;
