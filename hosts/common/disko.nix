@@ -24,16 +24,16 @@
               content = {
                 type = "luks";
                 name = "volgroup0";
-                # To be provided via nisos-anywhere.
+                # To be provided via nixos-anywhere.
                 # e.g. via...
                 #
                 # ```
                 # nix run github:numtide/nixos-anywhere -- \
                 #     --disk-encryption-keys /tmp/disk.key <(echo -n "MyFullDiskPassword123#") \
-                #     --flake .#qemu-nixos-btw \
-                #     user@host
+                #     --flake .#HOSTNAME \
+                #     USER@HOST
                 # ```
-                passwordFile = "/tmp/disk.key";
+                passwordFile = lib.mkDefault "/tmp/disk.key";
                 settings = {
                   allowDiscards = true;
                 };
@@ -50,11 +50,16 @@
       };
     };
     lvm_vg = {
+      # As a sensitive default, partitions for "/" and "/home" will each
+      # get 33 %, leaving the remaining 33 % for extending when needed.
+      #
+      # Nonetheless, it's generally recommended to that each host defines
+      # its own proper volume size.
       volgroup0 = {
         type = "lvm_vg";
         lvs = {
           lv_root = {
-            size = "33%VG";
+            size = lib.mkDefault "33%VG";
             content = {
               type = "filesystem";
               format = "ext4";
@@ -66,7 +71,7 @@
           };
 
           lv_home = {
-            size = "33%VG";
+            size = lib.mkDefault "33%VG";
             content = {
               type = "filesystem";
               format = "ext4";
