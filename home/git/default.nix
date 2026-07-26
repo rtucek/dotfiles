@@ -30,11 +30,12 @@
 
       maintenance.enable = true;
 
-      signing = {
-        format = "openpgp";
-        key = "0x49593BD010DE4723";
-        signByDefault = true;
-      };
+      # # To be set by the importer
+      # signing = {
+      #   format = "openpgp";
+      #   key = "0x49593BD010DE4723";
+      #   signByDefault = true;
+      # };
 
       settings = [
         {
@@ -44,12 +45,13 @@
             pager = delta;
           };
         }
-        {
-          user = {
-            name = "Rudolf Tucek";
-            email = "tucek.rudolf@gmail.com";
-          };
-        }
+        # # To be set by the importer
+        # {
+        #   user = {
+        #     name = "Rudolf Tucek";
+        #     email = "tucek.rudolf@gmail.com";
+        #   };
+        # }
         {
           alias = {
             fork-point = "!${bash} -c '${diff} -u <(${git} rev-list --first-parent \"\${1:-master}\") <(${git} rev-list --first-parent \"\${2:-HEAD}\") | ${sed} -ne \"s/^ //p\" | ${head} -1' -";
