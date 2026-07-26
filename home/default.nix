@@ -8,6 +8,7 @@
     ./sops
     ./tmux
     ./tools
+    ./udiskie
     ./xdg
   ];
 }
