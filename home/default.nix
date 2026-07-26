@@ -11,4 +11,6 @@
     ./udiskie
     ./xdg
   ];
+
+  programs.home-manager.enable = true;
 }

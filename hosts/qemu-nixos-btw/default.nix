@@ -15,8 +15,6 @@
         username = "rtucek";
         homeDirectory = "/home/rtucek";
       };
-
-      programs.home-manager.enable = true;
     };
   };
 
