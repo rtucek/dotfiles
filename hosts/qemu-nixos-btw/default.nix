@@ -16,20 +16,26 @@
         homeDirectory = "/home/rtucek";
       };
 
-      programs.git = {
-        settings = [
-          {
-            user = {
-              name = "Rudolf Tucek";
-              email = "tucek.rudolf@gmail.com";
-            };
-          }
-        ];
+      programs = {
+        sops = {
+          defaultSopsFile = ../../secrets/users/rtucek.yaml;
+        };
 
-        signing = {
-          format = "openpgp";
-          key = "0x49593BD010DE4723";
-          signByDefault = true;
+        git = {
+          settings = [
+            {
+              user = {
+                name = "Rudolf Tucek";
+                email = "tucek.rudolf@gmail.com";
+              };
+            }
+          ];
+
+          signing = {
+            format = "openpgp";
+            key = "0x49593BD010DE4723";
+            signByDefault = true;
+          };
         };
       };
     };
