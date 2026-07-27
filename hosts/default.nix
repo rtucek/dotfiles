@@ -28,5 +28,16 @@
             ./qemu-nixos-btw
           ];
       };
+
+      dell-xps9360-nixos-btw = inputs.nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+
+        modules =
+          laptop
+          ++ commonCfg
+          ++ [
+            ./dell-xps9360-nixos-btw
+          ];
+      };
     };
 }

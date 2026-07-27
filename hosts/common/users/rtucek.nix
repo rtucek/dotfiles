@@ -4,6 +4,9 @@
   home-manager,
   ...
 }:
+let
+  rtucekSopsFile = ../../../secrets/users/rtucek.yaml;
+in
 {
   # User config
   users.users.rtucek = {
@@ -21,7 +24,7 @@
 
   # Decrypt hashed password
   sops.secrets.initial_hashed_password = {
-    sopsFile = ../../../secrets/users/rtucek.yaml;
+    sopsFile = rtucekSopsFile;
     neededForUsers = true;
   };
   security.audit.rules = [
@@ -47,7 +50,7 @@
       };
 
       sops = {
-        defaultSopsFile = ../../../secrets/users/rtucek.yaml;
+        defaultSopsFile = rtucekSopsFile;
       };
 
       programs = {
