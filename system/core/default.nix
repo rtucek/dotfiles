@@ -6,7 +6,6 @@
     ./ram.nix
     ./security
     ./time.nix
-    ./users.nix
 
     ../nix
   ];
