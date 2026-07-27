@@ -29,7 +29,13 @@ SSHPASS=nixos nix run github:nix-community/nixos-anywhere -- \
 	--env-password \
 	--extra-files "$temp" \
 	--chown "/home/rtucek" "1000:100" \
-	--disk-encryption-keys /tmp/disk.key <(sops decrypt --extract '["luks_key"]' secrets/hosts/qemu-nixos-btw.yaml) \
+	--disk-encryption-keys \
+		/tmp/disk.key \
+		<( \
+			sops decrypt \
+				--extract '["luks_key"]' \
+				secrets/hosts/qemu-nixos-btw.yaml \
+		) \
 	--generate-hardware-config nixos-generate-config ./hosts/qemu-nixos-btw/hardware-configuration.nix \
 	--flake .#qemu-nixos-btw \
 	--target-host nixos@qemu
