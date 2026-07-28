@@ -115,7 +115,7 @@
 
           # See https://wiki.hypr.land/Configuring/Basics/Variables/#ecosystem
           config.ecosystem = {
-            no_update_news = false;
+            no_update_news = true;
             no_donation_nag = true;
             # enforce_permissions = true;
           };
