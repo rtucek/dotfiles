@@ -16,6 +16,7 @@
       package = pkgs.gitFull;
 
       ignores = [
+        "/.idea/"
         "*.sublime-project"
         "*.sublime-workspace"
         "*.swp"
