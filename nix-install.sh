@@ -28,14 +28,21 @@ read -rp "SSH destination port [22]: " SSH_PORT
 SSH_PORT=${SSH_PORT:-22}
 read -rp "SSH user (requires sudo privileges): " SSH_USER
 read -srp "SSH password: " SSH_PW
-echo ""
+echo
 read -rp "Nix flake: " FLAKE
+read -srp "Full disk encryption password: " LUKS_PASSWORD
+echo
+read -srp "Full disk encryption password (repeat): " LUKS_PASSWORD_REPEAT
+echo
+
+# Minimalistic validation
+if [[ "$LUKS_PASSWORD" != "$LUKS_PASSWORD_REPEAT" ]]; then
+	echo "Full disk encryption passwords do not match"
+	exit 1
+fi
 
 HOST_SECRET="secrets/hosts/${FLAKE}.yaml"
 HW_CONFIG="hosts/${FLAKE}/hardware-configuration.nix"
-echo "throw \"hardware-configuration.nix not yet auto-generated during setup\"" > $HW_CONFIG
-
-# Minimalistic validation
 if [[ ! -f "$HOST_SECRET" ]]; then
 	echo "No host secret found:"
 	echo -e "\t$HOST_SECRET"
@@ -63,17 +70,12 @@ echo
 echo "Installing ${FLAKE}..."
 echo
 
+echo "throw \"hardware-configuration.nix not yet auto-generated during setup\"" > $HW_CONFIG
 SSHPASS="$SSH_PW" nix run github:nix-community/nixos-anywhere -- \
 	--env-password \
 	--extra-files "$temp" \
 	--chown "/home/rtucek" "1000:100" \
-	--disk-encryption-keys \
-		/tmp/disk.key \
-		<( \
-			sops decrypt \
-				--extract '["luks_key"]' \
-				"$HOST_SECRET"
-		) \
+	--disk-encryption-keys /tmp/disk.key <( echo "$LUKS_PASSWORD" ) \
 	--generate-hardware-config nixos-generate-config "$HW_CONFIG" \
 	--flake ".#${FLAKE}" \
 	--target-host "${SSH_USER}@${SSH_HOST}" \
