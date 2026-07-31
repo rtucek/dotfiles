@@ -35,7 +35,7 @@
             workspace-rule = [
               {
                 workspace = "w[tv1]";
-                gaps_out = 0;
+                gaps_out = 9;
                 gaps_in = 0;
               }
               {
@@ -50,8 +50,8 @@
                   float = false;
                   workspace = "w[tv1]";
                 };
-                border_size = 0;
-                rounding = 0;
+                border_size = 2;
+                rounding = 10;
               }
               {
                 match = {
