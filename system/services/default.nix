@@ -4,5 +4,6 @@
     ./disks.nix
     ./greetd.nix
     ./monitoring.nix
+    ./smartcard.nix
   ];
 }
