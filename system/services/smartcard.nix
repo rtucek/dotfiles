@@ -1,5 +1,7 @@
 { lib, pkgs, ... }:
 {
+  programs.yubikey-manager.enable = true;
+
   # pcscd will be used as the authoritative daemon, interacting with smartcards
   # like Yubikeys.
   #
@@ -8,9 +10,7 @@
   # As such, we have to make sure that other daemons work with pcscd together.
   #
   # see https://github.com/OpenSC/OpenSC/wiki/GnuPG-and-OpenSC
-  services.pcscd = {
-    enable = true;
-  };
+  services.pcscd.enable = true;
   # Add udev rules for smart cards
   hardware.gpgSmartcards.enable = true;
 
