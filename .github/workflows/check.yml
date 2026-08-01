@@ -32,6 +32,7 @@ jobs:
           packages: nil
           script: |
             find . -name '*.nix' -print0 | xargs -0 nil diagnostics | tee /tmp/findings.txt
-            if [ -s "/tmp/findings.txt" ];
-              then exit 1
+            if [ -s "/tmp/findings.txt" ]; then
+              echo "Nil detected warnings/errors"
+              exit 1
             fi
