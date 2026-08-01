@@ -1,12 +1,4 @@
-{
-  inputs,
-  pkgs,
-  lib,
-  ...
-}:
-let
-  inherit (pkgs.stdenv.hostPlatform) system;
-in
+{ pkgs, ... }:
 {
   environment.systemPackages = [
     pkgs.hyprland
