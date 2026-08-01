@@ -31,9 +31,4 @@
       ];
     };
   };
-
-  programs.nm-applet = {
-    enable = true;
-    indicator = false;
-  };
 }
