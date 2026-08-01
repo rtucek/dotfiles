@@ -27,7 +27,7 @@ jobs:
           extra_nix_config: |
             auto-optimise-store = true
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-      - uses: workflow/nix-shell-action@v4
+      - uses: workflow/nix-shell-action@v3
         with:
           packages: nil
           script: |
