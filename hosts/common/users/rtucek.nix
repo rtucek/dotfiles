@@ -18,6 +18,7 @@ in
     extraGroups = [
       "wheel" # sudo make me a sandwich
       "docker" # run docker commands without sudo
+      "networkmanager" # allow managing connections without sudo
     ];
   };
 
