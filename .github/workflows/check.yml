@@ -27,10 +27,11 @@ jobs:
           extra_nix_config: |
             auto-optimise-store = true
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-            experimental-features = nix-command flakes
-      - run: nix-shell -p nil
-      - run: find . -name '*.nix' -print0 | xargs -0 nil diagnostics | tee /tmp/findings.txt
-      - run: |
-          if [ -s "/tmp/findings.txt" ];
-            then exit 1
-          fi
+      - uses: workflow/nix-shell-action@v4
+        with:
+          packages: nil
+          script: |
+            find . -name '*.nix' -print0 | xargs -0 nil diagnostics | tee /tmp/findings.txt
+            if [ -s "/tmp/findings.txt" ];
+              then exit 1
+            fi
