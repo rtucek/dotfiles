@@ -66,7 +66,7 @@
         {
           commit = {
             verbose = true;
-            cleanup = true;
+            cleanup = "scissors";
           };
         }
         {
