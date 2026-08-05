@@ -5,7 +5,7 @@
     pkgs.kubectl
 
     # Deployment
-    pkgs.helm
+    pkgs.kubernetes-helm
 
     # Monitoring
     pkgs.k9s
