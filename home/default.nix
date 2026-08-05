@@ -5,6 +5,7 @@
     ./gpg
     ./hyprland
     ./neovim
+    ./shell
     ./sops
     ./tmux
     ./tools
