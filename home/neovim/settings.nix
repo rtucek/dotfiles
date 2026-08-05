@@ -71,6 +71,10 @@
       ignorecase = true;
       smartcase = true;
 
+      # Show ruler at at `textwidth`'s n+1 position.
+      # `textwidth` in return is typically controlled by editorconfig's `max_line_length` setting.
+      colorcolumn = "+1";
+
       # -----VISUAL-----
 
       # Syntax highlighting
