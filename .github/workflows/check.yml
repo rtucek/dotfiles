@@ -49,7 +49,7 @@ jobs:
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - uses: workflow/nix-shell-action@v3
         with:
-          packages: nixfmt-tree git
+          packages: nixfmt-tree,git
           script: |
             treefmt
             GIT_CHANGES="$(git status --porcelain)"
