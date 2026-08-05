@@ -58,4 +58,5 @@ jobs:
               echo "Run nixfmt and commit changes"
               echo "Affected files:"
               echo "$GIT_CHANGES"
+              exit 1
             fi
