@@ -10,6 +10,7 @@
     pkgs.openssh
 
     # System monitoring
+    pkgs.btop
     pkgs.htop
     pkgs.inxi
     pkgs.lshw
