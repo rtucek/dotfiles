@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ ... }:
 {
   programs.yubikey-manager.enable = true;
 
@@ -18,15 +18,4 @@
   # "traditional" SSH agent.
   # As such, we're explicitly disabling openssh's ssh agent.
   programs.ssh.startAgent = false;
-  # Set SSH_AUTH_SOCK ENV globally for all shells.
-  # This allows ssh clients to find the proper socket to get authentication
-  # credentials from.
-  environment.shellInit =
-    let
-      gpgconf = "${lib.getBin pkgs.gnupg}/bin/gpgconf";
-    in
-    ''
-      gpg-connect-agent /bye
-      export SSH_AUTH_SOCK=$(${gpgconf} --list-dirs agent-ssh-socket)
-    '';
 }
