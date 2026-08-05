@@ -52,7 +52,7 @@ jobs:
           packages: nixfmt-tree,git
           script: |
             treefmt
-            GIT_CHANGES="$(git status --porcelain)"
+            GIT_CHANGES="$(git status --porcelain=v1)"
             if [[ -n "$GIT_CHANGES" ]]; then
               echo "Code not formatted"
               echo "Run nixfmt and commit changes"
