@@ -8,6 +8,11 @@
       # see https://github.com/nvim-telescope/telescope.nvim
       telescope = {
         enable = true;
+        extensions = {
+          fzf-native = {
+            enable = true;
+          };
+        };
         keymaps = {
           # Fuzzy search
           "<C-P>" = {
