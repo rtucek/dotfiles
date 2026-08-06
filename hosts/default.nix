@@ -39,5 +39,16 @@
             ./dell-xps9360-nixos-btw
           ];
       };
+
+      tux-ibp-amdgen9-nixos-btw = inputs.nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+
+        modules =
+          laptop
+          ++ commonCfg
+          ++ [
+            ./tux-ibp-amdgen9-nixos-btw
+          ];
+      };
     };
 }
