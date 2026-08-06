@@ -70,7 +70,7 @@ echo
 echo "Installing ${FLAKE}..."
 echo
 
-echo "throw \"hardware-configuration.nix not yet auto-generated during setup\"" > $HW_CONFIG
+echo "throw \"hardware-configuration.nix not yet auto-generated during setup\"" > "$HW_CONFIG"
 SSHPASS="$SSH_PW" nix run github:nix-community/nixos-anywhere -- \
 	--env-password \
 	--extra-files "$temp" \
