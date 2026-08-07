@@ -20,7 +20,7 @@ While this is technically "just" a glorified Nix flake, the initial installation
 some bootstrapping.
 
 This is due to the following requirements:
-- disk partition is declaratively managed via disko.[^disko docs]
+- disk partitioning is declaratively managed via disko.[^disko docs]
 - secret management is achieved via sops-nix.[^sops-nix docs]
 - installation via nixos-anywhere.[^nixos-anywhere docs]
 
@@ -51,13 +51,13 @@ In order to generate a new key, run:
 age-keygen -pq
 ```
 
-This will dump an age key - both the public and private keys - to stdout.[^age docs]
+This will dump an age identity - both the public and private keys - to stdout.[^age docs]
 Store the output in a temporary file.
 
 
-#### Create the host sops file
+#### Create the host SOPS file
 
-Create a dedicated sops file for encrypting the host key. The general convention is to locate the
+Create a dedicated SOPS file for encrypting the host key. The general convention is to locate the
 host key in `./secrets/hosts/${HOSTNAME}.yaml`.
 
 ```
@@ -154,7 +154,7 @@ Paste the following template into it.
 }
 ```
 
-The referenced `hardware-configuration.nix` file needs to be present. The actual content will be
+The referenced `hardware-configuration.nix` file must be present. The actual content will be
 generated during the installation by `nixos-anywhere`. It is sufficient to write the following
 content to `hosts/tux-ibp-amdgen9-nixos-btw/hardware-configuration.nix` (the convention is
 `hosts/${HOSTNAME}/hardware-configuration.nix`):
@@ -197,12 +197,12 @@ template:
 }
 ```
 
-Once done, run `nix flake check .` to verify that the configuration changes are still valid.
+Once finished, run `nix flake check .` to verify that the configuration changes are still valid.
 
 
 #### Prepare the destination host
 
-SSH into our installation target via `ssh user@IP` and verify that you have sudo privileges by
+SSH into the installation target via `ssh user@IP` and verify that you have sudo privileges by
 running `sudo whoami`.
 
 As a general reminder, it is also advisable to verify the available disk size (e.g. `sudo fdisk -l
@@ -214,7 +214,7 @@ As a general reminder, it is also advisable to verify the available disk size (e
 
 Once everything is ready, simply run `./nix-install.sh` and follow the interactive installer.
 
-The full-disk-encryption password will be asked during the installation.
+The installer will prompt you for the full-disk-encryption password.
 
 > WARNING: `./nix-install.sh` will format the destination host's disk via disko. Make sure you have
 > backed up your machine in case something breaks during the installation.
