@@ -1,6 +1,0 @@
-WarnWeakCrypto no-pq-kex
-
-Host *
-	SetEnv TERM=xterm-256color
-
-Include config.d/*

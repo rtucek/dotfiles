@@ -1,0 +1,62 @@
+name: Flake Tests
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  flake-check:
+    name: Flake Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cachix/install-nix-action@v31
+        with:
+          install_url: https://nixos.org/nix/install
+          extra_nix_config: |
+            auto-optimise-store = true
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+            experimental-features = nix-command flakes
+      - run: nix flake check --all-systems .
+  lint:
+    name: Nix lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cachix/install-nix-action@v31
+        with:
+          install_url: https://nixos.org/nix/install
+          extra_nix_config: |
+            auto-optimise-store = true
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - uses: workflow/nix-shell-action@v3
+        with:
+          packages: nil
+          script: |
+            find . -name '*.nix' -print0 | xargs -0 nil diagnostics | tee /tmp/findings.txt
+            if [ -s "/tmp/findings.txt" ]; then
+              echo "Nil detected warnings/errors"
+              exit 1
+            fi
+  formatter:
+    name: Nix formatter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cachix/install-nix-action@v31
+        with:
+          install_url: https://nixos.org/nix/install
+          extra_nix_config: |
+            auto-optimise-store = true
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - uses: workflow/nix-shell-action@v3
+        with:
+          packages: nixfmt-tree,git
+          script: |
+            treefmt
+            GIT_CHANGES="$(git status --porcelain=v1)"
+            if [[ -n "$GIT_CHANGES" ]]; then
+              echo "Code not formatted"
+              echo "Run nixfmt and commit changes"
+              echo "Affected files:"
+              echo "$GIT_CHANGES"
+              exit 1
+            fi

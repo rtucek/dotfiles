@@ -1,486 +1,271 @@
 # Dotfiles
 
-My dotfiles - use them and contribute your personal changes/suggestions.
+My dotfiles (and now, system configuration) - use them as a reference for your personal use and
+contribute suggestions and improvements.
+
+As of 2026, I've switched from an [Arch-based](https://archlinux.org/) setup, where dotfiles were
+managed with [Chezmoi](https://www.chezmoi.io/), to [NixOS](https://nixos.org/) via a flake-based
+approach.
+
+Dotfiles in the home directory - including most tools whenever possible - are managed via [Home
+Manager](https://nix-community.github.io/home-manager/).
+
+Historical Arch configuration may be inspected by looking at the
+[arch-dotfiles](https://github.com/rtucek/dotfiles/releases/tag/arch-dotfiles) tag.
 
 
 ## Installation
 
-The specifically target Arch-alike distributions. For instance, the
-instructions here should also work for Manjaro, which builds upon Arch.
+While this is technically "just" a glorified Nix flake, the initial installation on a host requires
+some bootstrapping.
 
-Most importantly, it's require to install a package manager, which
-makes use of the AUR. [yay](https://github.com/Jguer/yay) is by far
-the best one I've ever seen and can simply be installed like so.
+This is due to the following requirements:
+- disk partitioning is declaratively managed via disko.[^disko docs]
+- secret management is achieved via sops-nix.[^sops-nix docs]
+- installation via nixos-anywhere.[^nixos-anywhere docs]
 
-```bash
-sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+
+### Onboarding a new machine
+
+Assuming you want to add a new machine from scratch, perform the following steps in order:
+
+
+#### Settle on the hostname
+
+The computer's hostname is a key parameter in NixOS as it maps (by default) to the configuration
+target.
+
+The example below adds a new laptop of type TUXEDO InfinityBook Pro AMD Gen9. As such, it uses
+`tux-ibp-amdgen9-nixos-btw` as the hostname.
+
+
+#### Create a host key
+
+The host key is required for decrypting secrets at boot time.
+For security reasons, each host is expected to have its own dedicated key, located at
+`/secrets/keys.txt`.
+
+In order to generate a new key, run:
+
+```sh
+age-keygen -pq
 ```
 
-Then, you'd want to install all relevant packages from the [General
-packages](#general-packages), [Fonts](#fonts) and [AUR](#aur) sections.
-
-Dotfiles are managed by [`chezmoi`](https://github.com/twpayne/chezmoi). Run
-`chezmoi init rtucek` in order to download all dotfiles, followed by `chezmoi
-cd` for jumping directly to the git repo of the dotfiles.
-
-A couple of template variables have to be set for proper configuration.
-Use the sample config file from `dot_config/chezmoi/chezmoi.toml.sample` and
-copy it to `~/.config/chezmoi/chezmoi.toml`, then set the value accordingly and
-run `chezmoi apply` for having the actual dotfiles being put a their right
-place.
-
-Refer to [chezmoi's docs](https://www.chezmoi.io/) for further details.
+This will dump an age identity - both the public and private keys - to stdout.[^age docs]
+Store the output in a temporary file.
 
 
-## Contribution
+#### Create the host SOPS file
 
-Pull requests are welcome!
+Create a dedicated SOPS file for encrypting the host key. The general convention is to locate the
+host key in `./secrets/hosts/${HOSTNAME}.yaml`.
 
+```
+# Create the file via
+sops edit ./secrets/hosts/tux-ibp-amdgen9-nixos-btw.yaml
+```
 
-## Dependencies
+Then, add the previously generated age key in the `host_key` mapping:
 
-The dotfiles are optimized for the following setup.
-
-
-### General packages
-
-- alsa-utils
-- arch-audit
-- arch-wiki-docs
-- bash-completion
-- bat [[1]](#syntax-highlight-with-bat-and-cat-[1])
-- bc
-- bluetui
-- bluez
-- bluez-utils
-- bolt [[4]](#fix-hotplug-issue-with-thunderbolt-[4])
-- brightnessctl
-- chezmoi
-- ctags
-- diff-so-fancy
-- dmidecode
-- docker [[2]](#docker-post-installation-[2])
-- docker-compose
-- dog
-- dunst
-- ethtool
-- fastfetch
-- firefox
-- fwupd
-- fzf
-- gimp
-- git-delta [[1]](#syntax-highlight-with-bat-and-cat-[1])
-- glab
-- globalprotect-openconnect
-- gnome-keyring
-- gnu-netcat
-- go
-- gparted
-- gufw
-- gzip
-- helm
-- helvum
-- htop
-- httpie
-- imagemagick
-- inxi
-- ipcalc
-- jless
-- jq
-- k9s
-- kubectl
-- less
-- libreoffice-fresh
-- libvirt
-- lsb-release
-- lshw
-- lsof
-- man-db
-- mkcert
-- monique
-- msr-tools
-- mtr
-- mysql-workbench
-- neovim
-- network-manager-applet
-- networkmanager-openconnect
-- nitrogen
-- nvm
-- openconnect
-- openssh
-- osquery
-- pcmanfm
-- percona-server-clients
-- percona-toolkit
-- perl-image-exiftool
-- pgcli
-- pigz
-- pipewire [[7]](#pipewire-post-installation-activation-[7])
-- pipewire-libcamera
-- pipewire-pulse
-- playerctl
-- postgresql-client
-- pwgen
-- python-pip
-- python-pipx
-- python-pynvim
-- qemu-full
-- ranger
-- rofi
-- rsync
-- ruby-erb
-- seahorse
-- sound-theme-freedesktop
-- speedtest-cli
-- stern
-- strongswan
-- tcpdump
-- tela-circle-icon-theme-manjaro
-- testssl.sh
-- the_silver_searcher
-- thunderbird
-- tmux [[3]](#install-tmux-plugins-[3])
-- torbrowser-launcher
-- tree
-- tree-sitter-cli
-- udiskie
-- udisks2
-- ufw
-- unzip
-- usbutils
-- veracrypt
-- vi
-- virt-manager
-- virt-viewer
-- whois
-- wireplumber
-- wl-clipboard
-- yubikey-manager
-
-
-### FS support
-
-- bcachefs-tools
-- btrfs-progs
-- btrfs-tools
-- cryptsetup
-- dosfstools
-- exfatprogs
-- hfsprogrs
-- hfsutils
-- lvm2
-- mtools
-- ntfs-3g
-- ntfs-progrs
-- xfsprogs
-
-
-### Fonts
-
-- noto-fonts
-- noto-fonts-cjk
-- noto-fonts-emoji
-- otf-font-awesome
-- ttf-dejavu
-- ttf-input-nerd
-- ttf-jetbrains-mono-nerd
-- ttf-joypixels
-- woff2-font-awesome
-
-
-### AUR
-
-- auto-cpufreq [[9]](#auto-cpufreq-post-installation-activation-[9])
-- brave-bin
-- certigo
-- csvtools-git
-- devspace-bin
-- grimblast-git
-- kind-bin
-- lastpass-cli
-- litecli
-- mycli
-- postman-bin
-- ptcpdump
-- pw-volume
-- snapd
-- tmuxinator
-- unimatrix-git
-- yay
-- yubioath-desktop
-
-
-### Snap packages
-
-n/a
-
-
-### Composer
-
-```bash
-composer global require consolidation/cgr
+```yaml
+host_key: |
+  # created: 2026-08-05T20:01:32+02:00
+  # public key:age1pq1f7nk5g0hcvy52[...]appfzrumnuawfy5mdlqd
+  AGE-SECRET-KEY-PQ-[...]
 ```
 
 
-### nvm
+#### Update secrets with the new key
 
-Most important commands are:
+With the new key, the host won't be able to decrypt existing secrets. Existing secrets can only be
+decrypted once they have been re-encrypted with the new public key.
 
-```bash
-nvm install --lts # Installing most recent LTS version
-nvm alias default "lts/*" # Alias most recent lts node version as default
-nvm use default # Use most recent version
-nvm install-latest-npm # Upgrade npm to the latest version
+Before being able to re-encrypt secrets, the new public key must be configured in `.sops.yaml`. Add
+the new public key as a YAML anchor to `keys.hosts.${HOSTNAME}` and alias the value as
+`${HOSTNAME}_age`.
+
+```yaml
+keys:
+  hosts:
+    # [...]
+    tux-ibp-amdgen9-nixos-btw: &tux-ibp-amdgen9-nixos-btw_age |
+      age1pq1f7nk5g0hcvy52[...]appfzrumnuawfy5mdlqd
 ```
 
+Then, reference the new key in the default creation rule in `creation_rules.key_groups.age`:
 
-### npm
-
-The following npm packages are considered as standard.
-Install them via `npm install --global [packages]`:
-
-- @vue/cli
-- create-react-app
-- neovim
-
-
-### yarn
-
-Install yarn via npm. Let yarn manage itself by re-installing yarn globally and
-removing it afterwards via npm again.
-
-```
-npm -g install yarn
-yarn global add yarn
-npm -g remove yarn
+```yaml
+creation_rules:
+  - key_groups:
+      age:
+      # [...]
+      - *tux-ibp-amdgen9-nixos-btw_age
 ```
 
+Finally, re-encrypt all secrets with the new key by running:
 
-### PIP
-
-```bash
-pipx install python-language-server # (coc-python)
+```sh
+sops updatekeys ./secrets/**.yaml
 ```
 
-
-### Bash completion
-
-- composer (`cgr require bamarni/symfony-console-autocomplete`)
-- tmux (https://github.com/imomaliev/tmux-bash-completion/blob/master/completions/tmux)
-- yarn (https://github.com/dsifford/yarn-completion/blob/master/yarn-completion.bash)
+You should see all relevant secret files updated in the secrets folder. A notable exception may be
+secrets, for which other exclusive creation rules take precedence.
 
 
-## Addendum
+#### Extend the flake
 
-### Syntax highlight with bat and cat [1]
+First, make sure you add the baseline configuration by creating
+`hosts/tux-ibp-amdgen9-nixos-btw/default.nix` (the convention is `hosts/${HOSTNAME}/default.nix`).
 
-As a special case, in order to have syntax highlighting for PHP work with
-`bat` in combination with `delta` diffs, refer to [these
-instructions](https://github.com/dandavison/delta/issues/162#issuecomment-625952288).
+Paste the following template into it.
 
-It's necessary to perform this step, whenever `bat` gets updated.
+```nix
+{ ... }:
+{
+  imports = [
+    ./hardware-configuration.nix
+    ../common/users/rtucek.nix
+  ];
 
+  networking.hostName = "tux-ibp-amdgen9-nixos-btw";
+  sops.defaultSopsFile = ../../secrets/hosts/tux-ibp-amdgen9-nixos-btw.yaml;
 
-### Install tmux plugins [3]
+  # If applicable, configure the default screens resolution below.
+  # home-manager.users.rtucek = {
+  #   wayland.windowManager.hyprland.settings = {
+  #     monitor = [
+  #       {
+  #         output = "eDP-1";
+  #         mode = "2880x1800@120.0000";
+  #         position = "0x0";
+  #         scale = 1.5;
+  #       }
+  #     ];
+  #   };
+  # };
 
-After tmux has been installed, run the following commands in order to install
-and setup tmux plugin manager ([TPM](https://github.com/tmux-plugins/tpm)) for
-the first time. The following commands below will clone TPM's source code and
-install it at the right location, then type; `Ctrl + SPACE + I` in order to
-actually install tmux plugins.
-
-```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  # If applicable, change the default LV size.
+  # disko.devices.lvm_vg.volgroup0.lvs = {
+  #   # 250 GB of available disk space
+  #   lv_root.size = "250G";
+  #   # 250 GB of available disk space
+  #   lv_home.size = "250G";
+  # };
+}
 ```
 
+The referenced `hardware-configuration.nix` file must be present. The actual content will be
+generated during the installation by `nixos-anywhere`. It is sufficient to write the following
+content to `hosts/tux-ibp-amdgen9-nixos-btw/hardware-configuration.nix` (the convention is
+`hosts/${HOSTNAME}/hardware-configuration.nix`):
 
-### Fix hotplug issue with Thunderbolt [4]
-
-Given the following symptoms:
-> Devices, connected via Thunderbolt don't work if "hot plugged in" (that is,
-> after the OS has booted). However, if the device is connected at cold boot
-> time, the device works mystically. In particular, to a Dock connected devices
-> like keyboards and mouses don't assume to have any powered state (e.g. the
-> laser pointer of a mouse remains switched off).
-
-This is due to the [OS' security
-settings](https://wiki.archlinux.org/title/Thunderbolt#User_device_authorization).
-The OS - by default - protects against [DMA
-attacks](https://en.wikipedia.org/wiki/DMA_attack) such as
-[Thunderstrike](https://trmm.net/Thunderstrike_2/), by setting the security mode
-to `user` or `secure`. So the in some form or another, we have to "approve" the
-connected device.
-
-One way to simply get away with it, is to add a udev rule to
-`/etc/udev/rules.d/99-removable.rules`, which just authorizes essentially every
-hot-plugged Thunderbolt device:
-
-```
-ACTION=="add", SUBSYSTEM=="thunderbolt", ATTR{authorized}=="0", ATTR{authorized}="1"
+```nix
+{ lib, ... }:
+{
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+}
 ```
 
-The rule will become effective after the next reboot, however you can also avoid
-a reboot by live-reloading udev rules:
+Finally, make sure the host configuration is imported in `hosts/default.nix`. Use the following
+template:
 
-```bash
-sudo udevadm control --reload-rules
-sudo udevadm trigger
+```nix
+{ self, inputs, ... }:
+{
+  flake.nixosConfigurations =
+    let
+      sys = "${self}/system";
+
+      # [...]
+
+      specialArgs = { inherit inputs self; };
+    in
+    {
+      # [...]
+
+      tux-ibp-amdgen9-nixos-btw = inputs.nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+
+        modules =
+          laptop
+          ++ commonCfg
+          ++ [
+            ./tux-ibp-amdgen9-nixos-btw
+          ];
+      };
+    };
+}
 ```
 
-However, a much simpler approach would be actually authorizing the device via
-`bolt`.
-
-Sources:
-- [Thunderbolt](https://wiki.archlinux.org/title/Thunderbolt)
-- [Thunderbolt - udev rule (Arch Wiki)](https://wiki.archlinux.org/title/Thunderbolt#Automatically_connect_any_device)
-- [Live-reload udev rule (unix.stackexchange.com)](https://unix.stackexchange.com/a/39371/213414)
+Once finished, run `nix flake check .` to verify that the configuration changes are still valid.
 
 
-### GPG keyservers
+#### Prepare the destination host
 
-My GPG keys are generally distributed via the following public keyservers:
-- keys.openpgp.org
-- keyserver.ubuntu.com
-- pgp.mit.edu
+SSH into the installation target via `ssh user@IP` and verify that you have sudo privileges by
+running `sudo whoami`.
+
+As a general reminder, it is also advisable to verify the available disk size (e.g. `sudo fdisk -l
+/dev/[...]`). If necessary, adjust `disko.devices.lvm_vg.volgroup0.lvs.lv_root.size` and
+`disko.devices.lvm_vg.volgroup0.lvs.lv_home.size` accordingly.
 
 
-### Fix automatic wake ups from suspend
+#### Do the installation
 
-For some Tuxedo Laptops, the Laptop wakes up automatically within a couple of
-seconds. This is due to a bug in the BIOS, which can be seen in the syslog,
-based on these log entries:
+Once everything is ready, simply run `./nix-install.sh` and follow the interactive installer.
 
-```
-[...]
-xxx xx xx:xx:xx archlinux kernel: ACPI BIOS Error (bug): Could not resolve symbol [\_SB.ACDC.RTAC], AE_NOT_FOUND (20230628/psargs-332)
-xxx xx xx:xx:xx archlinux kernel: ACPI Error: Aborting method \_SB.PEP._DSM due to previous error (AE_NOT_FOUND) (20230628/psparse-529)
-[...]
-```
+The installer will prompt you for the full-disk-encryption password.
 
-For mitigation, the kernel parameter `acpi.ec_no_wakeup=1` must be set in
-`/etc/default/grub`:
+> WARNING: `./nix-install.sh` will format the destination host's disk via disko. Make sure you have
+> backed up your machine in case something breaks during the installation.
 
-```diff
--GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
-+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi.ec_no_wakeup=1"
-```
+During the installation, `hosts/tux-ibp-amdgen9-nixos-btw/hardware-configuration.nix` will be
+rewritten, based on the detected hardware. Don't forget to commit the updated file!
 
-> Don't forget to run `sudo update-grub` in order re-build and deploy the grub
-> config, so that it becomes effective from the next system boot onwards..
 
-For testing purpose, the `acpi.ec_no_wakeup=1` parameter can also be set at
-post-boot with the sysfs interface:
+## FAQ
 
-```bash
-# Read current state of acpi.ec_no_wakeup via ...
-cat /sys/module/acpi/parameters/ec_no_wakeup
-# ... Y -> 1 (on); N -> 0 (off)
-# Set the value by writing 1 or 0 to the file: e.g.
-echo "1" | sudo tee /sys/module/acpi/parameters/ec_no_wakeup
+The section below addresses the most frequently asked questions.
+
+
+### Offline build
+
+By default, `nixos-rebuild` will fail unless an internet connection is present. This is due to the
+fact that even minor changes, such as Home Manager configuration changes, will by default attempt to
+search for already cached builds on cache.nixos.org and nix-community.cachix.org (see
+[`system/nix/store.nix`](system/nix/store.nix)).
+
+In case an offline build is necessary, it is required to manually override `substituters` and
+`trusted-public-keys` with empty values:
+
+```sh
+nixos-rebuild switch --flake . --sudo --option substituters "" --option trusted-public-keys ""
 ```
 
-It's worth pointing out, that even with setting the parameter, the error will
-still be logged to syslog, however the automatic wake ups are prevented this
-way.
+Of course, this won't work unless missing artifacts are already present in the local nix store.
 
 
-Links:
-- [Tuxedo FAQ / Device Immediately Wakes Up After Suspend](https://www.tuxedocomputers.com/en/FAQ-TUXEDO-InfinityBook-Pro-15-Gen9.tuxedo#3675)
-- [Arch Wiki / /sys/module/acpi/parameters/ec_no_wakeup](https://wiki.archlinux.org/title/Power_management/Wakeup_triggers#/sys/module/acpi/parameters/ec_no_wakeup)
+### Default disk layout
+
+The disk formatting is achieved via disko.[^disko docs]
+As a sensible default, the disk layout is defined as follows (see
+[./hosts/common/disko.nix](./hosts/common/disko.nix)):
+
+In short, there are 2 main partitions:
+- 1st partition is the EFI boot partition (1GB in size; FAT32 formatted; mounted at `/boot`)
+- 2nd partition consumes the entire remaining disk space and is encrypted via LUKS2
+
+The encrypted partition uses LVM with a volume group, called `volgroup0`. The VG has 2 logical
+volumes:
+- `lv_home`, mounted at `/home` (ext4; consuming 33% of the volume group by default)
+- `lv_root`, mounted at `/` (ext4; consuming 33% of the volume group by default)
+
+If you wish to change the predefined 33 % VG disk size consumption, override
+`disko.devices.lvm_vg.volgroup0.lvs.lv_root.size` and
+`disko.devices.lvm_vg.volgroup0.lvs.lv_home.size`, respectively.
 
 
-### Have systemd using same default console editor
-
-By default, systemd may use any available console-based editor.
-However, the `SYSTEMD_EDITOR` ENV allows configuring any editor of preference.
-In order to have `sudo` based commands inheriting this ENV, add the following
-line to the sudoers file manually via `visudo`.
-
-```diff
- ##
- ## Preserve editor environment variables for visudo.
- ## To preserve these for all commands, remove the "!visudo" qualifier.
- Defaults!/usr/bin/visudo env_keep += "SUDO_EDITOR EDITOR VISUAL"
-+Defaults env_keep += "SYSTEMD_EDITOR"
- ##
- ## Use a hard-coded PATH instead of the user's to find commands.
-```
-
-
-### Permissions for Polybar [6]
-
-Many modules may not work out of the box. Inspect
-`~/.config/polybar/config.ini`, which might require a few parameters to be
-properly templated via chezmoi.
-
-#### Change backlight via scrolling
-
-For having support for changing the backlight via scrolling, do the following:
-
-1) Add your user to the `video` group.
-
-```bash
-sudo usermod -aG video $USER
-newgrp video
-```
-
-2) Add the following udev rule `/etc/udev/rules.d/99-backlight.rules`
-
-```
-ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
-```
-
-Reload udev via:
-
-```bash
-sudo udevadm control --reload-rules
-sudo udevadm trigger
-```
-
-In case it does not work, try rebooting the system.
-
-
-### Pipewire post-installation activation [7]
-
-[`pipewire`](https://wiki.archlinux.org/title/PipeWire) is used as the audio
-router and processor. For audio session management,
-[`wireplumber`](https://wiki.archlinux.org/title/WirePlumber) is used.
-
-Additionally, the `pipewire-pulse` package is installed for mimicking
-[`pulseaudio`](https://wiki.archlinux.org/title/PulseAudio) for some
-applications. In order to have both services working reliably, make sure systemd
-is running them upon startup.
-
-Either [`helvum`](https://gitlab.freedesktop.org/pipewire/helvum) or
-[`hyprpwcenter`](https://wiki.hypr.land/Hypr-Ecosystem/hyprpwcenter/) may be
-used as patchbay GUI for pipewire.
-
-```bash
-systemctl enable --user --now pipewire.service
-systemctl enable --user --now pipewire-pulse.service
-```
-
-
-### Bluetooth support
-
-For having [Bluetooth](https://wiki.archlinux.org/title/Bluetooth) working, the
-`bluetoothd` daemon must run in the background.
-Run the following systemd command in order to run bluetoothd from the beginning.
-
-```bash
-sudo systemctl enable --now bluetooth.service
-```
-
-Tools like [`bluetui`](https://github.com/pythops/bluetui) and
-`bluetoothctl` may be used for frontends for interacting.
-
-
-### Yubikey support
-
-[Yubikey](https://wiki.archlinux.org/title/YubiKey) builds upon the smartcard
-interface, whose service may not be running.
-You may enable the service to become available via systemd activation:
-
-```bash
-sudo systemctl enable --now pcscd.service
-```
+[^disko docs]: https://github.com/nix-community/disko
+[^sops-nix docs]: https://github.com/mic92/sops-nix
+[^nixos-anywhere docs]: https://nix-community.github.io/nixos-anywhere
+[^age docs]: https://age-encryption.org/
