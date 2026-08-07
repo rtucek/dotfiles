@@ -1,5 +1,6 @@
 {
   imports = [
+    ./nix
     ./database
     ./hyprland
   ];
