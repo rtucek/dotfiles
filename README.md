@@ -223,6 +223,48 @@ During the installation, `hosts/tux-ibp-amdgen9-nixos-btw/hardware-configuration
 rewritten, based on the detected hardware. Don't forget to commit the updated file!
 
 
+## FAQ
+
+The section below addresses the most frequently asked questions.
+
+
+### Offline build
+
+By default, `nixos-rebuild` will fail unless an internet connection is present. This is due to the
+fact that even minor changes, such as Home Manager configuration changes, will by default attempt to
+search for already cached builds on cache.nixos.org and nix-community.cachix.org (see
+[`system/nix/store.nix`](system/nix/store.nix)).
+
+In case an offline build is necessary, it is required to manually override `substituters` and
+`trusted-public-keys` with empty values:
+
+```sh
+nixos-rebuild switch --flake . --sudo --option substituters "" --option trusted-public-keys ""
+```
+
+Of course, this won't work unless missing artifacts are already present in the local nix store.
+
+
+### Default disk layout
+
+The disk formatting is achieved via disko.[^disko docs]
+As a sensible default, the disk layout is defined as follows (see
+[./hosts/common/disko.nix](./hosts/common/disko.nix)):
+
+In short, there are 2 main partitions:
+- 1st partition is the EFI boot partition (1GB in size; FAT32 formatted; mounted at `/boot`)
+- 2nd partition consumes the entire remaining disk space and is encrypted via LUKS2
+
+The encrypted partition uses LVM with a volume group, called `volgroup0`. The VG has 2 logical
+volumes:
+- `lv_home`, mounted at `/home` (ext4; consuming 33% of the volume group by default)
+- `lv_root`, mounted at `/` (ext4; consuming 33% of the volume group by default)
+
+If you wish to change the predefined 33 % VG disk size consumption, override
+`disko.devices.lvm_vg.volgroup0.lvs.lv_root.size` and
+`disko.devices.lvm_vg.volgroup0.lvs.lv_home.size`, respectively.
+
+
 [^disko docs]: https://github.com/nix-community/disko
 [^sops-nix docs]: https://github.com/mic92/sops-nix
 [^nixos-anywhere docs]: https://nix-community.github.io/nixos-anywhere
