@@ -1,6 +1,10 @@
 { pkgs, ... }:
 {
   home.packages = [
+    # Git tools
+    pkgs.gh
+    pkgs.glab
+
     # Common tools
     pkgs.delta
     pkgs.jless
