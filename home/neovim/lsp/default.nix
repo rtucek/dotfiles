@@ -69,6 +69,12 @@
         };
       };
 
+      # seehttps://github.com/lukas-reineke/lsp-format.nvim/
+      lsp-format = {
+        enable = true;
+        lspServersToEnable = "all";
+      };
+
       # see https://github.com/hrsh7th/nvim-cmp
       cmp = {
         enable = true;
