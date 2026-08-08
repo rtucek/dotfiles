@@ -11,6 +11,7 @@
 
     # Nix
     pkgs.nix-diff
+    pkgs.nvd
     pkgs.nixfmt-tree
   ];
 }
