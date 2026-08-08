@@ -1,8 +1,9 @@
-{ ... }:
+{ inputs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
     ../common/users/rtucek.nix
+    inputs.nixos-hardware.nixosModules.tuxedo-infinitybook-pro14-gen9-amd
   ];
 
   networking.hostName = "tux-ibp-amdgen9-nixos-btw";

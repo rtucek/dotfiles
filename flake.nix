@@ -5,6 +5,11 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
 
     disko = {
@@ -34,11 +39,11 @@
 
       perSystem =
         {
-          config,
-          self',
-          inputs',
-          pkgs,
-          system,
+          # config,
+          # self',
+          # inputs',
+          # pkgs,
+          # system,
           ...
         }:
         {
@@ -47,7 +52,7 @@
           # system.
 
           # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
-          packages.default = pkgs.hello;
+          # packages.default = pkgs.hello;
         };
 
       flake = {
