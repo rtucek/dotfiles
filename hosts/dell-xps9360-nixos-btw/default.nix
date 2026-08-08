@@ -1,8 +1,9 @@
-{ ... }:
+{ inputs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
     ../common/users/rtucek.nix
+    inputs.nixos-hardware.nixosModules.dell-xps-13-9360
   ];
 
   networking.hostName = "dell-xps9360-nixos-btw";
