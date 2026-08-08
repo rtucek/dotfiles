@@ -39,11 +39,11 @@
 
       perSystem =
         {
-          config,
-          self',
-          inputs',
-          pkgs,
-          system,
+          # config,
+          # self',
+          # inputs',
+          # pkgs,
+          # system,
           ...
         }:
         {
@@ -52,7 +52,7 @@
           # system.
 
           # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
-          packages.default = pkgs.hello;
+          # packages.default = pkgs.hello;
         };
 
       flake = {
