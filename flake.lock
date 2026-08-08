@@ -88,15 +88,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1785232496,
-        "narHash": "sha256-65EQYIRRpTdpH8lUiB6Mvo5uBkG60aBIzAJuALfx+O0=",
-        "owner": "NixOS",
+        "lastModified": 1786231825,
+        "narHash": "sha256-dkRvsXJkQS1uHAGpr6L0wNr/bNnwu5M62dt3dQlYI4s=",
+        "owner": "rtucek",
         "repo": "nixos-hardware",
-        "rev": "2e790b0a6be8ec2b76174ac0931b8ff11919ec98",
+        "rev": "a77eb1da4078c414485db27161ba4b79f10bd17c",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
+        "owner": "rtucek",
+        "ref": "gate-yt6801-for-older-kernels",
         "repo": "nixos-hardware",
         "type": "github"
       }
