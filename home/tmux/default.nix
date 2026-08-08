@@ -28,6 +28,9 @@
       # Cursor shape
       set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
 
+      # Pass-on focus events to appliations
+      set -g focus-events on
+
       # Ensure colors are set properly
       set-option -sa terminal-overrides ',rxvt-unicode-256color:RGB' # urxvt
       set-option -sa terminal-overrides ',xterm-256color:RGB' # terminator
