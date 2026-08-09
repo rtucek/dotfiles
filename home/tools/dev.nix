@@ -2,7 +2,6 @@
 {
   home.packages = [
     # Git tools
-    pkgs.gh
     pkgs.glab
 
     # Common tools
