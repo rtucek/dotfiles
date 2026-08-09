@@ -11,7 +11,7 @@
     };
 
     # Default to latest and greatest kernel by default.
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages;
 
     # Typical kernel parameters, which we'd usually pass via GRUB's
     # `GRUB_CMDLINE_LINUX_DEFAULT`.
