@@ -83,14 +83,12 @@ in
 
       programs = {
         git = {
-          settings = [
-            {
-              user = {
-                name = "Rudolf Tucek";
-                email = "tucek.rudolf@gmail.com";
-              };
-            }
-          ];
+          settings = {
+            user = {
+              name = "Rudolf Tucek";
+              email = "tucek.rudolf@gmail.com";
+            };
+          };
 
           signing = {
             format = "openpgp";
