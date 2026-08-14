@@ -10,5 +10,8 @@
     # Monitoring
     pkgs.k9s
     pkgs.stern
+
+    # Development
+    pkgs.kind
   ];
 }
