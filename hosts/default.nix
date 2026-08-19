@@ -29,6 +29,17 @@
           ];
       };
 
+      dell-prec-5570-nixos-btw = inputs.nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+
+        modules =
+          laptop
+          ++ commonCfg
+          ++ [
+            ./dell-prec-5570-nixos-btw
+          ];
+      };
+
       dell-xps9360-nixos-btw = inputs.nixpkgs.lib.nixosSystem {
         inherit specialArgs;
 
