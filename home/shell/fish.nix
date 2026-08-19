@@ -16,7 +16,11 @@ in
     enable = true;
 
     interactiveShellInit = ''
-      set fish_greeting # Disable greeting
+      # Disable greeting
+      set fish_greeting
+
+      # Avoid having Ctrl + d closing the shell
+      bind \cd delete-char
 
       ${builtins.concatStringsSep "\n" btConnFuncs}
     '';
