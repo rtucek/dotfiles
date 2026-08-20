@@ -1,4 +1,7 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
+let
+  rtucekSopsFile = ../../../secrets/users/rtucek-watt.yaml;
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -27,5 +30,22 @@
     lv_root.size = "250G";
     # 250 GB of available disk space
     lv_home.size = "250G";
+  };
+
+  # Override common home config
+  sops.secrets.initial_hashed_password.sopsFile = rtucekSopsFile;
+  home-manager.users.rtucek = {
+    sops.defaultSopsFile = rtucekSopsFile;
+
+    programs.git.settings = {
+      user = {
+        name = "Rudolf Tucek";
+        email = lib.mkForce "rudolf.tucek@watt-analytics.com";
+      };
+
+      signing = {
+        key = "0xB4A383288C158721";
+      };
+    };
   };
 }
