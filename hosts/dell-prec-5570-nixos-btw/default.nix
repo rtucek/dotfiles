@@ -33,18 +33,10 @@
     home = {
       sops.defaultSopsFile = ../../secrets/users/rtucek-watt.yaml;
     };
-  };
-  # Override common home config
-  home-manager.users.rtucek = {
-    programs.git.settings = {
-      user = {
-        name = "Rudolf Tucek";
-        email = lib.mkForce "rudolf.tucek@watt-analytics.com";
-      };
 
-      signing = {
-        key = "0xB4A383288C158721";
-      };
+    git = {
+      user.email = "rudolf.tucek@watt-analytics.com";
+      gpg.signingKey = "0x1044945481B99D3E";
     };
   };
 }
