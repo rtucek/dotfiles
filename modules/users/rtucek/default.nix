@@ -1,5 +1,6 @@
 {
   imports = [
-    # TODO
+    ./home.nix
+    ./user.nix
   ];
 }

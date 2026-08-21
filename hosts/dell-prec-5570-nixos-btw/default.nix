@@ -29,11 +29,13 @@
     lv_home.size = "250G";
   };
 
+  rtucek = {
+    home = {
+      sops.defaultSopsFile = ../../secrets/users/rtucek-watt.yaml;
+    };
+  };
   # Override common home config
-  sops.secrets.initial_hashed_password.sopsFile = rtucekSopsFile;
   home-manager.users.rtucek = {
-    sops.defaultSopsFile = rtucekSopsFile;
-
     programs.git.settings = {
       user = {
         name = "Rudolf Tucek";
