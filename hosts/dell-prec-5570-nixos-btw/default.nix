@@ -1,11 +1,8 @@
-{ inputs, lib, ... }:
-let
-  rtucekSopsFile = ../../../secrets/users/rtucek-watt.yaml;
-in
+{ inputs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
-    ../common/users/rtucek.nix
+    ../../modules
     inputs.nixos-hardware.nixosModules.dell-precision-5570
   ];
 
