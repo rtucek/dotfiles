@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../common/users/rtucek.nix
+    ../../modules
   ];
 
   networking.hostName = "qemu-nixos-btw";
