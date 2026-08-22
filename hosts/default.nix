@@ -18,14 +18,25 @@
       specialArgs = { inherit inputs self; };
     in
     {
-      qemu-nixos-btw = inputs.nixpkgs.lib.nixosSystem {
+      tux-ibp-amdgen9-nixos-btw = inputs.nixpkgs.lib.nixosSystem {
         inherit specialArgs;
 
         modules =
           laptop
           ++ commonCfg
           ++ [
-            ./qemu-nixos-btw
+            ./tux-ibp-amdgen9-nixos-btw
+          ];
+      };
+
+      dell-prec-5570-nixos-btw = inputs.nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+
+        modules =
+          laptop
+          ++ commonCfg
+          ++ [
+            ./dell-prec-5570-nixos-btw
           ];
       };
 
@@ -40,14 +51,14 @@
           ];
       };
 
-      tux-ibp-amdgen9-nixos-btw = inputs.nixpkgs.lib.nixosSystem {
+      qemu-nixos-btw = inputs.nixpkgs.lib.nixosSystem {
         inherit specialArgs;
 
         modules =
           laptop
           ++ commonCfg
           ++ [
-            ./tux-ibp-amdgen9-nixos-btw
+            ./qemu-nixos-btw
           ];
       };
     };

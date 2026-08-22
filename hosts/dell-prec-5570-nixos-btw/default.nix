@@ -1,0 +1,38 @@
+{ inputs, ... }:
+{
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules
+    inputs.nixos-hardware.nixosModules.dell-precision-5570
+  ];
+
+  networking.hostName = "dell-prec-5570-nixos-btw";
+  sops.defaultSopsFile = ../../secrets/hosts/dell-prec-5570-nixos-btw.yaml;
+
+  disko.devices.lvm_vg.volgroup0.lvs = {
+    # 250 GB of available disk space
+    lv_root.size = "250G";
+    # 250 GB of available disk space
+    lv_home.size = "250G";
+  };
+
+  rtucek = {
+    home = {
+      sops.defaultSopsFile = ../../secrets/users/rtucek-watt.yaml;
+    };
+
+    git = {
+      user.email = "rudolf.tucek@watt-analytics.com";
+      gpg.signingKey = "0x1044945481B99D3E";
+    };
+
+    hyprland.monitors = [
+      {
+        output = "eDP-1";
+        mode = "1900x1200@59.9500";
+        position = "0x0";
+        scale = 1;
+      }
+    ];
+  };
+}
