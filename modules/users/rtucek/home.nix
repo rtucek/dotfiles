@@ -14,7 +14,7 @@ in
 
     sops.defaultSopsFile = lib.mkOption {
       type = lib.types.pathInStore;
-      default = ../../../secrets/users/rtucek.yaml;
+      default = ../../../secrets/private/rtucek.yaml;
       description = ''
         Default encrypted SOPS file to be used by Home Manager.
       '';

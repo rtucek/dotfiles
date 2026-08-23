@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ../../networks/private.nix
+    ../../networks/shared.nix
     ./disko.nix
     ./home-manager.nix
   ];

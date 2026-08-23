@@ -7,7 +7,7 @@
   ];
 
   networking.hostName = "dell-prec-5570-nixos-btw";
-  sops.defaultSopsFile = ../../secrets/hosts/dell-prec-5570-nixos-btw.yaml;
+  sops.defaultSopsFile = ../../secrets/work/watt-analytics/dell-prec-5570-nixos-btw.yaml;
 
   disko.devices.lvm_vg.volgroup0.lvs = {
     # 250 GB of available disk space
@@ -18,7 +18,7 @@
 
   rtucek = {
     home = {
-      sops.defaultSopsFile = ../../secrets/users/rtucek-watt.yaml;
+      sops.defaultSopsFile = ../../secrets/work/watt-analytics/rtucek.yaml;
     };
 
     git = {

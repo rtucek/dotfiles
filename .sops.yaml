@@ -20,21 +20,7 @@ keys:
 
 creation_rules:
     # Work-laptop at Watt Analytics
-    # User key
-  - path_regex: rtucek\-watt\.yaml$
-    pgp:
-      - *user_rtucek_watt_pgp_key
-        # Backup key
-      - *user_rtucek_pgp_key_yubi_13364058
-    age:
-      # User key
-      - *user_rtucek_watt_age_identity
-      # Host key
-      - *host_dell-prec-5570-nixos-btw
-
-    # Work-laptop at Watt Analytics
-    # Host key
-  - path_regex: dell\-prec\-5570\-nixos\-btw\.yaml$
+  - path_regex: ^secrets\/work\/watt\-analytics\/
     pgp:
       - *user_rtucek_watt_pgp_key
       # Backup key
@@ -45,7 +31,21 @@ creation_rules:
       # Host key
       - *host_dell-prec-5570-nixos-btw
 
-  - path_regex: ^secrets\/network\/shared\.yaml$
+  # Private stuff
+  - path_regex: ^secrets\/private\/
+    pgp:
+      # Backup Key
+      - *user_rtucek_pgp_key_yubi_13364058
+    age:
+      # Private user keys only
+      - *user_rtucek_age_identity
+      # Private host keys only
+      - *tux-ibp-amdgen9-nixos-btw_age
+      - *host_dell-xps9360-nixos-btw_age
+      - *host_qemu-nixos-btw_age
+
+  # Shared between different profiles
+  - path_regex: ^secrets\/shared\/
     pgp:
       - *user_rtucek_pgp_key_yubi_13364058
       - *user_rtucek_watt_pgp_key
@@ -54,20 +54,8 @@ creation_rules:
       - *user_rtucek_age_identity
       - *user_rtucek_watt_age_identity
       # Host keys
+      - *tux-ibp-amdgen9-nixos-btw_age
       - *host_dell-prec-5570-nixos-btw
-      - *host_qemu-nixos-btw_age
-      - *host_dell-xps9360-nixos-btw_age
-      - *tux-ibp-amdgen9-nixos-btw_age
-
-  # Default group for private devices
-  - pgp:
-      # Backup Key
-      - *user_rtucek_pgp_key_yubi_13364058
-    age:
-      # Private user keys only
-      - *user_rtucek_age_identity
-      # Private host keys only
-      - *tux-ibp-amdgen9-nixos-btw_age
       - *host_dell-xps9360-nixos-btw_age
       - *host_qemu-nixos-btw_age
 
