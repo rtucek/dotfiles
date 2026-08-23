@@ -92,20 +92,24 @@ keys:
       age1pq1f7nk5g0hcvy52[...]appfzrumnuawfy5mdlqd
 ```
 
-Then, reference the new key in the default creation rule in `creation_rules.key_groups.age`:
+Then, reference the new key in the default creation rule at the bottom:
 
 ```yaml
 creation_rules:
-  - key_groups:
-      age:
-      # [...]
-      - *tux-ibp-amdgen9-nixos-btw_age
+  # [...]
+
+  # Default group for private devices
+  - pgp:
+    # [...]
+    age:
+    # [...]
+    - *tux-ibp-amdgen9-nixos-btw_age
 ```
 
 Finally, re-encrypt all secrets with the new key by running:
 
 ```sh
-sops updatekeys ./secrets/**.yaml
+find secrets -name '*.yaml' -type f -print0 | xargs -0 -l sops updatekeys --yes
 ```
 
 You should see all relevant secret files updated in the secrets folder. A notable exception may be
