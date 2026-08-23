@@ -15,7 +15,7 @@ require() {
 		exit 1
 	}
 }
-for CMD in sops nix mktemp install; do
+for CMD in sops nix mktemp install realpath; do
 	require "$CMD"
 done
 
@@ -30,6 +30,7 @@ read -rp "SSH user (requires sudo privileges): " SSH_USER
 read -srp "SSH password: " SSH_PW
 echo
 read -rp "Nix flake: " FLAKE
+read -rp "User secret SOPS file: " USER_SOPS_SECRET
 read -srp "Full disk encryption password: " LUKS_PASSWORD
 echo
 read -srp "Full disk encryption password (repeat): " LUKS_PASSWORD_REPEAT
@@ -46,6 +47,13 @@ HW_CONFIG="hosts/${FLAKE}/hardware-configuration.nix"
 if [[ ! -f "$HOST_SECRET" ]]; then
 	echo "No host secret found:"
 	echo -e "\t$HOST_SECRET"
+	exit 1
+fi
+
+USER_SOPS_SECRET_PATH="$(realpath --canonicalize-existing --quiet "$USER_SOPS_SECRET")"
+if [[ ! -f "$USER_SOPS_SECRET_PATH" ]]; then
+	echo "No user secret not found:"
+	echo -e "\t$USER_SOPS_SECRET_PATH"
 	exit 1
 fi
 
