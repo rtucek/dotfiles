@@ -70,9 +70,10 @@
           cleanup = "scissors";
         };
 
-        tag = {
-          forceSignAnnotated = true;
-        };
+        # To be set by the importer
+        # tag = {
+        #   forceSignAnnotated = true;
+        # };
 
         format = {
           coverFromDescription = "auto";

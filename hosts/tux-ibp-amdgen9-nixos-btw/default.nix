@@ -7,7 +7,7 @@
   ];
 
   networking.hostName = "tux-ibp-amdgen9-nixos-btw";
-  sops.defaultSopsFile = ../../secrets/hosts/tux-ibp-amdgen9-nixos-btw.yaml;
+  sops.defaultSopsFile = ../../secrets/private/hosts/tux-ibp-amdgen9-nixos-btw.yaml;
 
   home-manager.users.rtucek = {
     wayland.windowManager.hyprland.settings = {

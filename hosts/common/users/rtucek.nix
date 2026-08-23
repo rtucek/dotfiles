@@ -4,7 +4,7 @@
   ...
 }:
 let
-  rtucekSopsFile = ../../../secrets/users/rtucek.yaml;
+  rtucekSopsFile = ../../../secrets/private/rtucek.yaml;
 in
 {
   # User config

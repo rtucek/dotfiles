@@ -92,20 +92,24 @@ keys:
       age1pq1f7nk5g0hcvy52[...]appfzrumnuawfy5mdlqd
 ```
 
-Then, reference the new key in the default creation rule in `creation_rules.key_groups.age`:
+Then, reference the new key in the default creation rule at the bottom:
 
 ```yaml
 creation_rules:
-  - key_groups:
-      age:
-      # [...]
-      - *tux-ibp-amdgen9-nixos-btw_age
+  # [...]
+
+  # Default group for private devices
+  - pgp:
+    # [...]
+    age:
+    # [...]
+    - *tux-ibp-amdgen9-nixos-btw_age
 ```
 
 Finally, re-encrypt all secrets with the new key by running:
 
 ```sh
-sops updatekeys ./secrets/**.yaml
+find secrets -name '*.yaml' -type f -print0 | xargs -0 -l sops updatekeys --yes
 ```
 
 You should see all relevant secret files updated in the secrets folder. A notable exception may be
@@ -128,21 +132,7 @@ Paste the following template into it.
   ];
 
   networking.hostName = "tux-ibp-amdgen9-nixos-btw";
-  sops.defaultSopsFile = ../../secrets/hosts/tux-ibp-amdgen9-nixos-btw.yaml;
-
-  # If applicable, configure the default screens resolution below.
-  # home-manager.users.rtucek = {
-  #   wayland.windowManager.hyprland.settings = {
-  #     monitor = [
-  #       {
-  #         output = "eDP-1";
-  #         mode = "2880x1800@120.0000";
-  #         position = "0x0";
-  #         scale = 1.5;
-  #       }
-  #     ];
-  #   };
-  # };
+  sops.defaultSopsFile = ../../secrets/private/hosts/tux-ibp-amdgen9-nixos-btw.yaml;
 
   # If applicable, change the default LV size.
   # disko.devices.lvm_vg.volgroup0.lvs = {
@@ -150,6 +140,18 @@ Paste the following template into it.
   #   lv_root.size = "250G";
   #   # 250 GB of available disk space
   #   lv_home.size = "250G";
+  # };
+
+  # If applicable, adjust the main monitor's default.
+  # rtucek = {
+  #   hyprland.monitors = [
+  #     {
+  #       output = "eDP-1";
+  #       mode = "1900x1200@59.9500";
+  #       position = "0x0";
+  #       scale = 1;
+  #     }
+  #   ];
   # };
 }
 ```

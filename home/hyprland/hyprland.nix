@@ -79,7 +79,7 @@
           ########################
 
           # See https://wiki.hypr.land/Configuring/Basics/Monitors/
-          monitor = [
+          monitor = lib.modules.mkAfter [
             {
               # Sensitive default for arbitrary new monitors
               output = "";

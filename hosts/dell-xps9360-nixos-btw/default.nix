@@ -7,7 +7,7 @@
   ];
 
   networking.hostName = "dell-xps9360-nixos-btw";
-  sops.defaultSopsFile = ../../secrets/hosts/dell-xps9360-nixos-btw.yaml;
+  sops.defaultSopsFile = ../../secrets/private/hosts/dell-xps9360-nixos-btw.yaml;
 
   home-manager.users.rtucek = {
     wayland.windowManager.hyprland.settings = {
