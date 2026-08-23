@@ -45,6 +45,20 @@ creation_rules:
       # Host key
       - *host_dell-prec-5570-nixos-btw
 
+  - path_regex: ^secrets\/network\/shared\.yaml$
+    pgp:
+      - *user_rtucek_pgp_key_yubi_13364058
+      - *user_rtucek_watt_pgp_key
+    age:
+      # User keys
+      - *user_rtucek_age_identity
+      - *user_rtucek_watt_age_identity
+      # Host keys
+      - *host_dell-prec-5570-nixos-btw
+      - *host_qemu-nixos-btw_age
+      - *host_dell-xps9360-nixos-btw_age
+      - *tux-ibp-amdgen9-nixos-btw_age
+
   # Default group for private devices
   - pgp:
       # Backup Key

@@ -2,7 +2,7 @@
 {
   sops = {
     secrets.private_networks = {
-      sopsFile = ../secrets/network/private.yaml;
+      sopsFile = ../secrets/network/shared.yaml;
       reloadUnits = [ "NetworkManager.service" ];
     };
   };
