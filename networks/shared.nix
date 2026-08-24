@@ -1,7 +1,7 @@
 { config, ... }:
 {
   sops = {
-    secrets.private_networks = {
+    secrets.shared_networks = {
       sopsFile = ../secrets/shared/network.yaml;
       reloadUnits = [ "NetworkManager.service" ];
     };
@@ -9,7 +9,7 @@
 
   networking.networkmanager.ensureProfiles = {
     environmentFiles = [
-      config.sops.secrets.private_networks.path
+      config.sops.secrets.shared_networks.path
     ];
 
     profiles = {
