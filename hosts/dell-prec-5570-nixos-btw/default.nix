@@ -49,6 +49,9 @@
       gpg.signingKey = "0x1044945481B99D3E";
     };
 
+    # Add fingerprint support
+    auth.fprintd.enable = true;
+
     hyprland.monitors = [
       {
         output = "eDP-1";
@@ -79,6 +82,4 @@
       }
     ];
   };
-
-  services.fprintd.enable = true;
 }
