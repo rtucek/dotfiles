@@ -56,6 +56,27 @@
         position = "0x0";
         scale = 1;
       }
+      {
+        # Home | Main monitor
+        output = "desc:LG Electronics LG ULTRAGEAR 408BOHE0K857";
+        mode = "2560x1440@59.95";
+        position = "1920x0";
+        scale = 1;
+      }
+      # Office Watt Analytics | Main monitor
+      {
+        output = "desc:LG Electronics LG HDR 4K 0x00087BA3";
+        mode = "3840x2160@60.00";
+        position = "1920x0";
+        scale = 1.5;
+      }
+      # Office Watt Analytics | Right monitor
+      {
+        output = "desc:Lenovo Group Limited LEN L27q-30 U162BVYX";
+        mode = "2560x1440@59.95";
+        position = "4480x0";
+        scale = 1;
+      }
     ];
   };
 }
