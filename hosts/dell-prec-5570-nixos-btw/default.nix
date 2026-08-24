@@ -79,4 +79,6 @@
       }
     ];
   };
+
+  services.fprintd.enable = true;
 }
