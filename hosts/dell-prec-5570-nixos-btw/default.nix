@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     ../../modules
     inputs.nixos-hardware.nixosModules.dell-precision-5570
+    ../../networks/watt-analytics.nix
   ];
 
   # Force using Linux 7.1 for now, since with the most recent flake update, we'd run the Linux v7.2
