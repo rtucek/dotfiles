@@ -24,6 +24,42 @@
       sopsFile = ../secrets/work/watt-analytics/networks.yaml;
       reloadUnits = [ "NetworkManager.service" ];
     };
+
+    # vpn wc-prod certs
+    secrets.vpn_wc_prod_ca = {
+      sopsFile = ../secrets/work/watt-analytics/networks.yaml;
+      reloadUnits = [ "NetworkManager.service" ];
+    };
+    secrets.vpn_wc_prod_cert = {
+      sopsFile = ../secrets/work/watt-analytics/networks.yaml;
+      reloadUnits = [ "NetworkManager.service" ];
+    };
+    secrets.vpn_wc_prod_key = {
+      sopsFile = ../secrets/work/watt-analytics/networks.yaml;
+      reloadUnits = [ "NetworkManager.service" ];
+    };
+    secrets.vpn_wc_prod_tls_crypt = {
+      sopsFile = ../secrets/work/watt-analytics/networks.yaml;
+      reloadUnits = [ "NetworkManager.service" ];
+    };
+
+    # vpn wc-prod certs
+    secrets.vpn_wc_stag_ca = {
+      sopsFile = ../secrets/work/watt-analytics/networks.yaml;
+      reloadUnits = [ "NetworkManager.service" ];
+    };
+    secrets.vpn_wc_stag_cert = {
+      sopsFile = ../secrets/work/watt-analytics/networks.yaml;
+      reloadUnits = [ "NetworkManager.service" ];
+    };
+    secrets.vpn_wc_stag_key = {
+      sopsFile = ../secrets/work/watt-analytics/networks.yaml;
+      reloadUnits = [ "NetworkManager.service" ];
+    };
+    secrets.vpn_wc_stag_tls_crypt = {
+      sopsFile = ../secrets/work/watt-analytics/networks.yaml;
+      reloadUnits = [ "NetworkManager.service" ];
+    };
   };
 
   networking.networkmanager.ensureProfiles = {
@@ -105,6 +141,77 @@
         };
         vpn-secrets = {
           cert-pass = "$VPN_WATT_CERT_PASS";
+        };
+        ipv4 = {
+          method = "auto";
+          route-metric = 1000;
+        };
+        ipv6 = {
+          addr-gen-mode = "stable-privacy";
+          method = "auto";
+        };
+      };
+
+      vpn-wc-prod = {
+        connection = {
+          id = "vpn-wc-prod";
+          type = "vpn";
+          autoconnect = false;
+        };
+        vpn = {
+          auth = "SHA256";
+          challenge-response-flags = 2;
+          cipher = "AES-256-CBC";
+          connection-type = "tls";
+          dev = "tun";
+          remote-cert-tls = "server";
+          tls-version-min = "1.3";
+          service-type = "org.freedesktop.NetworkManager.openvpn";
+          remote = "$VPN_WC_PROD_REMOTE";
+          verify-x509-name = "$VPN_WC_PROD_X509_VERIFY";
+          ca = config.sops.secrets.vpn_wc_prod_ca.path;
+          cert = config.sops.secrets.vpn_wc_prod_cert.path;
+          key = config.sops.secrets.vpn_wc_prod_key.path;
+          tls-crypt-v2 = config.sops.secrets.vpn_wc_prod_tls_crypt.path;
+        };
+        vpn-secrets = {
+          cert-pass = "$VPN_WC_PROD_CERT_PASS";
+        };
+        ipv4 = {
+          method = "auto";
+          route-metric = 1000;
+        };
+        ipv6 = {
+          addr-gen-mode = "stable-privacy";
+          method = "auto";
+        };
+      };
+
+      vpn-wc-stag = {
+        connection = {
+          id = "vpn-wc-stag";
+          type = "vpn";
+          autoconnect = false;
+        };
+        vpn = {
+          auth = "SHA256";
+          cert-pass-flags = 0;
+          challenge-response-flags = 2;
+          cipher = "AES-256-CBC";
+          connection-type = "tls";
+          dev = "tun";
+          remote-cert-tls = "server";
+          tls-version-min = "1.3";
+          service-type = "org.freedesktop.NetworkManager.openvpn";
+          remote = "$VPN_WC_STAG_REMOTE";
+          verify-x509-name = "$VPN_WC_STAG_X509_VERIFY";
+          ca = config.sops.secrets.vpn_wc_stag_ca.path;
+          cert = config.sops.secrets.vpn_wc_stag_cert.path;
+          key = config.sops.secrets.vpn_wc_stag_key.path;
+          tls-crypt-v2 = config.sops.secrets.vpn_wc_stag_tls_crypt.path;
+        };
+        vpn-secrets = {
+          cert-pass = "$VPN_WC_STAG_CERT_PASS";
         };
         ipv4 = {
           method = "auto";
