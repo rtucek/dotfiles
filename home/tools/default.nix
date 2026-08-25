@@ -9,6 +9,7 @@
     ./security.nix
     ./sys.nix
     ./virt.nix
+    ./vpc.nix
     ./web.nix
   ];
 }
