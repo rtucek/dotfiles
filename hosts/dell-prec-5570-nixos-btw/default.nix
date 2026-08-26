@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   lib,
+  config,
   ...
 }:
 {
@@ -38,6 +39,15 @@
     lv_root.size = "250G";
     # 250 GB of available disk space
     lv_home.size = "250G";
+  };
+
+  home-manager.users.rtucek = {
+    sops.secrets."ssh/private_key" = {
+      path = "${config.home-manager.users.rtucek.home.homeDirectory}/.ssh/id_ed25519";
+    };
+    sops.secrets."ssh/public_key" = {
+      path = "${config.home-manager.users.rtucek.home.homeDirectory}/.ssh/id_ed25519.pub";
+    };
   };
 
   rtucek = {
