@@ -51,6 +51,7 @@
           path = "${config.home-manager.users.rtucek.home.homeDirectory}/.ssh/id_ed25519.pub";
         };
         gh_token = { };
+        do_token = { };
       };
       templates = {
         nixConf = {
@@ -72,6 +73,12 @@
               oauth_token = config.home-manager.users.rtucek.sops.placeholder.gh_token;
               user = "rtucek";
             };
+          };
+        };
+        doConf = {
+          path = "${config.home-manager.users.rtucek.home.homeDirectory}/.config/doctl/config.yaml";
+          file = (pkgs.formats.yaml { }).generate "" {
+            access-token = config.home-manager.users.rtucek.sops.placeholder.do_token;
           };
         };
       };
