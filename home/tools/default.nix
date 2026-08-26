@@ -1,6 +1,7 @@
 {
   imports = [
     ./crypto.nix
+    ./database.nix
     ./dev.nix
     ./fs.nix
     ./k8s.nix
