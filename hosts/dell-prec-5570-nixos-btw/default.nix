@@ -53,7 +53,13 @@
         gh_token = { };
       };
       templates = {
-        gh_hosts_conf = {
+        nixConf = {
+          path = "${config.home-manager.users.rtucek.home.homeDirectory}/.config/nix/nix.conf";
+          content = ''
+            access-tokens = github.com=${config.home-manager.users.rtucek.sops.placeholder.gh_token}
+          '';
+        };
+        ghHostsConf = {
           path = "${config.home-manager.users.rtucek.home.homeDirectory}/.config/gh/hosts.yml";
           file = (pkgs.formats.yaml { }).generate "" {
             "github.com" = {
