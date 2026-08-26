@@ -42,11 +42,30 @@
   };
 
   home-manager.users.rtucek = {
-    sops.secrets."ssh/private_key" = {
-      path = "${config.home-manager.users.rtucek.home.homeDirectory}/.ssh/id_ed25519";
-    };
-    sops.secrets."ssh/public_key" = {
-      path = "${config.home-manager.users.rtucek.home.homeDirectory}/.ssh/id_ed25519.pub";
+    sops = {
+      secrets = {
+        "ssh/private_key" = {
+          path = "${config.home-manager.users.rtucek.home.homeDirectory}/.ssh/id_ed25519";
+        };
+        "ssh/public_key" = {
+          path = "${config.home-manager.users.rtucek.home.homeDirectory}/.ssh/id_ed25519.pub";
+        };
+        gh_token = { };
+      };
+      templates = {
+        gh_hosts_conf = {
+          path = "${config.home-manager.users.rtucek.home.homeDirectory}/.config/gh/hosts.yml";
+          content = ''
+            github.com:
+                users:
+                    rtucek:
+                        oauth_token: ${config.home-manager.users.rtucek.sops.placeholder.gh_token}
+                git_protocol: ssh
+                oauth_token: ${config.home-manager.users.rtucek.sops.placeholder.gh_token}
+                user: rtucek
+          '';
+        };
+      };
     };
   };
 
