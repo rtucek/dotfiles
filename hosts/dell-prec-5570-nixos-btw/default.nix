@@ -1,10 +1,33 @@
-{ inputs, ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [
     ./hardware-configuration.nix
     ../../modules
     inputs.nixos-hardware.nixosModules.dell-precision-5570
   ];
+
+  # Force using Linux 7.1 for now, since with the most recent flake update, we'd run the Linux v7.2
+  # kernel, which is currently incompatible via the Nvidia kernel module on 595.71.05.
+  # In particular, this affects both, the open an proprietary driver.
+  # The solution for now is to stay on Linux v7.1 until the Nvidia kernel modules have been adjusted
+  # for the latest kernel.
+  #
+  # see also https://www.reddit.com/r/NixOS/comments/1vut6in/i_have_a_problem_with_the_nvidia_driver_while_i/
+  boot.kernelPackages =
+    let
+      currentIncompatibleVersion_7_2 = "595.71.05";
+      checkUpstreamVersion_7_2 = pkgs.linuxKernel.packages.linux_7_2.nvidia_x11_latest.version;
+    in
+    if lib.versionOlder currentIncompatibleVersion_7_2 checkUpstreamVersion_7_2 then
+      throw "Newer Nvidia kernel module released (before v${currentIncompatibleVersion_7_2}; now v${checkUpstreamVersion_7_2} upstream) - try Linux 7.2 (or later) again!"
+    else
+      # Fall back to Linux v7.1 for now
+      lib.mkForce pkgs.linuxKernel.packages.linux_7_1;
 
   networking.hostName = "dell-prec-5570-nixos-btw";
   sops.defaultSopsFile = ../../secrets/work/watt-analytics/dell-prec-5570-nixos-btw.yaml;
