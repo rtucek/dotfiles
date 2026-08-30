@@ -9,6 +9,9 @@
     ./hardware-configuration.nix
     ../../modules
     inputs.nixos-hardware.nixosModules.dell-precision-5570
+    ../../networks/watt-analytics.nix
+    ./sops.nix
+    ./scripts.nix
   ];
 
   # Force using Linux 7.1 for now, since with the most recent flake update, we'd run the Linux v7.2
@@ -49,11 +52,35 @@
       gpg.signingKey = "0x1044945481B99D3E";
     };
 
+    # Add fingerprint support
+    auth.fprintd.enable = true;
+
     hyprland.monitors = [
       {
         output = "eDP-1";
         mode = "1900x1200@59.9500";
         position = "0x0";
+        scale = 1;
+      }
+      {
+        # Home | Main monitor
+        output = "desc:LG Electronics LG ULTRAGEAR 408BOHE0K857";
+        mode = "2560x1440@59.95";
+        position = "1920x0";
+        scale = 1;
+      }
+      # Office Watt Analytics | Main monitor
+      {
+        output = "desc:LG Electronics LG HDR 4K 0x00087BA3";
+        mode = "3840x2160@60.00";
+        position = "1920x0";
+        scale = 1.5;
+      }
+      # Office Watt Analytics | Right monitor
+      {
+        output = "desc:Lenovo Group Limited LEN L27q-30 U162BVYX";
+        mode = "2560x1440@59.95";
+        position = "4480x0";
         scale = 1;
       }
     ];

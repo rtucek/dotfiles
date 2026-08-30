@@ -14,6 +14,7 @@
     pkgs.htop
     pkgs.inxi
     pkgs.lshw
+    pkgs.pciutils
     pkgs.pstree
 
     # Shells

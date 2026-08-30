@@ -44,5 +44,6 @@
     # Misc
     pkgs.rsync
     pkgs.socat
+    pkgs.rclone
   ];
 }

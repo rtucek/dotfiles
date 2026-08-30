@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   programs.hyprlock = {
     # Note: `security.pam.services.hyprlock.enable = true` is required in order
@@ -27,7 +28,7 @@
             module = "hyprlock";
           };
           fingerprint = {
-            enabled = fingerprint_auth_enabled;
+            enabled = lib.mkDefault fingerprint_auth_enabled;
             ready_message = "Scan fingerprint to unlock or enter password";
             present_message = "Scanning...";
             retry_delay = 250; # in milliseconds
@@ -65,8 +66,8 @@
           rounding = 15;
 
           font_family = "$font";
-          placeholder_text = if fingerprint_auth_enabled then "$FPRINTPROMPT" else "Password";
-          fail_text = if fingerprint_auth_enabled then "$FPRINTFAIL" else "$PAMFAIL";
+          placeholder_text = lib.mkDefault (if fingerprint_auth_enabled then "$FPRINTPROMPT" else "Password");
+          fail_text = lib.mkDefault (if fingerprint_auth_enabled then "$FPRINTFAIL" else "$PAMFAIL");
 
           # Uncomment to use a letter instead of a dot to indicate the typed password
           # dots_text_format = "*";

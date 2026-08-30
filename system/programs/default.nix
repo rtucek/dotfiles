@@ -1,6 +1,5 @@
 {
   imports = [
-    ./database
     ./hyprland
   ];
 }
