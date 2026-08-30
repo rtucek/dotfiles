@@ -24,6 +24,13 @@
         position = "0x0";
         scale = 1.5;
       }
+      {
+        # Home | Main monitor
+        output = "desc:LG Electronics LG ULTRAGEAR 408BOHE0K857";
+        mode = "2560x1440@143.9910";
+        position = "1920x0";
+        scale = 1;
+      }
     ];
   };
 }
