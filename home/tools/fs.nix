@@ -4,6 +4,7 @@
     # Compression
     pkgs.gnutar
     pkgs.gzip
+    pkgs.unzip
     pkgs.xz
     pkgs.zip
     pkgs.zstd
