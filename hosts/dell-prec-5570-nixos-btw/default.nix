@@ -12,6 +12,7 @@
     ../../networks/watt-analytics.nix
     ./sops.nix
     ./scripts.nix
+    ./tmuxinator.nix
   ];
 
   # Force using Linux 7.1 for now, since with the most recent flake update, we'd run the Linux v7.2
