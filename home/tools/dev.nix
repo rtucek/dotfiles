@@ -4,7 +4,11 @@
     # Git tools
     pkgs.glab
 
-    # Common tools
+    # Build tools
+    pkgs.gnumake
+    pkgs.just
+
+    # Common dev tools
     pkgs.delta
     pkgs.jless
     pkgs.jq
