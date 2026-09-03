@@ -11,6 +11,7 @@ let
     (lib.nameValuePair "wse-web-site" "~/projects/wse-web-site")
     (lib.nameValuePair "wa-eda-adapter" "~/projects/wa-eda-adapter")
     (lib.nameValuePair "wa-eda-adapter-v2" "~/projects/wa-eda-adapter-v2")
+    (lib.nameValuePair "wa-partner-portal" "~/projects/wa-partner-portal")
   ];
 in
 {
