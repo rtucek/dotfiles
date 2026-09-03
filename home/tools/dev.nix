@@ -8,6 +8,7 @@
     pkgs.delta
     pkgs.jless
     pkgs.jq
+    pkgs.libxml2
 
     # Golang
     pkgs.go
