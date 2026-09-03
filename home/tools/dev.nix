@@ -14,6 +14,9 @@
     pkgs.jq
     pkgs.libxml2
 
+    # C
+    pkgs.gcc
+
     # Golang
     pkgs.go
 
