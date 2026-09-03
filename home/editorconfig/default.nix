@@ -39,6 +39,11 @@
         indent_style = "space";
       };
 
+      "*.java" = {
+        indent_size = 4;
+        indent_style = "space";
+      };
+
       "*.{js,ts,json}" = {
         indent_size = 2;
         indent_style = "space";
