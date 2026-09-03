@@ -12,6 +12,10 @@
     # Golang
     pkgs.go
 
+    # Java
+    pkgs.openjdk
+    pkgs.maven
+
     # Nix
     pkgs.nix-diff
     pkgs.nvd
