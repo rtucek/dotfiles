@@ -1,135 +1,31 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   nvim = "${config.home-manager.users.rtucek.programs.nixvim.build.package}/bin/nvim";
+
+  projects = [
+    (lib.nameValuePair "wa-cloudcore" "~/projects/wa-cloudcore")
+    (lib.nameValuePair "wa-database-schema" "~/projects/database-schema")
+    (lib.nameValuePair "wa-edge" "~/projects/wa-edge")
+    (lib.nameValuePair "wa-tools" "~/projects/wa-tools")
+    (lib.nameValuePair "wactl" "~/projects/wactl")
+    (lib.nameValuePair "wse-web-site" "~/projects/wse-web-site")
+    (lib.nameValuePair "wa-eda-adapter" "~/projects/wa-eda-adapter")
+    (lib.nameValuePair "wa-eda-adapter-v2" "~/projects/wa-eda-adapter-v2")
+  ];
 in
 {
-  rtucek.tmuxinator.projects = {
-    wa-cloudcore = {
-      name = "wa-cloudcore";
-      root = "~/projects/wa-cloudcore";
-
-      startup_window = "git";
-
-      windows = [
-        {
-          editor = nvim;
-        }
-        {
-          git = [ "" ];
-        }
-      ];
-    };
-
-    wa-database-schema = {
-      name = "wa-database-schema";
-      root = "~/projects/database-schema";
-
-      startup_window = "git";
-
-      windows = [
-        {
-          editor = nvim;
-        }
-        {
-          git = [ "" ];
-        }
-      ];
-    };
-
-    wa-edge = {
-      name = "wa-edge";
-      root = "~/projects/wa-edge";
-
-      startup_window = "git";
-
-      windows = [
-        {
-          editor = nvim;
-        }
-        {
-          git = [ "" ];
-        }
-      ];
-    };
-
-    wa-tools = {
-      name = "wa-tools";
-      root = "~/projects/wa-tools";
-
-      startup_window = "git";
-
-      windows = [
-        {
-          editor = nvim;
-        }
-        {
-          git = [ "" ];
-        }
-      ];
-    };
-
-    wactl = {
-      name = "wactl";
-      root = "~/projects/wactl";
-
-      startup_window = "git";
-
-      windows = [
-        {
-          editor = nvim;
-        }
-        {
-          git = [ "" ];
-        }
-      ];
-    };
-
-    wse-web-site = {
-      name = "wse-web-site";
-      root = "~/projects/wse-web-site";
-
-      startup_window = "git";
-
-      windows = [
-        {
-          editor = nvim;
-        }
-        {
-          git = [ "" ];
-        }
-      ];
-    };
-
-    wa-eda-adapter = {
-      name = "wa-eda-adapter";
-      root = "~/projects/wa-eda-adapter";
-
-      startup_window = "git";
-
-      windows = [
-        {
-          editor = nvim;
-        }
-        {
-          git = [ "" ];
-        }
-      ];
-    };
-
-    wa-eda-adapter-v2 = {
-      name = "wa-eda-adapter-v2";
-      root = "~/projects/wa-eda-adapter-v2";
-
-      startup_window = "git";
-
-      windows = [
-        {
-          editor = nvim;
-        }
-        {
-          git = [ "" ];
-        }
-      ];
-    };
-  };
+  rtucek.tmuxinator.projects = lib.listToAttrs (
+    map (
+      p:
+      lib.nameValuePair p.name {
+        name = p.name;
+        root = p.value;
+        startup_window = "git";
+        windows = [
+          { editor = nvim; }
+          { git = [ "" ]; }
+        ];
+      }
+    ) projects
+  );
 }
