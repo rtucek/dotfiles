@@ -12,6 +12,7 @@
     ../../networks/watt-analytics.nix
     ./sops.nix
     ./scripts.nix
+    ./tmuxinator.nix
   ];
 
   # Force using Linux 7.1 for now, since with the most recent flake update, we'd run the Linux v7.2
@@ -84,5 +85,18 @@
         scale = 1;
       }
     ];
+  };
+
+  # AI stuff
+  environment.systemPackages = [
+    pkgs.claude-code
+    pkgs.rtk
+  ];
+  nixpkgs = {
+    config.allowUnfreePredicate =
+      pkg:
+      builtins.elem (lib.getName pkg) [
+        "claude-code"
+      ];
   };
 }
