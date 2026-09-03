@@ -3,7 +3,7 @@ let
   nvim = "${config.home-manager.users.rtucek.programs.nixvim.build.package}/bin/nvim";
 in
 {
-  home-manager.users.rtucek.programs.tmux.tmuxinator.projects = {
+  rtucek.tmuxinator.projects = {
     wa-cloudcore = {
       name = "wa-cloudcore";
       root = "~/projects/wa-cloudcore";

@@ -5,6 +5,7 @@
     ./git.nix
     ./home.nix
     ./hyprland.nix
+    ./tmuxinator.nix
     ./user.nix
   ];
 }
