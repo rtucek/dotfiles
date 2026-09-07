@@ -21,6 +21,7 @@
       };
 
       "*.go" = {
+        indent_size = 8;
         tab_width = 8;
         indent_style = "tab";
       };
