@@ -52,6 +52,7 @@
             gD = "references";
             gd = "definition";
             gi = "implementation";
+            gr = "rename";
             gt = "type_definition";
           };
         };
