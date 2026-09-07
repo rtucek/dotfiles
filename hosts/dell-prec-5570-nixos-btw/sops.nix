@@ -24,6 +24,12 @@
         rclone_wa_secret_access_key = {
           key = "rclone/wa/secret_access_key";
         };
+        prod_wasabi_bucket = {
+          key = "wasabi/prod_bucket";
+        };
+        staging_wasabi_bucket = {
+          key = "wasabi/stag_bucket";
+        };
       };
       templates = {
         nixConf = {
@@ -63,6 +69,30 @@
               secret_access_key = config.home-manager.users.rtucek.sops.placeholder.rclone_wa_secret_access_key;
               endpoint = "s3.eu-central-1.wasabisys.com";
               acl = "private";
+            };
+          };
+        };
+        wactlConf = {
+          path = "${config.home-manager.users.rtucek.home.homeDirectory}/.config/wactl/wactl.yaml";
+          file = (pkgs.formats.yaml { }).generate "" {
+            downloads = {
+              dir = "${config.home-manager.users.rtucek.xdg.cacheHome}/wactl/downloads";
+              stages = {
+                prod = {
+                  remote = "wasabi";
+                  bucket = config.home-manager.users.rtucek.sops.placeholder.prod_wasabi_bucket;
+                  path = "postgres";
+                  clickhousePath = "clickhouse/prod/daily";
+                  databases = [ "d2ep8mp2so0nb5" ];
+                };
+                staging = {
+                  remote = "wasabi";
+                  bucket = config.home-manager.users.rtucek.sops.placeholder.staging_wasabi_bucket;
+                  path = "postgres";
+                  clickhousePath = "clickhouse/staging/daily";
+                  databases = [ "dbm7ga26fsftq0" ];
+                };
+              };
             };
           };
         };
