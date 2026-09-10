@@ -71,10 +71,16 @@
         };
       };
 
-      # seehttps://github.com/lukas-reineke/lsp-format.nvim/
+      # see https://github.com/lukas-reineke/lsp-format.nvim/
       lsp-format = {
         enable = true;
         lspServersToEnable = "all";
+      };
+
+      # see https://github.com/nvimtools/none-ls.nvim/
+      none-ls = {
+        enable = true;
+        enableLspFormat = true;
       };
 
       # see https://github.com/hrsh7th/nvim-cmp
