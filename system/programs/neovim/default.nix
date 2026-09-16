@@ -1,10 +1,11 @@
-{ lib, pkgs, ... }:
-let
-  nvim = "${lib.getExe pkgs.neovim}";
-in
 {
-  environment = {
-    variables.EDITOR = nvim;
-    sessionVariables.EDITOR = nvim;
+  programs = {
+    nano = {
+      enable = false;
+    };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
   };
 }
