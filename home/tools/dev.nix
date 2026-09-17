@@ -6,6 +6,7 @@
 
     # Common tools
     pkgs.delta
+    pkgs.envsubst
     pkgs.jless
     pkgs.jq
 
