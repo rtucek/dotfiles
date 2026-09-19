@@ -13,5 +13,18 @@
         };
       };
     };
+
+    plugins.none-ls = {
+      sources.formatting = {
+        google_java_format = {
+          enable = true;
+          package = pkgs.google-java-format;
+          settings = {
+            filetypes = [ "java" ];
+            extra_args = [ "--aosp" ];
+          };
+        };
+      };
+    };
   };
 }
