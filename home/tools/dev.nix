@@ -29,9 +29,4 @@
     pkgs.nvd
     pkgs.nixfmt-tree
   ];
-
-  # Add ~/go/bin to $PATH
-  home.sessionPath = [
-    "${config.home.homeDirectory}/go/bin"
-  ];
 }
