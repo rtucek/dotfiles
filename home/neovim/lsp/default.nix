@@ -12,21 +12,6 @@
       ultisnips
     ];
 
-    autoGroups = {
-      format_on_save = {
-        clear = true;
-      };
-    };
-    autoCmd = [
-      {
-        event = [ "BufWritePre" ];
-        buffer = 0;
-        command = "lua vim.lsp.buf.format()";
-        desc = "Auto-format on save";
-        group = "format_on_save";
-      }
-    ];
-
     # Required for the `lsp-lines` plugin
     diagnostic = {
       settings = {
@@ -74,7 +59,9 @@
       # see https://github.com/lukas-reineke/lsp-format.nvim/
       lsp-format = {
         enable = true;
-        lspServersToEnable = "all";
+        lspServersToEnable = [
+          "null-ls"
+        ];
       };
 
       # see https://github.com/nvimtools/none-ls.nvim/
