@@ -21,6 +21,7 @@
           package = pkgs.google-java-format;
           settings = {
             filetypes = [ "java" ];
+            extra_args = [ "--aosp" ];
           };
         };
       };
