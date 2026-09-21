@@ -26,10 +26,17 @@ in
         configuration in git's global config.
       '';
     };
+
+    ignores = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      description = "Supplemental global .gitignore entries";
+      default = [ ];
+    };
   };
 
   config = {
     home-manager.users.rtucek.programs.git = {
+      ignores = cfg.ignores;
       settings = {
         user = {
           name = cfg.user.name;

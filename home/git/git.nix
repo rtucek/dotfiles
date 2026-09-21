@@ -31,6 +31,7 @@
         ".tags.lock"
         ".tags.temp"
         "/.tmuxinator.yml"
+        "/.claude/"
         "Session.vim"
       ];
 

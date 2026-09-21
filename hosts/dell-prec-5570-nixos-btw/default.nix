@@ -37,6 +37,9 @@
     git = {
       user.email = "rudolf.tucek@watt-analytics.com";
       gpg.signingKey = "0x1044945481B99D3E";
+      ignores = [
+        "/.wactl/"
+      ];
     };
 
     # Add fingerprint support
