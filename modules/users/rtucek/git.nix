@@ -29,7 +29,8 @@ in
 
     ignores = lib.mkOption {
       type = lib.types.listOf lib.types.str;
-      default = "Supplemental global .gitignore entries";
+      description = "Supplemental global .gitignore entries";
+      default = [ ];
     };
   };
 
