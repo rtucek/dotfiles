@@ -13,9 +13,6 @@
 
     # Office
     pkgs.libreoffice
-
-    # HTTP client
-    pkgs.postman
   ];
 
   programs = {
