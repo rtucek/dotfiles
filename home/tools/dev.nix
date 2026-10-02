@@ -10,7 +10,7 @@
 
     # Common dev tools
     pkgs.delta
-    pkgs.envsubst
+    pkgs.gettext
     pkgs.jless
     pkgs.jq
     pkgs.libxml2
