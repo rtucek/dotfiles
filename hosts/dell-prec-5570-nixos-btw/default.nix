@@ -74,18 +74,7 @@
         scale = 1;
       }
     ];
-  };
 
-  # AI stuff
-  environment.systemPackages = [
-    pkgs.claude-code
-    pkgs.rtk
-  ];
-  nixpkgs = {
-    config.allowUnfreePredicate =
-      pkg:
-      builtins.elem (lib.getName pkg) [
-        "claude-code"
-      ];
+    ai.claude-code.enable = true;
   };
 }
