@@ -25,5 +25,7 @@
         scale = 1.6;
       }
     ];
+
+    ai.claude-code.enable = true;
   };
 }

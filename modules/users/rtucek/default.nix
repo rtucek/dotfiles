@@ -1,5 +1,6 @@
 {
   imports = [
+    ./ai.nix
     ./audit.nix
     ./fprintd.nix
     ./git.nix

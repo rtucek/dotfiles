@@ -32,5 +32,7 @@
         scale = 1;
       }
     ];
+
+    ai.claude-code.enable = true;
   };
 }
