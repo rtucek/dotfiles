@@ -23,7 +23,7 @@ final: prev: {
     then
       # Throw exception, once this overlay becomes superfluous.
       throw
-        "Overlay not required anymore - use upstream version (may) does not ship broken symlinks anymore!"
+        "Overlay not required anymore - the upstream version may no longer ship broken symlinks!"
     else
       prev.tela-circle-icon-theme.overrideAttrs (old: {
         # remove broken symlinks and delete them

@@ -53,7 +53,7 @@
       # As a sensitive default, partitions for "/" and "/home" will each
       # get 33 %, leaving the remaining 33 % for extending when needed.
       #
-      # Nonetheless, it's generally recommended to that each host defines
+      # Nonetheless, it's generally recommended that each host define
       # its own proper volume size.
       volgroup0 = {
         type = "lvm_vg";

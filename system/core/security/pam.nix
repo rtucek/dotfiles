@@ -2,7 +2,7 @@
 {
   security.pam = {
     services = {
-      # Required for home manager's hyprlock a implementation.
+      # Required for home manager's hyprlock implementation.
       hyprlock = {
         enable = true;
       };
