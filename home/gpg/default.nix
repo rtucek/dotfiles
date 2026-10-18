@@ -8,7 +8,7 @@
     mutableTrust = true;
 
     settings = {
-      charset = "utf=8";
+      charset = "utf-8";
       default-key = "0x49593BD010DE4723";
       no-emit-version = true;
       no-comments = true;
