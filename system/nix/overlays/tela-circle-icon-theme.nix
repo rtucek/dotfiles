@@ -22,8 +22,7 @@ final: prev: {
       || (prev.lib.hasInfix "-xtype l" prev.tela-circle-icon-theme.installPhase)
     then
       # Throw exception, once this overlay becomes superfluous.
-      throw
-        "Overlay not required anymore - the upstream version may no longer ship broken symlinks!"
+      throw "Overlay not required anymore - the upstream version may no longer ship broken symlinks!"
     else
       prev.tela-circle-icon-theme.overrideAttrs (old: {
         # remove broken symlinks and delete them
