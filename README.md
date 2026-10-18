@@ -20,9 +20,9 @@ While this is technically "just" a glorified Nix flake, the initial installation
 some bootstrapping.
 
 This is due to the following requirements:
-- disk partitioning is declaratively managed via disko.[^disko docs]
-- secret management is achieved via sops-nix.[^sops-nix docs]
-- installation via nixos-anywhere.[^nixos-anywhere docs]
+- disk partitioning is declaratively managed via disko.[^disko-docs]
+- secret management is achieved via sops-nix.[^sops-nix-docs]
+- installation via nixos-anywhere.[^nixos-anywhere-docs]
 
 
 ### Onboarding a new machine
@@ -51,7 +51,7 @@ In order to generate a new key, run:
 age-keygen -pq
 ```
 
-This will dump an age identity - both the public and private keys - to stdout.[^age docs]
+This will dump an age identity - both the public and private keys - to stdout.[^age-docs]
 Store the output in a temporary file.
 
 
@@ -249,7 +249,7 @@ Of course, this won't work unless missing artifacts are already present in the l
 
 ### Default disk layout
 
-The disk formatting is achieved via disko.[^disko docs]
+The disk formatting is achieved via disko.[^disko-docs]
 As a sensible default, the disk layout is defined as follows (see
 [./hosts/common/disko.nix](./hosts/common/disko.nix)):
 
@@ -267,7 +267,7 @@ If you wish to change the predefined 33 % VG disk size consumption, override
 `disko.devices.lvm_vg.volgroup0.lvs.lv_home.size`, respectively.
 
 
-[^disko docs]: https://github.com/nix-community/disko
-[^sops-nix docs]: https://github.com/mic92/sops-nix
-[^nixos-anywhere docs]: https://nix-community.github.io/nixos-anywhere
-[^age docs]: https://age-encryption.org/
+[^disko-docs]: https://github.com/nix-community/disko
+[^sops-nix-docs]: https://github.com/mic92/sops-nix
+[^nixos-anywhere-docs]: https://nix-community.github.io/nixos-anywhere
+[^age-docs]: https://age-encryption.org/
