@@ -53,7 +53,7 @@ in
       type = lib.types.pathInStore;
       default = config.rtucek.home.sops.defaultSopsFile;
       description = ''
-        Encrypted SOPS file with with `initial_hashed_password` key, containing the hashed password.
+        Encrypted SOPS file with `initial_hashed_password` key, containing the hashed password.
 
         Defaults to `config.rtucek.home.sops.defaultSopsFile`.
       '';

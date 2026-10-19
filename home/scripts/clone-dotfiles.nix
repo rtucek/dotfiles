@@ -11,7 +11,7 @@ let
   mkdir = "${lib.getBin pkgs.coreutils-full}/bin/mkdir";
 in
 pkgs.writeShellScriptBin "clone-dotfiles.sh" ''
-  # Only clone if the .git directory doesn\'t exist
+  # Only clone if the .git directory doesn't exist
   # This preserves local changes if the repo already exists
   if [ ! -d "${targetDir}/.git" ]; then
     ${mkdir} -p ${targetDir}

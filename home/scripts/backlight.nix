@@ -27,6 +27,6 @@ pkgs.writeShellScriptBin "backlight.sh" ''
     -a "changeBrightness" \
     -u normal \
     -t 1500 \
-    -i  ${tela-circle-icon-theme."display-brightness-symbolic.svg"} \
+    -i ${tela-circle-icon-theme."display-brightness-symbolic.svg"} \
     -h string:synchronous:my-progress "Brightness: ''${BRIGHTNESS}"
 ''

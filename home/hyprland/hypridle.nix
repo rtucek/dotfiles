@@ -41,7 +41,7 @@ in
         {
           # Lock screen
           timeout = 300;
-          # Lock screen when timeout has passe
+          # Lock screen when timeout has passed
           on-timeout = "${loginctl} lock-session";
         }
         {

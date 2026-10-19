@@ -448,7 +448,7 @@
             }
             {
               _args = [
-                "${MOD}  + M"
+                "${MOD} + M"
                 (mkLuaInline "hl.dsp.exec_cmd('${logout}')")
               ];
             }

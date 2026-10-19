@@ -54,9 +54,9 @@
 
     scdaemonSettings = {
       # Tweak GPG's own smart card daemon in order to play nice with pcscd.
-      # Essentially, scdaemon shall not try to acquirer an exclusive lock and
+      # Essentially, scdaemon shall not try to acquire an exclusive lock and
       # this will conflict with pcscd, which tries to do the same.
-      # Luckily, scdaemon support sharing access with pcscd.
+      # Luckily, scdaemon supports sharing access with pcscd.
       disable-ccid = true;
       pcsc-shared = true;
     };
