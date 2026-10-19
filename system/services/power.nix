@@ -20,7 +20,7 @@ let
 
     while IFS= read -r DEV; do
       DEV_POWER_CONTROL="$(echo "$DEV" | ${sed} "s/product/power\\/control/")"
-      echo "Keeping "$(cat "$DEV")" enabled ("$DEV")"
+      echo "Keeping \"$(cat "$DEV")\" enabled ($DEV)"
       echo "on" >| "$DEV_POWER_CONTROL"
     done <<< "$DEVS"
   '';
