@@ -40,7 +40,7 @@
           bezier = "linear, 1, 1, 0, 0";
           animation = [
             "fadeIn, 1, 5, linear"
-            "fadeOut, 1, 5, linear;"
+            "fadeOut, 1, 5, linear"
             "inputFieldDots, 1, 2, linear"
           ];
         };

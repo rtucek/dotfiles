@@ -298,7 +298,7 @@
               enabled = true;
               speed = 4.1;
               bezier = "easeOutQuint";
-              stye = "popin 87%";
+              style = "popin 87%";
             }
             {
               leaf = "windowsOut";
