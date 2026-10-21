@@ -2,16 +2,28 @@
 {
   home.packages = [
     # Git tools
-    pkgs.gh
     pkgs.glab
 
-    # Common tools
+    # Build tools
+    pkgs.gnumake
+    pkgs.just
+
+    # Common dev tools
     pkgs.delta
+    pkgs.gettext
     pkgs.jless
     pkgs.jq
+    pkgs.libxml2
+
+    # C
+    pkgs.gcc
 
     # Golang
     pkgs.go
+
+    # Java
+    pkgs.openjdk
+    pkgs.maven
 
     # Nix
     pkgs.nix-diff

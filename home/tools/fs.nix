@@ -4,6 +4,7 @@
     # Compression
     pkgs.gnutar
     pkgs.gzip
+    pkgs.unzip
     pkgs.xz
     pkgs.zip
     pkgs.zstd
@@ -44,5 +45,6 @@
     # Misc
     pkgs.rsync
     pkgs.socat
+    pkgs.rclone
   ];
 }

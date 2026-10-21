@@ -7,5 +7,8 @@
     # CLI clients
     pkgs.curl
     pkgs.httpie
+
+    # GUI clients
+    pkgs.postman
   ];
 }

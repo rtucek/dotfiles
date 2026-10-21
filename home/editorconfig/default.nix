@@ -21,6 +21,7 @@
       };
 
       "*.go" = {
+        indent_size = 8;
         tab_width = 8;
         indent_style = "tab";
       };
@@ -36,6 +37,11 @@
 
       "*.nix" = {
         indent_size = 2;
+        indent_style = "space";
+      };
+
+      "*.java" = {
+        indent_size = 4;
         indent_style = "space";
       };
 

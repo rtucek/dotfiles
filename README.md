@@ -20,9 +20,9 @@ While this is technically "just" a glorified Nix flake, the initial installation
 some bootstrapping.
 
 This is due to the following requirements:
-- disk partitioning is declaratively managed via disko.[^disko docs]
-- secret management is achieved via sops-nix.[^sops-nix docs]
-- installation via nixos-anywhere.[^nixos-anywhere docs]
+- disk partitioning is declaratively managed via disko.[^disko-docs]
+- secret management is achieved via sops-nix.[^sops-nix-docs]
+- installation via nixos-anywhere.[^nixos-anywhere-docs]
 
 
 ### Onboarding a new machine
@@ -51,7 +51,7 @@ In order to generate a new key, run:
 age-keygen -pq
 ```
 
-This will dump an age identity - both the public and private keys - to stdout.[^age docs]
+This will dump an age identity - both the public and private keys - to stdout.[^age-docs]
 Store the output in a temporary file.
 
 
@@ -92,20 +92,24 @@ keys:
       age1pq1f7nk5g0hcvy52[...]appfzrumnuawfy5mdlqd
 ```
 
-Then, reference the new key in the default creation rule in `creation_rules.key_groups.age`:
+Then, reference the new key in the default creation rule at the bottom:
 
 ```yaml
 creation_rules:
-  - key_groups:
-      age:
-      # [...]
-      - *tux-ibp-amdgen9-nixos-btw_age
+  # [...]
+
+  # Default group for private devices
+  - pgp:
+    # [...]
+    age:
+    # [...]
+    - *tux-ibp-amdgen9-nixos-btw_age
 ```
 
 Finally, re-encrypt all secrets with the new key by running:
 
 ```sh
-sops updatekeys ./secrets/**.yaml
+find secrets -name '*.yaml' -type f -print0 | xargs -0 -l sops updatekeys --yes
 ```
 
 You should see all relevant secret files updated in the secrets folder. A notable exception may be
@@ -128,21 +132,7 @@ Paste the following template into it.
   ];
 
   networking.hostName = "tux-ibp-amdgen9-nixos-btw";
-  sops.defaultSopsFile = ../../secrets/hosts/tux-ibp-amdgen9-nixos-btw.yaml;
-
-  # If applicable, configure the default screens resolution below.
-  # home-manager.users.rtucek = {
-  #   wayland.windowManager.hyprland.settings = {
-  #     monitor = [
-  #       {
-  #         output = "eDP-1";
-  #         mode = "2880x1800@120.0000";
-  #         position = "0x0";
-  #         scale = 1.5;
-  #       }
-  #     ];
-  #   };
-  # };
+  sops.defaultSopsFile = ../../secrets/private/hosts/tux-ibp-amdgen9-nixos-btw.yaml;
 
   # If applicable, change the default LV size.
   # disko.devices.lvm_vg.volgroup0.lvs = {
@@ -150,6 +140,18 @@ Paste the following template into it.
   #   lv_root.size = "250G";
   #   # 250 GB of available disk space
   #   lv_home.size = "250G";
+  # };
+
+  # If applicable, adjust the main monitor's default.
+  # rtucek = {
+  #   hyprland.monitors = [
+  #     {
+  #       output = "eDP-1";
+  #       mode = "1900x1200@59.9500";
+  #       position = "0x0";
+  #       scale = 1;
+  #     }
+  #   ];
   # };
 }
 ```
@@ -247,7 +249,7 @@ Of course, this won't work unless missing artifacts are already present in the l
 
 ### Default disk layout
 
-The disk formatting is achieved via disko.[^disko docs]
+The disk formatting is achieved via disko.[^disko-docs]
 As a sensible default, the disk layout is defined as follows (see
 [./hosts/common/disko.nix](./hosts/common/disko.nix)):
 
@@ -265,7 +267,7 @@ If you wish to change the predefined 33 % VG disk size consumption, override
 `disko.devices.lvm_vg.volgroup0.lvs.lv_home.size`, respectively.
 
 
-[^disko docs]: https://github.com/nix-community/disko
-[^sops-nix docs]: https://github.com/mic92/sops-nix
-[^nixos-anywhere docs]: https://nix-community.github.io/nixos-anywhere
-[^age docs]: https://age-encryption.org/
+[^disko-docs]: https://github.com/nix-community/disko
+[^sops-nix-docs]: https://github.com/mic92/sops-nix
+[^nixos-anywhere-docs]: https://nix-community.github.io/nixos-anywhere
+[^age-docs]: https://age-encryption.org/

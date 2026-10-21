@@ -1,6 +1,6 @@
 {
   imports = [
-    ./database
     ./hyprland
+    ./neovim
   ];
 }

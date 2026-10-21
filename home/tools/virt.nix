@@ -8,8 +8,5 @@
     # container
     pkgs.podman
     pkgs.podman-compose
-
-    # container dev
-    pkgs.kind
   ];
 }

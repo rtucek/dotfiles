@@ -7,6 +7,7 @@
     ./neovim
     ./shell
     ./sops
+    ./ssh
     ./tmux
     ./tools
     ./udiskie

@@ -27,6 +27,7 @@
       dns = "systemd-resolved";
       wifi.powersave = true;
       plugins = [
+        pkgs.networkmanager-openconnect
         pkgs.networkmanager-openvpn
       ];
     };

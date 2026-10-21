@@ -1,6 +1,8 @@
 {
   imports = [
     ./crypto.nix
+    ./database.nix
+    ./desktop.nix
     ./dev.nix
     ./fs.nix
     ./k8s.nix
@@ -9,6 +11,7 @@
     ./security.nix
     ./sys.nix
     ./virt.nix
+    ./vpc.nix
     ./web.nix
   ];
 }

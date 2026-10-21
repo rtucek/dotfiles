@@ -10,11 +10,15 @@
       windows =
         let
           htop = "${lib.getExe pkgs.htop}";
+          btop = "${lib.getExe pkgs.btop}";
           fastfetch = "${lib.getExe pkgs.fastfetch}";
         in
         [
           {
             htop = htop;
+          }
+          {
+            btop = btop;
           }
           {
             cli = fastfetch;

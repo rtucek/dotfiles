@@ -2,6 +2,7 @@
 {
   imports = [
     ./golang.nix
+    ./java.nix
     ./nix.nix
     ./sh.nix
   ];
@@ -9,21 +10,6 @@
   programs.nixvim = {
     extraPlugins = with pkgs.vimPlugins; [
       ultisnips
-    ];
-
-    autoGroups = {
-      format_on_save = {
-        clear = true;
-      };
-    };
-    autoCmd = [
-      {
-        event = [ "BufWritePre" ];
-        buffer = 0;
-        command = "lua vim.lsp.buf.format()";
-        desc = "Auto-format on save";
-        group = "format_on_save";
-      }
     ];
 
     # Required for the `lsp-lines` plugin
@@ -51,6 +37,7 @@
             gD = "references";
             gd = "definition";
             gi = "implementation";
+            gr = "rename";
             gt = "type_definition";
           };
         };
@@ -69,10 +56,18 @@
         };
       };
 
-      # seehttps://github.com/lukas-reineke/lsp-format.nvim/
+      # see https://github.com/lukas-reineke/lsp-format.nvim/
       lsp-format = {
         enable = true;
-        lspServersToEnable = "all";
+        lspServersToEnable = [
+          "null-ls"
+        ];
+      };
+
+      # see https://github.com/nvimtools/none-ls.nvim/
+      none-ls = {
+        enable = true;
+        enableLspFormat = true;
       };
 
       # see https://github.com/hrsh7th/nvim-cmp

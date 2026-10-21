@@ -66,42 +66,16 @@
       # Re-name windows, based on current program
       setw -g automatic-rename on
 
-      # Panes
-      set -g pane-border-style fg=black
-      set -g pane-active-border-style fg=brightred
-
 
       ## Status bar design
       # Status line
       set -g status-justify left
-      set -g status-bg default
-      set -g status-fg colour12
       set -g status-interval 1
 
 
       # Messaging
-      set -g message-style fg=black
-      set -g message-style bg=yellow
-      set -g message-command-style fg=blue
-      set -g message-command-style bg=black
-
-
-      # Window mode
-      setw -g mode-style bg=colour6
-      setw -g mode-style fg=colour0
-
-
-      # Window status
-      setw -g window-status-format " #F#I:#W#F "
-      setw -g window-status-current-format " #F#I:#W#F "
-      setw -g window-status-format "#[fg=magenta]#[bg=black] #I #[bg=cyan]#[fg=colour8] #W "
-      setw -g window-status-current-format "#[bg=brightmagenta]#[fg=colour8] #I #[fg=colour8]#[bg=colour14] #W "
-      setw -g window-status-current-style bg=colour0
-      setw -g window-status-current-style fg=colour11
-      setw -g window-status-current-style dim
-      setw -g window-status-style bg=green
-      setw -g window-status-style fg=black
-      setw -g window-status-style reverse
+      set -g message-style bold,fg=colour232,bg=colour166
+      set -g message-command-style fg=blue,bg=black
 
 
       # Info on left (I don't have a session display for now)
@@ -118,16 +92,12 @@
 
       # The modes
       setw -g clock-mode-colour colour135
-      setw -g mode-style bold
-      setw -g mode-style fg=colour196
-      setw -g mode-style bg=colour238
+      setw -g mode-style bold,fg=colour196,bg=colour238
 
 
       # The panes
-      set -g pane-border-style bg=colour235
-      set -g pane-border-style fg=colour238
-      set -g pane-active-border-style bg=colour236
-      set -g pane-active-border-style fg=colour51
+      set -g pane-border-style bg=colour235,fg=colour238
+      set -g pane-active-border-style bg=colour236,fg=colour51
 
 
       # The statusbar
@@ -135,30 +105,17 @@
       set -g status-bg colour234
       set -g status-fg colour137
       set -g status-style dim
-      set -g status-left '''
       set -g status-right '#[fg=colour233,bg=colour241,bold] %Y-%m-%d #[fg=colour233,bg=colour245,bold] %H:%M:%S '
       set -g status-right-length 100
       set -g status-left-length 20
 
-      setw -g window-status-current-style fg=colour81
-      setw -g window-status-current-style bg=colour238
-      setw -g window-status-current-style bold
+      setw -g window-status-current-style fg=colour81,bg=colour238,bold
       setw -g window-status-current-format ' #I#[fg=colour250]:#[fg=colour255]#W#[fg=colour50]#F '
 
-      setw -g window-status-style fg=colour138
-      setw -g window-status-style bg=colour235
-      setw -g window-status-style none
+      setw -g window-status-style fg=colour138,bg=colour235,none
       setw -g window-status-format ' #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F '
 
-      setw -g window-status-bell-style bold
-      setw -g window-status-bell-style fg=colour255
-      setw -g window-status-bell-style bg=colour1
-
-
-      # The messages
-      set -g message-style bold
-      set -g message-style fg=colour232
-      set -g message-style bg=colour166
+      setw -g window-status-bell-style bold,fg=colour255,bg=colour1
     '';
 
     plugins =

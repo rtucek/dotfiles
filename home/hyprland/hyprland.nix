@@ -79,7 +79,7 @@
           ########################
 
           # See https://wiki.hypr.land/Configuring/Basics/Monitors/
-          monitor = [
+          monitor = lib.modules.mkAfter [
             {
               # Sensitive default for arbitrary new monitors
               output = "";
@@ -298,7 +298,7 @@
               enabled = true;
               speed = 4.1;
               bezier = "easeOutQuint";
-              stye = "popin 87%";
+              style = "popin 87%";
             }
             {
               leaf = "windowsOut";
@@ -448,7 +448,7 @@
             }
             {
               _args = [
-                "${MOD}  + M"
+                "${MOD} + M"
                 (mkLuaInline "hl.dsp.exec_cmd('${logout}')")
               ];
             }

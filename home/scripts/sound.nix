@@ -18,7 +18,7 @@ let
   tela-circle-icon-theme = {
     "audio-volume-muted-blocking.svg" = tela-icon-path "audio-volume-muted-blocking.svg";
     "audio-volume-muted.svg" = tela-icon-path "audio-volume-muted.svg";
-    "audio-volume-low.svg" = tela-icon-path "audio-volume-muted.svg";
+    "audio-volume-low.svg" = tela-icon-path "audio-volume-low.svg";
     "audio-volume-medium.svg" = tela-icon-path "audio-volume-medium.svg";
     "audio-volume-high.svg" = tela-icon-path "audio-volume-high.svg";
   };

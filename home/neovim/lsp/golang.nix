@@ -8,5 +8,12 @@
         enable = true;
       };
     };
+
+    plugins.none-ls.sources = {
+      formatting = {
+        gofmt.enable = true;
+        goimports.enable = true;
+      };
+    };
   };
 }

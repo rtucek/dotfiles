@@ -1,6 +1,11 @@
 { ... }:
 {
   programs.nixvim = {
+    # Has no effect... the workaround is to set neovim as the general default editor with
+    # `programs.neovim.defaultEditor = true` in `system/programs/neovim/default.nix`.
+    #
+    # see https://github.com/nix-community/home-manager/issues/4969 and in particular
+    # https://github.com/nix-community/home-manager/issues/4559.
     defaultEditor = true;
     vimdiffAlias = true;
     enableMan = true;
