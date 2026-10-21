@@ -18,11 +18,13 @@ let
   }/bin/clone-dotfiles.sh";
 in
 {
+  # Clone dotfiles repository, unless it already exists.
   systemd.user.services.clone-dotfiles = {
     Unit = {
       Description = "Clone dotfiles repo";
       Wants = "NetworkManager-wait-online.service";
       After = "NetworkManager-wait-online.service";
+      ConditionPathExists = "!${targetDir}";
     };
     Service = {
       Type = "oneshot";
