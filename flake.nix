@@ -6,7 +6,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
     nixos-hardware = {
-      url = "github:NixOS/nixos-hardware";
+      url = "github:rtucek/nixos-hardware/gate-yt6801-for-older-kernels";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

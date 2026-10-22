@@ -1,6 +1,6 @@
 { ... }:
 {
   nixpkgs.overlays = [
-    (import ./tela-circle-icon-theme.nix)
+    # (import ./tela-circle-icon-theme.nix)
   ];
 }
