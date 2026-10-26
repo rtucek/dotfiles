@@ -12,5 +12,6 @@
     ./qt.nix
     ./rofi.nix
     ./waybar
+    ./xdph.nix
   ];
 }
