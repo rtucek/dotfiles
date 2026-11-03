@@ -1,9 +1,24 @@
 {
   inputs,
-  pkgs,
+  config,
   lib,
   ...
 }:
+let
+  # The nixpkgs-stable Nvidia driver (595.71.05) fails to build its kernel module against
+  # Linux v7.2+, since that kernel release removed `strncpy()` entirely (NVIDIA/open-gpu-kernel-modules#1227).
+  # NVIDIA fixed this upstream in driver 595.91.07, which hasn't been promoted to nixpkgs' stable
+  # channel yet (https://github.com/NixOS/nixpkgs/issues/554125) - pull it in directly until it is.
+  minVersion = "595.91.07";
+  minVersionNvidia = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+    version = minVersion;
+    sha256_64bit = "sha256-yiPIjdJLB6GRZE4eEc+3vN11NzBXSa9A+YABiwleYxM=";
+    sha256_aarch64 = "sha256-fqkN7ONFXtTeXyu2mQxorrk362Epxq3bz88hhKYQzwQ=";
+    openSha256 = "sha256-OB8Epd+qn/WywxsPiFpxEOAzlJqb6I1SyRoV3a8l71k=";
+    settingsSha256 = "sha256-QzT8Cw1luuZGP9DUje3HN/0ngiayqHURj+bqPsxlJ5w=";
+    persistencedSha256 = "sha256-3JQBaNmkwxvCXv9q8aHKas6VZM/JjLsuilC2t7ET0u0=";
+  };
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -15,9 +30,12 @@
     ./tmuxinator.nix
   ];
 
-  # Fallback to Linux LTS v6.18 for now, since the Nvidia drivers - both, open and proprietary - are
-  # broken as of Linux v7.2 due to changes in the kernel's source code.
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
+  hardware.nvidia.package =
+    if lib.versionAtLeast config.boot.kernelPackages.nvidiaPackages.stable.version minVersion then
+      # Remove this workaround now that upstream covers it - use nvidiaPackages.stable directly!
+      throw "nvidia driver workaround no longer required - use upstream nvidiaPackages.stable!"
+    else
+      minVersionNvidia;
 
   networking.hostName = "dell-prec-5570-nixos-btw";
   sops.defaultSopsFile = ../../secrets/work/watt-analytics/dell-prec-5570-nixos-btw.yaml;
