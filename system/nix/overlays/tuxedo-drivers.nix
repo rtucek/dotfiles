@@ -26,8 +26,7 @@ let
 in
 {
   linuxPackages_latest = prev.linuxPackages_latest.extend (
-    lpFinal: lpPrev:
-    {
+    lpFinal: lpPrev: {
       tuxedo-drivers =
         if prev.lib.versionAtLeast lpPrev.tuxedo-drivers.version minVersion then
           # Throw exception, once this overlay becomes superfluous.
