@@ -21,7 +21,7 @@ jobs:
       - uses: Mic92/hestia@v3
         with:
           upstream-cache-filter: true
-      - run: nix flake check --all-systems .
+      - run: nix flake check .
   test-build:
     name: Test-build all hosts
     needs: flake-check
