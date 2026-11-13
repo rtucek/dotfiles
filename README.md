@@ -128,7 +128,9 @@ Paste the following template into it.
 {
   imports = [
     ./hardware-configuration.nix
-    ../common/users/rtucek.nix
+    # If a nixos-hardware module exists for this machine, import it too:
+    # inputs.nixos-hardware.nixosModules.tuxedo-infinitybook-pro14-gen9-amd
+    ../../modules
   ];
 
   networking.hostName = "tux-ibp-amdgen9-nixos-btw";
