@@ -10,7 +10,7 @@ in
   tmuxinator =
     if prev.lib.versionAtLeast prev.tmuxinator.version minVersion then
       # Throw exception, once this overlay becomes superfluous.
-      throw "Overlay not required anymore - use upstream version from channel!"
+      throw "Overlay for `tmuxinator` is not required anymore - use upstream version from channel!"
     else
       prev.tmuxinator.overrideAttrs (old: {
         version = minVersion;

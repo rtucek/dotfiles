@@ -9,7 +9,7 @@ in
   doctl =
     if prev.lib.versionAtLeast prev.doctl.version minVersion then
       # Throw exception, once this overlay becomes superfluous.
-      throw "Overlay not required anymore - use upstream version from channel!"
+      throw "Overlay for `doctl` is not required anymore - use upstream version from channel!"
     else
       prev.doctl.overrideAttrs (old: {
         version = minVersion;
