@@ -15,6 +15,9 @@ jobs:
             auto-optimise-store = true
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
             experimental-features = nix-command flakes
+      - uses: DeterminateSystems/magic-nix-cache-action@v15
+        with:
+          use-flakehub: false
       - run: nix flake check --all-systems .
   test-build:
     name: Test-build all hosts
@@ -29,6 +32,9 @@ jobs:
             auto-optimise-store = true
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
             experimental-features = nix-command flakes
+      - uses: DeterminateSystems/magic-nix-cache-action@v15
+        with:
+          use-flakehub: false
       - run: |
           nix run github:Mic92/nix-fast-build -- \
             --flake .#nixosConfigurations \
