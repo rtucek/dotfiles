@@ -16,6 +16,24 @@ jobs:
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
             experimental-features = nix-command flakes
       - run: nix flake check --all-systems .
+  test-build:
+    name: Test-build all hosts
+    needs: flake-check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cachix/install-nix-action@v31
+        with:
+          install_url: https://nixos.org/nix/install
+          extra_nix_config: |
+            auto-optimise-store = true
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+            experimental-features = nix-command flakes
+      - run: |
+          nix run github:Mic92/nix-fast-build -- \
+            --flake .#nixosConfigurations \
+            --select 'configs: builtins.mapAttrs (_: cfg: cfg.config.system.build.toplevel) configs' \
+            --skip-cached
   lint:
     name: Nix lint
     runs-on: ubuntu-latest
