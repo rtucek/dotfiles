@@ -42,7 +42,7 @@
           # config,
           # self',
           # inputs',
-          # pkgs,
+          pkgs,
           # system,
           ...
         }:
@@ -53,6 +53,8 @@
 
           # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
           # packages.default = pkgs.hello;
+
+          formatter = pkgs.nixfmt-tree;
         };
 
       flake = {
