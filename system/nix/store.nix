@@ -13,17 +13,29 @@
       persistent = true;
     };
 
+    # Run store optimisation on a low-priority timer instead of synchronously
+    # after every build/switch (which is what `settings.auto-optimise-store`
+    # would do).
+    optimise = {
+      automatic = true;
+      persistent = true;
+    };
+
     settings = {
+      # Use hardlinks in order to safe disk space
       auto-optimise-store = true;
 
-      # for direnv GC roots
-      keep-derivations = true;
-      keep-outputs = true;
-
+      # Enforce security
+      sandbox = true;
+      require-sigs = true;
       trusted-users = [
         "root"
         "@wheel"
       ];
+
+      # for direnv GC roots
+      keep-derivations = true;
+      keep-outputs = true;
 
       builders-use-substitutes = true;
       substituters = [
