@@ -27,7 +27,8 @@
 
     # Nix
     pkgs.nix-diff
-    pkgs.nvd
+    pkgs.nix-fast-build
     pkgs.nixfmt-tree
+    pkgs.nvd
   ];
 }
