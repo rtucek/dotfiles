@@ -6,6 +6,9 @@ jobs:
   flake-check:
     name: Flake Check
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
     steps:
       - uses: actions/checkout@v6
       - uses: cachix/install-nix-action@v31
@@ -15,14 +18,17 @@ jobs:
             auto-optimise-store = true
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
             experimental-features = nix-command flakes
-      - uses: DeterminateSystems/magic-nix-cache-action@v15
+      - uses: Mic92/hestia@v3
         with:
-          use-flakehub: false
+          upstream-cache-filter: true
       - run: nix flake check --all-systems .
   test-build:
     name: Test-build all hosts
     needs: flake-check
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
     steps:
       - uses: actions/checkout@v6
       - uses: cachix/install-nix-action@v31
@@ -32,9 +38,9 @@ jobs:
             auto-optimise-store = true
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
             experimental-features = nix-command flakes
-      - uses: DeterminateSystems/magic-nix-cache-action@v15
+      - uses: Mic92/hestia@v3
         with:
-          use-flakehub: false
+          upstream-cache-filter: true
       - run: |
           nix run github:Mic92/nix-fast-build -- \
             --flake .#nixosConfigurations \
