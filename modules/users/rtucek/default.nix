@@ -8,5 +8,6 @@
     ./hyprland.nix
     ./tmuxinator.nix
     ./user.nix
+    ./virtualisation.nix
   ];
 }
