@@ -1,10 +1,13 @@
-{ pkgs, ... }:
 {
-  environment.systemPackages = [
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  environment.systemPackages = lib.mkIf config.rtucek.virtualisation.containers.enable [
     pkgs.nixos-container
   ];
 
-  virtualisation.containers = {
-    enable = true;
-  };
+  virtualisation.containers.enable = config.rtucek.virtualisation.containers.enable;
 }

@@ -14,4 +14,10 @@
     # 25 % of available disk space
     lv_home.size = "25%VG";
   };
+
+  rtucek.virtualisation = {
+    docker.enable = true;
+    podman.enable = true;
+    containers.enable = true;
+  };
 }

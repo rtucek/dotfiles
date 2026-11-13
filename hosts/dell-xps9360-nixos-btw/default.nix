@@ -27,5 +27,11 @@
     ];
 
     ai.claude-code.enable = true;
+
+    virtualisation = {
+      docker.enable = true;
+      podman.enable = true;
+      containers.enable = true;
+    };
   };
 }

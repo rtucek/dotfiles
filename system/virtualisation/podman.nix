@@ -1,6 +1,6 @@
-{ ... }:
+{ config, lib, ... }:
 {
-  virtualisation.podman = {
+  virtualisation.podman = lib.mkIf config.rtucek.virtualisation.podman.enable {
     enable = true;
 
     # Avoid conflicts with docker

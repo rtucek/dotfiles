@@ -1,6 +1,6 @@
-{ ... }:
+{ config, lib, ... }:
 {
-  virtualisation.docker = {
+  virtualisation.docker = lib.mkIf config.rtucek.virtualisation.docker.enable {
     enable = true;
 
     # Needed for having `--restart=always` flag working.
