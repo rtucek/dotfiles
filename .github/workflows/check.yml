@@ -6,6 +6,9 @@ jobs:
   flake-check:
     name: Flake Check
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
     steps:
       - uses: actions/checkout@v6
       - uses: cachix/install-nix-action@v31
@@ -15,7 +18,34 @@ jobs:
             auto-optimise-store = true
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
             experimental-features = nix-command flakes
-      - run: nix flake check --all-systems .
+      - uses: Mic92/hestia@v3
+        with:
+          upstream-cache-filter: true
+      - run: nix flake check .
+  test-build:
+    name: Test-build all hosts
+    needs: flake-check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cachix/install-nix-action@v31
+        with:
+          install_url: https://nixos.org/nix/install
+          extra_nix_config: |
+            auto-optimise-store = true
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+            experimental-features = nix-command flakes
+      - uses: Mic92/hestia@v3
+        with:
+          upstream-cache-filter: true
+      - run: |
+          nix run github:Mic92/nix-fast-build -- \
+            --flake .#nixosConfigurations \
+            --select 'configs: builtins.mapAttrs (_: cfg: cfg.config.system.build.toplevel) configs' \
+            --skip-cached
   lint:
     name: Nix lint
     runs-on: ubuntu-latest
@@ -27,9 +57,9 @@ jobs:
           extra_nix_config: |
             auto-optimise-store = true
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-      - uses: workflow/nix-shell-action@v3
+      - uses: workflow/nix-shell-action@v4.0.0
         with:
-          packages: nil
+          flakes-from-devshell: true
           script: |
             find . -name '*.nix' -print0 | xargs -0 nil diagnostics | tee /tmp/findings.txt
             if [ -s "/tmp/findings.txt" ]; then
@@ -47,9 +77,9 @@ jobs:
           extra_nix_config: |
             auto-optimise-store = true
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-      - uses: workflow/nix-shell-action@v3
+      - uses: workflow/nix-shell-action@v4.0.0
         with:
-          packages: nixfmt-tree,git
+          flakes-from-devshell: true
           script: |
             treefmt
             GIT_CHANGES="$(git status --porcelain=v1)"
