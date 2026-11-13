@@ -55,6 +55,14 @@
           # packages.default = pkgs.hello;
 
           formatter = pkgs.nixfmt-tree;
+
+          devShells.default = pkgs.mkShellNoCC {
+            packages = [
+              pkgs.nil
+              pkgs.nixfmt-tree
+              pkgs.git
+            ];
+          };
         };
 
       flake = {

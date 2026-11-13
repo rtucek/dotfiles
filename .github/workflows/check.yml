@@ -59,7 +59,7 @@ jobs:
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - uses: workflow/nix-shell-action@v4.0.0
         with:
-          packages: nil
+          flakes-from-devshell: true
           script: |
             find . -name '*.nix' -print0 | xargs -0 nil diagnostics | tee /tmp/findings.txt
             if [ -s "/tmp/findings.txt" ]; then
@@ -79,7 +79,7 @@ jobs:
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - uses: workflow/nix-shell-action@v4.0.0
         with:
-          packages: nixfmt-tree,git
+          flakes-from-devshell: true
           script: |
             treefmt
             GIT_CHANGES="$(git status --porcelain=v1)"
