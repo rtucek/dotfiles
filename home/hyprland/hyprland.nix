@@ -732,6 +732,19 @@
               workspace = "m+0";
               stay_focused = true;
             }
+            {
+              # Hyprland's own screenshare picker from XDPH
+              name = "screenshare-picker-follow-active-workspace";
+              match = {
+                # xdg-desktop-portal-hyprland's screen-share picker sets no window class at all,
+                # apparently...
+                title = "^Select what to share$";
+              };
+
+              float = true;
+              center = true;
+              workspace = "m+0";
+            }
           ];
         };
 
