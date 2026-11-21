@@ -719,6 +719,19 @@
 
               no_focus = true;
             }
+
+            {
+              # GNU GPG pinentry program
+              name = "pinentry-follow-active-workspace";
+              match = {
+                class = "^Pinentry$";
+              };
+
+              float = true;
+              center = true;
+              workspace = "m+0";
+              stay_focused = true;
+            }
           ];
         };
 
