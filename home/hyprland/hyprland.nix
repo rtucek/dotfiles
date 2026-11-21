@@ -410,7 +410,8 @@
             kb_options = "";
             kb_rules = "";
 
-            follow_mouse = true;
+            # Click-to-focus: moving the cursor over a window is not capturing the focus.
+            follow_mouse = false;
 
             sensitivity = 0; # between -1.0 and 1.0; 0 means no modification.
 
