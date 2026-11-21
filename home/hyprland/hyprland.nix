@@ -720,6 +720,11 @@
               no_focus = true;
             }
 
+            # These pop up from background daemons - such as gpg-agent and
+            # xdg-desktop-portal-hyprland - and otherwise sometimes land on a stale/background
+            # workspaces instead of wherever the mouse/focus currently is.
+            #
+            # "m+0" forces them onto the active workspace of the currently focused monitor instead.
             {
               # GNU GPG pinentry program
               name = "pinentry-follow-active-workspace";
