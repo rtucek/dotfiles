@@ -14,6 +14,7 @@
     pkgs.jless
     pkgs.jq
     pkgs.libxml2
+    pkgs.yq
 
     # C
     pkgs.gcc
