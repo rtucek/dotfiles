@@ -25,6 +25,10 @@
     pkgs.openjdk
     pkgs.maven
 
+    # Java Script
+    pkgs.nodejs
+    pkgs.yarn
+
     # Nix
     pkgs.nix-diff
     pkgs.nix-fast-build
