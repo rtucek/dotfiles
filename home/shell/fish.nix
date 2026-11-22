@@ -27,6 +27,9 @@ in
       # Avoid having Ctrl + d closing the shell
       bind \cd delete-char
 
+      # Edit the current command line in $EDITOR
+      bind \cx\ce edit_command_buffer
+
       ${builtins.concatStringsSep "\n" btConnFuncs}
 
       # Add go's bin directory to path
