@@ -30,4 +30,15 @@
     pkgs.nvd
     pkgs.nixfmt-tree
   ];
+
+  programs = {
+    mise = {
+      # Use mise, for relative quickly switching between various language versions.
+      # see https://mise.jdx.dev/core-tools.html for details.
+      enable = true;
+
+      enableBashIntegration = true;
+      enableFishIntegration = true;
+    };
+  };
 }
