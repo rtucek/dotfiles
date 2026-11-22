@@ -3,6 +3,16 @@
   home-manager.users.rtucek = {
     sops = {
       secrets = {
+        ssh_private_key = {
+          key = "ssh/private_key";
+          path = "${config.home-manager.users.rtucek.home.homeDirectory}/.ssh/id_ed25519";
+          sopsFile = ../../secrets/private/hosts/tux-ibp-amdgen9-nixos-btw.yaml;
+        };
+        ssh_public_key = {
+          key = "ssh/public_key";
+          path = "${config.home-manager.users.rtucek.home.homeDirectory}/.ssh/id_ed25519.pub";
+          sopsFile = ../../secrets/private/hosts/tux-ibp-amdgen9-nixos-btw.yaml;
+        };
         gh_token = {
           sopsFile = ../../secrets/private/hosts/tux-ibp-amdgen9-nixos-btw.yaml;
         };
