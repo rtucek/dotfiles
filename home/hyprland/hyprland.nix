@@ -410,7 +410,8 @@
             kb_options = "";
             kb_rules = "";
 
-            follow_mouse = true;
+            # Click-to-focus: moving the cursor over a window is not capturing the focus.
+            follow_mouse = false;
 
             sensitivity = 0; # between -1.0 and 1.0; 0 means no modification.
 
@@ -718,6 +719,37 @@
               };
 
               no_focus = true;
+            }
+
+            # These pop up from background daemons - such as gpg-agent and
+            # xdg-desktop-portal-hyprland - and otherwise sometimes land on a stale/background
+            # workspaces instead of wherever the mouse/focus currently is.
+            #
+            # "m+0" forces them onto the active workspace of the currently focused monitor instead.
+            {
+              # GNU GPG pinentry program
+              name = "pinentry-follow-active-workspace";
+              match = {
+                class = "^Pinentry$";
+              };
+
+              float = true;
+              center = true;
+              workspace = "m+0";
+              stay_focused = true;
+            }
+            {
+              # Hyprland's own screenshare picker from XDPH
+              name = "screenshare-picker-follow-active-workspace";
+              match = {
+                # xdg-desktop-portal-hyprland's screen-share picker sets no window class at all,
+                # apparently...
+                title = "^Select what to share$";
+              };
+
+              float = true;
+              center = true;
+              workspace = "m+0";
             }
           ];
         };
