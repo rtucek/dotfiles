@@ -32,8 +32,9 @@
     pkgs.nvd
 
     # Python
-    pkgs.python3
-    pkgs.python3.withPackages.pip
-    pkgs.python3.withPackages.virtualenv
+    (pkgs.python3.withPackages (ps: [
+      ps.pip
+      ps.virtualenv
+    ]))
   ];
 }
