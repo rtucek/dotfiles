@@ -3,6 +3,7 @@
   imports = [
     ./golang.nix
     ./java.nix
+    ./javascript.nix
     ./nix.nix
     ./sh.nix
   ];
