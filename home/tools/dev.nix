@@ -35,5 +35,11 @@
     pkgs.nix-fast-build
     pkgs.nixfmt-tree
     pkgs.nvd
+
+    # Python
+    (pkgs.python3.withPackages (ps: [
+      ps.pip
+      ps.virtualenv
+    ]))
   ];
 }

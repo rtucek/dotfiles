@@ -5,6 +5,7 @@
     ./java.nix
     ./javascript.nix
     ./nix.nix
+    ./python.nix
     ./sh.nix
   ];
 
