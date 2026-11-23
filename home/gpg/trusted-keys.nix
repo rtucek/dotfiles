@@ -22,5 +22,17 @@
       };
       trust = "ultimate";
     }
+
+    {
+      # Github's own GPG key, used for signing commits on behalf of their users.
+      # For instance, commits created by merging PRs via the web UI.
+      # rsa4096/0xB5690EEEBB952194 (used as of 2024-01-16; currently in-use)
+      # rsa2048/0x4AEE18F83AFDEB23 (used as of 2017-08-16; now expired)
+      source = pkgs.fetchurl {
+        url = "https://github.com/web-flow.gpg";
+        hash = "sha256-bor2h/YM8/QDFRyPsbJuleb55CTKYMyPN4e9RGaj74Q=";
+      };
+      trust = "ultimate";
+    }
   ];
 }
