@@ -70,5 +70,45 @@
       };
       trust = "ultimate";
     }
+
+    {
+      # Key, generated for tucek.rudolf@gmail.com in 2016-10.
+      # Used for ~10 years until 2026-07 for signing commits and authentication.
+      source = pkgs.fetchurl {
+        url = "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xd4b423c3733ebcaa1c7171e641e89aaac718851c";
+        hash = "sha256-edHV9qpFcjp40XC1d8xqoMnZtWnENIgBQIpFdOcnyz0=";
+      };
+      trust = "ultimate";
+    }
+
+    # {
+    #   # Test key of tucek.rudolf@gmail.com, generated for crypto-experiments in 2016-06.
+    #   # Key got officially revoked.
+    #   source = pkgs.fetchurl {
+    #     url = "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xb9d2fddcaa3410745df8fc956f29650ff90cbee6";
+    #     hash = "sha256-76tEiMKYodF57RpVEAyL5MIOEBG1eHbN/5q8mWoP1sg=";
+    #   };
+    #   trust = "ultimate";
+    # }
+
+    {
+      # Test key of tucek.rudolf@gmail.com, generated for crypto-experiments in 2014-04.
+      # Unfortunately, this key was never properly revoked.
+      source = pkgs.fetchurl {
+        url = "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3c028d883dd9f06bcedb0876503aad0876c056b5";
+        hash = "sha256-kYpTi6yM6MCeggOU+j0t6Ookip1Yi9r2vQ+e+n/qTX4=";
+      };
+      trust = "ultimate";
+    }
+
+    {
+      # 1st key, generated for tucek.rudolf@gmail.com in 2013-06.
+      # This key wasn't backed-up when migrating to a new Laptop.
+      source = pkgs.fetchurl {
+        url = "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x83e7b166b97f2fb952715d7e2e0c9793bb1a16e9";
+        hash = "sha256-R6wmSPMGGXmY9UbzHbJd28MedZZUXI73+Z3au7slL+A=";
+      };
+      trust = "ultimate";
+    }
   ];
 }
