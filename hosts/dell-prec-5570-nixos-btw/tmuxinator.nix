@@ -5,14 +5,14 @@ let
   projects = [
     (lib.nameValuePair "wa-cloudcore" "~/projects/wa-cloudcore")
     (lib.nameValuePair "wa-database-schema" "~/projects/database-schema")
+    (lib.nameValuePair "wa-eda-adapter" "~/projects/wa-eda-adapter")
+    (lib.nameValuePair "wa-eda-adapter-v2" "~/projects/wa-eda-adapter-v2")
     (lib.nameValuePair "wa-edge" "~/projects/wa-edge")
+    (lib.nameValuePair "wa-partner-portal" "~/projects/wa-partner-portal")
     (lib.nameValuePair "wa-tools" "~/projects/wa-tools")
     (lib.nameValuePair "wactl" "~/projects/wactl")
     (lib.nameValuePair "wse-pi" "~/projects/wse-pi")
     (lib.nameValuePair "wse-web-site" "~/projects/wse-web-site")
-    (lib.nameValuePair "wa-eda-adapter" "~/projects/wa-eda-adapter")
-    (lib.nameValuePair "wa-eda-adapter-v2" "~/projects/wa-eda-adapter-v2")
-    (lib.nameValuePair "wa-partner-portal" "~/projects/wa-partner-portal")
   ];
 in
 {
