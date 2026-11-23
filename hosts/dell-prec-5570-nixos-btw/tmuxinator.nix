@@ -8,6 +8,7 @@ let
     (lib.nameValuePair "wa-edge" "~/projects/wa-edge")
     (lib.nameValuePair "wa-tools" "~/projects/wa-tools")
     (lib.nameValuePair "wactl" "~/projects/wactl")
+    (lib.nameValuePair "wse-pi" "~/projects/wse-pi")
     (lib.nameValuePair "wse-web-site" "~/projects/wse-web-site")
     (lib.nameValuePair "wa-eda-adapter" "~/projects/wa-eda-adapter")
     (lib.nameValuePair "wa-eda-adapter-v2" "~/projects/wa-eda-adapter-v2")
