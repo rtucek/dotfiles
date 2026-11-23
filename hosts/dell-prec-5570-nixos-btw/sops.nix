@@ -33,6 +33,7 @@
       };
       templates = {
         nixConf = {
+          # Same token, we borrow from gh
           path = "${config.home-manager.users.rtucek.home.homeDirectory}/.config/nix/nix.conf";
           content = ''
             access-tokens = github.com=${config.home-manager.users.rtucek.sops.placeholder.gh_token}

@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.tuxedo-infinitybook-pro14-gen9-amd
     ../../modules
+    ./sops.nix
   ];
 
   networking.hostName = "tux-ibp-amdgen9-nixos-btw";
